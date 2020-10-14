@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import gumshoe from './scroll-spy';
 import classnames from 'classnames';
 
@@ -285,9 +286,9 @@ export default class MenuItem extends Component {
 }
 
 MenuItem.propTypes = {
-    item: React.PropTypes.object.isRequired,
-    baseUrl: React.PropTypes.string.isRequired,
-    activeArticle: React.PropTypes.string,
-    onNavigate: React.PropTypes.func,
-    roles: React.PropTypes.object
+    item: PropTypes.object.isRequired,
+    baseUrl: PropTypes.string.isRequired,
+    activeArticle: PropTypes.string,
+    onNavigate: PropTypes.func,
+    roles: PropTypes.object
 };

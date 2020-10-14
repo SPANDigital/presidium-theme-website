@@ -7,6 +7,7 @@ import MenuItem from './menu-item';
 import Versions from '../versions/versions';
 import { ACTIONS, EVENTS_DISPATCH, TOPICS } from '../../util/events';
 import { isInViewport, markArticleAsViewed } from '../../util/articles';
+import PropTypes from 'prop-types';
 
 /**
  * Locale storage key
@@ -223,9 +224,9 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-    menu: React.PropTypes.shape({
-        brandName: React.PropTypes.string,
-        roles: React.PropTypes.object
+    menu: PropTypes.shape({
+        brandName: PropTypes.string,
+        roles: PropTypes.object
     }).isRequired,
 };
 
