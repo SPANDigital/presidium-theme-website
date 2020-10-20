@@ -43,6 +43,7 @@
 {{ partial "modal.html" }}
 
 <!-- Components -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 {{ partial "javascript" . }}
 <script>
     window.presidium.config = {
@@ -54,6 +55,7 @@
     // window.presidium['versions'] = { siteroot: "-- site.siteroot --" };
     window.presidium['versions'] = { siteroot: "/" };
     window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");
+    mermaid.initialize({startOnLoad:true});
 </script>
 
 <!-- == if site.enterprise.script ==
