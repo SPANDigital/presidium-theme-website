@@ -54,7 +54,6 @@
     // window.presidium['versions'] = { siteroot: "-- site.siteroot --" };
     window.presidium['versions'] = { siteroot: "/" };
     window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");
-    window.presidium.tooltips.load({ "baseurl": "/" });
 </script>
 
 <!-- == if site.enterprise.script ==
