@@ -56,13 +56,9 @@
     mermaid.initialize({startOnLoad:true});
 </script>
 
-<!-- == if site.enterprise.script ==
-<script src="-- site.enterprise.script | append: script | replace: '//','/'--"></script>
-== endif ==
-
-== for script in site.scripts ==
-<script src="-- site.baseurl | append: '/media/js/' | append: script | replace: '//','/'--"></script>
-== endfor == -->
+{{ if params.enterprise_enabled }}
+<script src="{{ params.enterprise_script }}"></script>
+{{ end }}
 
 </body>
 </html>
