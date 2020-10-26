@@ -3,4 +3,4 @@
 
 {{ $opts := dict "targetPath" "main.js" "externals" $externals "defines" $defines "target" "esnext" }}
 {{ $built := resources.Get "js/src/index.js" | js.Build $opts }}
-<script type="text/javascript" src="{{ $built.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $built.Permalink }}"></script>
