@@ -3,21 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ .Site.BaseURL }}/media/images/favicon.ico" type="image/X-icon">
+    <link rel="shortcut icon" href="{{ $.Site.BaseURL }}/media/images/favicon.ico" type="image/X-icon">
     {{ hugo.Generator }}/
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/presidium.css">
-    <title>{{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}/presidium.css">
+    <title>{{ $.Site.Title }}</title>
 </head>
 <body>
 
-<!-- == if site.enterprise ==
-    <div data-key="-- site.enterprise.key --"
-         data-title="-- site.enterprise.name --"
+{{ if $.Site.Params.enterprise_enabled }}
+    <div data-key="{{ $.Site.Params.enterprise_key }}"
+         data-title="{{ $.Site.Title }}"
          id="presidium-enterprise"
          class="presidium-enterprise">
-        == include enterprise-placeholder.html ==
     </div>
-== endif == -->
+{{ end }}
 
 <div id="presidium-navigation">
 </div>
