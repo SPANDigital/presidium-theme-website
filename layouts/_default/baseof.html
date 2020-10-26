@@ -43,6 +43,10 @@
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 {{ partial "javascript" . }}
 <script>
+    window.config = {
+        singleSite: false,
+        hideProfile: false
+    }
     window.presidium.config = {
         name: "Span handbook",
         baseurl:  "/",
