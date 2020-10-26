@@ -55,7 +55,8 @@
     }
     // window.presidium['versions'] = { siteroot: "-- site.siteroot --" };
     window.presidium['versions'] = { siteroot: "/" };
-    window.presidium.tooltips.load = function (data) {}
+    window.presidium.tooltips = {};
+    window.presidium.tooltips.load = function (data) {};
     window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");
     mermaid.initialize({startOnLoad:true});
 </script>
