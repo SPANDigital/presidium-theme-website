@@ -8,7 +8,7 @@
 {{ end }}
 {{ $logo := "" }}
 {{ with $.Site.Params.logo }}
-    {{ $logoResource := .Resources.Match $.Site.Params.logo }}
+    {{ $logoResource := $currentPage.Resources.Match $.Site.Params.logo }}
     {{ with $logoResource }}
         {{ $logo = $logoResource.Permalink }}
     {{ end }}
