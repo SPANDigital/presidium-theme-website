@@ -9,7 +9,7 @@
     <title>{{ $.Site.Title }}</title>
 </head>
 <body>
-
+$.Site.Params.logo
 {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}"
          data-title="{{ $.Site.Title }}"
@@ -49,12 +49,11 @@
     }
     window.presidium.config = {
         name: "Span handbook",
-        baseurl:  "/",
+        baseurl:  "{{ relURL "/" }}",
         brandurl:  "",
         repourl:  ""
     }
-    // window.presidium['versions'] = { siteroot: "-- site.siteroot --" };
-    window.presidium['versions'] = { siteroot: "/" };
+    window.presidium['versions'] = { siteroot: "{{ relURL "/" }}" };
     window.presidium.tooltips = {};
     window.presidium.tooltips.load = function (data) {};
     window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");

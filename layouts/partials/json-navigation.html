@@ -8,9 +8,6 @@
 {{ end }}
 {{ $logo := "" }}
 {{ with $.Site.Params.logo }}
-    {{ $logoResource := $.Resources.Match $.Site.Params.logo }}
-    {{ with $logoResource }}
-        {{ $logo = $logoResource.Permalink }}
-    {{ end }}
+    {{ $logo =  $.Site.Params.logo | relURL }}
 {{ end }}
-{{ return ( dict "logo" $logo "brandName" $.Site.Title "brandUrl" "" "baseUrl" (ref . "/") "roles" (dict "label" "Display documentation for" "all" "All roles" "options" $roles ) "children" $items) }}
+{{ return ( dict "logo" $logo "brandName" $.Site.Title "brandUrl" "" "baseUrl" (relURL "/") "roles" (dict "label" "Display documentation for" "all" "All roles" "options" $roles ) "children" $items) }}
