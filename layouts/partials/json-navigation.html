@@ -6,4 +6,8 @@
         {{ $items = $items | append (partial "json-nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1  "Roles" $roles )) }}
     {{ end }}
 {{ end }}
-{{ return ( dict "logo" (ref $.Site.Params.logo) "brandName" $.Site.Title "brandUrl" "" "baseUrl" (ref "/") "roles" (dict "label" "Display documentation for" "all" "All roles" "options" $roles ) "children" $items) }}
+{{ $logo := "" }}
+{{ with $.Site.Params.logo }}
+    $logo = ref .
+{{ end }}
+{{ return ( dict "logo" $logo "brandName" $.Site.Title "brandUrl" "" "baseUrl" (ref "/") "roles" (dict "label" "Display documentation for" "all" "All roles" "options" $roles ) "children" $items) }}
