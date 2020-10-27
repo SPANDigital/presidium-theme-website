@@ -8,6 +8,6 @@
 {{ end }}
 {{ $logo := "" }}
 {{ with $.Site.Params.logo }}
-    $logo = ref .
+    $logo = ref . $.Site.Params.logo
 {{ end }}
 {{ return ( dict "logo" $logo "brandName" $.Site.Title "brandUrl" "" "baseUrl" (ref "/") "roles" (dict "label" "Display documentation for" "all" "All roles" "options" $roles ) "children" $items) }}
