@@ -1,12 +1,12 @@
 {{ $src := .Get "src" }}
 {{ $found := false }}
 {{ with .Page.Resources.GetMatch $src }}
-    {{ $src = .RelPermalink}}
+    {{ $src = .Permalink}}
     {{ $found = true }}
 {{ end }}
 {{ if not $found }}
     {{ with .Page.Parent.Resources.GetMatch $src }}
-        {{ $src = .RelPermalink}}
+        {{ $src = .Permalink}}
         {{ $found = true }}
     {{ end }}
 {{ end }}
