@@ -25,7 +25,8 @@ $.Site.Params.logo
         <div id="presidium-content" class="col-lg-10 col-md-12">
             <h1 class="page-title">{{ .Title }}</h1>
             <hr/>
-            <section>
+            <button id="btn-edit">Edit mode</button>
+            <section id="editorjs">
                 {{ partial "info.html" }}
                 {{ block "content" . }}
                 {{ end }}
@@ -38,9 +39,11 @@ $.Site.Params.logo
 </div>
 
 {{ partial "modal.html" }}
-
 <!-- Components -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script> <!-- TODO Z: This will move to Presidium Enterprise JS and included as node module -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script> <!-- TODO Z: This will move to Presidium Enterprise JS and included as node module -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"></script> <!-- TODO Z: This will move to Presidium Enterprise JS and included as node module -->
 {{ partial "javascript" . }}
 <script>
     window.config = {
@@ -56,6 +59,41 @@ $.Site.Params.logo
     window.presidium['versions'] = { siteroot: "{{ relURL "/" }}" };
     window.presidium.tooltips = {};
     window.presidium.tooltips.load = function (data) {};
+    document.getElementById("btn-edit").addEventListener("click", function() {
+        // hide content so that menu does not throw errors on items it stores (active article highlighting not working)
+        var articlesOnPage = document.querySelectorAll(".article");
+        var article = null;
+        for(var i = 0; i < articlesOnPage.length; i++) {
+            article = articlesOnPage[i];
+            article.style.display = "none";
+        }
+
+        // load editable content
+        fetch('./editor.json')
+            .then(response => response.json())
+            .then(data => {
+                new EditorJS({
+                    tools: {
+                        header: {
+                            class: Header,
+                            config: {
+                                placeholder: 'Enter a header',
+                                levels: [2, 3, 4],
+                                defaultLevel: 3
+                            }
+                        }
+                    },
+                    data: data,
+                    onReady: () => {
+                        // TODO Z: must be removed, need to figure out how to apply styling to blocks.
+                        var blocks = document.querySelectorAll(".ce-block__content");
+                        for(var i = 0; i < blocks.length; i++) {
+                            blocks[i].style.margin = "unset";
+                        }
+                    }
+                });
+            });
+    });
     window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");
     mermaid.initialize({startOnLoad:true});
 </script>
