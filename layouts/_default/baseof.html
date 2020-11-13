@@ -92,6 +92,12 @@ $.Site.Params.logo
         const editorInstance = editorContent.get(`${articlePath}`).get("editorInstance");
         if (editorInstance) {
             editorInstance.readOnly.toggle();
+            var blocks = document.querySelectorAll(".ce-block__content");
+            for(var i = 0; i < blocks.length; i++) {
+                blocks[i].style.margin = "unset";
+                blocks[i].style.maxWidth = "unset";
+            }
+            articleDiv.querySelector(".codex-editor__redactor").style.paddingBottom = "unset";
             return;
         }
 
@@ -106,7 +112,7 @@ $.Site.Params.logo
                     config: {
                         placeholder: 'Enter a header',
                         levels: [2, 3, 4],
-                        defaultLevel: 3
+                        defaultLevel: 2
                     }
                 }
             },
@@ -116,6 +122,7 @@ $.Site.Params.logo
                 var blocks = document.querySelectorAll(".ce-block__content");
                 for(var i = 0; i < blocks.length; i++) {
                     blocks[i].style.margin = "unset";
+                    blocks[i].style.maxWidth = "unset";
                 }
                 articleDiv.querySelector(".codex-editor__redactor").style.paddingBottom = "unset";
 
