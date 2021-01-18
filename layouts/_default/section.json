@@ -1,5 +1,0 @@
-{{ $articles := slice }}
-{{ range .Pages }}
-    {{ $articles = $articles | append (dict "path" .File.Path "title" .Title) }}
-{{ end }}
-{{ dict "articles" $articles | jsonify }}
