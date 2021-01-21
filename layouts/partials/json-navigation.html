@@ -1,8 +1,13 @@
 {{ $currentPage := . }}
 {{ $items := slice }}
 {{ $roles := slice }}
+{{ $urilzeIdentifier := slice }}
 {{ range $menu := .Site.Menus.main.ByWeight }}
-    {{ with $.Site.GetPage "section" $menu.Identifier }}
+    {{/* the menu Identifier has spaces such as "key concepts", need to add the dashes back using urilize
+     https://gohugo.io/functions/urlize/
+     */}}
+    {{ $urilzeIdentifier = $menu.Identifier | urlize  }}
+    {{ with $.Site.GetPage "section" $urilzeIdentifier }}
         {{ $items = $items | append (partial "json-nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1  "Roles" $roles )) }}
     {{ end }}
 {{ end }}
