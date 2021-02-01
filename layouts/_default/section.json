@@ -1,5 +1,5 @@
-{{ $articles := slice }}
-{{ range .Pages }}
-    {{ $articles = $articles | append (dict "path" .File.Path) }}
+{{ $media := slice }}
+{{ range .Resources.ByType "image" }}
+    {{ $media = $media | append (dict "path" .RelPermalink) }}
 {{ end }}
-{{ dict "articles" $articles | jsonify }}
+{{ dict "media" $media | jsonify }}
