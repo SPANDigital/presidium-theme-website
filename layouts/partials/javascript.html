@@ -1,4 +1,4 @@
-{{ $externals := slice }}
+{{ $externals := slice "react" "redux" "react-redux" "redux-promise" "prop-types" "classnames" "axios" "rxjs/Subject" "react-dom" }}
 {{ $defines := dict "process.env.NODE_ENV" `"development"` }}
 
 {{ $opts := dict "targetPath" "main.js" "externals" $externals "defines" $defines "target" "esnext" }}
