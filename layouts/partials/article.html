@@ -1,6 +1,6 @@
 {{ $roles := .Params.roles | default "All roles" }}
 <div class="article" data-roles="{{ $roles }}">
-    <span class="anchor" id="{{ .Slug }}" data-id="{{ with .File }}{{ .Filename | safeHTML }}{{ end }}"></span>
+    <span class="anchor" id="{{ .Slug }}" data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
     <div class="article-title">
         <h2>
             {{ .Title }} {{ partial "edit-link.html" }}
@@ -10,11 +10,13 @@
         </div>
     </div>
 
-    <!-- == if article.roles or site.show.author and article.author ==
-    <div class="article-header">
-        == include author.html == == include status.html == == include roles.html ==
-    </div>
-    == endif == -->
+    {{ if or (isset .Params "roles") (and .Site.Params.show.author .Params.author) }}
+        <div class="article-header">
+            {{ partial "author" . }}
+            {{ partial "status" . }}
+            {{ partial "roles" . }}
+        </div>
+    {{ end }}
 
     <article>{{ .Content }}</article>
 

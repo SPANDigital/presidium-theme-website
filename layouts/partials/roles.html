@@ -1,0 +1,11 @@
+{{ if or (.Site.Params.show.roles) (not (isset .Site.Params.show "roles")) }}
+    {{ $roles := slice "All Roles" }}
+    {{ if isset .Params "roles" }}
+        {{ $roles = split .Params.roles "," }}
+    {{ end }}
+    {{ range $roles }}
+        <div class="article-role">
+            <span title="Role" class="label">{{ . }}</span>
+        </div>
+    {{ end }}
+{{ end }}

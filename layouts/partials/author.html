@@ -1,0 +1,13 @@
+{{ if or (.Site.Params.show.author) (not (isset .Site.Params.show "author")) }}
+    {{ if .Params.author }}
+        {{ $authorLabel := .Params.authorLabel | default "Author" }}
+        {{ $authorLink := .Params.authorLink | default (printf "%s/%s" .Site.Params.authorsUrl .Params.author) }}
+        {{ if or (.Site.Params.authorsUrl) (.Params.authorLink) }}
+            <div class="article-author">
+                {{ $authorLabel }}: <a href="{{ $authorLink }}">{{ .Params.author}}</a>
+            </div>
+        {{ else }}
+            <div class="article-author">{{ $authorLabel }}: {{ .Params.author }}</div>
+        {{ end }}
+    {{ end }}
+{{ end }}
