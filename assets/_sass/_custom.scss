@@ -1,10 +1,11 @@
 // Fonts
-@import url("https://cloud.typography.com/6096418/6668412/css/fonts.css");
 @import url("https://use.typekit.net/cpr8cmy.css");
 
 // Custom SASS
 body {
-    font-family: "proxima-nova";
+    font-family: $primary-font-family;
+    font-weight: normal;
+    font-style: normal;
     font-size: 15px;
     color: $color-grey;
 }
@@ -15,7 +16,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Gotham A", "Gotham B";
+    font-family: $primary-font-family;
     font-style: normal;
     font-weight: normal;
     color: $color-grey;
@@ -51,7 +52,7 @@ h6 {
         letter-spacing: 0;
         margin-bottom: 4px;
         display: flex;
-        font-family: "Gotham A", "Gotham B";
+        font-family: $primary-font-family;
     }
 
     &::before {
@@ -62,7 +63,7 @@ h6 {
         line-height: 15px;
         text-transform: uppercase;
         margin-bottom: 4px;
-        font-family: "Gotham A", "Gotham B";
+        font-family: $primary-font-family;
     }
 }
 
@@ -200,7 +201,7 @@ h6 {
         .status-review,
         .status-published,
         .status-retired {
-            font-family: "Gotham A", "Gotham B";
+            font-family: $primary-font-family;
             font-size: 14px!important;
             font-style: normal!important;
             background-repeat: no-repeat;
@@ -236,7 +237,7 @@ h6 {
             background-size: 25px 15px;
             background-color: unset;
             background-position: left center;
-            font-family: "Gotham A", "Gotham B"!important;
+            font-family: $primary-font-family;
             font-size: 14px!important;
             font-weight: 300!important;
             font-style: normal!important;
@@ -250,7 +251,7 @@ h6 {
 #presidium-navigation nav {
     .menu-title {
         font-size: 11px;
-        font-family: "Gotham A", "Gotham B";
+        font-family: $primary-font-family;
     }
 
     .menu-row {
@@ -260,7 +261,7 @@ h6 {
     .navbar-header {
         .brand-name {
             color: $color-grey;
-            font-family: "Gotham A", "Gotham B";
+            font-family: $primary-font-family;
             font-size: 15px;
             font-weight: bold;
             line-height: 18px;
