@@ -116,9 +116,19 @@ class Menu extends Component {
         else if (this.props.menu.baseUrl) return this.props.menu.baseUrl;
         else return '#';
     }
+    /**
+     * removeBaseUrl
+     * @description Removes the ${baseurl}/ from the logo config value
+     * @param {string} value 
+     * @returns string
+     */
+    removeBaseUrl(value) {
+        return value.replace("${baseurl}/", '');
+    }
 
     render() {
         const menu = this.props.menu;
+        const logo = this.removeBaseUrl(menu.logo);
         return (
             <div
                 id='presidium-scrollable-container'
@@ -126,7 +136,7 @@ class Menu extends Component {
                 <nav>
                     <div className='navbar-header'>
                         <a href={this.brandUrl()} className='brand'>
-                            <img src={menu.logo} alt='' />
+                            <img src={logo} alt='' />
                         </a>
                         {this.props.menu.brandName &&
                             <div>
