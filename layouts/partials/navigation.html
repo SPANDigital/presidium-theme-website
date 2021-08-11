@@ -1,0 +1,39 @@
+<div data-reactroot="" id="presidium-scrollable-container" class="scrollable-container">
+    <nav>
+        <div class="navbar-header">
+            <a href="{{ .Site.BaseURL }}" class="brand">
+                <img src="{{ .Site.BaseURL }}images/logo.png" alt="">
+            </a>
+            <div><p class="brand-name">{{ .Site.Title }}</p></div>
+            <button class="toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-items">
+            <!-- TODO: Iterate through Roles -->
+            <div class="filter form-group">
+                <label class="control-label" for="roles-select">Display documentation for:</label>
+                <select id="roles-select" class="form-control">
+                    <option value="All Roles">All Roles</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Project Management">Project Management</option>
+                    <option value="Sales">Sales</option>
+                </select>
+            </div>
+            {{ $currentPage := . }}
+            <ul>
+                {{ range $menu := .Site.Menus.main.ByWeight }}
+                    {{ with $.Site.GetPage "section" $menu.Identifier }}
+                        {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true) }}
+                    {{ end }}
+                {{ end }}
+            
+                <li class="presidium-js-version" style="text-align: center; color: rgb(167, 165, 165); margin-top: 10px; font-size: 12px;">
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

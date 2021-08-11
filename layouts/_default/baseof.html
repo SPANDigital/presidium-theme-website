@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ $.Site.BaseURL }}/media/images/favicon.ico" type="image/X-icon">
+    <link rel="shortcut icon" href="{{ $.Site.BaseURL }}images/favicon.ico" type="image/X-icon">
     {{ hugo.Generator }}
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
@@ -19,6 +19,7 @@
 {{ end }}
 
 <div id="presidium-navigation">
+    {{ partial "navigation.html" .}}
 </div>
 <div id="presidium-container" class="container-fluid">
     <div class="row">
@@ -41,7 +42,7 @@
 
 <!-- Components -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-{{ partial "javascript" . }}
+<!-- {{ partial "javascript" . }} -->
 <script>
     window.config = {
         singleSite: false,
@@ -56,7 +57,7 @@
     window.presidium['versions'] = { siteroot: "{{ relURL "/" }}" };
     window.presidium.tooltips = {};
     window.presidium.tooltips.load = function (data) {};
-    window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");
+    // window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");
     mermaid.initialize({startOnLoad:true});
 </script>
 
