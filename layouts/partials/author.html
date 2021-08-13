@@ -3,8 +3,9 @@
         {{ $authorLabel := .Site.Params.author.label | default "Author" }}
         {{ if .Site.Params.author.external.url }}
             {{ $authorLink := .Site.Params.author.external.url }}
+            {{ $newTab := .Site.Params.author.external.newTab }}
             <div class="article-author">
-                <b>{{ $authorLabel }}:</b> <a href="{{ $authorLink }}{{ .Params.author }}">{{ .Params.author }}</a>
+                <b>{{ $authorLabel }}:</b> <a href="{{ $authorLink }}{{ .Params.author }}" target="{{ if $newTab }} _blank {{ end }}">{{ .Params.author }}</a>
             </div>
         {{ else }}
             <div>
