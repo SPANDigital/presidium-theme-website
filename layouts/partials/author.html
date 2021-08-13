@@ -1,13 +1,16 @@
-{{ if or (.Site.Params.show.author) (not (isset .Site.Params.show "author")) }}
-    {{ if .Params.author }}
-        {{ $authorLabel := .Params.authorLabel | default "Author" }}
-        {{ $authorLink := .Params.authorLink | default (printf "%s/%s" .Site.Params.authorsUrl .Params.author) }}
-        {{ if or (.Site.Params.authorsUrl) (.Params.authorLink) }}
+{{ if .Site.Params.show.author }}
+    {{ if and .Site.Params.author .Params.author }}
+        {{ $authorLabel := .Site.Params.author.label | default "Author" }}
+        {{ if .Site.Params.author.external.url }}
+            {{ $authorLink := .Site.Params.author.external.url }}
+            {{ $newTab := .Site.Params.author.external.newTab }}
             <div class="article-author">
-                {{ $authorLabel }}: <a href="{{ $authorLink }}">{{ .Params.author}}</a>
+                <b>{{ $authorLabel }}:</b> <a href="{{ $authorLink }}{{ .Params.author }}" target="{{ if $newTab }} _blank {{ end }}">{{ .Params.author }}</a>
             </div>
         {{ else }}
-            <div class="article-author">{{ $authorLabel }}: {{ .Params.author }}</div>
+            <div>
+                <b>{{ $authorLabel }}: </b> {{ .Params.author }}
+            </div>
         {{ end }}
     {{ end }}
 {{ end }}

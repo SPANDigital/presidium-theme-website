@@ -10,13 +10,11 @@
         </div>
     </div>
 
-    {{ if or (isset .Params "roles") (and .Site.Params.showAuthor .Params.author) }}
-        <div class="article-header">
-            {{ partial "author" . }}
-            {{ partial "status" . }}
-            {{ partial "roles" . }}
-        </div>
-    {{ end }}
+    <div class="article-header">
+        {{ partial "author" . }}
+        {{ partial "status" . }}
+        {{ partial "roles" . }}
+    </div>
 
     <article>{{ .Content }}</article>
 
