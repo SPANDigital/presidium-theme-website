@@ -2,11 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ $.Site.BaseURL }}images/favicon.ico" type="image/X-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     {{ hugo.Generator }}
+    {{ $favIconPath := "images/favicon.ico" | relURL  }}
+    {{ if fileExists "static/brand/images/favicon.ico" }}
+        {{ $favIconPath = "brand/images/favicon.ico"  | relURL }}
+    {{ end }}
+     <link rel="shortcut icon" href={{ $favIconPath }} type="image/X-icon">
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <!-- brand styling -->
+    {{ if fileExists "assets/_sass/index.scss" }}
+    {{ $brandStyle := resources.Get "_sass/index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $brandStyle.Permalink }}">
+    {{ end }}
     <title>{{ $.Site.Title }}</title>
 </head>
 <body>
