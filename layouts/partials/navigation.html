@@ -14,17 +14,19 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div
-            class="navbar-items">
-            <div class="filter form-group">
-                <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}</label>
-                <select id="roles-select" class="form-control">
-                    <option value={{ .Site.Params.roles.all }}>{{.Site.Params.roles.all }}</option>
-                    {{ range $option := .Site.Params.roles.options }}
-                        <option value={{ $option }}>{{$option}}</option>
-                    {{ end }}
-                </select>
-            </div>
+        <div class="navbar-items">
+            <!-- TODO: Iterate through Roles -->
+            {{ if .Site.Params.roles }}
+                <div class="filter form-group">
+                    <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
+                    <select id="roles-select" class="form-control">
+                        <option value="All Roles">{{ .Site.Params.roles.all }}</option>
+                        {{ range sort .Site.Params.roles.options }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select>
+                </div>
+            {{ end }}
             {{ $currentPage := . }}
             <ul>
                 {{ range $menu := .Site.Menus.main.ByWeight }}

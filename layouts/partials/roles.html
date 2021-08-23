@@ -1,9 +1,9 @@
-{{ if or (.Site.Params.show.roles) (not (isset .Site.Params.show "roles")) }}
-    {{ $roles := slice "All Roles" }}
-    {{ if isset .Params "roles" }}
-        {{ $roles = split .Params.roles "," }}
+{{ if and .Site.Params.show.roles .Site.Params.roles }}
+    {{ $roles := slice .Site.Params.roles.all }}
+    {{ if .Params.roles }}
+        {{ $roles = intersect .Site.Params.roles.options .Params.roles}}
     {{ end }}
-    {{ range $roles }}
+    {{ range sort $roles "value" "desc" }}
         <div class="article-role">
             <span title="Role" class="label">{{ . }}</span>
         </div>
