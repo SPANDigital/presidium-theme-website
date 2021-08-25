@@ -2,11 +2,7 @@
     <nav>
         <div class="navbar-header">
             <a href="{{ .Site.BaseURL }}" class="brand">
-            {{ $navImg := "images/logo.png" }}
-            {{ if fileExists "static/brand/images/logo.png" }}
-                {{ $navImg = "brand/images/logo.png" | relURL }}
-            {{ end }}
-            <img src={{ $navImg }} alt="Logo image">
+            <img src="{{ .Site.Params.logo | relURL }}" alt="Logo image">
             </a>
             <div>
                 <p class="brand-name">{{ .Site.Title }}</p>
