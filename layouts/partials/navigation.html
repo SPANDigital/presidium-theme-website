@@ -33,8 +33,12 @@
             {{ $currentPage := . }}
             <ul>
                 {{ range $menu := .Site.Menus.main.ByWeight }}
-                    {{ with $.Site.GetPage "section" $menu.Identifier }}
-                        {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
+                    {{ if $menu.Params.externalUrl}}
+                        {{ partial "nav-item-external" $menu }}
+                    {{ else }}
+                        {{ with $.Site.GetPage "section" $menu.Identifier }}
+                            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
+                        {{ end }}
                     {{ end }}
                 {{ end }}
 

@@ -1,0 +1,8 @@
+<li class="menu-parent_{{ .Identifier }}">
+    <div class="menu-row level-one">
+        <div class="menu-expander"></div>
+        <div class="menu-title">
+            <a data-slug="{{ .Identifier }}" href="{{ .Params.externalUrl.href }}" target="{{ if .Params.externalUrl.newTab }}_blank{{ end}}">{{ .Name }}</a>
+        </div>
+    </div>
+</li>
