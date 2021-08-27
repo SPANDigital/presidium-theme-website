@@ -12,7 +12,7 @@
 
 {{ if $page }}
     <a class="tooltips-term" href="{{ $page.Permalink }}" >
-        {{ $page.Title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
+        {{ $title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
     </a>
 {{ else }}
     {{ errorf "Wrong document provided: %s in %s" $ref .Page.File }}
