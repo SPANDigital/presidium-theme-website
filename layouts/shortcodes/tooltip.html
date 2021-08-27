@@ -1,17 +1,19 @@
-{{- $glossary := $.Site.GetPage "glossary" -}}
-{{- $tip := "" -}}
-{{- $link := "" -}}
-{{- $term := .Get 0 -}}
-{{- with $glossary -}}
-    {{- range .Data.Pages -}}
-        {{- if eq (lower .Title) (lower $term) -}}
-            {{- $tip = .Content -}}
-            {{- $link = .RelPermalink -}}
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
-{{- if $tip -}}
-<a class="tooltips-term" href="{{ $link }}" >{{ $term }}{{ with $tip }}<span class="tooltips-text">{{ . | plainify }}</span>{{ end }}</a>
-{{- else -}}
-{{ $term }}
-{{- end -}}
+{{ $title := .Get 0}}
+{{ $ref := .Get 1}}
+{{ $page := "" }}
+
+{{ if $ref }}
+    {{ $page = .Site.GetPage $ref }}
+{{ else }}
+    {{ range where (where .Site.Pages "Section" "glossary") "Title" "=" $title }}
+        {{ $page = . }}
+    {{ end }}
+{{ end }}
+
+{{ if $page }}
+    <a class="tooltips-term" href="{{ $page.Permalink }}" >
+        {{ $page.Title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
+    </a>
+{{ else }}
+    {{ errorf "Wrong document provided: %s in %s" $ref .Page.File }}
+{{ end }}
