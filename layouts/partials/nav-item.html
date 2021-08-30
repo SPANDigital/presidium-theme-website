@@ -7,15 +7,15 @@
 {{ $expanded := or $onArticle $isAncestor}}
 {{ $link := "Unset" }}
 {{ if .NavPage.Data.Pages }}
-    {{ $link = .NavPage.RelPermalink }}
+    {{ $link = .NavPage.Permalink }}
 {{ end }}
 {{if not .NavPage.Data.Pages }}
-    {{ $link = (printf "%v#%v" .NavPage.Parent.RelPermalink .NavPage.Params.Slug ) }}
+    {{ $link = (printf "%v#%v" .NavPage.Parent.Permalink .NavPage.Params.Slug ) }}
 {{end}}
 {{ $collapsed := .Collapsed }}
 <li class="menu-parent_{{ .NavPage.Slug }}{{if $onArticle}} on-article{{end}}{{if $expanded}} expanded{{end}} ">
     <div class="menu-row {{ $cssClass }}">
-        {{ if not $collapsed }} 
+        {{ if not $collapsed }}
             <div class="menu-expander">
                 {{ if .NavPage.Data.Pages }}
                     {{ if $expanded }}

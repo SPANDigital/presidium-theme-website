@@ -2,7 +2,7 @@
     <nav>
         <div class="navbar-header">
             <a href="{{ .Site.BaseURL }}" class="brand">
-            <img src="{{ .Site.Params.logo | relURL }}" alt="Logo image">
+            <img src="{{ .Site.Params.logo | absURL }}" alt="Logo image">
             </a>
             <div>
                 <p class="brand-name">{{ .Site.Title }}</p>
