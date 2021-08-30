@@ -7,8 +7,10 @@
     <link rel="shortcut" href="{{ .Site.Params.favIcon | absURL }}" type="image/png">
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
-    {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet" href="{{ .Permalink }}">
+    {{ if resources.Get "index.scss"  }}
+        {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+            <link rel="stylesheet" href="{{ .Permalink }}">
+        {{ end }}
     {{ end }}
     <title>{{ $.Site.Title }}</title>
 </head>
