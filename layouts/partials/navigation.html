@@ -35,7 +35,7 @@
             {{ end }}
             {{ $currentPage := . }}
             <ul>
-                {{ range $menu := .Site.Menus.main.ByWeight }
+                {{ range $menu := .Site.Menus.main.ByWeight }}
 
                 {{ $menu_scope := $menu.Params.scope }}
                 {{ $is_rendering := or (not $scoping_enabled) (not (isset $menu.Params "scope")) }}
