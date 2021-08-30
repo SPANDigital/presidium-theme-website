@@ -1,4 +1,3 @@
-
 {{ $applied_scopes := .Site.Data.scopes.applied }}
 {{ $scoping_enabled := .Site.Data.scopes.enabled }}
 
@@ -6,11 +5,11 @@
     <nav>
         <div class="navbar-header">
             <a href="{{ .Site.BaseURL }}" class="brand">
-            {{ $navImg := "images/logo.png" }}
-            {{ if fileExists "static/brand/images/logo.png" }}
+                {{ $navImg := "images/logo.png" }}
+                {{ if fileExists "static/brand/images/logo.png" }}
                 {{ $navImg = "brand/images/logo.png" | relURL }}
-            {{ end }}
-            <img src={{ $navImg }} alt="Logo image">
+                {{ end }}
+                <img src={{ $navImg }} alt="Logo image">
             </a>
             <div>
                 <p class="brand-name">{{ .Site.Title }}</p>
@@ -24,38 +23,39 @@
         </div>
         <div class="navbar-items">
             {{ if .Site.Params.roles }}
-                <div class="filter form-group">
-                    <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
-                    <select id="roles-select" class="form-control">
-                        <option value="All Roles">{{ .Site.Params.roles.all }}</option>
-                        {{ range sort .Site.Params.roles.options }}
-                            <option value="{{ . }}">{{ . }}</option>
-                        {{ end }}
-                    </select>
-                </div>
+            <div class="filter form-group">
+                <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
+                <select id="roles-select" class="form-control">
+                    <option value="All Roles">{{ .Site.Params.roles.all }}</option>
+                    {{ range sort .Site.Params.roles.options }}
+                    <option value="{{ . }}">{{ . }}</option>
+                    {{ end }}
+                </select>
+            </div>
             {{ end }}
             {{ $currentPage := . }}
             <ul>
-                {{ range $menu := .Site.Menus.main.ByWeight }}
-                
-                    {{ $menu_scope := $menu.Params.scope }}
-                    {{ $is_rendering := or (not $scoping_enabled) (not (isset $menu.Params "scope")) }}
+                {{ range $menu := .Site.Menus.main.ByWeight }
 
+                {{ $menu_scope := $menu.Params.scope }}
+                {{ $is_rendering := or (not $scoping_enabled) (not (isset $menu.Params "scope")) }}
 
-                    {{ if not $is_rendering }}
-                        {{ $is_rendering = gt (len (intersect $menu_scope $applied_scopes)) 0 }}
-                    {{ end }}
-                  
-                    {{ if $menu.Params.externalUrl}}
-                        {{ partial "nav-item-external" $menu }}
-                    {{ else if $is_rendering }}
-                        {{ with $.Site.GetPage "section" $menu.Identifier }}
-                            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
-                        {{ end }}
-                    {{ end }}
+                {{ if not $is_rendering }}
+                {{ $is_rendering = gt (len (intersect $menu_scope $applied_scopes)) 0 }}
                 {{ end }}
 
-                <li class="presidium-js-version" style="text-align: center; color: rgb(167, 165, 165); margin-top: 10px; font-size: 12px;"></li>
+                {{ if $menu.Params.externalUrl}}
+                {{ partial "nav-item-external" $menu }}
+                {{ else if $is_rendering }}
+                {{ with $.Site.GetPage "section" $menu.Identifier }}
+                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed"
+                $menu.Params.Collapsed) }}
+                {{ end }}
+                {{ end }}
+                {{ end }}
+
+                <li class="presidium-js-version"
+                    style="text-align: center; color: rgb(167, 165, 165); margin-top: 10px; font-size: 12px;"></li>
             </ul>
         </div>
     </nav>
