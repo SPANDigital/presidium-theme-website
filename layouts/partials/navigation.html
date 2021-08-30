@@ -47,7 +47,6 @@
                         {{ $is_rendering = gt (len (intersect $menu_scope $applied_scopes)) 0 }}
                     {{ end }}
                   
-                
                     {{ if $menu.Params.externalUrl}}
                         {{ partial "nav-item-external" $menu }}
                     {{ else if $is_rendering }}
