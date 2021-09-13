@@ -13,8 +13,18 @@
         {{ end }}
     {{ end }}
     <title>{{ $.Site.Title }}</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        li.active {
+            background-color: black;
+            color: white;
+        }
+    </style>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="10">
 {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}"
          data-title="{{ $.Site.Title }}"
@@ -31,6 +41,7 @@
         <div id="presidium-content" class="col-lg-10 col-md-12">
             <h1 class="page-title">{{ .Title }}</h1>
             <hr/>
+
             <section>
                 {{ partial "info.html" }}
                 {{ block "content" . }}
@@ -41,7 +52,7 @@
         </div>
         <div class="col-lg-2"></div>
     </div>
-</div>
+</div> <!--presidium-container-->
 
 {{ partial "modal.html" }}
 

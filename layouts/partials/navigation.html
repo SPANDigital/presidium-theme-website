@@ -1,5 +1,6 @@
 <div data-reactroot="" id="presidium-scrollable-container" class="scrollable-container">
-    <nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+
         <div class="navbar-header">
             <a href="{{ .Site.BaseURL }}" class="brand">
             <img src="{{ .Site.Params.logo | absURL }}" alt="Logo image">
@@ -15,6 +16,7 @@
             </button>
         </div>
         <div class="navbar-items">
+
             {{ if .Site.Params.roles }}
                 <div class="filter form-group">
                     <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
@@ -27,7 +29,7 @@
                 </div>
             {{ end }}
             {{ $currentPage := . }}
-            <ul>
+            <ul class="nav navbar-nav">
                 {{ range $menu := .Site.Menus.main.ByWeight }}
                     {{ if $menu.Params.externalUrl}}
                         {{ partial "nav-item-external" $menu }}
