@@ -14,7 +14,8 @@
 {{end}}
 {{ $collapsed := .Collapsed }}
 <li class="menu-parent_{{ .NavPage.Slug }}{{if $onArticle}} on-article{{end}}{{if $expanded}} expanded{{end}}">
-    <a class="nav-link" data-slug="{{ .NavPage.Slug }}" data-id="{{ .NavPage.File.Filename }}" href="#{{ .NavPage.Slug }}">
+    <a class="nav-link" data-slug="{{ .NavPage.Slug }}" data-id="{{ .NavPage.File.Filename }}" href="#{{ .NavPage.Params.Slug }}">
+<!--        <a class="nav-link" data-slug="{{ .NavPage.Slug }}" data-id="{{ .NavPage.File.Filename }}" href="{{ $link }}">-->
         <div class="menu-row {{ $cssClass }}">
             {{ if not $collapsed }}
                 <div class="menu-expander">
@@ -34,10 +35,12 @@
     </a>
 
     {{ if and (.NavPage.Data.Pages) (not $collapsed)  }}
-<!--        <ul class="dropdown {{if $expanded}}expanded{{ else }}hidden{{end}} ">-->
+        {{if $expanded}}
+<!--        <div class="dropdown {{if $expanded}}expanded{{ else }}hidden{{end}}">-->
             {{ range .NavPage.Data.Pages }}
                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" $childLevel) }}
             {{ end }}
-<!--        </ul>-->
+<!--        </div>-->
+        {{end}}
     {{ end }}
 </li>

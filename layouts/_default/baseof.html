@@ -16,15 +16,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <style>
-        li.active {
-            background-color: black;
-            color: white;
-        }
-    </style>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="10">
+<body data-spy="scroll" data-target=".navbar" data-offset="500">
+
 {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}"
          data-title="{{ $.Site.Title }}"
@@ -62,6 +56,8 @@
     window.presidium.tooltips = {};
     window.presidium.tooltips.load = function (data) {};
     mermaid.initialize({startOnLoad:true});
+
+
 </script>
 
 {{ if $.Site.Params.enterprise_enabled }}
