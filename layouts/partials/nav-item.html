@@ -1,11 +1,11 @@
 {{ $childLevel := add .Level 1 }}
 {{ $levelCssClasses := dict "1" "level-one" "2" "level-two" "3" "level-three" "4" "level-four" "5" "level-five" "6" "level-six"}}
 {{ $cssClass := index $levelCssClasses (string .Level) }}
-{{ $currentPage := .CurrentPage}}
-{{ $onArticle := eq .CurrentPage.Permalink .NavPage.Parent.Permalink }}
-{{ $isAncestor := in .CurrentPage.Permalink .NavPage.Parent.Permalink  }}
-{{ $thisArticle := eq .CurrentPage.Permalink .NavPage.Permalink }}
-{{ $expanded := or $onArticle $thisArticle}}
+{{ $currentPage := .CurrentPage }}
+{{ $isAncestor := or (eq .CurrentPage.RelPermalink .NavPage.RelPermalink) (and (not (eq .NavPage.Parent.RelPermalink "/")) (hasPrefix .CurrentPage.RelPermalink .NavPage.Parent.RelPermalink))  }}
+{{ $thisArticle := eq .CurrentPage.RelPermalink .NavPage.RelPermalink }}
+{{ $onArticle := eq .CurrentPage.RelPermalink .NavPage.Parent.RelPermalink }}
+{{ $showMenu := or (eq $childLevel 2) $isAncestor }}
 {{ $link := "Unset" }}
 {{ if $onArticle }}
     {{ $link = (printf "#%v" .NavPage.Params.Slug ) }}
@@ -16,13 +16,11 @@
         {{ $link = (printf "%v" .NavPage.Permalink) }}
     {{end}}
 {{end}}
-<li class="menu-parent_{{ .NavPage.Parent.Slug }}{{if $onArticle}} on-article{{end}}"
-    {{ if not $isAncestor }}
-        aria-expanded="false" style="height: 0px; overflow: hidden;"
-    {{ end }}
->
+<li class="menu-parent_{{ .NavPage.Parent.Slug }}" aria-expanded="false" style="overflow: hidden;{{ if not $showMenu }} height: 0px; {{ end }}">
     <a class="menu-row {{ $cssClass }}" data-slug="{{ .NavPage.Slug }}" data-id="{{ .NavPage.File.Filename }}" href="{{ $link }}">
-<!--        {{ $expanded }} {{$isAncestor}}  {{ $onArticle }} {{$thisArticle}}-->
+        {{ $showMenu }}  {{$isAncestor}}   {{$onArticle}}
+        {{ .CurrentPage.RelPermalink }} {{ .NavPage.Parent.RelPermalink }} {{ .NavPage.RelPermalink }}
+<!--        {{ .CurrentPage.RelPermalink }} -->
 
         {{ if .NavPage.Data.Pages }}
             <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ .NavPage.Slug }}" aria-controls=".menu-parent_{{ .NavPage.Slug }}">
@@ -40,7 +38,7 @@
 
     {{ if and (.NavPage.Data.Pages) }}
         {{ range .NavPage.Data.Pages }}
-            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" $childLevel) }}
+            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" $childLevel "IsAncestor" $isAncestor) }}
         {{ end }}
     {{ end }}
 </li>
