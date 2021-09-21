@@ -1,8 +1,11 @@
 {{ $roles := .Params.roles | default "All roles" }}
-<div class="article" data-roles="{{ $roles }}">
+{{ $link := (printf "%v#%v" .Parent.Permalink .Params.Slug ) }}
+
+<div class="article" data-roles="{{ $roles }}" id="{{ .Params.Slug }}">
+<!--<div class="article" data-roles="{{ $roles }}" id="{{ $link }}">-->
     <div class="presidium-article-wrapper">
-        <span class="anchor" id="{{ .Slug }}" data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
-        <div class="article-title">
+        <span class="anchor"  data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
+        <div class="article-title" >
             <h2>
                 {{ .Title }} {{ partial "edit-link.html" }}
             </h2>

@@ -247,6 +247,11 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
         position: relative;
         display: block;
 
+        active {
+          background-color: black;
+          color: white;
+        }
+
         &.hidden {
           display: none;
         }
