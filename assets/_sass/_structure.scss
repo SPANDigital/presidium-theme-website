@@ -127,10 +127,31 @@
         .article-role {
           float: right;
           .label {
-            background-color: $gray-light;
+            background-image: url('../images/role-icon.svg');
+            background-repeat: no-repeat;
+            background-size: 25px 15px;
+            background-color: unset;
+            background-position: left center;
+            font-family: "Gotham A", "Gotham B"!important;
+            font-size: 14px!important;
+            font-weight: 300!important;
+            font-style: normal!important;
+            color: $color-grey-2!important;
+            line-height: 18px;
+            padding: 2px 2px 2px 33px;
           }
         }
       }
+        .article-author {
+            a {
+                text-decoration: underline;
+                color: $color-grey;
+
+                &:hover {
+                    color: $navbar-default-link-hover-color;
+                }
+            }
+        }
       .article {
         .article-edit-menu {
           display: flex;
