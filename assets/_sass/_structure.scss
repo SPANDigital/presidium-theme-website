@@ -69,6 +69,40 @@
           }
         }
       }
+        .article-status {
+            .status-draft,
+            .status-review,
+            .status-published,
+            .status-retired {
+                font-family: "Gotham A", "Gotham B";
+                font-size: 14px!important;
+                font-style: normal!important;
+                background-repeat: no-repeat;
+                background-position: left;
+                background-size: 24px 19px;
+                padding: 2px 2px 2px 31px;
+                background-color: unset;
+                display: inline-block!important;
+                vertical-align: middle!important;
+            }
+
+            .status-draft {
+                background-image: url('../images/status-draft.svg');
+                color: $color-yellow-green!important;
+            }
+            .status-review {
+                background-image: url('../images/status-review.svg');
+                color: $color-yellow-green!important;
+            }
+            .status-published {
+                background-image: url('../../images/status-published.svg');
+                color: $color-green-1!important;
+            }
+            .status-retired {
+                background-image: url('../images/status-retired.svg');
+                color: $color-grey!important;
+            }
+        }
       .category {
         a>span {
           padding-left: 10px;
