@@ -1,4 +1,4 @@
-{{ if and .Site.Params.show.roles .Site.Params.roles }}
+{{ if and .Site.Params.show.role .Site.Params.roles }}
     {{ $roles := slice .Site.Params.roles.all }}
     {{ if .Params.roles }}
         {{ $roles = intersect .Site.Params.roles.options .Params.roles}}
