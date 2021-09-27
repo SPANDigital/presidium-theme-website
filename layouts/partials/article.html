@@ -18,7 +18,7 @@
 
         <article>{{ .Content }}</article>
 
-        {{ range sort .Data.Pages "RelPermalink" }}
+        {{ range .Data.Pages.ByWeight }}
 
             {{ partial "article" . }}
 
