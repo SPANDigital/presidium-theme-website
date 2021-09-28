@@ -114,8 +114,9 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
         img {
           display: block;
           float: none;
-          margin: 0 auto;
-          width: 100%;
+          margin: 15px auto 0;
+          width: 72px;
+          height: 66px;
 
           @media (max-width: $grid-float-breakpoint) {
             display: none;
@@ -146,9 +147,11 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
       .brand-name {
         color: $navbar-default-brand-color;
         display: block;
-        padding: 20px 5px 10px 5px;
+        padding: 10px;
         margin: 0;
-        text-transform: uppercase;
+        font-weight: bold;
+        font-family: $font-family-gotham;
+        text-transform: none;
         text-align: center;
 
         @media (max-width: $grid-float-breakpoint) {
