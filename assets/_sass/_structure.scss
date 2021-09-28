@@ -379,6 +379,20 @@
         }
       }
 
+      .presidium-prerequisite {
+        background-color: #f9f8ed;
+        border-color: #beb239;
+
+        &::before {
+          content: "prerequisite";
+        }
+
+        &::before,
+        a:hover {
+          color: #beb239;
+        }
+      }
+
       .presidium-chris-says {
         background-color: #000000;
         border-color: #000000;
