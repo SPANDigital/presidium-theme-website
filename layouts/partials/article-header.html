@@ -2,9 +2,9 @@
 {{ $isAuthor := false }}
 {{ $isStatus := false }}
 
-{{ if .Site.Params.show.roles }}
+{{ if .Site.Params.show.role }}
     {{ if and .Site.Params.roles .Params.roles  }}
-        {{ $isRole = true }}
+        {{ $isRoles = true }}
     {{  end }}
 {{ end }}
 

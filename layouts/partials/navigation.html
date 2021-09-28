@@ -1,4 +1,4 @@
-<div data-reactroot="" id="presidium-scrollable-container" class="scrollable-container">
+<div data-reactroot="" id="presidium-navigation" class="scrollable-container">
     <nav class="navbar">
 
         <div class="navbar-header">
@@ -34,7 +34,8 @@
                     {{ if $menu.Params.externalUrl}}
                         {{ partial "nav-item-external" $menu }}
                     {{ else }}
-                        {{ with $.Site.GetPage "section" $menu.Identifier }}
+                        {{ $identifier := replace $menu.Identifier " " "-"}}
+                        {{ with $.Site.GetPage "section" $identifier }}
                             {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
                         {{ end }}
                     {{ end }}

@@ -5,8 +5,12 @@
 {{ if $ref }}
     {{ $page = .Site.GetPage $ref }}
 {{ else }}
-    {{ range where (where .Site.Pages "Section" "glossary") "Title" "=" $title }}
-        {{ $page = . }}
+    {{ range where .Site.Pages "Section" "glossary" }}
+        {{ $GlossaryTitle := lower .Title }}
+        {{ $TooltipTitle := lower $title }}
+        {{ if eq $GlossaryTitle $TooltipTitle }}
+            {{ $page = . }}
+        {{ end }}
     {{ end }}
 {{ end }}
 
