@@ -7,12 +7,19 @@
     <link rel="shortcut" href="{{ .Site.Params.favIcon | absURL }}" type="image/png">
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
-    {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet" href="{{ .Permalink }}">
+    {{ if resources.Get "index.scss"  }}
+        {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+            <link rel="stylesheet" href="{{ .Permalink }}">
+        {{ end }}
     {{ end }}
     <title>{{ $.Site.Title }}</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="500">
+
 {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}"
          data-title="{{ $.Site.Title }}"
@@ -29,6 +36,7 @@
         <div id="presidium-content" class="col-lg-10 col-md-12">
             <h1 class="page-title">{{ .Title }}</h1>
             <hr/>
+
             <section>
                 {{ partial "info.html" }}
                 {{ block "content" . }}
@@ -39,16 +47,26 @@
         </div>
         <div class="col-lg-2"></div>
     </div>
-</div>
+</div> <!--presidium-container-->
 
 {{ partial "modal.html" }}
+
+<script>
+    $( document ).ready(function() {
+        $('.glyphicon-toggle').click(function (event) {
+            event.preventDefault();
+            this.classList.toggle('glyphicon-chevron-down');
+            this.classList.toggle('glyphicon-chevron-right');
+        });
+    });
+</script>
 
 <!-- Components -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
-    window.presidium.tooltips = {};
-    window.presidium.tooltips.load = function (data) {};
-    mermaid.initialize({startOnLoad:true});
+    // window.presidium.tooltips = {};
+    // window.presidium.tooltips.load = function (data) {};
+    // mermaid.initialize({startOnLoad:true});
 </script>
 
 {{ if $.Site.Params.enterprise_enabled }}

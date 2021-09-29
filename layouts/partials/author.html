@@ -1,8 +1,8 @@
 {{ if .Site.Params.show.author }}
     {{ if .Params.author }}
         {{ $authorLabel := .Site.Params.author.label | default "Author" }}
-        {{ if .Site.Params.author.external.url }}
-            {{ $authorLink := .Site.Params.author.external.url }}
+        {{ if .Params.author }}
+            {{ $authorLink := .Params.author }}
             {{ $newTab := .Site.Params.author.external.newTab }}
             <div class="article-author">
                 {{ $authorLabel }}: <a href="{{ $authorLink }}{{ .Params.author }}" target="{{ if $newTab }} _blank {{ end }}">{{ .Params.author }}</a>

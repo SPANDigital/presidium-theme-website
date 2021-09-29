@@ -1,8 +1,9 @@
 {{ $appliedScopes := .Site.Data.scopes.applied }}
 {{ $scopingEnabled := .Site.Data.scopes.enabled }}
 
-<div data-reactroot="" id="presidium-scrollable-container" class="scrollable-container">
-    <nav>
+<div data-reactroot="" id="presidium-navigation" class="scrollable-container">
+    <nav class="navbar">
+
         <div class="navbar-header">
             <a href="{{ .Site.BaseURL }}" class="brand">
                 {{ $navImg := "images/logo.png" }}
@@ -22,6 +23,7 @@
             </button>
         </div>
         <div class="navbar-items">
+
             {{ if .Site.Params.roles }}
             <div class="filter form-group">
                 <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
@@ -34,7 +36,7 @@
             </div>
             {{ end }}
             {{ $currentPage := . }}
-            <ul>
+            <ul class="nav navbar-nav">
                 {{ range $menu := .Site.Menus.main.ByWeight }}
 
                     {{ $menuScope := $menu.Params.scope }}
@@ -46,15 +48,10 @@
 
                     {{ if $menu.Params.externalUrl}}
                         {{ partial "nav-item-external" $menu }}
-                    {{ else if $isRendering }}
-                        {{ with $.Site.GetPage "section" $menu.Identifier }}
-                            {{ partial "nav-item" (dict 
-                                "CurrentPage" $currentPage 
-                                "NavPage" . 
-                                "Level" 1 
-                                "Expanded" true 
-                                "Collapsed" $menu.Params.Collapsed) 
-                            }}
+                    {{ else }}
+                        {{ $identifier := replace $menu.Identifier " " "-"}}
+                        {{ with $.Site.GetPage "section" $identifier }}
+                            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
                         {{ end }}
                     {{ end }}
                 {{ end }}
