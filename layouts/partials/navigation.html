@@ -1,5 +1,5 @@
-{{ $applied_scopes := .Site.Data.scopes.applied }}
-{{ $scoping_enabled := .Site.Data.scopes.enabled }}
+{{ $appliedScopes := .Site.Data.scopes.applied }}
+{{ $scopingEnabled := .Site.Data.scopes.enabled }}
 
 <div data-reactroot="" id="presidium-scrollable-container" class="scrollable-container">
     <nav>
@@ -37,21 +37,26 @@
             <ul>
                 {{ range $menu := .Site.Menus.main.ByWeight }}
 
-                {{ $menu_scope := $menu.Params.scope }}
-                {{ $is_rendering := or (not $scoping_enabled) (not (isset $menu.Params "scope")) }}
+                    {{ $menuScope := $menu.Params.scope }}
+                    {{ $isRendering := or (not $scopingEnabled) (not (isset $menu.Params "scope")) }}
 
-                {{ if not $is_rendering }}
-                {{ $is_rendering = gt (len (intersect $menu_scope $applied_scopes)) 0 }}
-                {{ end }}
+                    {{ if not $isRendering }}
+                        {{ $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0 }}
+                    {{ end }}
 
-                {{ if $menu.Params.externalUrl}}
-                {{ partial "nav-item-external" $menu }}
-                {{ else if $is_rendering }}
-                {{ with $.Site.GetPage "section" $menu.Identifier }}
-                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed"
-                $menu.Params.Collapsed) }}
-                {{ end }}
-                {{ end }}
+                    {{ if $menu.Params.externalUrl}}
+                        {{ partial "nav-item-external" $menu }}
+                    {{ else if $isRendering }}
+                        {{ with $.Site.GetPage "section" $menu.Identifier }}
+                            {{ partial "nav-item" (dict 
+                                "CurrentPage" $currentPage 
+                                "NavPage" . 
+                                "Level" 1 
+                                "Expanded" true 
+                                "Collapsed" $menu.Params.Collapsed) 
+                            }}
+                        {{ end }}
+                    {{ end }}
                 {{ end }}
 
                 <li class="presidium-js-version"
