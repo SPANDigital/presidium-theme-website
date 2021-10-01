@@ -252,18 +252,11 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           position: relative;
           display: block;
 
-          &.active {
-            //background-color: black;
-            background-color: red!important;
-            color: white;
-          }
-
-          a {
-            color: red;
-          }
-
-          &.hidden {
-            display: none;
+          &.active > a {
+            //todo: move this to the correct place. Perhaps bootstrap/_navbar.scss
+            background-color: black!important; //use below line
+            //background-color: $navbar-default-link-active-bg;
+            color: $navbar-default-link-active-color;
           }
 
           a.level-one {
@@ -294,28 +287,20 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
             }
           }
 
-          a:not(.hidden) ~ a:not(.hidden) {
-            > .level-two, > .level-three, > .level-four, > .level-five {
-              box-shadow: none;
-            }
-          }
-
-          a.on-article {
-            > .menu-row {
+          &.on-article {
               background-color: $navbar-default-link-hover-color;
               border-bottom: 1px $navbar-default-link-hover-color solid;
 
-              .menu-title > a, .menu-expander {
+              .menu-title, .menu-expander {
                 color: $navbar-default-link-hover-bg;
               }
             }
-          }
 
           &.on-page {
             cursor: default;
 
             > .menu-row {
-              .menu-title > a {
+              .menu-title {
                 cursor: default;
               }
 
@@ -326,55 +311,56 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           }
 
           &.in-section {
-            .level-one {
+            a.level-one {
               background-color: $navbar-default-link-hover-color;
 
-              .menu-title > a, .menu-expander {
+              .menu-title, .menu-expander {
                 color: $navbar-default-link-hover-bg;
                 font-weight: bold;
               }
             }
 
-            &.expanded > .level-one {
+            &.expanded > a.level-one {
               background-color: $navbar-selected-bg-level-1;
 
-              .menu-title > a, .menu-expander {
+              .menu-title {
                 color: $navbar-default-link-hover-color;
                 font-weight: bold;
               }
             }
           }
 
-          .in-section {
-            .level-two {
+          &.in-section {
+            a.level-two {
               background-color: $navbar-default-link-hover-color;
 
-              .menu-title > a, .menu-expander {
+              .menu-title, .menu-expander {
                 color: $navbar-default-link-hover-bg;
               }
             }
 
-            &.expanded > .level-two {
+            &.expanded > a.level-two {
               background-color: $navbar-selected-bg-level-2;
 
-              .menu-title > a, .menu-expander {
+              .menu-title, .menu-expander {
                 color: $navbar-default-link-hover-color;
               }
             }
+          }
 
-            .in-section {
-              .level-three {
+          &.in-section {
+            a.level-three {
                 background-color: $navbar-default-link-hover-color;
 
-                .menu-title > a, .menu-expander {
+              .menu-title, .menu-expander {
                   color: $navbar-default-link-hover-bg;
                 }
               }
 
-              &.expanded > .level-three {
+            &.expanded > a.level-three {
                 background-color: $navbar-selected-bg-level-3;
 
-                .menu-title > a, .menu-expander {
+              .menu-title, .menu-expander {
                   color: $navbar-default-link-hover-color;
                 }
               }
@@ -382,7 +368,6 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           }
         }
       }
-    }
 
     .menu-row {
       display: flex;
@@ -394,12 +379,10 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           color: $navbar-default-link-hover-color;
         }
         .menu-title {
-          a {
             color: $navbar-default-link-hover-color;
             text-decoration: none;
           }
         }
-      }
 
       &.level-one {
         border-bottom: 1px $navbar-default-border-level-1 solid;
@@ -428,9 +411,9 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
     }
 
     .menu-expander {
-      width: 15px;
+      width: 20px;
 
-      .glyphicon {
+      span {
         margin-right: 5px;
         font-size: 0.8em;
       }
@@ -438,11 +421,9 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
 
     .menu-title {
       flex: 1;
+      color: $navbar-default-link-color;
       @media (max-width: $grid-float-breakpoint) {
         font-size: 16px;
-      }
-      a {
-        color: $navbar-default-link-color;
       }
     }
 
