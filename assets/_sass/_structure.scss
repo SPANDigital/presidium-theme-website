@@ -2,7 +2,7 @@
 //  @extend .container-fluid;
 //  margin-left: 0px;
 #presidium-container {
-  color: $color-grey;
+  color: $gray-darker;
   @media (min-width: $grid-float-breakpoint) {
     margin-left: 260px;
   }
@@ -20,6 +20,8 @@
     .page-title {
       margin-top: 0;
       margin-bottom: 0;
+      font-family: "Gotham A";
+      font-weight: 700;
     }
     hr {
       margin-top: 40px;
@@ -47,6 +49,7 @@
         h4,
         h5,
         h6 {
+          font-family: $font-family-gotham;
           display: flex;
           align-items: center;
           &:hover {
@@ -69,40 +72,40 @@
           }
         }
       }
-        .article-status {
-            .status-draft,
-            .status-review,
-            .status-published,
-            .status-retired {
-                font-family: "Gotham A", "Gotham B";
-                font-size: 14px!important;
-                font-style: normal!important;
-                background-repeat: no-repeat;
-                background-position: left;
-                background-size: 24px 19px;
-                padding: 2px 2px 2px 31px;
-                background-color: unset;
-                display: inline-block!important;
-                vertical-align: middle!important;
-            }
-
-            .status-draft {
-                background-image: url('../images/status-draft.svg');
-                color: $color-yellow-green!important;
-            }
-            .status-review {
-                background-image: url('../images/status-review.svg');
-                color: $color-yellow-green!important;
-            }
-            .status-published {
-                background-image: url('../../images/status-published.svg');
-                color: $color-green-1!important;
-            }
-            .status-retired {
-                background-image: url('../images/status-retired.svg');
-                color: $color-grey!important;
-            }
+      .article-status {
+        .status-draft,
+        .status-review,
+        .status-published,
+        .status-retired {
+          font-family: "Gotham A", "Gotham B";
+          font-size: 14px !important;
+          font-style: normal !important;
+          background-repeat: no-repeat;
+          background-position: left;
+          background-size: 24px 19px;
+          padding: 2px 2px 2px 31px;
+          background-color: unset;
+          display: inline-block !important;
+          vertical-align: middle !important;
         }
+
+        .status-draft {
+          background-image: url("../images/status-draft.svg");
+          color: $color-yellow-green !important;
+        }
+        .status-review {
+          background-image: url("../images/status-review.svg");
+          color: $color-yellow-green !important;
+        }
+        .status-published {
+          background-image: url("../../images/status-published.svg");
+          color: $color-green-1 !important;
+        }
+        .status-retired {
+          background-image: url("../images/status-retired.svg");
+          color: $color-grey !important;
+        }
+      }
       .category {
         a > span {
           padding-left: 10px;
@@ -127,31 +130,31 @@
         .article-role {
           float: right;
           .label {
-            background-image: url('../images/role-icon.svg');
+            background-image: url("../images/role-icon.svg");
             background-repeat: no-repeat;
             background-size: 25px 15px;
             background-color: unset;
             background-position: left center;
-            font-family: "Gotham A", "Gotham B"!important;
-            font-size: 14px!important;
-            font-weight: 300!important;
-            font-style: normal!important;
-            color: $color-grey-2!important;
+            font-family: "Gotham A", "Gotham B" !important;
+            font-size: 14px !important;
+            font-weight: 300 !important;
+            font-style: normal !important;
+            color: $color-grey-2 !important;
             line-height: 18px;
             padding: 2px 2px 2px 33px;
           }
         }
       }
-        .article-author {
-            a {
-                text-decoration: underline;
-                color: $color-grey;
+      .article-author {
+        a {
+          text-decoration: underline;
+          color: $color-grey;
 
-                &:hover {
-                    color: $navbar-default-link-hover-color;
-                }
-            }
+          &:hover {
+            color: $navbar-default-link-hover-color;
+          }
         }
+      }
       .article {
         .article-edit-menu {
           display: flex;
@@ -232,7 +235,7 @@
       }
       h1,
       .h1 {
-        font-size: $font-size-h3;
+        font-size: $font-size-h4;
       }
       h2,
       .h2 {
