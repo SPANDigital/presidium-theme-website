@@ -1,9 +1,16 @@
+{{ $appliedScopes := .Site.Data.scopes.applied }}
+{{ $scopingEnabled := .Site.Data.scopes.enabled }}
+
 <div data-reactroot="" id="presidium-navigation" class="scrollable-container">
     <nav class="navbar">
 
         <div class="navbar-header">
             <a href="{{ .Site.BaseURL }}" class="brand">
-            <img src="{{ .Site.Params.logo | absURL }}" alt="Logo image">
+                {{ $navImg := "images/logo.png" }}
+                {{ if fileExists "static/brand/images/logo.png" }}
+                {{ $navImg = "brand/images/logo.png" | relURL }}
+                {{ end }}
+                <img src={{ $navImg }} alt="Logo image">
             </a>
             <div>
                 <p class="brand-name">{{ .Site.Title }}</p>
@@ -18,19 +25,27 @@
         <div class="navbar-items">
 
             {{ if .Site.Params.roles }}
-                <div class="filter form-group">
-                    <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
-                    <select id="roles-select" class="form-control">
-                        <option value="All Roles">{{ .Site.Params.roles.all }}</option>
-                        {{ range sort .Site.Params.roles.options }}
-                            <option value="{{ . }}">{{ . }}</option>
-                        {{ end }}
-                    </select>
-                </div>
+            <div class="filter form-group">
+                <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
+                <select id="roles-select" class="form-control">
+                    <option value="All Roles">{{ .Site.Params.roles.all }}</option>
+                    {{ range sort .Site.Params.roles.options }}
+                    <option value="{{ . }}">{{ . }}</option>
+                    {{ end }}
+                </select>
+            </div>
             {{ end }}
             {{ $currentPage := . }}
             <ul class="nav navbar-nav">
                 {{ range $menu := .Site.Menus.main.ByWeight }}
+
+                    {{ $menuScope := $menu.Params.scope }}
+                    {{ $isRendering := or (not $scopingEnabled) (not (isset $menu.Params "scope")) }}
+
+                    {{ if not $isRendering }}
+                        {{ $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0 }}
+                    {{ end }}
+
                     {{ if $menu.Params.externalUrl}}
                         {{ partial "nav-item-external" $menu }}
                     {{ else }}
@@ -41,7 +56,8 @@
                     {{ end }}
                 {{ end }}
 
-                <li class="presidium-js-version" style="text-align: center; color: rgb(167, 165, 165); margin-top: 10px; font-size: 12px;"></li>
+                <li class="presidium-js-version"
+                    style="text-align: center; color: rgb(167, 165, 165); margin-top: 10px; font-size: 12px;"></li>
             </ul>
         </div>
     </nav>
