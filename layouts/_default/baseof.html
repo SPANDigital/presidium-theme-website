@@ -58,6 +58,11 @@
             this.classList.toggle('glyphicon-chevron-down');
             this.classList.toggle('glyphicon-chevron-right');
         });
+
+        $('.toggle').click(function (event) {
+            event.preventDefault();
+            $('.navbar-items').toggle('expanded');
+        });
     });
 </script>
 
