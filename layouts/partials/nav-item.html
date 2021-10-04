@@ -8,7 +8,7 @@
 {{ $showMenu := or (eq $childLevel 2) $isAncestor }}
 {{ $expandedChevron := (hasPrefix .CurrentPage.RelPermalink .NavPage.RelPermalink ) }}
 {{ $link := "Unset" }}
-{{ if and $onArticle (not (eq .Level 1)) }}
+{{ if $onArticle }}
     {{ $link = (printf "#%v" .NavPage.Params.Slug ) }}
 {{ else }}
     {{if not .NavPage.Data.Pages }}
