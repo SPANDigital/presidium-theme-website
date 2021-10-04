@@ -55,8 +55,10 @@
     $( document ).ready(function() {
         $('.menu-expander').click(function (event) {
             event.preventDefault();
-            this.children[0].classList.toggle('glyphicon-chevron-down');
-            this.children[0].classList.toggle('glyphicon-chevron-right');
+            if (this.children.length > 0) {
+                this.children[0].classList.toggle('glyphicon-chevron-down');
+                this.children[0].classList.toggle('glyphicon-chevron-right');
+            }
         });
     });
 </script>
