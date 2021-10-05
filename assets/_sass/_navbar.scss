@@ -203,7 +203,7 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
     .navbar-items {
       width: 100%;
       border-top: 1px solid $navbar-default-border-level-1;
-      padding: 0px 15px;
+      padding: 0 15px;
       margin-left: 0;
       margin-right: 0;
 
@@ -251,23 +251,34 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           float: none;
           position: relative;
           display: block;
-
-          &.active {
-            //background-color: black;
-            background-color: red!important;
-            color: white;
-          }
-
-          a {
-            color: red;
-          }
+          font-family: $font-family-gotham;
+          font-size: 11px;
+          font-weight: bold;
 
           &.hidden {
             display: none;
           }
 
+
+
+          a {
+            color: $color-grey-2;
+
+            &:hover, &:hover *{
+              color: $brand-primary;
+            }
+
+            &.first-child{
+              box-shadow: inset 0 7px 9px -7px rgb(0,0,0);
+            }
+          }
+
           a.level-one {
             background-color: $navbar-selected-bg-level-1;
+
+            &.expanded{
+              color:$brand-primary;
+            }
           }
 
           a.level-two {
@@ -286,6 +297,12 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
             background-color: $navbar-selected-bg-level-5;
           }
 
+          &.active a {
+            background-color: $brand-primary;
+            border-bottom: 1px $brand-primary solid;
+            color: $navbar-default-link-hover-bg;
+          }
+
           //Apply drop shadow to first unhidden element
           //Defaults to all
           a:not(.hidden) {
@@ -297,17 +314,6 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           a:not(.hidden) ~ a:not(.hidden) {
             > .level-two, > .level-three, > .level-four, > .level-five {
               box-shadow: none;
-            }
-          }
-
-          a.on-article {
-            > .menu-row {
-              background-color: $navbar-default-link-hover-color;
-              border-bottom: 1px $navbar-default-link-hover-color solid;
-
-              .menu-title > a, .menu-expander {
-                color: $navbar-default-link-hover-bg;
-              }
             }
           }
 
