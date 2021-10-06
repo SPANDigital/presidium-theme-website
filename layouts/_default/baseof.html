@@ -53,10 +53,12 @@
 
 <script>
     $( document ).ready(function() {
-        $('.glyphicon-toggle').click(function (event) {
+        $('.menu-expander').click(function (event) {
             event.preventDefault();
-            this.classList.toggle('glyphicon-chevron-down');
-            this.classList.toggle('glyphicon-chevron-right');
+            if (this.firstElementChild) {
+                this.firstElementChild.classList.toggle('glyphicon-chevron-down');
+                this.firstElementChild.classList.toggle('glyphicon-chevron-right');
+            }
         });
 
         $('.toggle').click(function (event) {
