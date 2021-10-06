@@ -6,7 +6,7 @@
 
         <div class="navbar-header">
             <a href="{{ .Site.BaseURL }}" class="brand">
-                {{ $navImg := "images/logo.png" }}
+                {{ $navImg := (printf "%s%s" .Site.BaseURL "images/logo.png") }}
                 {{ if fileExists "static/brand/images/logo.png" }}
                 {{ $navImg = "brand/images/logo.png" | relURL }}
                 {{ end }}
