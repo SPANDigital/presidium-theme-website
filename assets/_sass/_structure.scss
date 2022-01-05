@@ -90,19 +90,19 @@
         }
 
         .status-draft {
-          background-image: url("../images/status-draft.svg");
+          background-image: url("images/status-draft.svg");
           color: $color-yellow-green !important;
         }
         .status-review {
-          background-image: url("../images/status-review.svg");
+          background-image: url("images/status-review.svg");
           color: $color-yellow-green !important;
         }
         .status-published {
-          background-image: url("../../images/status-published.svg");
+          background-image: url("images/status-published.svg");
           color: $color-green-1 !important;
         }
         .status-retired {
-          background-image: url("../images/status-retired.svg");
+          background-image: url("images/status-retired.svg");
           color: $color-grey !important;
         }
       }
@@ -130,7 +130,7 @@
         .article-role {
           float: right;
           .label {
-            background-image: url("../images/role-icon.svg");
+            background-image: url("images/role-icon.svg");
             background-repeat: no-repeat;
             background-size: 25px 15px;
             background-color: unset;
@@ -403,7 +403,7 @@
       .presidium-chris-says {
         background-color: #000000;
         border-color: #000000;
-        background-image: url("../images/pentagram-symbol.svg");
+        background-image: url("images/pentagram-symbol.svg");
         color: $color-grey-light;
         background-repeat: no-repeat;
         background-position: top right;
