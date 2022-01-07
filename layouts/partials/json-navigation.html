@@ -1,6 +1,6 @@
 {{ $currentPage := . }}
 {{ $items := slice }}
-{{ $roles := slice }}
+{{ $roles := .Site.Params.roles.options | default slice }}
 {{ $urilzeIdentifier := slice }}
 {{ range $menu := .Site.Menus.main.ByWeight }}
     {{/* the menu Identifier has spaces such as "key concepts", need to add the dashes back using urilize
