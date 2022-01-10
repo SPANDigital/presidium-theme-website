@@ -22,9 +22,10 @@
       margin-bottom: 0;
       font-family: "Gotham A";
       font-weight: 700;
+      font-size: $font-size-h1;
     }
     hr {
-      margin-top: 40px;
+      margin-top: 20px;
       margin-bottom: 20px;
     }
     section {
@@ -43,6 +44,7 @@
       .article-title {
         display: flex;
         align-items: center;
+
         h1,
         h2,
         h3,
@@ -50,8 +52,10 @@
         h5,
         h6 {
           font-family: $font-family-gotham;
+          font-size: $font-size-h2;
           display: flex;
           align-items: center;
+          margin-bottom: 10px;
           &:hover {
             cursor: pointer;
             .article-edit-menu {
@@ -215,7 +219,6 @@
         }
       }
       article {
-        margin-top: 20px;
         iframe {
           box-shadow: 0px 0px 10px #777;
           border: None;
@@ -232,10 +235,12 @@
       h5,
       h6 {
         text-transform: none;
+        margin-top: 20px;
+        margin-bottom: 10px;
       }
       h1,
       .h1 {
-        font-size: $font-size-h4;
+        font-size: $font-size-h3;
       }
       h2,
       .h2 {
@@ -244,7 +249,7 @@
       h3,
       .h3 {
         font-weight: 600;
-        font-size: $font-size-h4;
+        font-size: $font-size-h5;
       }
 
       h4,
