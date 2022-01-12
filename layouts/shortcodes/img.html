@@ -1,7 +1,7 @@
 {{ $src := .Get "src" }}
 {{ $url := urls.Parse $src }}
-{{/* if the src is relative make it absolute */}}
-{{ if and (not $url.Scheme) (not (strings.HasPrefix $src "//")) }}
+{{/* make the src relative to the project root if's not absolute */}}
+{{ if and (not $url.Scheme) (not (strings.HasPrefix $src "/")) }}
     {{ $src = printf "%s/%s%s" (strings.TrimSuffix "/" site.BaseURL) .Page.Dir $src }}
 {{ end }}
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
