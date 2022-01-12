@@ -5,6 +5,11 @@
 
 table {
   background-color: $table-bg;
+
+  // Hide empty table headers
+  tr th:empty {
+    display: none;
+  }
 }
 caption {
   padding-top: $table-cell-padding;

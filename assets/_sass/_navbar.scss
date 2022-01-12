@@ -16,14 +16,14 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
   .placeholder {
     width: 260px;
     background-image: linear-gradient(
-                    -45deg,
-                    rgb(249, 249, 249) 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    rgb(249, 249, 249) 50%,
-                    rgb(249, 249, 249) 75%,
-                    transparent 75%,
-                    transparent
+      -45deg,
+      rgb(249, 249, 249) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgb(249, 249, 249) 50%,
+      rgb(249, 249, 249) 75%,
+      transparent 75%,
+      transparent
     );
     -webkit-background-size: 50px 50px;
     -moz-background-size: 50px 50px;
@@ -92,7 +92,6 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
     }
   }
   nav {
-
     @media (min-width: $grid-float-breakpoint) {
       width: 260px;
       border: 0;
@@ -115,7 +114,7 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           display: block;
           float: none;
           margin: 15px auto 0;
-          width: 80%;
+          width: 50%;
           height: auto;
 
           @media (max-width: $grid-float-breakpoint) {
@@ -239,7 +238,6 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
     }
 
     div {
-
       ul {
         list-style: none;
         padding-left: 0;
@@ -259,129 +257,53 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
             display: none;
           }
 
-
-
-          a {
-            color: $color-grey-2;
-
-            &:hover, &:hover *{
-              color: $brand-primary;
+          &.in-section {
+            &.expanded {
+              > .menu-row {
+                .menu-title > a, .menu-expander {
+                  color: $brand-primary;
+                  font-weight: bold;
+                }
+              }
             }
 
-            &.first-child{
-              box-shadow: inset 0 7px 9px -7px rgb(0,0,0);
-            }
-          }
+            &:not(.expanded) {
+              > .menu-row {
+                background-color: $brand-primary;
+                border-bottom: 1px $brand-primary solid;
 
-          a.level-one {
-            background-color: $navbar-selected-bg-level-1;
-
-            &.expanded{
-              color:$brand-primary;
-            }
-          }
-
-          a.level-two {
-            background-color: $navbar-selected-bg-level-2;
-          }
-
-          a.level-three {
-            background-color: $navbar-selected-bg-level-3;
-          }
-
-          a.level-four {
-            background-color: $navbar-selected-bg-level-4;
-          }
-
-          a.level-five {
-            background-color: $navbar-selected-bg-level-5;
-          }
-
-          &.active a {
-            background-color: $brand-primary;
-            border-bottom: 1px $brand-primary solid;
-            color: $navbar-default-link-hover-bg;
-          }
-
-          //Apply drop shadow to first unhidden element
-          //Defaults to all
-          a:not(.hidden) {
-            > .level-two, > .level-three, > .level-four > .level-five {
-              box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
-            }
-          }
-
-          a:not(.hidden) ~ a:not(.hidden) {
-            > .level-two, > .level-three, > .level-four, > .level-five {
-              box-shadow: none;
+                .menu-title > a,
+                .menu-expander {
+                  color: $navbar-default-link-hover-bg;
+                }
+              }
             }
           }
 
           &.on-page {
-            cursor: default;
-
             > .menu-row {
-              .menu-title > a {
-                cursor: default;
-              }
-
+              .menu-title > a,
               .menu-expander {
-                cursor: pointer;
-              }
-            }
-          }
-
-          &.in-section {
-            .level-one {
-              background-color: $navbar-default-link-hover-color;
-
-              .menu-title > a, .menu-expander {
-                color: $navbar-default-link-hover-bg;
-                font-weight: bold;
-              }
-            }
-
-            &.expanded > .level-one {
-              background-color: $navbar-selected-bg-level-1;
-
-              .menu-title > a, .menu-expander {
-                color: $navbar-default-link-hover-color;
+                color: $brand-primary;
                 font-weight: bold;
               }
             }
           }
 
-          .in-section {
-            .level-two {
-              background-color: $navbar-default-link-hover-color;
+          &.on-article {
+            .menu-row {
+              background-color: $brand-primary;
+              border-bottom: 1px $brand-primary solid;
 
-              .menu-title > a, .menu-expander {
+              .menu-title > a,
+              .menu-expander {
                 color: $navbar-default-link-hover-bg;
               }
-            }
 
-            &.expanded > .level-two {
-              background-color: $navbar-selected-bg-level-2;
-
-              .menu-title > a, .menu-expander {
-                color: $navbar-default-link-hover-color;
-              }
-            }
-
-            .in-section {
-              .level-three {
-                background-color: $navbar-default-link-hover-color;
-
-                .menu-title > a, .menu-expander {
+              &:hover {
+                .menu-title > a,
+                .menu-expander {
                   color: $navbar-default-link-hover-bg;
-                }
-              }
-
-              &.expanded > .level-three {
-                background-color: $navbar-selected-bg-level-3;
-
-                .menu-title > a, .menu-expander {
-                  color: $navbar-default-link-hover-color;
                 }
               }
             }
@@ -394,43 +316,43 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
       display: flex;
       padding: 12px 10px;
 
-      &:hover, &:focus {
-        background-color: $navbar-default-link-hover-bg;
+      &:hover,
+      &:focus {
+        .menu-title > a,
         .menu-expander {
-          color: $navbar-default-link-hover-color;
-        }
-        .menu-title {
-          a {
-            color: $navbar-default-link-hover-color;
-            text-decoration: none;
-          }
+          color: $brand-primary;
+          text-decoration: none;
         }
       }
 
       &.level-one {
         border-bottom: 1px $navbar-default-border-level-1 solid;
+        background-color: $navbar-selected-bg-level-1;
       }
 
       &.level-two {
         padding-left: 20px;
         border-bottom: 1px $navbar-default-border-level-2 solid;
+        background-color: $navbar-selected-bg-level-2;
       }
 
       &.level-three {
         padding-left: 35px;
         border-bottom: 1px $navbar-default-border-level-3 solid;
+        background-color: $navbar-selected-bg-level-3;
       }
 
       &.level-four {
         padding-left: 50px;
         border-bottom: 1px $navbar-default-border-level-4 solid;
+        background-color: $navbar-selected-bg-level-4;
       }
 
       &.level-five {
         padding-left: 65px;
         border-bottom: 1px $navbar-default-border-level-5 solid;
+        background-color: $navbar-selected-bg-level-5;
       }
-
     }
 
     .menu-expander {
@@ -461,5 +383,3 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
     }
   }
 }
-
-

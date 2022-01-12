@@ -1,16 +1,20 @@
 {{ $roles := .Params.roles | default "All roles" }}
 {{ $link := (printf "%v#%v" .Parent.Permalink .Params.Slug ) }}
+{{ $type := "parent" }}
+{{if not .Data.Pages }}
+    {{ $type = "child" }}
+{{end}}
 
-<div class="article" data-roles="{{ $roles }}" id="{{ .Params.Slug }}">
+<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ .Params.Slug }}">
 <!--<div class="article" data-roles="{{ $roles }}" id="{{ $link }}">-->
     <div class="presidium-article-wrapper">
-        <span class="anchor"  data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
+        <span class="anchor" id="{{ .Params.Slug }}" data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
         <div class="article-title" >
-            <h2>
+            <h1>
                 {{ .Title }} {{ partial "edit-link.html" }}
-            </h2>
+            </h1>
             <div class="permalink">
-                <a class="link-icon" href="{{ .RelPermalink }}" title="Permalink to this article"></a>
+                <a class="link-icon" href="#{{ .Params.Slug }}" title="Permalink to this article"></a>
             </div>
         </div>
 
