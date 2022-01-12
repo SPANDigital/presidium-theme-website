@@ -1,14 +1,8 @@
 {{ $src := .Get "src" }}
-{{ $found := false }}
-{{ with .Page.Resources.GetMatch $src }}
-    {{ $src = .Permalink}}
-    {{ $found = true }}
-{{ end }}
-{{ if not $found }}
-    {{ with .Page.Parent.Resources.GetMatch $src }}
-        {{ $src = .Permalink}}
-        {{ $found = true }}
-    {{ end }}
+{{ $url := urls.Parse $src }}
+{{/* make the src relative to the project root if's not absolute */}}
+{{ if and (not $url.Scheme) (not (strings.HasPrefix $src "/")) }}
+    {{ $src = printf "%s/%s%s" (strings.TrimSuffix "/" site.BaseURL) .Page.Dir $src }}
 {{ end }}
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
     {{ with .Get "link"}}<a href="{{.}}">{{ end }}
