@@ -29,6 +29,7 @@
 {{ end }}
 
 <div id="presidium-navigation">
+    {{ partial "navigation.html" .}}
 </div>
 <div id="presidium-container" class="container-fluid">
     <div class="row">
@@ -50,36 +51,4 @@
 
 {{ partial "modal.html" }}
 
-<script>
-    $( document ).ready(function() {
-        $('.menu-expander').click(function (event) {
-            event.preventDefault();
-            if (this.firstElementChild) {
-                this.firstElementChild.classList.toggle('glyphicon-chevron-down');
-                this.firstElementChild.classList.toggle('glyphicon-chevron-right');
-            }
-        });
-
-        $('.toggle').click(function (event) {
-            event.preventDefault();
-            $('.navbar-items').toggle('expanded');
-        });
-    });
-</script>
-
-<!-- Components -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script src="/presidium.js"></script>
-<script>
-    window.presidium.tooltips = {};
-    window.presidium.tooltips.load = function (data) {};
-    window.presidium.menu.load({{ (partial "json-navigation" .) | jsonify | safeJS }}, "presidium-navigation");
-    mermaid.initialize({startOnLoad:true});
-</script>
-
-{{ if $.Site.Params.enterprise_enabled }}
-<script src="{{ $.Site.Params.enterprise_script }}"></script>
-{{ end }}
-
-</body>
 </html>

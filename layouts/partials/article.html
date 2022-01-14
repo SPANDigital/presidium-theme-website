@@ -4,17 +4,18 @@
 {{if not .Data.Pages }}
     {{ $type = "child" }}
 {{end}}
+{{ $pageSlug := (printf "#%v-%v" (.Parent.Params.Slug | default "root") .Params.Slug )}}
 
-<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ .Params.Slug }}">
+<div class="article {{ $type }}" data-roles="{{ $roles }}">
 <!--<div class="article" data-roles="{{ $roles }}" id="{{ $link }}">-->
     <div class="presidium-article-wrapper">
-        <span class="anchor" id="{{ .Params.Slug }}" data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
+        <span class="anchor" id="{{.Parent.Params.Slug}}-{{ .Params.Slug }}" data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
         <div class="article-title" >
             <h1>
                 {{ .Title }} {{ partial "edit-link.html" }}
             </h1>
             <div class="permalink">
-                <a class="link-icon" href="#{{ .Params.Slug }}" title="Permalink to this article"></a>
+                <a class="link-icon" href="{{ $pageSlug }}" title="Permalink to this article"></a>
             </div>
         </div>
 
