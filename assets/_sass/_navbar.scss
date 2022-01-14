@@ -271,14 +271,15 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
             &.first-child{
               box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
             }
-          }
-
-          a.level-one {
-            background-color: $navbar-selected-bg-level-1;
 
             &.expanded{
               color:$brand-primary;
             }
+          }
+
+
+          a.level-one {
+            background-color: $navbar-selected-bg-level-1;
           }
 
           a.level-two {
