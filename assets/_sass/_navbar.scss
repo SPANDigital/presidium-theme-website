@@ -260,6 +260,7 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           }
 
 
+
           a {
             color: $color-grey-2;
 
@@ -270,6 +271,30 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
             &.first-child{
               box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
             }
+          }
+
+          a.level-one {
+            background-color: $navbar-selected-bg-level-1;
+
+            &.expanded{
+              color:$brand-primary;
+            }
+          }
+
+          a.level-two {
+            background-color: $navbar-selected-bg-level-2;
+          }
+
+          a.level-three {
+            background-color: $navbar-selected-bg-level-3;
+          }
+
+          a.level-four {
+            background-color: $navbar-selected-bg-level-4;
+          }
+
+          a.level-five {
+            background-color: $navbar-selected-bg-level-5;
           }
 
           &.active a {
@@ -384,34 +409,26 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
 
       &.level-one {
         border-bottom: 1px $navbar-default-border-level-1 solid;
-        background-color: $navbar-selected-bg-level-1;
-        &.expanded{
-          color:$brand-primary;
-        }
       }
 
       &.level-two {
         padding-left: 20px;
         border-bottom: 1px $navbar-default-border-level-2 solid;
-        background-color: $navbar-selected-bg-level-2;
       }
 
       &.level-three {
         padding-left: 35px;
         border-bottom: 1px $navbar-default-border-level-3 solid;
-        background-color: $navbar-selected-bg-level-3;
       }
 
       &.level-four {
         padding-left: 50px;
         border-bottom: 1px $navbar-default-border-level-4 solid;
-        background-color: $navbar-selected-bg-level-4;
       }
 
       &.level-five {
         padding-left: 65px;
         border-bottom: 1px $navbar-default-border-level-5 solid;
-        background-color: $navbar-selected-bg-level-5;
       }
 
     }
