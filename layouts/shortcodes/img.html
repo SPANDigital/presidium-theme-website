@@ -1,9 +1,11 @@
 {{ $src := .Get "src" }}
 {{ $url := urls.Parse $src }}
-{{/* make the src relative to the project root if's not absolute */}}
-{{ if and (not $url.Scheme) (not (strings.HasPrefix $src "/")) }}
+{{ if or (.Page.Parent.Resources.GetMatch $src) (.Page.Resources.GetMatch $src) }}
     {{ $src = printf "%s/%s%s" (strings.TrimSuffix "/" site.BaseURL) .Page.Dir $src }}
+{{ else if not $url.Scheme  }}
+    {{ $src = printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) $src }}  
 {{ end }}
+
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
     {{ with .Get "link"}}<a href="{{.}}">{{ end }}
         <img src="{{ $src }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} />
