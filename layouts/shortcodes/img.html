@@ -6,9 +6,17 @@
     {{ $src = printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) $src }}  
 {{ end }}
 
+{{ $ignore := (slice "attrlink" "attr" "link" "alt" "caption" "title" "src")}}
+{{ $attrs := ""}}
+{{ range $key, $value :=  .Params}}
+    {{ if not (in $ignore $key) }}
+        {{ $attrs = (printf "%s=%s %s" $key $value $attrs)}}
+    {{ end }}
+{{ end }}
+
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
     {{ with .Get "link"}}<a href="{{.}}">{{ end }}
-        <img src="{{ $src }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} />
+        <img src="{{ $src }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} {{$attrs | safeHTMLAttr}} />
         {{ if .Get "link"}}</a>{{ end }}
     {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
         <figcaption>{{ if isset .Params "title" }}
