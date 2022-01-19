@@ -166,7 +166,14 @@
           }
         }
       }
+
       .article {
+        .presidium-article-wrapper {
+          > article + .article.child {
+            margin-top: 20px;
+          }
+        }
+
         .article-edit-menu {
           display: flex;
           flex-direction: column;
@@ -226,6 +233,12 @@
         }
       }
       article {
+        table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+
         iframe {
           box-shadow: 0px 0px 10px #777;
           border: None;
