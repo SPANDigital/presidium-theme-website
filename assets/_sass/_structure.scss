@@ -45,6 +45,14 @@
         display: flex;
         align-items: center;
 
+        h1 {
+          font-size: $font-size-h1;
+        }
+
+        h2 {
+          font-size: $font-size-h2;
+        }
+
         h1,
         h2,
         h3,
@@ -52,7 +60,6 @@
         h5,
         h6 {
           font-family: $font-family-gotham;
-          font-size: $font-size-h2;
           display: flex;
           align-items: center;
           margin-bottom: 10px;
