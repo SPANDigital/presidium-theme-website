@@ -10,9 +10,12 @@
     <div class="presidium-article-wrapper">
         <span class="anchor" id="{{ .Params.Slug }}" data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
         <div class="article-title" >
-            <h1>
-                {{ .Title }} {{ partial "edit-link.html" }}
-            </h1>
+            {{ if not .Data.Pages }}
+                <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
+            {{ else }}
+                <h1>{{ .Title }} {{ partial "edit-link.html" }}</h1>
+            {{ end }}
+           
             <div class="permalink">
                 <a class="link-icon" href="#{{ .Params.Slug }}" title="Permalink to this article"></a>
             </div>
@@ -27,6 +30,9 @@
             {{ partial "article" . }}
 
         {{ end }}
-        <hr>
+
+        {{ if not .Data.Pages }}
+            <hr>
+        {{ end }}
     </div>
 </div>

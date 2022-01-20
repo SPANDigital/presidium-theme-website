@@ -45,6 +45,14 @@
         display: flex;
         align-items: center;
 
+        h1 {
+          font-size: $font-size-h1;
+        }
+
+        h2 {
+          font-size: $font-size-h2;
+        }
+
         h1,
         h2,
         h3,
@@ -52,7 +60,6 @@
         h5,
         h6 {
           font-family: $font-family-gotham;
-          font-size: $font-size-h2;
           display: flex;
           align-items: center;
           margin-bottom: 10px;
@@ -159,7 +166,14 @@
           }
         }
       }
+
       .article {
+        .presidium-article-wrapper {
+          > article + .article.child {
+            margin-top: 20px;
+          }
+        }
+
         .article-edit-menu {
           display: flex;
           flex-direction: column;
@@ -219,6 +233,11 @@
         }
       }
       article {
+
+        > div {
+          overflow-x: auto;
+        }
+
         iframe {
           box-shadow: 0px 0px 10px #777;
           border: None;
