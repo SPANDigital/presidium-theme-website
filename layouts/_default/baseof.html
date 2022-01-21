@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +7,10 @@
     <link rel="shortcut" href="{{ .Site.Params.favIcon | absURL }}" type="image/png">
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
-    {{ if resources.Get "index.scss" }}
-    {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ .Permalink }}">
-    {{ end }}
+    {{ if resources.Get "index.scss"  }}
+        {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+            <link rel="stylesheet" href="{{ .Permalink }}">
+        {{ end }}
     {{ end }}
     <title>{{ $.Site.Title }}</title>
 
@@ -19,78 +18,75 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40">
-
-    {{ if $.Site.Params.enterprise_enabled }}
-    <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
-        class="presidium-enterprise">
+{{ if $.Site.Params.enterprise_enabled }}
+    <div data-key="{{ $.Site.Params.enterprise_key }}"
+         data-title="{{ $.Site.Title }}"
+         id="presidium-enterprise"
+         class="presidium-enterprise">
     </div>
-    {{ end }}
+{{ end }}
 
-    <div id="presidium-navigation">
-        {{ partial "navigation.html" .}}
-    </div>
-    <div id="presidium-container" class="container-fluid">
-        <div class="row">
-            <div id="presidium-content" class="col-lg-10 col-md-12">
-                <h1 class="page-title">{{ .Title }}</h1>
-                <hr />
+<div id="presidium-navigation">
+    {{ partial "navigation.html" .}}
+</div>
+<div id="presidium-container" class="container-fluid">
+    <div class="row">
+        <div id="presidium-content" class="col-lg-10 col-md-12">
+            <h1 class="page-title">{{ .Title }}</h1>
+            <hr/>
 
-                <section>
-                    {{ partial "info.html" }}
-                    {{ block "content" . }}
-                    {{ end }}
-                    {{ .Content }}
-                </section>
-                {{ partial "footer.html" }}
-            </div>
-            <div class="col-lg-2"></div>
+            <section>
+                {{ partial "info.html" }}
+                {{ block "content" . }}
+                {{ end }}
+                {{ .Content }}
+            </section>
+            {{ partial "footer.html" }}
         </div>
-    </div> <!--presidium-container-->
+        <div class="col-lg-2"></div>
+    </div>
+</div> <!--presidium-container-->
 
-    {{ partial "modal.html" }}
+{{ partial "modal.html" }}
 
-    <script>
-        $(document).ready(function () {
-            $('.menu-expander').click(function (event) {
-                event.preventDefault();
-                if (this.firstElementChild) {
-                    this.firstElementChild.classList.toggle('glyphicon-chevron-down');
-                    this.firstElementChild.classList.toggle('glyphicon-chevron-right');
-                }
-            });
-
-            $('.toggle').click(function (event) {
-                event.preventDefault();
-                $('.navbar-items').toggle('expanded');
-            });
-
-            const content = $('.page-title').get(0)
-            if (content) {
-                const offset = window.pageYOffset + content.getBoundingClientRect().top
-                $('[data-spy]').attr('data-offset', offset)
+<script>
+    $( document ).ready(function() {
+        $('.menu-expander').click(function (event) {
+            event.preventDefault();
+            if (this.firstElementChild) {
+                this.firstElementChild.classList.toggle('glyphicon-chevron-down');
+                this.firstElementChild.classList.toggle('glyphicon-chevron-right');
             }
         });
-    </script>
 
-    <!-- Components -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script src="/presidium.js"></script>
-    <script>
+        $('.toggle').click(function (event) {
+            event.preventDefault();
+            $('.navbar-items').toggle('expanded');
+        });
 
-        if (window.presidium) {
-            window.presidium.tooltips = {};
-            window.presidium.tooltips.load = function (data) { };
-            window.presidium.articles.mount();
+        const content = $('.page-title').get(0)
+        if (content) { 
+            const offset = window.pageYOffset + content.getBoundingClientRect().top; 
+            $('[data-spy]').attr('data-offset', offset);
         }
+    });
+</script>
 
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+<!-- Components -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="/presidium.js"></script>
+<script>
+    window.presidium.tooltips = {};
+    window.presidium.tooltips.load = function (data) {};
+    window.presidium.articles.mount();
+    mermaid.initialize({startOnLoad:true});
+</script>
 
-    {{ if $.Site.Params.enterprise_enabled }}
-        <script src="{{ $.Site.Params.enterprise_script }}"></script>
-    {{ end }}
+{{ if $.Site.Params.enterprise_enabled }}
+<script src="{{ $.Site.Params.enterprise_script }}"></script>
+{{ end }}
+
 </body>
-
 </html>
