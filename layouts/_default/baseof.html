@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="250">
+<body data-spy="scroll" data-target="#presidium-navigation" data-offset="60">
 
 {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}"
@@ -59,12 +59,19 @@
                 this.firstElementChild.classList.toggle('glyphicon-chevron-down');
                 this.firstElementChild.classList.toggle('glyphicon-chevron-right');
             }
+            $(this).parent().closest('.menu-row').toggleClass('open').toggleClass('closed');
         });
 
         $('.toggle').click(function (event) {
             event.preventDefault();
             $('.navbar-items').toggle('expanded');
         });
+
+        const content = $('.article-title').get(0)
+        if (content) { 
+            const offset = window.pageYOffset + content.getBoundingClientRect().top; 
+            $('[data-spy]').attr('data-offset', offset);
+        }
     });
 </script>
 
