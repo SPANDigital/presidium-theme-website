@@ -23,8 +23,7 @@
             </button>
         </div>
         <div class="navbar-items">
-
-            {{ if .Site.Params.roles }}
+            {{ if and .Site.Params.roles .Site.Params.show.role }}
             <div class="filter form-group">
                 <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
                 <select id="roles-select" class="form-control">
