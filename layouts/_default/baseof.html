@@ -72,7 +72,7 @@
             $('.navbar-items').toggle('expanded');
         });
 
-        const content = $('presidium-content').get(0)
+        const content = $('.page-title').get(0)
         if (content) { 
             const offset = window.pageYOffset + content.getBoundingClientRect().top; 
             $('[data-spy]').attr('data-offset', offset);
