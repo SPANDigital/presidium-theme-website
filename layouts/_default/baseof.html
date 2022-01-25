@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <title>{{ $.Site.Title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ hugo.Generator }}
     <link rel="shortcut" href="{{ .Site.Params.favIcon | absURL }}" type="image/png">
@@ -12,8 +13,13 @@
             <link rel="stylesheet" href="{{ .Permalink }}">
         {{ end }}
     {{ end }}
-    <title>{{ $.Site.Title }}</title>
 
+    {{ $customStyle := (.Site.Params.styles | default "styles.scss")}}
+    {{ if resources.Get $customStyle }}
+        {{ with resources.Get $customStyle | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+            <link rel="stylesheet" href="{{ .Permalink }}">
+        {{ end }}
+    {{ end }}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
