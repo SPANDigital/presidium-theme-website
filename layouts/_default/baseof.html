@@ -13,13 +13,6 @@
             <link rel="stylesheet" href="{{ .Permalink }}">
         {{ end }}
     {{ end }}
-
-    {{ $customStyle := (.Site.Params.styles | default "styles.scss")}}
-    {{ if resources.Get $customStyle }}
-        {{ with resources.Get $customStyle | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-            <link rel="stylesheet" href="{{ .Permalink }}">
-        {{ end }}
-    {{ end }}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 

@@ -25,10 +25,8 @@
 
         <article>{{ .Content }}</article>
 
-        {{ range .Data.Pages.ByWeight }}
-
+        {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
             {{ partial "article" . }}
-
         {{ end }}
 
         {{ if not .Data.Pages }}
