@@ -4,7 +4,7 @@
     {{ $site_scopes_enabled := .Site.Data.scopes.enabled }}
     {{ $pages := .Data.Pages }}
   
-    {{ range $pages }}
+    {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
 
         {{ $apply_scope := and (.Params.scope) $site_scopes }}
         {{ $rendering := not $apply_scope }}
