@@ -4,11 +4,12 @@
 {{if not .Data.Pages }}
     {{ $type = "child" }}
 {{end}}
+{{ $dataId := .Params.id | default .File.Path }}
 {{ $pageSlug := (printf "%v-%v" (.Parent.Params.Slug | default "root") .Params.Slug )}}
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}">
 <!--<div class="article" data-roles="{{ $roles }}" id="{{ $link }}">-->
     <div class="presidium-article-wrapper">
-        <span class="anchor"  id="{{ .Params.Slug }}" data-id="{{ with .File }}{{ .Filename }}{{ end }}"></span>
+        <span class="anchor"  id="{{ .Params.Slug }}" data-id="{{ $dataId }}"></span>
         <div class="article-title" >
             {{ if not .Data.Pages }}
                 <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
