@@ -1,5 +1,6 @@
 {{ define "content" }}
-
+    {{ .Content }}
+    
     {{ $site_scopes := .Site.Data.scopes.applied }}
     {{ $site_scopes_enabled := .Site.Data.scopes.enabled }}
     {{ $pages := .Data.Pages }}
