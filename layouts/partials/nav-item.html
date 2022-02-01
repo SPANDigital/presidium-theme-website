@@ -14,10 +14,10 @@
 {{if not .NavPage.Data.Pages }}
     {{ $link = (printf "%v#%v" .NavPage.Parent.Permalink .NavPage.Params.Slug ) }}
 {{end}}
-
+{{ $dataId :=  .NavPage.Params.id | default  .NavPage.File.Path }}
 {{ $state := cond $isParent "open" "closed" }}
 <li class="menu-row menu-parent_{{ .NavPage.Parent.Slug }} collapse {{ if $showMenu }}in{{end}} {{ if $canExpand}}{{$state}}{{end}} {{ if $isChild }}child{{end}}" style="overflow: hidden;{{ if not $showMenu }}height: 0;{{ end }}">
-    <a class="{{ if eq .Index 0 }}first-child{{end}} {{ $cssClass }}" data-slug="{{ .NavPage.Slug }}" data-target="#{{$pageSlug}}"  data-id="{{ .NavPage.File.Filename }}" href="{{ $link }}">
+    <a class="{{ if eq .Index 0 }}first-child{{end}} {{ $cssClass }}" data-slug="{{ .NavPage.Slug }}" data-target="#{{$pageSlug}}"  data-id="{{ $dataId }}" href="{{ $link }}">
         {{ if .NavPage.Data.Pages }}
             <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ .NavPage.Slug }}" aria-controls=".menu-parent_{{ .NavPage.Slug }}">
                 {{ if $isParent }}
