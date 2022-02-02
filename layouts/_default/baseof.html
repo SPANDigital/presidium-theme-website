@@ -5,7 +5,7 @@
     <title>{{ $.Site.Title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ hugo.Generator }}
-    <link rel="shortcut" href="{{ .Site.Params.favIcon | absURL }}" type="image/png">
+    <link rel="icon" href="{{ .Site.Params.favicon | absURL }}" type="image/x-icon">
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
     {{ if resources.Get "index.scss"  }}
