@@ -1,34 +1,27 @@
-// Override any bootstrap or bootswatch variables as you need:
+// Bootsrap & Bootswatch color overrides
 $brand-primary: #e49134 !default;
-// Override any bootstrap or bootswatch variables as you need:
 $brand-info: #3399F3;
-
 $navbar-default-link-hover-color: $brand-info;
 $navbar-default-link-hover-bg: white;
 
+// Custom colors
 $color-grey:#555;
-$color-grey-light:#BBBBBB;
-$color-grey-lighter:#F3F3F3;
-$color-grey-2: #777777;
-$color-orange-1: #EB9110;
+$color-grey-2: #777;
+$color-grey-3:#BBBBBB;
+$color-grey-4:#F3F3F3;
+$color-orange: #EB9110;
 $color-yellow-green:#BEB239;
-$color-green-1:#84A93F;
-$color-blue-1:#4586CD;
-$color-red-1:#E52213;
-$color-red-2:#D14652;
+$color-green:#84A93F;
+$color-blue:#4586CD;
+$color-red:#E52213;
+
+// Fonts
+$primary-font-family: "Gotham", sans-serif !default; 
 
 // Available Bootswatch Themes
-
-//Default theme
 @import 'themes/spacelab';
-//@import 'themes/cosmo';
+// @import 'themes/cosmo';
 //@import 'themes/darkly';
 //@import 'themes/simplex';
-//@import 'themes/united';
-
-// fonts
-$font-family-sans-serif:  "Source Sans Pro", Calibri, Candara, Arial, sans-serif !default;
-$font-family-gotham: "Gotham", sans-serif !default; 
-
-$primary-font-family: $font-family-gotham
+// @import 'themes/united';
 

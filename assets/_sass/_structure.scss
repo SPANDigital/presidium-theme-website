@@ -1,33 +1,51 @@
-//.presidium-container {
-//  @extend .container-fluid;
-//  margin-left: 0px;
+@mixin callout($color, $text) {
+  background-color: rgba($color, 0.1);
+  border-color: $color;
+
+  &::before {
+      content: $text;
+  }
+
+  &::before,
+  a:hover {
+      color: $color;
+  }
+}
+
+@mixin headings {
+  h1, h2,
+  h3, h4,
+  h5, h6 {
+      @content;
+  }
+}
+
 #presidium-container {
   color: $gray-darker;
   @media (min-width: $grid-float-breakpoint) {
     margin-left: 260px;
   }
+  
   #presidium-content {
     position: relative;
     padding: 10px 20px;
     margin-top: 80px;
+    
     @media (min-width: $grid-float-breakpoint) {
       position: inherit;
       margin-top: 0;
       padding: 60px 100px;
     }
-  } // Articles
-  #presidium-content {
+
     .page-title {
-      margin-top: 0;
-      margin-bottom: 0;
       font-family: "Gotham A";
-      font-weight: 700;
-      font-size: $font-size-h1;
     }
-    hr {
-      margin-top: 20px;
-      margin-bottom: 20px;
+
+    .label {
+      font-size: $font-size-base;
+      font-weight: normal;
     }
+   
     section {
       #no-content-warning {
         display: none;
@@ -41,28 +59,12 @@
           top: -10px;
         }
       }
+
       .article-title {
         display: flex;
         align-items: center;
 
-        h1 {
-          font-size: $font-size-h1;
-        }
-
-        h2 {
-          font-size: $font-size-h2;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          font-family: $font-family-gotham;
-          display: flex;
-          align-items: center;
-          margin-bottom: 10px;
+        @include headings {
           &:hover {
             cursor: pointer;
             .article-edit-menu {
@@ -71,11 +73,13 @@
             }
           }
         }
+       
         .permalink {
           display: none;
           margin-left: 12px;
           margin-top: 14px;
         }
+        
         &:hover > .permalink {
           display: block;
           > a {
@@ -83,40 +87,37 @@
           }
         }
       }
+
       .article-status {
         .status-draft,
         .status-review,
         .status-published,
         .status-retired {
-          font-family: "Gotham A", "Gotham B";
-          font-size: 14px !important;
-          font-style: normal !important;
           background-repeat: no-repeat;
           background-position: left;
           background-size: 24px 19px;
           padding: 2px 2px 2px 31px;
           background-color: unset;
-          display: inline-block !important;
-          vertical-align: middle !important;
         }
 
         .status-draft {
           background-image: url("images/status-draft.svg");
-          color: $color-yellow-green !important;
+          color: $color-yellow-green;
         }
         .status-review {
           background-image: url("images/status-review.svg");
-          color: $color-yellow-green !important;
+          color: $color-yellow-green;
         }
         .status-published {
           background-image: url("images/status-published.svg");
-          color: $color-green-1 !important;
+          color: $color-green;
         }
         .status-retired {
           background-image: url("images/status-retired.svg");
-          color: $color-grey !important;
+          color: $color-grey;
         }
       }
+
       .category {
         a > span {
           padding-left: 10px;
@@ -124,6 +125,7 @@
           font-size: 80%;
         }
       }
+      
       .article-header {
         width: 100%;
         padding: 10px 0;
@@ -138,6 +140,7 @@
             line-height: 15px;
           }
         }
+
         .article-role {
           float: right;
           .label {
@@ -146,16 +149,13 @@
             background-size: 25px 15px;
             background-color: unset;
             background-position: left center;
-            font-family: "Gotham A", "Gotham B" !important;
-            font-size: 14px !important;
-            font-weight: 300 !important;
-            font-style: normal !important;
-            color: $color-grey-2 !important;
+            color: $color-grey;
             line-height: 18px;
             padding: 2px 2px 2px 33px;
           }
         }
       }
+
       .article-author {
         a {
           text-decoration: underline;
@@ -200,6 +200,7 @@
             margin-top: -15px;
           }
         }
+
         .dropdown-item {
           display: flex;
           align-items: center;
@@ -209,12 +210,14 @@
             text-decoration: none;
           }
         }
+
         .edit-icon {
           background-image: url("assets/svg/edit-icon.svg");
           fill: #9a9a99;
           width: 16px;
           height: 16px;
         }
+
         .link-icon {
           background-image: url("assets/svg/link-icon.svg");
           fill: #9a9a99;
@@ -222,233 +225,131 @@
           height: 16px;
           display: block;
         }
-        .label {
-          flex: 1;
-          font-style: italic;
-          margin-left: 0px;
-          font-size: 0.5em;
-          font-weight: normal;
-          color: #9a9a99;
-          display: flex;
-        }
       }
-      article {
 
+      article {
         > div {
           overflow-x: auto;
         }
-
+  
         iframe {
           box-shadow: 0px 0px 10px #777;
           border: None;
           height: 900px;
           width: 110%;
         }
-      }
-    }
-    article {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        text-transform: none;
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-      h1,
-      .h1 {
-        font-size: $font-size-h3;
-      }
-      h2,
-      .h2 {
-        font-size: $font-size-h4;
-      }
-      h3,
-      .h3 {
-        font-weight: 600;
-        font-size: $font-size-h5;
-      }
-
-      h4,
-      .h4,
-      h5,
-      .h5,
-      h6,
-      .h6 {
-        font-size: $font-size-h5;
-      }
-
-      .presidium-pro-tip,
-      .presidium-prerequisite,
-      .presidium-for-example,
-      .presidium-suggested-reading,
-      .presidium-suggested-courses,
-      .presidium-best-practice,
-      .presidium-warning,
-      .presidium-chris-says {
-        padding: 9px 10px 10px 10px;
-        margin-bottom: 10px;
-        border: 2px solid;
-        border-radius: 4px;
-        font-style: normal;
-
-        em {
-          font-weight: bold;
+  
+        @include headings {
+          text-transform: none;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+  
+        h1, .h1 {
+          font-size: $font-size-h3;
+        }
+        
+        h2, .h2 {
+          font-size: $font-size-h4;
+        }
+  
+        h3, .h3, 
+        h4, .h4,
+        h5, .h5,
+        h6, .h6 {
+          font-size: $font-size-h5;
+        }
+  
+        .presidium-pro-tip,
+        .presidium-prerequisite,
+        .presidium-for-example,
+        .presidium-suggested-reading,
+        .presidium-suggested-courses,
+        .presidium-best-practice,
+        .presidium-warning,
+        .presidium-chris-says {
+          padding: 9px 10px 10px;
+          margin-bottom: 10px;
+          border: 2px solid;
+          border-radius: 4px;
           font-style: normal;
+  
+          em {
+            font-weight: bold;
+            font-style: normal;
+          }
+  
+          a {
+            text-decoration: underline;
+            color: $color-grey;
+          }
+  
+          span {
+            font-size: 18px;
+            line-height: 21px;
+            font-weight: 500;
+            letter-spacing: 0;
+            margin-bottom: 4px;
+            display: flex;
+            font-family: "Gotham A", "Gotham B";
+          }
+  
+          &::before {
+            display: flex;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 15px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            font-family: "Gotham A", "Gotham B";
+          }
         }
-
-        a {
-          text-decoration: underline;
-          color: $color-grey;
+  
+        .presidium-pro-tip {
+          @include callout($color-orange, "span pro tip");
         }
-
-        span {
-          font-size: 18px;
-          line-height: 21px;
-          font-weight: 500;
-          letter-spacing: 0;
-          margin-bottom: 4px;
-          display: flex;
-          font-family: "Gotham A", "Gotham B";
+  
+        .presidium-for-example {
+          @include callout($color-green,  "for example...");
         }
-
-        &::before {
-          display: flex;
-          font-size: 13px;
-          font-weight: 500;
-          letter-spacing: 0;
-          line-height: 15px;
-          text-transform: uppercase;
-          margin-bottom: 4px;
-          font-family: "Gotham A", "Gotham B";
+  
+        .presidium-suggested-reading {
+          @include callout($color-blue,  "suggested reading");
         }
-      }
-
-      .presidium-pro-tip {
-        background-color: #fef7ef;
-        border-color: $color-orange-1;
-
-        &::before,
-        a:hover {
-          color: $color-orange-1;
+  
+        .presidium-suggested-courses {
+          @include callout($color-blue,  "suggested courses");
         }
-
-        &::before {
-          content: "span pro tip";
+  
+        .presidium-best-practice {
+          @include callout($color-orange,  "best practice");
         }
-      }
-
-      .presidium-for-example {
-        background-color: #f6f9f0;
-        border-color: $color-green-1;
-
-        &::before {
-          content: "for example...";
+  
+        .presidium-warning {
+          @include callout($color-red,  "warning");
         }
-
-        &::before,
-        a:hover {
-          color: $color-green-1;
+  
+        .presidium-prerequisite {
+          @include callout($color-yellow-green,  "prerequisite");
         }
-      }
-
-      .presidium-suggested-reading {
-        background-color: #f1f6fc;
-        border-color: $color-blue-1;
-
-        &::before {
-          content: "suggested reading";
-        }
-
-        &::before,
-        a:hover {
-          color: $color-blue-1;
-        }
-      }
-
-      .presidium-suggested-courses {
-        background-color: #f1f6fc;
-        border-color: #4586cd;
-
-        &::before {
-          content: "suggested courses";
-        }
-
-        &::before,
-        a:hover {
-          color: #4586cd;
-        }
-      }
-
-      .presidium-best-practice {
-        background-color: #fef7ef;
-        border-color: $color-orange-1;
-
-        &::before {
-          content: "best practice";
-        }
-
-        &::before,
-        a:hover {
-          color: $color-orange-1;
-        }
-      }
-
-      .presidium-warning {
-        background-color: #fff3f2;
-        border-color: $color-red-1;
-
-        &::before {
-          content: "warning";
-        }
-
-        &::before,
-        a:hover {
-          color: $color-red-1;
-        }
-      }
-
-      .presidium-prerequisite {
-        background-color: #f9f8ed;
-        border-color: #beb239;
-
-        &::before {
-          content: "prerequisite";
-        }
-
-        &::before,
-        a:hover {
-          color: #beb239;
-        }
-      }
-
-      .presidium-chris-says {
-        background-color: #000000;
-        border-color: #000000;
-        background-image: url("images/pentagram-symbol.svg");
-        color: $color-grey-light;
-        background-repeat: no-repeat;
-        background-position: top right;
-        background-size: 31px;
-        background-origin: content-box;
-
-        a {
-          color: $color-grey-light;
-        }
-
-        &::before {
-          content: "chris says...";
-        }
-
-        &::before,
-        a:hover {
-          color: $color-red-1;
+  
+        .presidium-chris-says {
+          background-color: #000000;
+          border-color: #000000;
+          background-image: url("images/pentagram-symbol.svg");
+          color: $color-grey-2;
+          background-repeat: no-repeat;
+          background-position: top right;
+          background-size: 31px;
+          background-origin: content-box;
+  
+          @include callout($color-grey-2,  "chris says...");
         }
       }
     }
   }
+
   footer {
     .spacer {
       height: 70vh;
@@ -457,21 +358,21 @@
     text-align: center;
     width: 100%;
   }
+
   table {
     @extend .table;
     @extend.table-striped;
     @extend.table-bordered;
   }
+
   blockquote {
     @extend .well;
     font-size: inherit;
-  } // Unordered and Ordered lists
-  ul,
-  ol {
-    margin-top: 0;
+  } 
+
+  ul, ol {
     margin-bottom: ($line-height-computed / 2);
-    ul,
-    ol {
+    ul, ol {
       margin-bottom: $line-height-computed / 4;
     }
   }

@@ -1,14 +1,15 @@
-$navbar-selected-bg-level-1: $navbar-default-bg;
-$navbar-selected-bg-level-2: darken($navbar-default-bg, 8%);
-$navbar-selected-bg-level-3: darken($navbar-default-bg, 12%);
-$navbar-selected-bg-level-4: darken($navbar-default-bg, 16%);
-$navbar-selected-bg-level-5: darken($navbar-default-bg, 20%);
+$nav-item-border: darken($navbar-default-bg, 8%);
 
-$navbar-default-border-level-1: darken($navbar-default-bg, 8%);
-$navbar-default-border-level-2: darken($navbar-default-bg, 12%);
-$navbar-default-border-level-3: darken($navbar-default-bg, 16%);
-$navbar-default-border-level-4: darken($navbar-default-bg, 20%);
-$navbar-default-border-level-5: darken($navbar-default-bg, 24%);
+@mixin menu-levels($count) {
+  @for $i from 1 through 6 {
+      $x: ($i - 1);
+      &.level-#{$i} { 
+          padding-left: calc(#{$x} * 10px + 25px);
+          background-color: darken($navbar-default-bg, $x * 4);
+          border-bottom: 1px darken($nav-item-border, $x * 4) solid;
+       }
+    }
+}
 
 #presidium-navigation {
   position: relative;
@@ -91,8 +92,9 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
       height: 100%;
     }
   }
-  nav {
 
+  
+  nav {
     @media (min-width: $grid-float-breakpoint) {
       width: 260px;
       border: 0;
@@ -139,18 +141,20 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           cursor: pointer;
         }
       }
+
       .versions-filter {
         display: inline-block;
         border: none;
         margin-bottom: 0px;
       }
+
       .brand-name {
         color: $navbar-default-brand-color;
         display: block;
         padding: 10px;
         margin: 0;
         font-weight: bold;
-        font-family: $font-family-gotham;
+        font-family: $primary-font-family;
         text-transform: none;
         text-align: center;
 
@@ -202,7 +206,7 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
 
     .navbar-items {
       width: 100%;
-      border-top: 1px solid $navbar-default-border-level-1;
+      border-top: 1px solid $nav-item-border;
       margin-left: 0;
       margin-right: 0;
 
@@ -215,7 +219,7 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
       }
 
       > ul:first-of-type {
-        border-top: 1px solid $navbar-default-border-level-1;
+        border-top: 1px solid $nav-item-border;
       }
 
       @media (max-width: $grid-float-breakpoint) {
@@ -258,12 +262,11 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
       }
     }
 
-
     .menu-row {
       a {
         display: flex; 
         padding: 12px 10px;
-        color: $color-grey-2;
+        color: $color-grey;
         text-decoration: none;
 
         &:hover {
@@ -275,35 +278,7 @@ $navbar-default-border-level-5: darken($navbar-default-bg, 24%);
           box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
         }
 
-        &.level-one {
-          padding-left: 25px;
-          background-color: $navbar-selected-bg-level-1;
-          border-bottom: 1px $navbar-default-border-level-1 solid;
-        }
-  
-        &.level-two {
-          padding-left: 30px;
-          border-bottom: 1px $navbar-default-border-level-2 solid;
-          background-color: $navbar-selected-bg-level-2;
-        }
-  
-        &.level-three {
-          padding-left: 40px;
-          border-bottom: 1px $navbar-default-border-level-3 solid;
-          background-color: $navbar-selected-bg-level-3;
-        }
-  
-        &.level-four {
-          padding-left: 50px;
-          border-bottom: 1px $navbar-default-border-level-4 solid;
-          background-color: $navbar-selected-bg-level-4;
-        }
-  
-        &.level-five {
-          padding-left: 60px;
-          border-bottom: 1px $navbar-default-border-level-5 solid;
-          background-color: $navbar-selected-bg-level-5;
-        }
+        @include menu-levels(6)
       }
       
       &.active, .active {

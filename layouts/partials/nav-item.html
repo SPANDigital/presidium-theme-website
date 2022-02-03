@@ -1,6 +1,4 @@
 {{ $childLevel := add .Level 1 }}
-{{ $levelCssClasses := dict "1" "level-one" "2" "level-two" "3" "level-three" "4" "level-four" "5" "level-five" "6" "level-six"}}
-{{ $cssClass := index $levelCssClasses (string .Level) }}
 {{ $currentPage := .CurrentPage }}
 {{ $thisArticle := eq .CurrentPage.RelPermalink .NavPage.RelPermalink }}
 {{ $isParent := and (hasPrefix .CurrentPage.RelPermalink .NavPage.RelPermalink)  (not (eq .NavPage.RelPermalink "/")) }}
@@ -17,7 +15,7 @@
 {{ $dataId :=  .NavPage.Params.id | default  .NavPage.File.Path }}
 {{ $state := cond $isParent "open" "closed" }}
 <li class="menu-row menu-parent_{{ .NavPage.Parent.Slug }} collapse {{ if $showMenu }}in{{end}} {{ if $canExpand}}{{$state}}{{end}} {{ if $isChild }}child{{end}}" style="overflow: hidden;{{ if not $showMenu }}height: 0;{{ end }}">
-    <a class="{{ if eq .Index 0 }}first-child{{end}} {{ $cssClass }}" data-slug="{{ .NavPage.Slug }}" data-target="#{{$pageSlug}}"  data-id="{{ $dataId }}" href="{{ $link }}">
+    <a class="{{ if eq .Index 0 }}first-child{{end}} level-{{ .Level }}" data-slug="{{ .NavPage.Slug }}" data-target="#{{$pageSlug}}"  data-id="{{ $dataId }}" href="{{ $link }}">
         {{ if .NavPage.Data.Pages }}
             <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ .NavPage.Slug }}" aria-controls=".menu-parent_{{ .NavPage.Slug }}">
                 {{ if $isParent }}
