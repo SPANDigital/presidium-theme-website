@@ -16,3 +16,6 @@ module:
       target: archetypes
     - source: node_modules
       target: static/node_modules
+
+params:
+  favicon: images/favicon.ico
