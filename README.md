@@ -5,7 +5,7 @@ This is the default Hugo theme for Presidium sites, the theme is automatically a
 For more info on Hugo Themes see the official Hugo documentation [here](https://gohugo.io/hugo-modules/theme-components/) 
 
 ### Method 1 (Default)
-Update your site the `config.yml`:
+Update the `config.yml`:
 ```
 module:
   imports:
@@ -20,7 +20,7 @@ module:
 ln -s /path/to/presidium-theme-website /path/to/themes
 ```
 
-4. Update your site the `config.yml`:
+4. Update the `config.yml`:
 ```
 module:
   imports:
