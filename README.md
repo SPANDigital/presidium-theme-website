@@ -15,7 +15,7 @@ module:
 ### Method 2 (Development)
 1. Clone the theme
 2. Inside the folder of your Hugo site, create a themes directory.
-3. Create sym link from your cloned theme to the themes directory
+3. Create a sym link from your cloned theme to the themes directory
 ```
 ln -s /path/to/presidium-theme-website /path/to/themes
 ```
