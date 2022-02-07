@@ -6,8 +6,10 @@
 {{end}}
 {{ $dataId := .Params.id | default .File.Path }}
 {{ $pageSlug := (printf "%v-%v" (.Parent.Params.Slug | default "root") .Params.Slug )}}
+{{ $nestedArticles := .Site.Params.includeNestedArticles | default true }}
+
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}">
-<!--<div class="article" data-roles="{{ $roles }}" id="{{ $link }}">-->
+    {{ if or (ne (len .Content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
         <span class="anchor"  id="{{ .Params.Slug }}" data-id="{{ $dataId }}"></span>
         <div class="article-title" >
@@ -26,12 +28,15 @@
 
         <article>{{ .Content }}</article>
 
-        {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
-            {{ partial "article" . }}
+        {{ if $nestedArticles }}
+            {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
+                {{ partial "article" . }}
+            {{ end }}
         {{ end }}
 
         {{ if not .Data.Pages }}
             <hr>
         {{ end }}
     </div>
+    {{ end }}
 </div>
