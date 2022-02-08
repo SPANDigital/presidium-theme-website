@@ -6,6 +6,9 @@
 ### Issue
 <!-- JIRA link -->
 
+### Testing
+<!-- Provide QA steps -->
+
 ### Screenshots
 <!-- If relevant -->
 
@@ -13,3 +16,4 @@
 
 * [ ] Is this code covered by tests?
 * [ ] Is the documentation updated for this change?
+* [ ] Did you test your changes?
