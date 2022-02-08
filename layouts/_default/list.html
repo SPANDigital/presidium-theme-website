@@ -1,4 +1,5 @@
 {{ define "content" }}
+
     {{ .Content }}
     
     {{ $siteScopes := .Site.Params.scopes }}
@@ -9,10 +10,10 @@
 
         {{ $isRendering := true }}
 
-        {{ if (isset .Params "scope") }}
-            {{ if $siteScopesEnabled }}
+        {{ if $siteScopesEnabled }}
+            {{ if isset .Params "scope" }}
                 {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect ($siteScopes $pageScopes)) 0 ) }}    
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
             {{ end }}
         {{ end }}
 
