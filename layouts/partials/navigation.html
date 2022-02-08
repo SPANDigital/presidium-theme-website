@@ -1,5 +1,5 @@
-{{ $appliedScopes := .Site.Data.scopes.applied }}
-{{ $scopingEnabled := .Site.Data.scopes.enabled }}
+{{ $appliedScopes := .Site.Params.scopes }}
+{{ $scopingEnabled := .Site.Params.scopesEnabled }}
 
 <div data-reactroot="" id="presidium-navigation" class="scrollable-container">
     <nav class="navbar">

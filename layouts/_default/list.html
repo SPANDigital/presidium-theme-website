@@ -1,8 +1,8 @@
 {{ define "content" }}
     {{ .Content }}
     
-    {{ $siteScopes := .Site.Data.scopes.applied }}
-    {{ $siteScopesEnabled := .Site.Data.scopes.enabled }}
+    {{ $siteScopes := .Site.Params.scopes }}
+    {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
     {{ $pages := .Data.Pages }}
   
     {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
