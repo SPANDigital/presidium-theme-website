@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body data-spy="scroll" data-target="#presidium-navigation" data-offset="60">
+<body>
 {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}"
          data-title="{{ $.Site.Title }}"
@@ -65,11 +65,25 @@
             $('.navbar-items').toggle('expanded');
         });
 
+        let offset = 0;
         const content = $('.article-title').get(0)
         if (content) { 
-            const offset = window.pageYOffset + content.getBoundingClientRect().top; 
-            $('[data-spy]').attr('data-offset', offset);
+            offset = window.pageYOffset + content.getBoundingClientRect().top;
+            $('body').scrollspy({target: '#presidium-navigation', offset:offset});
         }
+
+        $(window).scroll(function(){
+                if($(this).scrollTop() >= offset){
+                    $('body').data()['bs.scrollspy'].options.offset = 60;
+                    $('body').data()['bs.scrollspy'].process();
+                    $('body').scrollspy("refresh");
+                }
+                else {
+                    $('body').data()['bs.scrollspy'].options.offset = offset;
+                    $('body').data()['bs.scrollspy'].process();
+                    $('body').scrollspy("refresh");
+                }
+            });
     });
 </script>
 
