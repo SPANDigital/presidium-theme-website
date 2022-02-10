@@ -1,5 +1,5 @@
-{{ $appliedScopes := .Site.Data.scopes.applied }}
-{{ $scopingEnabled := .Site.Data.scopes.enabled }}
+{{ $appliedScopes := .Site.Params.scopes }}
+{{ $scopingEnabled := .Site.Params.scopesEnabled }}
 
 <div data-reactroot="" id="presidium-navigation" class="scrollable-container">
     <nav class="navbar">
@@ -38,21 +38,27 @@
             <ul class="nav navbar-nav">
                 {{ range $menu := .Site.Menus.main.ByWeight }}
 
-                    {{ $menuScope := $menu.Params.scope }}
-                    {{ $isRendering := or (not $scopingEnabled) (not (isset $menu.Params "scope")) }}
+                    {{ $isRendering := true }}
 
-                    {{ if not $isRendering }}
-                        {{ $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0 }}
-                    {{ end }}
-
-                    {{ if $menu.Params.externalUrl}}
-                        {{ partial "nav-item-external" $menu }}
-                    {{ else }}
-                        {{ $identifier := replace $menu.Identifier " " "-"}}
-                        {{ with $.Site.GetPage "section" $identifier }}
-                            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
+                    {{ if (isset $menu.Params "scope" ) }}
+                        {{ if $scopingEnabled }}
+                            {{ $menuScope := $menu.Params.scope }}
+                            {{ $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0  }}
                         {{ end }}
                     {{ end }}
+                    
+                    {{ if $isRendering }}
+                            {{ if $menu.Params.externalUrl}}
+                            {{ partial "nav-item-external" $menu }}
+                        {{ else }}
+                            {{ $identifier := replace $menu.Identifier " " "-"}}
+                            {{ with $.Site.GetPage "section" $identifier }}
+                                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
+                            {{ end }}
+                        {{ end }}                    
+                    {{ end }}
+
+                
                 {{ end }}
 
                 <li class="presidium-js-version"

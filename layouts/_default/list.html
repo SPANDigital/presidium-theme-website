@@ -1,21 +1,23 @@
 {{ define "content" }}
+
     {{ .Content }}
     
-    {{ $site_scopes := .Site.Data.scopes.applied }}
-    {{ $site_scopes_enabled := .Site.Data.scopes.enabled }}
+    {{ $siteScopes := .Site.Params.scopes }}
+    {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
     {{ $pages := .Data.Pages }}
   
     {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
 
-        {{ $apply_scope := and (.Params.scope) $site_scopes }}
-        {{ $rendering := not $apply_scope }}
-        {{ $page_scope := .Params.scope }}
-        
-        {{ if $apply_scope }} 
-            {{ $rendering = gt (len (intersect .Params.scope $site_scopes)) 0 }}
+        {{ $isRendering := true }}
+
+        {{ if $siteScopesEnabled }}
+            {{ if isset .Params "scope" }}
+                {{ $pageScopes := .Params.scope }}
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+            {{ end }}
         {{ end }}
 
-        {{ if $rendering }}
+        {{ if $isRendering }}
             {{ partial "article" . }}
         {{ end }}
 
