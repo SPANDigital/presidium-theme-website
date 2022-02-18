@@ -65,25 +65,30 @@
             $('.navbar-items').toggle('expanded');
         });
 
+        // Set scrollspy offset
         let offset = 0;
-        const content = $('.article-title').get(0)
+        const content = $('.article-title').get(0);
         if (content) { 
             offset = window.pageYOffset + content.getBoundingClientRect().top;
             $('body').scrollspy({target: '#presidium-navigation', offset:offset});
         }
-
-        $(window).scroll(function(){
-                if($(this).scrollTop() >= offset){
-                    $('body').data()['bs.scrollspy'].options.offset = 60;
-                    $('body').data()['bs.scrollspy'].process();
-                    $('body').scrollspy("refresh");
-                }
-                else {
-                    $('body').data()['bs.scrollspy'].options.offset = offset;
-                    $('body').data()['bs.scrollspy'].process();
-                    $('body').scrollspy("refresh");
-                }
-            });
+        let bar_offset = 0;
+        const enterprise_bar = $('#presidium-enterprise-toolbar').get(0);
+        if (enterprise_bar) {
+            bar_offset = enterprise_bar.getBoundingClientRect().height;
+        }
+        
+        $(window).scroll(function scrollspyOffset(window) {
+            console.log('bar offset:', bar_offset);
+            if(window.scrollTop() >= offset){
+                $('body').data()['bs.scrollspy'].options.offset = (60 + bar_offset);
+            }
+            else {
+                $('body').data()['bs.scrollspy'].options.offset = offset; 
+            }
+            $('body').data()['bs.scrollspy'].process();
+            $('body').scrollspy("refresh");
+        });
     });
 </script>
 
