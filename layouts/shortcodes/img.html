@@ -1,9 +1,13 @@
 {{ $src := .Get "src" }}
 {{ $url := urls.Parse $src }}
-{{ if .Page.Resources.GetMatch $src }}
-    {{ $src = printf "%s/%s" (strings.TrimSuffix "/" .Page.RelPermalink | default "") $src }}
-{{ else if .Page.Parent.Resources.GetMatch $src }}
+{{ $src = strings.TrimPrefix "/" $src }}
+
+{{ if .Page.Parent.Resources.GetMatch $src }}
     {{ $src = printf "%s/%s" (strings.TrimSuffix "/" .Page.Parent.RelPermalink | default "") $src }}
+    <p>{{printf "Page match: %v" $src}}</p>
+{{ else if .Page.Parent.Parent.Resources.GetMatch $src }}
+    {{ $src = printf "%s/%s" (strings.TrimSuffix "/" .Page.Parent.Parent.RelPermalink | default "") $src }}
+    <p>{{printf "Parent: %v" $src}}</p>
 {{ else if not $url.Scheme  }}
     {{ $src = printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) $src }}  
 {{ end }}

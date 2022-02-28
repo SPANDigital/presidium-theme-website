@@ -79,7 +79,6 @@
         }
         
         $(window).scroll(function scrollspyOffset(window) {
-            console.log('bar offset:', bar_offset);
             if(window.scrollTop() >= offset){
                 $('body').data()['bs.scrollspy'].options.offset = (60 + bar_offset);
             }
