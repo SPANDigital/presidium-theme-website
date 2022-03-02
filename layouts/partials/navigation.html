@@ -8,7 +8,7 @@
             <a href="{{ .Site.BaseURL }}" class="brand">
                 {{ $navImg := (printf "%s%s" .Site.BaseURL "images/logo.png") }}
                 {{ if .Site.Params.logo }}
-                {{ $navImg = .Site.Params.logo }}
+                {{ $navImg =  (printf "%s%s" .Site.BaseURL .Site.Params.logo) }}
                 {{ end }}
                 <img src={{ $navImg }} alt="Logo image">
             </a>
