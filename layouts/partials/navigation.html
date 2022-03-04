@@ -1,5 +1,6 @@
 {{ $appliedScopes := .Site.Params.scopes }}
 {{ $scopingEnabled := .Site.Params.scopesEnabled }}
+{{ $rootUrl := ( relURL "/")}}
 
 <div data-reactroot="" id="presidium-navigation" class="scrollable-container">
     <nav class="navbar">
@@ -53,7 +54,7 @@
                         {{ else }}
                             {{ $identifier := replace $menu.Identifier " " "-"}}
                             {{ with $.Site.GetPage "section" $identifier }}
-                                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed) }}
+                                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false) }}
                             {{ end }}
                         {{ end }}                    
                     {{ end }}
