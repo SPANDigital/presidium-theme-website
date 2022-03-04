@@ -1,19 +1,28 @@
 {{ $childLevel := add .Level 1 }}
 {{ $currentPage := .CurrentPage }}
+
+{{/* rootUrl is the baseUrl but it defaults to "/" if no baseUrl is set */}}
 {{ $rootUrl := .RootUrl }}
 
-{{/* if the parent is open the current menu-item will show */}}
-{{ $show := .Show }}
-
-{{/* checks if the menu-item is pointing to the current article */}}
+{{/* checks if the nav-item is pointing to the current article */}}
 {{ $onArticle := eq .CurrentPage.RelPermalink .NavPage.RelPermalink }}
 
-{{/* checks if the menu-item a parent of the current article */}}
-{{ $inSection := or (and (hasPrefix .CurrentPage.RelPermalink .NavPage.RelPermalink)  (not (eq .NavPage.RelPermalink $rootUrl))) (eq .CurrentPage.RelPermalink .NavPage.RelPermalink) }}
-{{ $state := cond $inSection "open" "closed" }}
+{{/* checks if the current nav-item should be visible  */}}
+{{ $show := or (or (eq .Level 1) $onArticle) .Show }}
 
-{{/* checks if the current menu-item should be visible  */}}
-{{ $showMenu := or (or (eq .Level 1) $show) $onArticle}}
+{{/* opens the menu if nav-item is a parent of the current article  */}}
+{{ $openMenu := false }}
+{{ if hasPrefix .CurrentPage.RelPermalink .NavPage.RelPermalink }}
+    {{ $openMenu = not (eq .NavPage.RelPermalink $rootUrl) }}
+{{ end }}
+
+{{/* or pointing to the current article */}}
+{{ if $onArticle }}
+    {{ $openMenu = true }}
+{{ end }}
+
+{{/* set menu class */}}
+{{ $state := cond $openMenu "open" "closed" }}
 
 {{/* checks if the article has children */}}
 {{ $isParent := .NavPage.Data.Pages}}
@@ -21,8 +30,8 @@
 {{/* checks if the article has no children  */}}
 {{ $isChild := not $isParent }}
 
-{{/*  */}}
-{{ $articleLink := (printf "%v" .NavPage.Permalink) }}
+{{/* adds the slug to the link if the article has no children */}}
+{{ $articleLink := .NavPage.Permalink }}
 {{if $isChild }}
     {{ $articleLink = (printf "%v#%v" .NavPage.Parent.Permalink .NavPage.Params.Slug ) }}
 {{end}}
@@ -33,11 +42,11 @@
 {{/* allows the user to override the article id from the front matter */}}
 {{ $articleId :=  .NavPage.Params.id | default  .NavPage.File.Path }}
 
-<li class="menu-row menu-parent_{{ .NavPage.Parent.Slug }} collapse {{ if $showMenu }}in{{end}} {{ if $isParent}}{{$state}}{{end}} {{ if not $isParent }}child{{end}}" style="overflow: hidden;{{ if not $showMenu }}height: 0;{{ end }}">
+<li class="menu-row menu-parent_{{ .NavPage.Parent.Slug }} collapse {{ if $show }}in{{end}} {{ if $isParent}}{{$state}}{{end}} {{ if not $isParent }}child{{end}}" style="overflow: hidden;{{ if not $show }}height: 0;{{ end }}">
     <a class="{{ if eq .Index 0 }}first-child{{end}} level-{{ .Level }}" data-slug="{{ .NavPage.Slug }}" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}" href="{{ $articleLink }}">
         {{ if .NavPage.Data.Pages }}
             <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ .NavPage.Slug }}" aria-controls=".menu-parent_{{ .NavPage.Slug }}">
-                {{ if $inSection }}
+                {{ if $openMenu }}
                     <span class="glyphicon glyphicon-chevron-down glyphicon-toggle"></span>
                 {{ else }}
                     <span class="glyphicon glyphicon-chevron-right glyphicon-toggle"></span>
@@ -53,7 +62,7 @@
         <ul>
         {{ range $index, $subMenu := .NavPage.Data.Pages }}
             {{ if not $subMenu.Params.hidden }}
-                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $inSection) }}
+                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
             {{ end }}
         {{ end }}
         </ul>
