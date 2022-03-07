@@ -15,4 +15,4 @@
 {{ with $.Site.Params.logo }}
     {{ $logo =  $.Site.Params.logo | relURL }}
 {{ end }}
-{{ return ( dict "logo" $logo "brandName" $.Site.Title "brandUrl" "" "baseUrl" (relURL "/") "roles" (dict "label" "Display documentation for" "all" "All roles" "options" $roles ) "children" $items) }}
+{{ return ( dict "logo" $logo "brandName" $.Site.Title "brandUrl" "" "baseUrl" (relURL "/") "roles" (dict "label" "Display documentation for" "all" "All Roles" "options" $roles ) "children" $items) }}

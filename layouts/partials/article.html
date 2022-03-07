@@ -1,4 +1,4 @@
-{{ $roles := .Params.roles | default "All roles" }}
+{{ $roles := .Params.roles | default "All Roles" }}
 {{ $link := (printf "%v#%v" .Parent.Permalink .Params.Slug ) }}
 {{ $type := "parent" }}
 {{if not .Data.Pages }}
