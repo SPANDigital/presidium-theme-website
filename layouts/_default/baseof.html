@@ -39,7 +39,7 @@
                     {{ partial "info.html" }}
                     {{ block "content" . }}
                     {{ end }}
-                    {{ .Content }}
+                    {{/*  {{ .Content }}  */}}
                 </section>
                 {{ partial "footer.html" . }}
             </div>
@@ -79,9 +79,11 @@
                 bar_offset = enterprise_bar.getBoundingClientRect().height;
             }
 
-            $(window).scroll(function scrollspyOffset(window) {
-                if (window.scrollTop >= offset) {
-                    $('body').data()['bs.scrollspy'].options.offset = (60 + bar_offset);
+            $(window).scroll(function() {
+                console.log(offset);
+                console.log($(document).scrollTop());
+                if ($(document).scrollTop() >= offset) {
+                    $('body').data()['bs.scrollspy'].options.offset = (30 + bar_offset);
                 }
                 else {
                     $('body').data()['bs.scrollspy'].options.offset = offset;
