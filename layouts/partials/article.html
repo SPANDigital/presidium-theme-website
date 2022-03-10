@@ -29,7 +29,7 @@
         <article>{{ .Content }}</article>
 
         {{ if $nestedArticles }}
-            {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
+            {{ range .Data.Pages.ByWeight }}
                 {{ partial "article" . }}
             {{ end }}
         {{ end }}
