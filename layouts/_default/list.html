@@ -1,12 +1,12 @@
 {{ define "content" }}
 
-    {{ .Content }}
-    
+    {{.Content}}
+
     {{ $siteScopes := .Site.Params.scopes }}
     {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
     {{ $pages := .Data.Pages }}
   
-    {{ range where .Data.Pages.ByWeight "Params.hidden" "ne" true }}
+    {{ range .Data.Pages.ByWeight }}
 
         {{ $isRendering := true }}
 
