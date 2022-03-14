@@ -12,7 +12,6 @@
     {{ $parentSlug = .Parent.Params.Slug}}
 {{ end }}
 
-{{/*  {{ $link := (printf "%v#%v" .Parent.Permalink .Params.Title ) }} <!-- CAN BE REMOVED -->  */}}
 {{ $type := "parent" }}
 {{if not .Data.Pages }}
     {{ $type = "child" }}
