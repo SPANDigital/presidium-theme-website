@@ -1,17 +1,30 @@
 {{ $roles := .Params.roles | default "All Roles" }}
-{{ $link := (printf "%v#%v" .Parent.Permalink .Params.Slug ) }}
+
+{{/* Use title if no slug */}}
+{{ $slug := anchorize .Params.Title }}
+{{ if .Params.Slug }}
+    {{ $slug = .Params.Slug}}
+{{ end }}
+
+{{/* Parent slug */}}
+{{ $parentSlug := ((anchorize .Parent.Params.Title) | default "root") }}
+{{ if .Parent.Params.Slug }}
+    {{ $parentSlug = .Parent.Params.Slug}}
+{{ end }}
+
+{{/*  {{ $link := (printf "%v#%v" .Parent.Permalink .Params.Title ) }} <!-- CAN BE REMOVED -->  */}}
 {{ $type := "parent" }}
 {{if not .Data.Pages }}
     {{ $type = "child" }}
 {{end}}
 {{ $dataId := .Params.id | default .File.Path }}
-{{ $pageSlug := (printf "%v-%v" (.Parent.Params.Slug | default "root") .Params.Slug )}}
+{{ $pageSlug := (printf "%v-%v" ($parentSlug) $slug )}}
 {{ $nestedArticles := .Site.Params.includeNestedArticles | default true }}
 
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}">
     {{ if or (ne (len .Content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
-        <span class="anchor"  id="{{ .Params.Slug }}" data-id="{{ $dataId }}"></span>
+        <span class="anchor"  id="{{ $slug }}" data-id="{{ $dataId }}"></span>
         <div class="article-title" >
             {{ if not .Data.Pages }}
                 <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
@@ -20,7 +33,7 @@
             {{ end }}
            
             <div class="permalink">
-                <a class="link-icon" href="#{{ .Params.Slug }}" title="Permalink to this article"></a>
+                <a class="link-icon" href="#{{ $slug }}" title="Permalink to this article"></a>
             </div>
         </div>
 
