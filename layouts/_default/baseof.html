@@ -78,9 +78,9 @@
                 bar_offset = enterprise_bar.getBoundingClientRect().height;
             }
 
-            $(window).scroll(function scrollspyOffset(window) {
-                if (window.scrollTop >= offset) {
-                    $('body').data()['bs.scrollspy'].options.offset = (60 + bar_offset);
+            $(window).scroll(function() {
+                if ($(document).scrollTop() >= offset) {
+                    $('body').data()['bs.scrollspy'].options.offset = (30 + bar_offset);
                 }
                 else {
                     $('body').data()['bs.scrollspy'].options.offset = offset;
