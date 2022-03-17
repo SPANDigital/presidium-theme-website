@@ -53,8 +53,8 @@
                             {{ if $menu.Params.externalUrl}}
                             {{ partial "nav-item-external" $menu }}
                         {{ else }}
-                            {{ $identifier := replace $menu.Identifier " " "-"}}
-                            {{ with $.Site.GetPage "section" $identifier }}
+                            {{ $identifier := anchorize $menu.Identifier }}
+                            {{ with $.Site.GetPage $identifier }}
                                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false) }}
                             {{ end }}
                         {{ end }}                    
