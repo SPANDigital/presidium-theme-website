@@ -134,9 +134,10 @@
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="/presidium.js"></script>
     <script>
-        window.presidium.tooltips = {};
-        window.presidium.tooltips.load = function (data) { };
-        window.presidium.articles.mount();
+        window.tooltips.mount();
+        window.articles.mount();
+        window.modal.mount();
+
         mermaid.initialize({ startOnLoad: true });
     </script>
 
