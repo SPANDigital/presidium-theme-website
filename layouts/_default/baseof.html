@@ -76,6 +76,10 @@
             const enterprise_bar = $('#presidium-enterprise-toolbar').get(0);
             if (enterprise_bar) {
                 bar_offset = enterprise_bar.getBoundingClientRect().height;
+                // Update offset after linking
+                $('span.anchor').each(function(){
+                    $(this).addClass('anchor-enterprise');
+                });
             }
 
             $(window).scroll(function() {
