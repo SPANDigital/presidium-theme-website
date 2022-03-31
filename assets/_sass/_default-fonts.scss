@@ -29,3 +29,7 @@ $font-path: "assets/fonts/gotham/" !default;
   font-style: normal;
   font-display: swap;
 }
+
+// Include open sans
+$web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" !default;
+@import url($web-font-path);
