@@ -15,8 +15,7 @@
     {{ end }}
     {{ end }}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -63,37 +62,7 @@
             $('.toggle').click(function (event) {
                 event.preventDefault();
                 $('.navbar-items').toggle('expanded');
-            });
-
-            // Set scrollspy offset
-            let offset = 0;
-            const content = $('.article-title').get(0);
-            if (content) {
-                offset = window.pageYOffset + content.getBoundingClientRect().top;
-                $('body').scrollspy({ target: '#presidium-navigation', offset: offset });
-            }
-            let bar_offset = 0;
-            const enterprise_bar = $('#presidium-enterprise-toolbar').get(0);
-            if (enterprise_bar) {
-                bar_offset = enterprise_bar.getBoundingClientRect().height;
-                // Update offset after linking
-                $('span.anchor').each(function(){
-                    $(this).addClass('anchor-enterprise');
-                });
-            }
-
-            $(window).scroll(function() {
-                if ($(document).scrollTop() >= offset) {
-                    $('body').data()['bs.scrollspy'].options.offset = (30 + bar_offset);
-                }
-                else {
-                    $('body').data()['bs.scrollspy'].options.offset = offset;
-                }
-                $('body').data()['bs.scrollspy'].process();
-                $('body').scrollspy("refresh");
-            });
-
-
+            });       
             
         });
     </script>
@@ -102,9 +71,9 @@
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="/presidium.js"></script>
     <script>
-        window.tooltips.mount();
-        window.articles.mount();
-        window.modal.mount();
+        window.presidium.tooltips.load();
+        window.presidium.articles.mount();
+        window.presidium.modal.init();
 
         mermaid.initialize({ startOnLoad: true });
     </script>
