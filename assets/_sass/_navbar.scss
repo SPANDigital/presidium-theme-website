@@ -10,6 +10,23 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 }
 
+// Custom SASS
+@mixin bg-gradient($color) {
+  // Mixin below comes from bootstrap
+  @include gradient-vertical-three-colors(
+    lighten($color, 15%),
+    $color,
+    50%,
+    darken($color, 4%)
+  );
+  filter: none;
+  border: 1px solid darken($color, 10%);
+}
+
+.scrollable-container {
+  @include bg-gradient($navbar-default-bg);
+}
+
 #presidium-navigation {
   position: relative;
 
@@ -90,8 +107,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       overflow-y: auto;
       height: 100%;
     }
-    filter: none;
-    border: 1px solid darken($navbar-default-bg, 10%);
   }
 
   nav {
