@@ -3,20 +3,23 @@
   border-color: $color;
 
   &::before {
-      content: $text;
+    content: $text;
   }
 
   &::before,
   a:hover {
-      color: $color;
+    color: $color;
   }
 }
 
 @mixin headings {
-  h1, h2,
-  h3, h4,
-  h5, h6 {
-      @content;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @content;
   }
 }
 
@@ -25,12 +28,12 @@
   @media (min-width: $grid-float-breakpoint) {
     margin-left: 260px;
   }
-  
+
   #presidium-content {
     position: relative;
     padding: 10px 20px;
     margin-top: 80px;
-    
+
     @media (min-width: $grid-float-breakpoint) {
       position: inherit;
       margin-top: 0;
@@ -38,14 +41,14 @@
     }
 
     .page-title {
-      font-family: "Gotham A";
+      font-family: 'Gotham A';
     }
 
     .label {
       font-size: $font-size-base;
       font-weight: normal;
     }
-   
+
     section {
       #no-content-warning {
         display: none;
@@ -59,10 +62,9 @@
           top: -10px;
         }
       }
-      span.anchor-enterprise{
+      span.anchor-enterprise {
         top: -50px;
       }
-
 
       .article-title {
         display: flex;
@@ -77,13 +79,13 @@
             }
           }
         }
-       
+
         .permalink {
           display: none;
           margin-left: 12px;
           margin-top: 14px;
         }
-        
+
         &:hover > .permalink {
           display: block;
           > a {
@@ -105,19 +107,19 @@
         }
 
         .status-draft {
-          background-image: url("images/status-draft.svg");
+          background-image: url('images/status-draft.svg');
           color: $color-yellow-green;
         }
         .status-review {
-          background-image: url("images/status-review.svg");
+          background-image: url('images/status-review.svg');
           color: $color-yellow-green;
         }
         .status-published {
-          background-image: url("images/status-published.svg");
+          background-image: url('images/status-published.svg');
           color: $color-green;
         }
         .status-retired {
-          background-image: url("images/status-retired.svg");
+          background-image: url('images/status-retired.svg');
           color: $color-grey;
         }
       }
@@ -129,7 +131,7 @@
           font-size: 80%;
         }
       }
-      
+
       .article-header {
         width: 100%;
         padding: 10px 0;
@@ -148,7 +150,7 @@
         .article-role {
           float: right;
           .label {
-            background-image: url("images/role-icon.svg");
+            background-image: url('images/role-icon.svg');
             background-repeat: no-repeat;
             background-size: 25px 15px;
             background-color: unset;
@@ -193,7 +195,7 @@
             right: 100%;
             top: 50%;
             border: solid transparent;
-            content: " ";
+            content: ' ';
             height: 0;
             width: 0;
             position: absolute;
@@ -216,14 +218,14 @@
         }
 
         .edit-icon {
-          background-image: url("assets/svg/edit-icon.svg");
+          background-image: url('assets/svg/edit-icon.svg');
           fill: #9a9a99;
           width: 16px;
           height: 16px;
         }
 
         .link-icon {
-          background-image: url("assets/svg/link-icon.svg");
+          background-image: url('assets/svg/link-icon.svg');
           fill: #9a9a99;
           width: 16px;
           height: 16px;
@@ -235,33 +237,39 @@
         > div {
           overflow-x: auto;
         }
-  
+
         iframe {
           box-shadow: 0px 0px 10px #777;
           border: None;
         }
-  
+
         @include headings {
           text-transform: none;
           margin-top: 20px;
           margin-bottom: 10px;
         }
-  
-        h1, .h1 {
+
+        h1,
+        .h1 {
           font-size: $font-size-h3;
         }
-        
-        h2, .h2 {
+
+        h2,
+        .h2 {
           font-size: $font-size-h4;
         }
-  
-        h3, .h3, 
-        h4, .h4,
-        h5, .h5,
-        h6, .h6 {
+
+        h3,
+        .h3,
+        h4,
+        .h4,
+        h5,
+        .h5,
+        h6,
+        .h6 {
           font-size: $font-size-h5;
         }
-  
+
         .presidium-pro-tip,
         .presidium-prerequisite,
         .presidium-for-example,
@@ -275,17 +283,17 @@
           border: 2px solid;
           border-radius: 4px;
           font-style: normal;
-  
+
           em {
             font-weight: bold;
             font-style: normal;
           }
-  
+
           a {
             text-decoration: underline;
             color: $color-grey;
           }
-  
+
           span {
             font-size: 18px;
             line-height: 21px;
@@ -293,9 +301,9 @@
             letter-spacing: 0;
             margin-bottom: 4px;
             display: flex;
-            font-family: "Gotham A", "Gotham B";
+            font-family: 'Gotham A', 'Gotham B';
           }
-  
+
           &::before {
             display: flex;
             font-size: 13px;
@@ -304,49 +312,49 @@
             line-height: 15px;
             text-transform: uppercase;
             margin-bottom: 4px;
-            font-family: "Gotham A", "Gotham B";
+            font-family: 'Gotham A', 'Gotham B';
           }
         }
-  
+
         .presidium-pro-tip {
-          @include callout($color-orange, "span pro tip");
+          @include callout($color-orange, 'span pro tip');
         }
-  
+
         .presidium-for-example {
-          @include callout($color-green,  "for example...");
+          @include callout($color-green, 'for example...');
         }
-  
+
         .presidium-suggested-reading {
-          @include callout($color-blue,  "suggested reading");
+          @include callout($color-blue, 'suggested reading');
         }
-  
+
         .presidium-suggested-courses {
-          @include callout($color-blue,  "suggested courses");
+          @include callout($color-blue, 'suggested courses');
         }
-  
+
         .presidium-best-practice {
-          @include callout($color-orange,  "best practice");
+          @include callout($color-orange, 'best practice');
         }
-  
+
         .presidium-warning {
-          @include callout($color-red,  "warning");
+          @include callout($color-red, 'warning');
         }
-  
+
         .presidium-prerequisite {
-          @include callout($color-yellow-green,  "prerequisite");
+          @include callout($color-yellow-green, 'prerequisite');
         }
-  
+
         .presidium-chris-says {
           background-color: #000000;
           border-color: #000000;
-          background-image: url("images/pentagram-symbol.svg");
+          background-image: url('images/pentagram-symbol.svg');
           color: $color-grey-2;
           background-repeat: no-repeat;
           background-position: top right;
           background-size: 31px;
           background-origin: content-box;
-  
-          @include callout($color-grey-2,  "chris says...");
+
+          @include callout($color-grey-2, 'chris says...');
         }
       }
     }
@@ -370,12 +378,14 @@
   blockquote {
     @extend .well;
     font-size: inherit;
-  } 
+  }
 
-  ul, ol {
+  ul,
+  ol {
     margin-bottom: ($line-height-computed / 2);
-    ul, ol {
-      margin-bottom: $line-height-computed / 4;
+    ul,
+    ol {
+      margin-bottom: 24px;
     }
   }
 }
