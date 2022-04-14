@@ -324,6 +324,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       .menu-title {
         flex: 1;
+        word-break: normal;
         @media (max-width: $grid-float-breakpoint) {
           font-size: 16px;
         }
