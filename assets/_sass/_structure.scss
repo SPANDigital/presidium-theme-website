@@ -233,6 +233,10 @@
         }
       }
 
+      figure {
+        margin-bottom: 24px;
+      }
+
       article {
         > div {
           overflow-x: auto;
@@ -315,6 +319,7 @@
             font-family: 'Gotham A', 'Gotham B';
           }
         }
+
 
         .presidium-pro-tip {
           @include callout($color-orange, 'span pro tip');
