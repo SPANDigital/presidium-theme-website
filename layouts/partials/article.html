@@ -25,7 +25,8 @@
     <div class="presidium-article-wrapper">
         <span class="anchor"  id="{{ $slug }}" data-id="{{ $dataId }}"></span>
         <div class="article-title" >
-            {{ if not .Data.Pages }}
+            {{ if eq .Parent.Title .Title}}
+            {{ else if not .Data.Pages }}
                 <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
             {{ else }}
                 <h1>{{ .Title }} {{ partial "edit-link.html" }}</h1>

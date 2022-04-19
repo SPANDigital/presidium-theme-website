@@ -73,7 +73,7 @@
     {{ if and (.NavPage.Data.Pages) }}
         <ul>
         {{ range $index, $subMenu := .NavPage.Data.Pages }}
-            {{ if not $subMenu.Params.hidden }}
+            {{ if and (not $subMenu.Params.hidden) (ne .Title .Parent.Title) }}
                  {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
             {{ end }}
         {{ end }}
