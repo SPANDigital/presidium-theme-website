@@ -24,18 +24,19 @@
     {{ if or (ne (len .Content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
         <span class="anchor"  id="{{ $slug }}" data-id="{{ $dataId }}"></span>
-        <div class="article-title" >
-            {{ if eq .Parent.Title .Title}}
-            {{ else if not .Data.Pages }}
-                <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
-            {{ else }}
-                <h1>{{ .Title }} {{ partial "edit-link.html" }}</h1>
-            {{ end }}
-           
-            <div class="permalink">
-                <a class="link-icon" href="#{{ $slug }}" title="Permalink to this article"></a>
+        {{ if ne .Parent.Title .Title}}
+            <div class="article-title" >
+                {{ if not .Data.Pages }}
+                    <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
+                {{ else }}
+                    <h1>{{ .Title }} {{ partial "edit-link.html" }}</h1>
+                {{ end }}
+                
+                <div class="permalink">
+                    <a class="link-icon" href="#{{ $slug }}" title="Permalink to this article"></a>
+                </div>
             </div>
-        </div>
+        {{ end }}
 
         {{ partial "article-header" . }}
 
