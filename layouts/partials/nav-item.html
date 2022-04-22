@@ -73,7 +73,9 @@
     {{ if and (.NavPage.Data.Pages) }}
         <ul>
         {{ range $index, $subMenu := .NavPage.Data.Pages }}
-            {{ if and (not $subMenu.Params.hidden) (ne .Title .Parent.Title) }}
+            {{ if and (eq .Parent.Title .Title) (eq $index 0) }}
+                {{/*  No link needed - For when the main title is the same as the first article  */}}
+            {{ else if not $subMenu.Params.hidden }}
                  {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
             {{ end }}
         {{ end }}

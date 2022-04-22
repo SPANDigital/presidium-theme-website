@@ -20,11 +20,15 @@
 {{ $pageSlug := (printf "%v-%v" ($parentSlug) $slug )}}
 {{ $nestedArticles := .Site.Params.includeNestedArticles | default true }}
 
+{{ $index := .Scratch.Get "index" }}
+
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}">
     {{ if or (ne (len .Content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
         <span class="anchor"  id="{{ $slug }}" data-id="{{ $dataId }}"></span>
-        {{ if ne .Parent.Title .Title}}
+        {{ if and (eq .Parent.Title .Title) (eq $index 0) }}
+            {{/*  No title - For when the main title is the same as the first article  */}}
+        {{ else }}
             <div class="article-title" >
                 {{ if not .Data.Pages }}
                     <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
