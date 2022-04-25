@@ -224,6 +224,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       border-top: 1px solid $nav-item-border;
       margin-left: 0;
       margin-right: 0;
+      font-family: 'Gotham A', 'Gotham B';
 
       .filter {
         margin: 30px 5px 25px 5px;
@@ -268,7 +269,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           float: none;
           position: relative;
           display: block;
-          font-size: 11px;
+          font-size: 12px;
           font-weight: bold;
 
           &.hidden {
@@ -282,7 +283,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       a {
         display: flex;
         padding: 12px 10px;
-        color: $color-grey;
+        color: $color-grey-2;
         text-decoration: none;
 
         &:hover {
@@ -295,6 +296,13 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
 
         @include menu-levels(6, 5%);
+
+        // PRSDM-1929
+        // Override the darkening of background on level 1 and 2
+        &.level-1,
+        &.level-2 {
+          background-color: $navbar-default-bg;
+        }
       }
 
       &.active,
