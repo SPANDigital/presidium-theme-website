@@ -4,7 +4,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   @for $i from 0 through $count {
     &.level-#{$i + 1} {
       padding-left: calc(#{$i} * 10px + 25px);
-      // background-color: darken($navbar-default-bg, $i * $darken);
       border-bottom: 1px darken($nav-item-border, $i * $darken) solid;
     }
   }
