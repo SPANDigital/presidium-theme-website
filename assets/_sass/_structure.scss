@@ -68,7 +68,7 @@
 
       .article-title {
         display: flex;
-        align-items: center;
+        align-items: baseline;
 
         @include headings {
           &:hover {
@@ -83,7 +83,6 @@
         .permalink {
           display: none;
           margin-left: 12px;
-          margin-top: 14px;
         }
 
         &:hover > .permalink {
@@ -319,7 +318,6 @@
             font-family: 'Gotham A', 'Gotham B';
           }
         }
-
 
         .presidium-pro-tip {
           @include callout($color-orange, 'span pro tip');
