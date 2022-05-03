@@ -40,10 +40,6 @@
       padding: 60px 100px;
     }
 
-    .page-title {
-      font-family: 'Gotham A';
-    }
-
     .label {
       font-size: $font-size-base;
       font-weight: normal;
@@ -305,7 +301,6 @@
             letter-spacing: 0;
             margin-bottom: 4px;
             display: flex;
-            font-family: 'Gotham A', 'Gotham B';
           }
 
           &::before {
@@ -316,7 +311,6 @@
             line-height: 15px;
             text-transform: uppercase;
             margin-bottom: 4px;
-            font-family: 'Gotham A', 'Gotham B';
           }
         }
 
