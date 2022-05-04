@@ -68,7 +68,7 @@
 
       .article-title {
         display: flex;
-        align-items: baseline;
+        align-items: center;
 
         @include headings {
           &:hover {
@@ -83,6 +83,7 @@
         .permalink {
           display: none;
           margin-left: 12px;
+          margin-top: 14px;
         }
 
         &:hover > .permalink {
