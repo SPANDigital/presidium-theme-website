@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
 </head>
 
-<body>
+<body data-analytics="{{$.Site.Params.analyticsToken}}">
     {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
         class="presidium-enterprise">
@@ -80,6 +80,11 @@
     {{ if $.Site.Params.enterprise_enabled }}
     <script src="{{ $.Site.Params.enterprise_script }}"></script>
     {{ end }}
+
+    {{ if $.Site.Params.analyticsToken }}
+         {{ partial "analytics.html" }}
+    {{ end }}
+    
 
 </body>
 
