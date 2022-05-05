@@ -1,14 +1,7 @@
-<script>
-    var bodytag = document.getElementsByTagName('body')[0];
-    var token = bodytag.getAttribute('data-analytics');
-    var scriptEl = document.createElement('script');
-    scriptEl.setAttribute('src','https://www.googletagmanager.com/gtag/js?id='+token);
-    scriptEl.setAttribute('async','')
-    bodytag.appendChild(scriptEl)   
-</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.analyticsToken }}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', token);
+    gtag('config', "{{ $.Site.Params.analyticsToken }}");
 </script>
