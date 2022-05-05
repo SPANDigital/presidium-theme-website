@@ -81,6 +81,11 @@
     <script src="{{ $.Site.Params.enterprise_script }}"></script>
     {{ end }}
 
+    {{ if $.Site.Params.analyticsToken }}
+         {{ partial "analytics.html"  . }}
+    {{ end }}
+    
+
 </body>
 
 </html>
