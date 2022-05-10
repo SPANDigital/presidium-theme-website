@@ -1,5 +1,13 @@
 {
   "singleQuote": true,
   "printWidth": 80,
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "go-template"
+      }
+    }
+  ],
   "tabWidth": 2
 }

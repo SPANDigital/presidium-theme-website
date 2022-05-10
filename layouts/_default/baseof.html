@@ -87,6 +87,37 @@
     {{ end }}
     
 
+    {{ if $.Site.Params.enableSublinks }}
+    <script type="application/javascript">
+
+      (function addHeadingLinks(){
+        var articles = document.querySelectorAll('.article.child');
+
+        articles.forEach( function(article){
+          var headings = article.querySelectorAll('h1, h2');
+          headings.forEach(function(heading){
+            if(heading.id){
+              var container = document.createElement('div');
+              var linkContainer = document.createElement('div')
+              var link = document.createElement('a');
+
+              container.className = 'article-title';
+              linkContainer.className = "permalink";
+              link.className = "link-icon";
+              link.href = '#'+heading.id;
+              link.title = "Permalink to this article";
+
+              linkContainer.appendChild(link);
+              heading.insertAdjacentElement("beforebegin", container);
+              container.appendChild(heading);
+              container.appendChild(linkContainer)
+            }
+          })
+        });
+      })();
+    </script>
+    {{ end }}
+
 </body>
 
 </html>
