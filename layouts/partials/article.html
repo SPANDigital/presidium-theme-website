@@ -32,7 +32,11 @@
             {{/*  No title - For when the main title is the same as the first article  */}}
         {{ else }}
             <div class="article-title" >
-                <h1>{{ .Title }} {{ partial "edit-link.html" }}</h1>
+                {{ if not .Data.Pages }}
+                    <h2>{{ .Title }} {{ partial "edit-link.html" }}</h2>
+                {{ else }}
+                    <h1>{{ .Title }} {{ partial "edit-link.html" }}</h1>
+                {{ end }}
                 
                 <div class="permalink">
                     <a class="link-icon" href="#{{ $slug }}" title="Permalink to this article"></a>
