@@ -109,10 +109,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   
     @media (min-width: $grid-float-breakpoint) {
       overflow: auto;
-      // overflow-x: scroll;
-      // max-width: 300px;
-      // min-width: 260px;
-      // width: fit-content;
       border: 0;
       margin-bottom: 150px;
     }
