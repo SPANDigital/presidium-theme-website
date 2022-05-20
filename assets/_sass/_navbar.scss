@@ -27,33 +27,28 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   @include bg-gradient($navbar-default-bg);
 }
 
-#presidium-navigation {
+#resizer {
+  display: none;
+  cursor: col-resize;
+  flex-basis: 20px;
   position: relative;
+  z-index: 2;
+  border-right: 0px solid $border;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
 
-  .placeholder {
-    width: 260px;
-    background-image: linear-gradient(
-      -45deg,
-      rgb(249, 249, 249) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgb(249, 249, 249) 50%,
-      rgb(249, 249, 249) 75%,
-      transparent 75%,
-      transparent
-    );
-    -webkit-background-size: 50px 50px;
-    -moz-background-size: 50px 50px;
-    -ms-background-size: 50px 50px;
-    background-size: 50px 50px;
-    -webkit-animation: loading-placeholder 2s linear infinite;
-    -moz-animation: loading-placeholder 2s linear infinite;
-    -ms-animation: loading-placeholder 2s linear infinite;
-    animation: loading-placeholder 2s linear infinite;
-
-    height: 100%;
-    position: fixed;
+  &:hover {
+    border-right: 1px solid $border;
   }
+}
+
+#presidium-navigation {
+  min-width: 260px;
+  width: 260px;
+  max-width: 50%;
+  position: relative;
 
   @-webkit-keyframes loading-placeholder {
     0% {
@@ -110,8 +105,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 
   nav {
+  
+  
     @media (min-width: $grid-float-breakpoint) {
-      width: 260px;
+      overflow: auto;
+      // overflow-x: scroll;
+      // max-width: 300px;
+      // min-width: 260px;
+      // width: fit-content;
       border: 0;
       margin-bottom: 150px;
     }
@@ -325,6 +326,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       .menu-title {
         flex: 1;
         word-break: normal;
+        text-overflow: ellipsis!important;
+        overflow: hidden;
+
         @media (max-width: $grid-float-breakpoint) {
           font-size: 16px;
         }

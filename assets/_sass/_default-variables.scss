@@ -28,6 +28,7 @@ $gray: #666 !default; // #555
 $gray-light: lighten($gray-base, 60%) !default; // #999
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 $navbar-default-bg: #eee !default;
+$border: #dadada;
 // fonts
 $font-size-base: 14px !default;
 $line-height-base: 1.428571429 !default; // 20/14

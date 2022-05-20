@@ -23,11 +23,15 @@
   }
 }
 
+#presidium {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #presidium-container {
+  flex-basis: 0;
+  flex-grow: 999;
   color: $gray-darker;
-  @media (min-width: $grid-float-breakpoint) {
-    margin-left: 260px;
-  }
 
   #presidium-content {
     position: relative;
