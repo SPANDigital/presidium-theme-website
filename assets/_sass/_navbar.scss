@@ -33,14 +33,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   flex-basis: 20px;
   position: relative;
   z-index: 2;
-  border-right: 0px solid $border;
+  border-left: 0px solid $border;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
 
   &:hover {
-    border-right: 1px solid $border;
+    border-left: 1px solid $border;
   }
 }
 
