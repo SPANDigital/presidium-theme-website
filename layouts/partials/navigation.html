@@ -2,7 +2,7 @@
 {{ $scopingEnabled := .Site.Params.scopesEnabled }}
 {{ $rootUrl := ( relURL "/")}}
 
-<nav class="navbar">
+<nav class="navbar scrollable-container">
     <div class="navbar-header">
         <a href="{{ .Site.BaseURL }}" class="brand">
             {{ $navImg := (printf "%s%s" .Site.BaseURL "images/logo.png") }}

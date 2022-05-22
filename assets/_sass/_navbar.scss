@@ -20,11 +20,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     darken($color, 4%)
   );
   filter: none;
-  border: 1px solid darken($color, 10%);
-}
-
-.scrollable-container {
-  @include bg-gradient($navbar-default-bg);
 }
 
 #resizer {
@@ -52,8 +47,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   top: 0px;
   bottom: 0px;
   height: 100vh;
-  overflow-y: auto;
-  background: $navbar-default-bg;
 
   @-webkit-keyframes loading-placeholder {
     0% {
@@ -102,11 +95,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 
   .scrollable-container {
-    @media (min-width: $grid-float-breakpoint) {
-      position: fixed;
-      overflow-y: auto;
-      height: 100%;
-    }
+    @include bg-gradient($navbar-default-bg);
+    height: 100%;
   }
 
   nav {
@@ -325,7 +315,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       .menu-title {
         flex: 1;
         word-break: normal;
-        text-overflow: ellipsis!important;
+        text-overflow: ellipsis !important;
         overflow: hidden;
 
         @media (max-width: $grid-float-breakpoint) {
