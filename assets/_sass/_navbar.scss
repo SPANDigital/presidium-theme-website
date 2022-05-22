@@ -53,6 +53,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   bottom: 0px;
   height: 100vh;
   overflow-y: auto;
+  background: $navbar-default-bg;
 
   @-webkit-keyframes loading-placeholder {
     0% {
