@@ -2,70 +2,67 @@
 {{ $scopingEnabled := .Site.Params.scopesEnabled }}
 {{ $rootUrl := ( relURL "/")}}
 
-<div data-reactroot="" id="presidium-navigation" class="scrollable-container">
-    <nav class="navbar">
-
-        <div class="navbar-header">
-            <a href="{{ .Site.BaseURL }}" class="brand">
-                {{ $navImg := (printf "%s%s" .Site.BaseURL "images/logo.png") }}
-                {{ if .Site.Params.logo }}
-                {{ $navImg =  (printf "%s%s" .Site.BaseURL .Site.Params.logo) }}
-                {{ end }}
-                <img src={{ $navImg }} alt="Logo image">
-            </a>
-            <div>
-                <p class="brand-name">{{ .Site.Title }}</p>
-            </div>
-            <button class="toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-items">
-            {{ $roles := .Site.Params.roles.options | default slice }}
-            {{ if and (gt (len $roles) 0) .Site.Params.show.role }}
-            <div class="filter form-group">
-                <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
-                <select id="roles-select" class="form-control">
-                    <option value="All Roles">{{ .Site.Params.roles.all }}</option>
-                    {{ range sort $roles }}
-                    <option value="{{ . }}">{{ . }}</option>
-                    {{ end }}
-                </select>
-            </div>
+<nav class="navbar">
+    <div class="navbar-header">
+        <a href="{{ .Site.BaseURL }}" class="brand">
+            {{ $navImg := (printf "%s%s" .Site.BaseURL "images/logo.png") }}
+            {{ if .Site.Params.logo }}
+            {{ $navImg =  (printf "%s%s" .Site.BaseURL .Site.Params.logo) }}
             {{ end }}
-            {{ $currentPage := . }}
-            <ul class="nav navbar-nav">
-                {{ range $menu := .Site.Menus.main.ByWeight }}
+            <img src={{ $navImg }} alt="Logo image">
+        </a>
+        <div>
+            <p class="brand-name">{{ .Site.Title }}</p>
+        </div>
+        <button class="toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-items">
+        {{ $roles := .Site.Params.roles.options | default slice }}
+        {{ if and (gt (len $roles) 0) .Site.Params.show.role }}
+        <div class="filter form-group">
+            <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
+            <select id="roles-select" class="form-control">
+                <option value="All Roles">{{ .Site.Params.roles.all }}</option>
+                {{ range sort $roles }}
+                <option value="{{ . }}">{{ . }}</option>
+                {{ end }}
+            </select>
+        </div>
+        {{ end }}
+        {{ $currentPage := . }}
+        <ul class="nav navbar-nav">
+            {{ range $menu := .Site.Menus.main.ByWeight }}
 
-                    {{ $isRendering := true }}
+                {{ $isRendering := true }}
 
-                    {{ if (isset $menu.Params "scope" ) }}
-                        {{ if $scopingEnabled }}
-                            {{ $menuScope := $menu.Params.scope }}
-                            {{ $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0  }}
-                        {{ end }}
+                {{ if (isset $menu.Params "scope" ) }}
+                    {{ if $scopingEnabled }}
+                        {{ $menuScope := $menu.Params.scope }}
+                        {{ $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0  }}
                     {{ end }}
-                    
-                    {{ if $isRendering }}
-                            {{ if $menu.Params.externalUrl}}
-                            {{ partial "nav-item-external" $menu }}
-                        {{ else }}
-                            {{ $identifier := anchorize $menu.Identifier }}
-                            {{ with $.Site.GetPage $identifier }}
-                                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false) }}
-                            {{ end }}
-                        {{ end }}                    
-                    {{ end }}
-
+                {{ end }}
                 
+                {{ if $isRendering }}
+                        {{ if $menu.Params.externalUrl}}
+                        {{ partial "nav-item-external" $menu }}
+                    {{ else }}
+                        {{ $identifier := anchorize $menu.Identifier }}
+                        {{ with $.Site.GetPage $identifier }}
+                            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false) }}
+                        {{ end }}
+                    {{ end }}                    
                 {{ end }}
 
-                <li class="presidium-js-version"
-                    style="text-align: center; color: rgb(167, 165, 165); margin-top: 10px; font-size: 12px;"></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+            
+            {{ end }}
+
+            <li class="presidium-js-version"
+                style="text-align: center; color: rgb(167, 165, 165); margin-top: 10px; font-size: 12px;"></li>
+        </ul>
+    </div>
+</nav>

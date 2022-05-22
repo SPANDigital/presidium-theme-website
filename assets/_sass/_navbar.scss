@@ -48,7 +48,11 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   min-width: 260px;
   width: 260px;
   max-width: 50%;
-  position: relative;
+  position: sticky;
+  top: 0px;
+  bottom: 0px;
+  height: 100vh;
+  overflow-y: auto;
 
   @-webkit-keyframes loading-placeholder {
     0% {
@@ -105,8 +109,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 
   nav {
-  
-  
     @media (min-width: $grid-float-breakpoint) {
       overflow: auto;
       border: 0;
