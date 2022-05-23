@@ -93,6 +93,11 @@
         const resizer = document.querySelector("#resizer");
         const sidebar = document.querySelector("#presidium-navigation");
         resizer.style.display = 'block';
+
+        const cachedSize = window.localStorage.getItem('sidenav');
+        if(cachedSize) {
+          sidebar.style.flexBasis = cachedSize;
+        }
         
         resizer.addEventListener("mousedown", (event) => {
             event.preventDefault();
@@ -105,6 +110,7 @@
         
         function resize(e) {
           const size = `${e.x}px`;
+          window.localStorage.setItem('sidenav', size);
           sidebar.style.flexBasis = size;
         }
     </script>
