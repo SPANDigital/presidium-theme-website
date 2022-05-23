@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
 </head>
 
-<body>
+<body id="presidium">
     {{ if $.Site.Params.enterprise_enabled }}
     <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
         class="presidium-enterprise">
@@ -26,8 +26,10 @@
     {{ end }}
 
     <div id="presidium-navigation">
-        {{ partial "navigation.html" .}}
+      {{ partial "navigation.html" .}}
     </div>
+
+    <div id="resizer"></div>
     <div id="presidium-container" class="container-fluid">
         <div class="row">
             <div id="presidium-content" class="col-lg-10 col-md-12">
@@ -86,7 +88,28 @@
          {{ partial "analytics.html"  . }}
     {{ end }}
     
-
+    {{ if $.Site.Params.resizeMenu | default true }}
+    <script>
+        const resizer = document.querySelector("#resizer");
+        const sidebar = document.querySelector("#presidium-navigation");
+        resizer.style.display = 'block';
+        
+        resizer.addEventListener("mousedown", (event) => {
+            event.preventDefault();
+          document.addEventListener("mousemove", resize, false);
+          document.addEventListener("mouseup", () => {
+            event.preventDefault();
+            document.removeEventListener("mousemove", resize, false);
+          }, false);
+        });
+        
+        function resize(e) {
+          const size = `${e.x}px`;
+          sidebar.style.flexBasis = size;
+        }
+    </script>
+    {{ end }}
+    
     {{ if $.Site.Params.enableSublinks }}
     <script type="application/javascript">
 
