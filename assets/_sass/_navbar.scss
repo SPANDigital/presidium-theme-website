@@ -40,6 +40,10 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 }
 
+.presidium-enterprise + #presidium-navigation {
+  margin-top: 40px;
+}
+
 #presidium-navigation {
   min-width: 260px;
   width: 260px;
