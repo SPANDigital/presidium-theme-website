@@ -20,6 +20,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     darken($color, 4%)
   );
   filter: none;
+  border: 1px solid darken($color, 10%);
 }
 
 #resizer {
