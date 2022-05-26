@@ -11,18 +11,23 @@
 {{ end }}
 
 {{ with .Page}}
+    {{ $slug := humanize .Params.Title }}
+    {{ $slug = anchorize $slug }}
+    {{ if .Params.Slug }}
+        {{ $slug = .Params.Slug}}
+    {{ end }}
     {{ if .Data.Pages }}
         {{ $link = .RelPermalink }}
     {{ end }}
     {{if not .Data.Pages }}
-        {{ $link = (printf "%v#%v" .Parent.RelPermalink .Params.Slug ) }}
+        {{ $link = (printf "%v#%v" .Parent.RelPermalink $slug ) }}
     {{end}}
     {{ $scope := slice }}
     {{ if .Params.Scope }}
         {{ $scope = $scope | append .Params.Scope }}
     {{ end }}
     {{ if not (eq .Plain "") }}
-     {{ $items = $items | append (dict "id" .File.Path "title" .Title "slug" .Params.Slug "url" $link "section" ($section | default "") "category" ($category | default "") "roles" (slice (.Params.Roles | default "All Roles")) "scope" $scope "author" (.Params.Author | default "None") "content" .Plain "originalContent" .RawContent "updated" .Lastmod  )}}
+     {{ $items = $items | append (dict "id" .File.Path "title" .Title "slug" $slug "url" $link "section" ($section | default "") "category" ($category | default "") "roles" (slice (.Params.Roles | default "All Roles")) "scope" $scope "author" (.Params.Author | default "None") "content" .Plain "originalContent" .RawContent "updated" .Lastmod  )}}
     {{ end }}
     {{ range .Data.Pages }}
         {{ range (partial "searchmap-item" (dict "Page" . "Level" $childLevel "Section" $section "Category" $category ) ) }}
