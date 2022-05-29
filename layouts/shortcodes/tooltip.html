@@ -2,7 +2,6 @@
 {{ $ref := .Get 1}}
 {{ $page := "" }}
 
-
 {{ if $ref }}
     {{ $page = .Site.GetPage $ref }}
 {{ end }}
@@ -17,7 +16,13 @@
 {{ end }}
 
 {{ if $page }}
-    <a class="tooltips-term" href="{{ $page.Permalink }}" >
+    {{ $tooltipWord := print (path.Base $page.Permalink) }}
+    {{ $old := printf "%s/" $tooltipWord }}
+    {{ $new := printf "#%s" $tooltipWord }}
+    <!-- Insert a '#' symbol before the glossary term so that it correctly navigates to link -->
+    {{ $tooltipLink := replace $page.Permalink $old $new}}
+
+    <a class="tooltips-term" href="{{ $tooltipLink }}" >
         {{ $title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
     </a>
 {{ else }}
