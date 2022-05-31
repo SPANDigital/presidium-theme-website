@@ -16,8 +16,15 @@
     {{ end }}
 {{ end }}
 
+{{ $slug := $page.Params.Slug }}
+{{ $isChild := not $page.Data.Pages}}
+{{ $articleLink := $page.Permalink }}
+{{if $isChild }}
+    {{ $articleLink = (printf "%v#%v" $page.Parent.Permalink $slug ) }}
+{{end}}
+
 {{ if $page }}
-    <a class="tooltips-term" href="{{ $page.Permalink }}" >
+    <a class="tooltips-term" href="{{ $articleLink }}" >
         {{ $title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
     </a>
 {{ else }}
