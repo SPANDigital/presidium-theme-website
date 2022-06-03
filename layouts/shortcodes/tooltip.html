@@ -17,10 +17,10 @@
 {{ end }}
 
 {{/* Use title if no slug */}}
-{{ $slug := humanize .Params.Title }} {{/* Handles any dashes in the title */}}
+{{ $slug := humanize $page.Params.Title }} {{/* Handles any dashes in the title */}}
 {{ $slug = anchorize $slug }}
-{{ if .Params.Slug }}
-    {{ $slug = .Params.Slug}}
+{{ if $page.Params.Slug }}
+    {{ $slug = $page.Params.Slug}}
 {{ end }}
 
 {{ $isChild := not $page.Data.Pages}}
