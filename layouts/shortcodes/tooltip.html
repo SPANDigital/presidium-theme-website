@@ -16,7 +16,13 @@
     {{ end }}
 {{ end }}
 
-{{ $slug := $page.Params.Slug }}
+{{/* Use title if no slug */}}
+{{ $slug := humanize .Params.Title }} {{/* Handles any dashes in the title */}}
+{{ $slug = anchorize $slug }}
+{{ if .Params.Slug }}
+    {{ $slug = .Params.Slug}}
+{{ end }}
+
 {{ $isChild := not $page.Data.Pages}}
 {{ $articleLink := $page.Permalink }}
 {{if $isChild }}
