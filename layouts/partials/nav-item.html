@@ -56,9 +56,16 @@
 {{/* allows the user to override the article id from the front matter */}}
 {{ $articleId :=  .NavPage.Params.id | default  .NavPage.File.Path }}
 
+{{/*  Hide the first item if the title is the same as the parent  */}}
+{{ $offset := 0 }}
+{{ if eq (index .NavPage.Data.Pages 0).Title .NavPage.Title }}
+    {{ $offset = 1 }}
+{{ end }}
+{{ $hasChildren := lt $offset (len .NavPage.Data.Pages)}}
+
 <li class="menu-row menu-parent_{{ $parentSlug }} collapse {{ if $show }}in{{end}} {{ if $isParent}}{{$state}}{{end}} {{ if not $isParent }}child{{end}}" style="overflow: hidden;{{ if not $show }}height: 0;{{ end }}" data-roles="{{ $roles }}">
     <a class="{{ if eq .Index 0 }}first-child{{end}} level-{{ .Level }}" data-slug="{{ $slug }}" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}" href="{{ $articleLink }}">
-        {{ if .NavPage.Data.Pages }}
+        {{ if $hasChildren }}
             <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ $slug }}" aria-controls=".menu-parent_{{ $slug }}">
                 {{ if $openMenu }}
                     <span class="glyphicon glyphicon-chevron-down glyphicon-toggle"></span>
@@ -72,14 +79,10 @@
         </div>
     </a>
 
-    {{ if and (.NavPage.Data.Pages) }}
+    {{ if $isParent }}
         <ul>
-        {{ range $index, $subMenu := .NavPage.Data.Pages }}
-            {{ if and (eq .Parent.Title .Title) (eq $index 0) }}
-                {{/*  No link needed - For when the main title is the same as the first article  */}}
-            {{ else if not $subMenu.Params.hidden }}
-                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
-            {{ end }}
+        {{ range $index, $subMenu := after $offset .NavPage.Data.Pages }}
+            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
         {{ end }}
         </ul>
     {{ end }}
