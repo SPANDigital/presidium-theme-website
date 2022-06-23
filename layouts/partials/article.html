@@ -1,15 +1,13 @@
 {{ $roles := .Params.roles | default "All Roles" }}
 
 {{/* Use title if no slug */}}
-{{ $slug := humanize .Params.Title }} {{/* Handles any dashes in the title */}}
-{{ $slug = anchorize $slug }}
+{{ $slug := urlize .Params.Title }}
 {{ if .Params.Slug }}
     {{ $slug = .Params.Slug}}
 {{ end }}
 
 {{/* Parent slug */}}
-{{ $parentSlug := ((humanize .Parent.Params.Title) | default "root") }}
-{{ $parentSlug = anchorize $parentSlug }}
+{{ $parentSlug := ((urlize .Parent.Params.Title) | default "root") }}
 {{ if .Parent.Params.Slug }}
     {{ $parentSlug = .Parent.Params.Slug}}
 {{ end }}

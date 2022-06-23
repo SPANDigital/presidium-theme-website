@@ -11,8 +11,7 @@
 {{ end }}
 
 {{ with .Page}}
-    {{ $slug := humanize .Params.Title }}
-    {{ $slug = anchorize $slug }}
+    {{ $slug := urlize .Params.Title }}
     {{ if .Params.Slug }}
         {{ $slug = .Params.Slug}}
     {{ end }}
