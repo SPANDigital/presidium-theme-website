@@ -17,7 +17,8 @@
 {{ end }}
 
 {{/* Use title if no slug */}}
-{{ $slug := urlize $page.Params.Title }}
+{{ $slug := humanize $page.Params.Title }} {{/* Handles any dashes in the title */}}
+{{ $slug = anchorize $slug }}
 {{ if $page.Params.Slug }}
     {{ $slug = $page.Params.Slug}}
 {{ end }}

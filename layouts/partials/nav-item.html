@@ -31,13 +31,15 @@
 {{ $isChild := not $isParent }}
 
 {{/* Use title if no slug */}}
-{{ $slug := urlize .NavPage.Params.Title }}
+{{ $slug := humanize .NavPage.Params.Title }} {{/* Handles any dashes in the title */}}
+{{ $slug = anchorize $slug }}
 {{ if .NavPage.Params.Slug }}
     {{ $slug = .NavPage.Params.Slug}}
 {{ end }}
 
 {{/* Parent slug */}}
-{{ $parentSlug := ((urlize .NavPage.Parent.Params.Title) | default "root") }}
+{{ $parentSlug := ((humanize .NavPage.Parent.Params.Title) | default "root") }}
+{{ $parentSlug = anchorize $parentSlug }}
 {{ if .NavPage.Parent.Params.Slug }}
     {{ $parentSlug = .NavPage.Parent.Params.Slug}}
 {{ end }}
