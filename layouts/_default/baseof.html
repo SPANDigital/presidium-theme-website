@@ -81,7 +81,6 @@
 
     {{ if $.Site.Params.enterprise_enabled }}
     <script src="{{ $.Site.Params.enterprise_script }}"></script>
-    <script src="/conf/config.js"></script>
     {{ end }}
 
     {{ if $.Site.Params.analyticsToken }}
@@ -90,6 +89,7 @@
     
     {{ if $.Site.Params.resizeMenu | default true }}
     <script>
+        console.log('dads')
         const resizer = document.querySelector("#resizer");
         const sidebar = document.querySelector("#presidium-navigation");
         resizer.style.display = 'block';
