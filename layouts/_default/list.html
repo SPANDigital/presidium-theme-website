@@ -5,8 +5,6 @@
     {{ $siteScopes := .Site.Params.scopes }}
     {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
     {{ $pages := .Data.Pages }}
-    
-    {{ $index := 0 }}
   
     {{ range .Data.Pages.ByWeight }}
 
@@ -20,11 +18,8 @@
         {{ end }}
 
         {{ if $isRendering }}
-            {{ .Scratch.Set "index" $index }}
             {{ partial "article" . }}
         {{ end }}
-
-        {{ $index = add $index 1 }}
 
     {{ end }}
 {{ end }}
