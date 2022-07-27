@@ -20,32 +20,36 @@
 
 <body id="presidium">
     {{ if $.Site.Params.enterprise_enabled }}
-    <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
-        class="presidium-enterprise">
-    </div>
+      <div class="toolbar-wrapper">
+        <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
+        class="presidium-enterprise"></div>
+      </div>
     {{ end }}
 
-    <div id="presidium-navigation">
-      {{ partial "navigation.html" .}}
+    <div class="content-wrapper">
+      <div id="presidium-navigation">
+        {{ partial "navigation.html" .}}
+      </div>
+  
+      <div id="resizer"></div>
+      <div id="presidium-container" class="container-fluid">
+          <div class="row">
+              <div id="presidium-content" class="col-lg-10 col-md-12">
+                  <h1 class="page-title">{{ .Title }}</h1>
+                  <hr />
+  
+                  <section>
+                      {{ partial "info.html" }}
+                      {{ block "content" . }}
+                      {{ end }}
+                  </section>
+                  {{ partial "footer.html" . }}
+              </div>
+              <div class="col-lg-2"></div>
+          </div>
+      </div>
     </div>
-
-    <div id="resizer"></div>
-    <div id="presidium-container" class="container-fluid">
-        <div class="row">
-            <div id="presidium-content" class="col-lg-10 col-md-12">
-                <h1 class="page-title">{{ .Title }}</h1>
-                <hr />
-
-                <section>
-                    {{ partial "info.html" }}
-                    {{ block "content" . }}
-                    {{ end }}
-                </section>
-                {{ partial "footer.html" . }}
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-    </div>
+ 
     <!--presidium-container-->
 
     {{ partial "modal.html" }}
@@ -81,6 +85,12 @@
 
     {{ if $.Site.Params.enterprise_enabled }}
     <script src="{{ $.Site.Params.enterprise_script }}"></script>
+    <script>
+        const toolbarHeight = $("#presidium-enterprise").height()
+        if(toolbarHeight) {
+          $("#presidium-navigation").css({ top: `${toolbarHeight}px` });
+        }
+    </script>
     {{ end }}
 
     {{ if $.Site.Params.analyticsToken }}
@@ -89,17 +99,21 @@
     
     {{ if $.Site.Params.resizeMenu | default true }}
     <script>
+        const desktopSize = window.matchMedia("(min-width: 768px)")
         const resizer = document.querySelector("#resizer");
         const sidebar = document.querySelector("#presidium-navigation");
-        resizer.style.display = 'block';
+
+        if(desktopSize.matches) {
+          resizer.style.display = 'block';
+        }
 
         const cachedSize = window.localStorage.getItem('sidenav');
-        if(cachedSize) {
+        if(cachedSize && desktopSize.matches) {
           sidebar.style.flexBasis = cachedSize;
         }
         
         resizer.addEventListener("mousedown", (event) => {
-            event.preventDefault();
+          event.preventDefault();
           document.addEventListener("mousemove", resize, false);
           document.addEventListener("mouseup", () => {
             event.preventDefault();
