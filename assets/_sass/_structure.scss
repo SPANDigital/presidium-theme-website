@@ -349,6 +349,11 @@
     @extend .table;
     @extend.table-striped;
     @extend.table-bordered;
+
+    white-space: normal !important;
+    th {
+      vertical-align: top !important;
+    }
   }
 
   blockquote {
