@@ -63,10 +63,10 @@
 {{ end }}
 {{ $hasChildren := lt $offset (len .NavPage.Data.Pages)}}
 
-<li class="menu-row menu-parent_{{ $parentSlug }} collapse {{ if $show }}in{{end}} {{ if $isParent}}{{$state}}{{end}} {{ if not $isParent }}child{{end}}" style="overflow: hidden;{{ if not $show }}height: 0;{{ end }}" data-roles="{{ $roles }}">
+<li class="menu-row menu-parent_{{ $parentSlug }}_{{ .Level }} collapse {{ if $show }}in{{end}} {{ if $isParent}}{{$state}}{{end}} {{ if not $isParent }}child{{end}}" style="overflow: hidden;{{ if not $show }}height: 0;{{ end }}" data-roles="{{ $roles }}">
     <a class="{{ if eq .Index 0 }}first-child{{end}} level-{{ .Level }}" data-slug="{{ $slug }}" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}" href="{{ $articleLink }}">
         {{ if $hasChildren }}
-            <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ $slug }}" aria-controls=".menu-parent_{{ $slug }}">
+            <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ $slug }}_{{ $childLevel }}" aria-controls=".menu-parent_{{ $slug }}">
                 {{ if $openMenu }}
                     <span class="glyphicon glyphicon-chevron-down glyphicon-toggle"></span>
                 {{ else }}
