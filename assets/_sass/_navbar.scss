@@ -10,9 +10,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 }
 
-// Custom SASS
 @mixin bg-gradient($color) {
-  // Mixin below comes from bootstrap
   @include gradient-vertical-three-colors(
     lighten($color, 15%),
     $color,
@@ -35,8 +33,10 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   box-sizing: border-box;
   transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
 
-  &:hover {
-    border-left: 1px solid $border;
+  @media (min-width: $grid-float-breakpoint) {
+    &:hover {
+      border-left: 1px solid $border;
+    }
   }
 }
 
@@ -49,60 +49,27 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   min-width: 260px;
   width: 260px;
   max-width: 50%;
+  bottom: 0px;
+  z-index: 1;
   position: sticky;
-  top: 0;
+  top: 0px;
   bottom: 0px;
   height: 100vh;
 
-  @-webkit-keyframes loading-placeholder {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -75px 0px;
-    }
-  }
-
-  @-moz-keyframes loading-placeholder {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -75px 0px;
-    }
-  }
-
-  @-ms-keyframes loading-placeholder {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -75px 0px;
-    }
-  }
-
-  @keyframes loading-placeholder {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -50px 0px;
-    }
-  }
-
   @media (max-width: $grid-float-breakpoint) {
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: 0;
-    z-index: 1030;
-    margin-left: -15px;
-    margin-right: -15px;
+    display: flex;
+    height: 0;
+    width: 0;
+    min-width: unset;
+    max-width: unset;
+    flex-basis: 0px!important;
   }
 
   .scrollable-container {
-    @include bg-gradient($navbar-default-bg);
-    height: 100%;
+    @media (min-width: $grid-float-breakpoint) {
+      height: 100%;
+      @include bg-gradient($navbar-default-bg);
+    }
   }
 
   nav {
@@ -110,6 +77,17 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       overflow: auto;
       border: 0;
       margin-bottom: 150px;
+    }
+
+    @media (max-width: $grid-float-breakpoint) {
+      .navbar-nav {
+        min-width: 300px;
+        background-color: #fff;
+        border-radius: $border-radius-base;
+        border: 1px solid $border;
+        -webkit-box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25); 
+        box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
+      }
     }
 
     .navbar-header {
@@ -183,11 +161,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         @media (min-width: $grid-float-breakpoint) {
           display: none;
         }
+        float: left;
 
-        position: relative;
-        float: right;
-        margin-right: 15px;
-        padding: 9px 10px;
         @include navbar-vertical-align(34px);
         background-color: transparent;
         background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
@@ -196,10 +171,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
         &:focus {
           outline: 0;
-        }
-
-        &:hover {
-          background-color: darken($navbar-default-bg, 3%);
         }
 
         .icon-bar {
@@ -235,6 +206,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       @media (max-width: $grid-float-breakpoint) {
+        background-color: #fff;
+        padding: 16px;
+        border-top: 0;
         &.expanded {
           display: block;
           max-height: calc(100vh - 55px);
@@ -321,7 +295,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       .menu-title {
         flex: 1;
         word-break: normal;
-        text-overflow: ellipsis !important;
+        text-overflow: ellipsis;
         overflow: hidden;
 
         @media (max-width: $grid-float-breakpoint) {
