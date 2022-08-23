@@ -115,8 +115,48 @@
       }
       
       .front-matter {
+        grid-template-columns: 70px auto;
+
+        label {
+          font-weight: normal;
+          margin-top: auto;
+          margin-bottom: auto;
+          color: grey;
+        }
+
+        font-size: 14px;
+
         .dropdown {
-          background-color: $brand-primary;
+          .dropdown__control {
+            max-width: 250px;
+          }
+          .dropdown__menu {
+            max-width: 250px;
+          }
+          .dropdown__option--is-focused {
+            background-color: lighten($brand-primary, 30%);
+          }
+          .dropdown__option--is-selected  {
+            color: white;
+            background-color: $brand-primary;
+          }
+          .dropdown__indicator--is-focused {
+            color: $brand-primary;
+            background-color: lighten($brand-primary, 10%);
+          }
+          .dropdown__indicator--is-selected  {
+            color: $brand-primary;
+            background-color: $brand-primary;
+          }
+          .dropdown__indicator-separator  {
+            display: none;
+          }
+          .dropdown__control--is-focused .dropdown__dropdown-indicator > svg {
+            fill: $brand-primary;
+          }
+          .dropdown__control--is-selected .dropdown__dropdown-indicator > svg {
+            fill: $brand-primary;
+          }
         }
       }
 
