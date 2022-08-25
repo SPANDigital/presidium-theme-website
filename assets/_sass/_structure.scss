@@ -67,6 +67,10 @@
 
     .wysiwyg {
 
+      .codex-editor {
+        max-width: 650px;
+      }
+
       .editor-button {
         transition: background-color 0.01s;
         border-radius: 4px;
