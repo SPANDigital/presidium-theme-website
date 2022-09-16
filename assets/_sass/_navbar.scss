@@ -240,7 +240,12 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           background-color: $navbar-default-link-hover-bg;
         }
 
+        &:hover > .add-icon {
+          display: block;
+        }
+
         .add-icon {
+          display: none;
           position: relative;
           background-image: url('assets/svg/plus.svg');
           width: 18px;
