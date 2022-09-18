@@ -96,6 +96,11 @@
     }
 }
 
+.editor-input {
+    outline: none;
+    width: 100%;
+}
+
 .editor-modal {
     position: fixed;
     width: 350px;
@@ -149,6 +154,9 @@
         }
         &:active {
             background-color: darken($brand-primary, 20%);
+        }
+        &:disabled {
+            background-color: lighten($brand-primary, 20%);
         }
     }
 
