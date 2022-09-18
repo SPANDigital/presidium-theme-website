@@ -33,7 +33,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   cursor: col-resize;
   flex-basis: 20px;
   position: relative;
-  z-index: 2;
   border-left: 0px solid $border;
   margin: 0;
   padding: 0;
@@ -240,32 +239,35 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           background-color: $navbar-default-link-hover-bg;
         }
 
-        &:hover > .add-icon {
+        &:hover > .article-options .add-icon {
           display: block;
         }
 
-        .add-icon {
-          display: none;
-          position: relative;
-          background-image: url('assets/svg/plus.svg');
-          width: 18px;
-          height: 18px;
-          right: 10px;
+        .article-options {
           margin-top: auto;
           margin-bottom: auto;
+          right: 10px;
+          position: relative;
 
-          background-color: transparent;
-          transition: background-color 0.05s;
-          border-radius: 3px;
-          background-size: 10px 10px;
-          background-repeat: no-repeat;
-          background-position: center;
+          .add-icon {
+            display: none;
+            background-image: url('assets/svg/plus.svg');
+            width: 18px;
+            height: 18px;
 
-          &:hover {
-              background-color: #dbdbdb;
-          }
-          &:active {
-              background-color: #929292;
+            background-color: transparent;
+            transition: background-color 0.05s;
+            border-radius: 3px;
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &:hover {
+                background-color: #dbdbdb;
+            }
+            &:active {
+                background-color: #929292;
+            }
           }
         }
       }
