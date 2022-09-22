@@ -71,6 +71,19 @@
         max-width: 650px;
       }
 
+      .ce-popover {
+        left: -54px;
+      }
+
+      .codex-editor__redactor {
+        margin-right: 0px;
+      }
+
+      .ce-toolbar__actions {
+        right: 100%;
+        top: -2px;
+      }
+
       .editor-button {
         transition: background-color 0.01s;
         border-radius: 4px;
