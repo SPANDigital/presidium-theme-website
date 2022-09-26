@@ -16,27 +16,32 @@
     {{ end }}
 {{ end }}
 
-{{/* Use title if no slug */}}
-{{ $slug := humanize $page.Params.Title }} {{/* Handles any dashes in the title */}}
-{{ $slug = anchorize $slug }}
-{{ if $page.Params.Slug }}
-    {{ $slug = $page.Params.Slug}}
-{{ end }}
-
-{{ $isChild := not $page.Data.Pages}}
-{{ $articleLink := $page.Permalink }}
-{{if $isChild }}
-    {{ $articleLink = (printf "%v#%v" $page.Parent.Permalink $slug ) }}
-{{end}}
-
-{{ if $page }}
-    <a class="tooltips-term" href="{{ $articleLink }}" >
-        {{ $title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
-    </a>
+{{/* Glossary page doesnt exist, so fall back to title */}}
+{{ if eq $page "" }}
+    {{ $title }}
 {{ else }}
-    {{ if $ref }}
-        {{ errorf "Error rending tooltip at href [%s] in file [%s]" $ref .Page.File }}
-    {{else}}
-        {{ errorf "Error rending tooltip with title [%s] in file [%s]" $title .Page.File }}
+    {{/* Use title if no slug */}}
+    {{ $slug := humanize $page.Params.Title }} {{/* Handles any dashes in the title */}}
+    {{ $slug = anchorize $slug }}
+    {{ if $page.Params.Slug }}
+        {{ $slug = $page.Params.Slug}}
+    {{ end }}
+
+    {{ $isChild := not $page.Data.Pages}}
+    {{ $articleLink := $page.Permalink }}
+    {{if $isChild }}
+        {{ $articleLink = (printf "%v#%v" $page.Parent.Permalink $slug ) }}
+    {{end}}
+
+    {{ if $page }}
+        <a class="tooltips-term" href="{{ $articleLink }}" >
+            {{ $title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
+        </a>
+    {{ else }}
+        {{ if $ref }}
+            {{ errorf "Error rending tooltip at href [%s] in file [%s]" $ref .Page.File }}
+        {{else}}
+            {{ errorf "Error rending tooltip with title [%s] in file [%s]" $title .Page.File }}
+        {{ end }}
     {{ end }}
 {{ end }}

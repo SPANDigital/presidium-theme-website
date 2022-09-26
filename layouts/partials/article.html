@@ -20,10 +20,13 @@
 {{ $dataId := .Params.id | default .File.Path }}
 {{ $pageSlug := (printf "%v-%v" ($parentSlug) $slug )}}
 {{ $nestedArticles := .Site.Params.includeNestedArticles | default true }}
-
+{{ $content := 0 }}
+{{ if .Content }}
+    {{ $content = len .Content }}
+{{ end }}
 
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}">
-    {{ if or (ne (len .Content) 0) $nestedArticles }}
+    {{ if or (ne ($content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
         <span class="anchor"  id="{{ $slug }}" data-id="{{ $dataId }}"></span>
         {{ if (eq .Parent.Title .Title) }}
