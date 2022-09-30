@@ -50,7 +50,7 @@
         <article>{{ .Content }}</article>
 
         {{ if $nestedArticles }}
-            {{ range .Data.Pages.ByWeight }}
+            {{ range sort .Data.Pages "File.Path" }}
                 {{ partial "article" . }}
             {{ end }}
         {{ end }}

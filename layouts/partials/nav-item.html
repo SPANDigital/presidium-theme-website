@@ -81,7 +81,7 @@
 
     {{ if $isParent }}
         <ul>
-        {{ range $index, $subMenu := after $offset .NavPage.Data.Pages }}
+        {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
             {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
         {{ end }}
         </ul>

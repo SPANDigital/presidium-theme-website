@@ -6,7 +6,7 @@
     {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
     {{ $pages := .Data.Pages }}
   
-    {{ range .Data.Pages.ByWeight }}
+    {{ range sort .Data.Pages "File.Path" }}
 
         {{ $isRendering := true }}
 
