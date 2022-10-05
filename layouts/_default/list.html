@@ -5,21 +5,47 @@
     {{ $siteScopes := .Site.Params.scopes }}
     {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
     {{ $pages := .Data.Pages }}
-  
-    {{ range sort .Data.Pages "File.Path" }}
 
-        {{ $isRendering := true }}
+    {{/* Sort by filename unless there is a missing digit prefix */}}
+    {{ $sortByFilename := true}}
+    {{ range $name := .Data.Pages }}
+        {{/* Find digits with a dash at the start of a filename */}}
+        {{ if eq nil (findRE `^\d+-` $name.File.ContentBaseName 1) }}
+            {{/*  Default back to weight if a file is missing the prefix */}}
+            {{ $sortByFilename = false }}  
+        {{ end }}
+    {{ end }}
+    {{ if $sortByFilename }}
+        {{/* Sort by file prefix */}}
+        {{ range sort .Data.Pages "File.Path" }}
+            {{ $isRendering := true }}
 
-        {{ if $siteScopesEnabled }}
-            {{ if isset .Params "scope" }}
-                {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+            {{ if $siteScopesEnabled }}
+                {{ if isset .Params "scope" }}
+                    {{ $pageScopes := .Params.scope }}
+                    {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ end }}
+            {{ end }}
+
+            {{ if $isRendering }}
+                {{ partial "article" . }}
             {{ end }}
         {{ end }}
+    {{ else }}
+        {{/* Sort by weight otherwise the hugo default */}}
+        {{ range .Data.Pages.ByWeight }}
+            {{ $isRendering := true }}
 
-        {{ if $isRendering }}
-            {{ partial "article" . }}
+            {{ if $siteScopesEnabled }}
+                {{ if isset .Params "scope" }}
+                    {{ $pageScopes := .Params.scope }}
+                    {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ end }}
+            {{ end }}
+
+            {{ if $isRendering }}
+                {{ partial "article" . }}
+            {{ end }}
         {{ end }}
-
     {{ end }}
 {{ end }}

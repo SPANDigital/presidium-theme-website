@@ -81,8 +81,25 @@
 
     {{ if $isParent }}
         <ul>
-        {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
-            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+        {{/* Sort by filename unless there is a missing digit prefix */}}
+        {{ $sortByFilename := true}}
+        {{ range $name := .NavPage.Data.Pages }}
+            {{/* Find digits with a dash at the start of a filename */}}
+            {{ if eq nil (findRE `^\d+-` $name.File.ContentBaseName 1) }}
+                {{/*  Default back to weight if a file is missing the prefix */}}
+                {{ $sortByFilename = false }}  
+            {{ end }}
+        {{ end }}
+        {{ if $sortByFilename }}
+            {{/* Sort by file prefix */}}
+            {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
+                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+            {{ end }}
+        {{ else }}
+            {{/* Sort by weight otherwise the hugo default */}}
+            {{ range $index, $subMenu := .NavPage.Data.Pages.ByWeight }}
+                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+            {{ end }}
         {{ end }}
         </ul>
     {{ end }}

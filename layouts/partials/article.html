@@ -50,8 +50,25 @@
         <article>{{ .Content }}</article>
 
         {{ if $nestedArticles }}
-            {{ range sort .Data.Pages "File.Path" }}
-                {{ partial "article" . }}
+            {{/* Sort by filename unless there is a missing digit prefix */}}
+            {{ $sortByFilename := true}}
+            {{ range $name := .Data.Pages }}
+                {{/* Find digits with a dash at the start of a filename */}}
+                {{ if eq nil (findRE `^\d+-` $name.File.ContentBaseName 1) }}
+                    {{/*  Default back to weight if a file is missing the prefix */}}
+                    {{ $sortByFilename = false }}  
+                {{ end }}
+            {{ end }}
+            {{ if $sortByFilename }}
+                {{/* Sort by file prefix */}}
+                {{ range sort .Data.Pages "File.Path" }}
+                    {{ partial "article" . }}
+                {{ end }}
+            {{ else }}
+                {{/* Sort by weight otherwise the hugo default */}}
+                {{ range .Data.Pages.ByWeight }}
+                    {{ partial "article" . }}
+                {{ end }}
             {{ end }}
         {{ end }}
 
