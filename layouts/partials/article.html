@@ -40,7 +40,7 @@
                 {{ end }}
                 
                 <div class="permalink">
-                    <a class="link-icon" href="#{{ $slug }}" title="Permalink to this article"></a>
+                    <a id="{{.Page.Permalink}}" class="link-icon" href="#{{ $slug }}" title="Permalink to this article"></a>
                 </div>
             </div>
         {{ end }}
