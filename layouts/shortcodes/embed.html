@@ -1,0 +1,5 @@
+{{ $src := .Get "src" }}
+{{ $width := .Get "width" | default "100%" }}
+{{ $height := .Get "height" | default "800px" }}
+
+<iframe src="{{$src}}" width="{{$width}}" height="{{$height}}" style="display:none"></iframe>

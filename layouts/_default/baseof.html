@@ -69,8 +69,19 @@
                 event.preventDefault();
                 $('.navbar-items').toggle('expanded');
             });
-
+            
+            
         });
+    </script>
+    <script>
+      // Unhide all the iframes in the documents
+      // iframes are hidden by default when using embed shortcode in order to stop page jumping
+      window.onload = function() {
+        var collection = document.getElementsByTagName("iframe");
+        for (var i = 0; i < collection.length; i++) {     
+            collection[i].style.display = 'block';
+        }
+      }
     </script>
 
     <!-- Components -->
