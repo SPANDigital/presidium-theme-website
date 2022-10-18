@@ -82,7 +82,7 @@
     {{ if $isParent }}
         <ul>
         {{/* Sort by filename if specified in config */}}
-        {{ if .Site.Params.sortByFilename }}
+        {{ if .NavPage.Site.Params.sortByFilename }}
             {{/* Sort by file prefix */}}
             {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
