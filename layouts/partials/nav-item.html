@@ -81,16 +81,8 @@
 
     {{ if $isParent }}
         <ul>
-        {{/* Sort by filename unless there is a missing digit prefix */}}
-        {{ $sortByFilename := true}}
-        {{ range $name := .NavPage.Data.Pages }}
-            {{/* Find digits with a dash at the start of a filename */}}
-            {{ if eq nil (findRE `^\d+-` $name.File.ContentBaseName 1) }}
-                {{/*  Default back to weight if a file is missing the prefix */}}
-                {{ $sortByFilename = false }}  
-            {{ end }}
-        {{ end }}
-        {{ if $sortByFilename }}
+        {{/* Sort by filename if specified in config */}}
+        {{ if .Site.Params.sortByFilename }}
             {{/* Sort by file prefix */}}
             {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
