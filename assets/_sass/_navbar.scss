@@ -289,11 +289,11 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           background-color: $navbar-default-link-hover-bg;
         }
 
-        &:hover > .article-options .add-icon {
+        &:hover > .article-navbar-options .add-icon {
           display: block;
         }
 
-        .article-options {
+        .article-navbar-options {
           margin-top: auto;
           margin-bottom: auto;
           right: 10px;

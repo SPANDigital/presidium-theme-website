@@ -79,10 +79,8 @@
                 {{ .NavPage.Name }}
             </div>
         </a>
-        {{ if $hasChildren }}
-            <div class="article-options" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}">
-            </div>
-        {{ end }}
+        <div class="article-navbar-options" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}">
+        </div>
     </div>
 
     {{ if $isParent }}
