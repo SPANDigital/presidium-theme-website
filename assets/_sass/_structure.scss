@@ -65,6 +65,210 @@
       font-weight: normal;
     }
 
+    .wysiwyg {
+
+      .codex-editor {
+        max-width: 650px;
+      }
+
+      .ce-popover {
+        left: -54px;
+      }
+
+      .codex-editor__redactor {
+        margin-right: 0px;
+      }
+
+      .ce-toolbar__actions {
+        right: 100%;
+        top: -2px;
+      }
+
+      .editor-button {
+        transition: background-color 0.01s;
+        border-radius: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+      .editor-options {
+        float: right;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 12px;
+        position: relative;
+        bottom: 4px;
+      }
+
+      .save-button {
+        @extend .editor-button;
+        transition: background-color 0.01s;
+        background-color: $brand-primary;
+        border-style: none;
+        border-radius: 3px;
+        color: white;
+        min-width: 46px;
+        max-height: 27px;
+
+        svg {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: rotation 1s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(359deg);
+            }
+        }
+
+        &:hover {
+          background-color: darken($brand-primary, 10%);
+        }
+        &:active {
+          background-color: darken($brand-primary, 20%);
+        }
+      }
+      .cancel-button {
+        @extend .editor-button;
+        transition: background-color 0.01s;
+        border: 1px solid;
+        border-radius: 3px;
+        background-color: white;
+        &:hover {
+          background-color: darken(white, 10%);
+        }
+        &:active {
+          background-color: darken(white, 20%);
+        }
+      }
+      
+      .front-matter {
+        grid-template-columns: 70px auto;
+
+        label {
+          font-weight: normal;
+          margin-top: auto;
+          margin-bottom: auto;
+          color: grey;
+        }
+
+        font-size: 14px;
+
+        .dropdown {
+          .dropdown__control {
+            max-width: 250px;
+          }
+          .dropdown__menu {
+            max-width: 250px;
+          }
+          .dropdown__option--is-focused {
+            background-color: lighten($brand-primary, 30%);
+          }
+          .dropdown__option--is-selected  {
+            color: white;
+            background-color: $brand-primary;
+          }
+          .dropdown__indicator--is-focused {
+            color: $brand-primary;
+            background-color: lighten($brand-primary, 10%);
+          }
+          .dropdown__indicator--is-selected  {
+            color: $brand-primary;
+            background-color: $brand-primary;
+          }
+          .dropdown__indicator-separator  {
+            display: none;
+          }
+          .dropdown__control--is-focused .dropdown__dropdown-indicator > svg {
+            fill: $brand-primary;
+          }
+          .dropdown__control--is-selected .dropdown__dropdown-indicator > svg {
+            fill: $brand-primary;
+          }
+        }
+      }
+
+      .editor-modal {
+        width: 350px;
+        height: 168px;
+        box-shadow: 8px 8px 27px rgba(0, 0, 0, 0.22);
+        z-index: 10; /* Sit on top */
+        background-color: white;
+        border-radius: 8px;
+        top: 50%;
+        left: 50%;
+        margin-left: -175px;
+        margin-top: -84px;
+
+        .title {
+          font-weight: bold;
+        }
+
+        .options {
+          float: right;
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          font-size: 12px;
+          bottom: 25px;
+          right: 25px;
+          position: absolute;
+        }
+
+        .cancel-button {
+          @extend .editor-button;
+          border: 1px solid;
+          border-radius: 3px;
+          background-color: white;
+          &:hover {
+            background-color: darken(white, 10%);
+          }
+          &:active {
+            background-color: darken(white, 20%);
+          }
+        }
+
+        .accept-button {
+          @extend .editor-button;
+          border-style: none;
+          border-radius: 3px;
+          background-color: $brand-primary;
+          color: white;
+          &:hover {
+            background-color: darken($brand-primary, 10%);
+          }
+          &:active {
+            background-color: darken($brand-primary, 20%);
+          }
+        }
+
+        .warning-button {
+          @extend .editor-button;
+          border: 1px solid $color-red;
+          border-radius: 3px;
+          background-color: $color-red;
+          color: white;
+          &:hover {
+            background-color: darken($color-red, 10%);
+            border-color:  darken($color-red, 10%);
+          }
+          &:active {
+            background-color: darken($color-red, 20%);
+            border-color:  darken($color-red, 10%);
+          }
+        }
+      }
+    }
+
     section {
       #no-content-warning {
         display: none;
@@ -80,7 +284,7 @@
         position: absolute;
         padding: 0px 20px;
         top: 12px;
-        left: -70px;
+        left: -48px;
       }
 
       .article-title {
