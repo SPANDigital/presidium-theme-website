@@ -85,8 +85,17 @@
 
     {{ if $isParent }}
         <ul>
-        {{ range $index, $subMenu := after $offset .NavPage.Data.Pages }}
-            {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+        {{/* Sort by filename if specified in config */}}
+        {{ if .NavPage.Site.Params.sortByFilePath }}
+            {{/* Sort by file prefix */}}
+            {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
+                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+            {{ end }}
+        {{ else }}
+            {{/* Sort by weight otherwise the hugo default */}}
+            {{ range $index, $subMenu := .NavPage.Data.Pages.ByWeight }}
+                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+            {{ end }}
         {{ end }}
         </ul>
     {{ end }}
