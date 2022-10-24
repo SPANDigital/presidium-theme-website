@@ -1,6 +1,18 @@
-
 .codex-editor {
     max-width: 650px;
+}
+
+.ce-popover {
+    left: -54px;
+}
+
+.codex-editor__redactor {
+    margin-right: 0px;
+}
+
+.ce-toolbar__actions {
+    right: 100%;
+    top: -2px;
 }
 
 .editor-button {
@@ -29,6 +41,26 @@
     border-style: none;
     border-radius: 3px;
     color: white;
+    min-width: 46px;
+    max-height: 27px;
+
+    svg {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: rotation 1s infinite linear;
+    }
+
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(359deg);
+        }
+    }
+
     &:hover {
         background-color: darken($brand-primary, 10%);
     }
@@ -96,13 +128,7 @@
     }
 }
 
-.editor-input {
-    outline: none;
-    width: 100%;
-}
-
 .editor-modal {
-    position: fixed;
     width: 350px;
     height: 168px;
     box-shadow: 8px 8px 27px rgba(0, 0, 0, 0.22);
@@ -113,8 +139,6 @@
     left: 50%;
     margin-left: -175px;
     margin-top: -84px;
-    padding: 15px;
-    font-weight: normal;
 
     .title {
         font-weight: bold;
@@ -155,9 +179,6 @@
         }
         &:active {
             background-color: darken($brand-primary, 20%);
-        }
-        &:disabled {
-            background-color: lighten($brand-primary, 20%);
         }
     }
 
