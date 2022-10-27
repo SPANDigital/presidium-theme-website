@@ -44,28 +44,35 @@
     min-width: 46px;
     max-height: 27px;
 
-    svg {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        animation: rotation 1s infinite linear;
-    }
-
-    @keyframes rotation {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(359deg);
-        }
-    }
-
     &:hover {
         background-color: darken($brand-primary, 10%);
     }
     &:active {
         background-color: darken($brand-primary, 20%);
+    }
+    &:disabled {
+        background-color: lighten($brand-primary, 20%);
+    }
+
+    .save-button-spinner {
+        stroke: white;
+        background-image: url('assets/svg/loading-spinner-button.svg');
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        margin: auto;
+        width: 20px;
+        height: 20px;
+        animation: rotation 1s infinite linear;
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(359deg);
+            }
+        }
     }
 }
 .cancel-button {
@@ -140,7 +147,8 @@
     margin-left: -175px;
     margin-top: -84px;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 10px !important;
+    word-break: normal;
 
     .title {
         font-weight: bold;
