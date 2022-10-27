@@ -130,7 +130,7 @@
 
 .editor-modal {
     width: 350px;
-    height: 168px;
+    height: 188px;
     box-shadow: 8px 8px 27px rgba(0, 0, 0, 0.22);
     z-index: 10; /* Sit on top */
     background-color: white;
@@ -139,6 +139,8 @@
     left: 50%;
     margin-left: -175px;
     margin-top: -84px;
+    font-weight: normal;
+    font-size: 10px;
 
     .title {
         font-weight: bold;
