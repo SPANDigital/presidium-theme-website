@@ -338,23 +338,26 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           display: block;
         }
 
+        &:hover > .article-navbar-options .delete-icon {
+          display: block;
+        }
+
         .article-navbar-options {
           margin-top: auto;
           margin-bottom: auto;
           position: absolute;
           right: 10px;
-          top: 11px;
+          top: 9px;
 
-          .add-icon {
-            background-image: url('assets/svg/plus.svg');
+          .option-button {
             display: none;
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
 
             background-color: transparent;
             transition: background-color 0.05s;
             border-radius: 3px;
-            background-size: 10px 10px;
+            background-size: 12px 12px;
             background-repeat: no-repeat;
             background-position: center;
 
@@ -364,6 +367,16 @@ $nav-item-border: darken($navbar-default-bg, 8%);
             &:active {
                 background-color: #ababab;
             }
+          }
+
+          .add-icon {
+            @extend .option-button;
+            background-image: url('assets/svg/plus.svg');
+          }
+
+          .delete-icon {
+            @extend .option-button;
+            background-image: url('assets/svg/trash.svg');
           }
         }
       }
@@ -377,6 +390,11 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         &.child > .link > .article-navbar-options > div > .add-icon,
           &.closed > .link > .article-navbar-options > div > .add-icon {
           background-image: url('assets/svg/plus-white.svg');
+        }
+
+        &.child > .link > .article-navbar-options > div > .delete-icon,
+          &.closed > .link > .article-navbar-options > div > .delete-icon {
+          background-image: url('assets/svg/trash-white.svg');
         }
 
         &.child > div > a,
@@ -398,6 +416,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       .menu-title {
+        max-width: calc(100% - 50px);
         flex: 1;
         word-break: normal;
         text-overflow: ellipsis;
