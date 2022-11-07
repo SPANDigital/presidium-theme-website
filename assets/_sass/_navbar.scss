@@ -387,13 +387,13 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           color: $brand-primary;
         }
         
-        &.child > .link > .article-navbar-options > div > .add-icon,
-          &.closed > .link > .article-navbar-options > div > .add-icon {
+        &.child .add-icon,
+          &.closed .add-icon {
           background-image: url('assets/svg/plus-white.svg');
         }
 
-        &.child > .link > .article-navbar-options > div > .delete-icon,
-          &.closed > .link > .article-navbar-options > div > .delete-icon {
+        &.child .delete-icon,
+          &.closed .delete-icon {
           background-image: url('assets/svg/trash-white.svg');
         }
 
