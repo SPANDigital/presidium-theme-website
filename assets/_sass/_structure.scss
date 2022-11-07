@@ -356,6 +356,14 @@
         }
       }
     }
+
+    .side-by-side {
+      width:100%;
+      position:relative;
+      height:auto;
+      overflow: auto;
+      word-break:break-word
+    }
   }
 
   footer {
