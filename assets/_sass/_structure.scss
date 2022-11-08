@@ -55,10 +55,6 @@
     position: relative;
     padding: 60px 100px;
 
-    p, ul, ol {
-      max-width: 712px;
-    }
-
     @media (max-width: $grid-float-breakpoint) {
       margin-top: 20px;
       padding: 40px 16px;
