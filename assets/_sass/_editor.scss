@@ -10,6 +10,10 @@
     display: none;
 }
 
+.cdx-quote [contentEditable=true][data-placeholder]::before { 
+    display: none;
+}
+
 .ce-toolbar__actions {
     right: 100%;
     top: -2px;
