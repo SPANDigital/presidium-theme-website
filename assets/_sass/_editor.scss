@@ -6,7 +6,7 @@
     margin-right: 0px;
 }
 
-.cdx-quote__caption { 
+.cdx-quote [contentEditable=true][data-placeholder]::before { 
     display: none;
 }
 
