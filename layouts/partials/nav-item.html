@@ -93,7 +93,7 @@
             {{ end }}
         {{ else }}
             {{/* Sort by weight otherwise the hugo default */}}
-            {{ range $index, $subMenu := .NavPage.Data.Pages.ByWeight }}
+            {{ range $index, $subMenu := after $offset .NavPage.Data.Pages.ByWeight }}
                 {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
             {{ end }}
         {{ end }}
