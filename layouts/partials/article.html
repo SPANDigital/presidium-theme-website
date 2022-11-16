@@ -13,6 +13,8 @@
     {{ $parentSlug = .Parent.Params.Slug}}
 {{ end }}
 
+{{ $articleLink := (printf "%v#%v" .Parent.Page.Permalink $slug ) }}
+
 {{ $type := "parent" }}
 {{if not .Data.Pages }}
     {{ $type = "child" }}
@@ -25,7 +27,7 @@
     {{ $content = len .Content }}
 {{ end }}
 
-<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}">
+<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}" data-link="{{ $articleLink }}">
     {{ if or (ne ($content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
         <span class="anchor"  id="{{ $slug }}" data-id="{{ $dataId }}"></span>

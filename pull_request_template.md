@@ -14,6 +14,6 @@
 
 ### Checklist before merging
 
-* [ ] Is this code covered by tests?
-* [ ] Is the documentation updated for this change?
 * [ ] Did you test your changes locally?
+* [ ] Did you update the CHANGELOG?
+* [ ] Is the documentation updated for this change? (If Required)
