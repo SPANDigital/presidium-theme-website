@@ -1,9 +1,13 @@
 body::after{
     position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
     content:
+        url('assets/svg/loading-spinner.svg')
         url('assets/svg/loading-spinner-editor.svg')
-        url('assets/svg/loading-spinner-button.svg')
-        url('assets/svg/icon-alert.png');
+        url('assets/svg/icon-alert.png')
+        url('assets/svg/plus.svg')
+        url('assets/svg/trash.svg')
+        url('assets/svg/plus-white.svg')
+        url('assets/svg/trash-white.svg');
  }
 
 .codex-editor {
@@ -111,7 +115,7 @@ body::after{
 }
 
 .popup-spinner {
-    background-image: url('assets/svg/loading-spinner-button.svg');
+    background-image: url('assets/svg/loading-spinner.svg');
     background-repeat: no-repeat;
     top: 0;
     left: 0;
@@ -171,7 +175,7 @@ body::after{
 
     .save-button-spinner {
         stroke: white;
-        background-image: url('assets/svg/loading-spinner-button.svg');
+        background-image: url('assets/svg/loading-spinner.svg');
         background-repeat: no-repeat;
         top: 0;
         left: 0;
