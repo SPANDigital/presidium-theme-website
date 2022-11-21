@@ -25,7 +25,7 @@
 #presidium-modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: $zindex-modal;
   padding-top: 60px;
   left: 0;
   top: 0;
