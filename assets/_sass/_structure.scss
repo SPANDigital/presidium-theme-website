@@ -29,7 +29,7 @@
   flex-direction: column;
 
   .toolbar-wrapper {
-    z-index: 100;
+    z-index: $zindex-navbar;
     position: sticky;
     position: -webkit-sticky;
     top: 0;

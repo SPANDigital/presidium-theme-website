@@ -56,7 +56,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   width: 260px;
   max-width: 50%;
   bottom: 0px;
-  z-index: 1;
+  z-index: $zindex-navbar;
   position: sticky;
   top: 0px;
   bottom: 0px;
@@ -175,7 +175,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           }
           .dropdown__menu {
             width: 200px;
-            z-index: 100;
+            z-index: $zindex-navbar;
           }
           .dropdown__option {
             color: white;
