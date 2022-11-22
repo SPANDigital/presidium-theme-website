@@ -169,13 +169,13 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         
         .dropdown {
           display: block;
+          z-index: $zindex-navbar;
 
           .dropdown__control {
             background-color: transparent;
           }
           .dropdown__menu {
             width: 200px;
-            z-index: 100;
           }
           .dropdown__option {
             color: white;
