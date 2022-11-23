@@ -10,3 +10,7 @@
 - Improve load times by preloading WYSIWYG icons @SamShiels
 - Inject the article path into an HTML attribute for use in the React app @SamShiels https://spandigital.atlassian.net/browse/PRSDM-2985
 - Preload article create and delete icons @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3005
+
+## 2022-11-23
+### Updates
+- Ensure entire site's contents wrap correctly
