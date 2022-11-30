@@ -18,7 +18,7 @@ body::after{
     margin-right: 0px;
 }
 
-.cdx-quote [contentEditable=true][data-placeholder]::before { 
+.cdx-quote [contentEditable=true][data-placeholder]::before {
     display: none;
 }
 
@@ -79,6 +79,10 @@ body::after{
     font-weight: bold;
     text-align: center;
 
+    .popup-text {
+        height: 20px;
+        margin-bottom: 12px;
+    }
 }
 
 .editor-popup-panel-loading {
