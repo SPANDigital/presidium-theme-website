@@ -14,7 +14,7 @@
 ## 2022-11-23
 ### Updates
 - Ensure entire site's contents wrap correctly
-
 ## 2022-11-30
 ### Bug Fixes
 - Center align editor-popup-panel text @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-2971
+- Fixed the size of the editor modal <p> element @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3035
