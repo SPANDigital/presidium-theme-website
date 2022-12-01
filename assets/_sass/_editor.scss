@@ -74,14 +74,13 @@ body::after{
 
     display: grid;
 
-    padding: 12px;
+    padding: 11px 12px 13px 12px;
     line-height: 22px;
     font-weight: bold;
     text-align: center;
 
     .popup-text {
         height: 20px;
-        margin-bottom: 12px;
     }
 }
 
@@ -104,7 +103,7 @@ body::after{
         transition: background-color 0.01s;
         border-radius: 4px;
         height: 20px;
-        line-height: 20px;
+        line-height: 0;
         border: none;
 
 
