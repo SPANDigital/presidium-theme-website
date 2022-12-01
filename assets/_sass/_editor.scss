@@ -18,7 +18,7 @@ body::after{
     margin-right: 0px;
 }
 
-.cdx-quote [contentEditable=true][data-placeholder]::before { 
+.cdx-quote [contentEditable=true][data-placeholder]::before {
     display: none;
 }
 
@@ -74,16 +74,20 @@ body::after{
 
     display: grid;
 
-    padding: 12px;
+    padding: 11px 12px 13px 12px;
     line-height: 22px;
     font-weight: bold;
+    text-align: center;
 
+    .popup-text {
+        height: 20px;
+    }
 }
 
 .editor-popup-panel-loading {
     @extend .editor-popup-panel;
     background-color: #777777;
-    grid-template-columns: auto 30px;
+    grid-template-columns: 40px auto 30px;
 }
 
 .editor-popup-panel-error {
@@ -99,7 +103,7 @@ body::after{
         transition: background-color 0.01s;
         border-radius: 4px;
         height: 20px;
-        line-height: 20px;
+        line-height: 0;
         border: none;
 
 
@@ -133,14 +137,18 @@ body::after{
     }
 }
 
-.popup-alert {
-    background-image: url('assets/svg/icon-alert.png');
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
+.popup-alert-spacer {
     top: 0;
     left: 0;
     width: 20px;
     height: 20px;
+}
+
+.popup-alert {
+    @extend .popup-alert-spacer;
+    background-image: url('assets/svg/icon-alert.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
 }
 
 .editor-options {
