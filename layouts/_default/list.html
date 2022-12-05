@@ -1,7 +1,6 @@
 {{ define "content" }}
 
     {{.Content}}
-    {{ partial "article" . }}
 
     {{ $siteScopes := .Site.Params.scopes }}
     {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
