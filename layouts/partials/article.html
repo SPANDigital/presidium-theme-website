@@ -27,6 +27,13 @@
     {{ $content = len .Content }}
 {{ end }}
 
+<script>
+    function copyPermalink(link) {
+        // Copy the article link to the clipboard
+        navigator.clipboard.writeText(link);
+    }
+</script>
+
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}" data-link="{{ $articleLink }}">
     {{ if or (ne ($content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
@@ -42,7 +49,7 @@
                 {{ end }}
                 
                 <div class="permalink">
-                    <a id="{{.Page.Permalink}}" class="link-icon" href="#{{ $slug }}" title="Permalink to this article"></a>
+                    <a style="cursor:pointer;" onclick="copyPermalink( {{ $articleLink }} )" id="{{.Page.Permalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
                 </div>
             </div>
         {{ end }}
