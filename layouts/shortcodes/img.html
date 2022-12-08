@@ -14,13 +14,13 @@
 {{ $attrs := ""}}
 {{ range $key, $value :=  .Params}}
     {{ if not (in $ignore $key) }}
-        {{ $attrs = (printf "%s=%s %s" $key $value $attrs)}}
+        {{ $attrs = (printf "%s=\"%s\" %s" $key $value $attrs) | safeHTMLAttr}}
     {{ end }}
 {{ end }}
 {{/* IMPORTANT! Keep indents minimal, there is an issue with indents translating into some content being put into <pre><code> blocks (when combined with other shortcodes) */}}
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
 {{ with .Get "link"}}<a href="{{.}}">{{ end }}
-<img src="{{ $src }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} {{$attrs | safeHTMLAttr}} />
+<img src="{{ $src }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} {{$attrs}} />
 {{ if .Get "link"}}</a>{{ end }}
 {{ if isset .Params "caption" }}
 <em>
