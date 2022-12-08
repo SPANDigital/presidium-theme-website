@@ -82,18 +82,18 @@ body::after{
     .popup-text {
         height: 20px;
     }
+
+    grid-template-columns: 40px auto 30px;
 }
 
 .editor-popup-panel-loading {
     @extend .editor-popup-panel;
     background-color: #777777;
-    grid-template-columns: 40px auto 30px;
 }
 
 .editor-popup-panel-error {
     @extend .editor-popup-panel;
     background-color: #D14652;
-    grid-template-columns: 40px auto 30px;
 
     .ok-button {
         font-weight: normal;
@@ -105,7 +105,6 @@ body::after{
         height: 20px;
         line-height: 0;
         border: none;
-
 
         background-color: white;
 
