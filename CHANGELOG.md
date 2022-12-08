@@ -5,6 +5,10 @@
 ### Updates
 ### Bug Fixes
 
+## 2022-12-08
+### Updates
+- Ensure popup panel symmetry
+
 ## 2022-12-05
 ### Updates
 - Updated img shortcode to allow spaces in the attributes fields
