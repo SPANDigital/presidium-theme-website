@@ -30,7 +30,11 @@
 <script>
     function copyPermalink(link) {
         // Copy the article link to the clipboard
-        navigator.clipboard.writeText(link);
+        let sanitizedLink = link;
+        while (sanitizedLink[0] === '/') {
+            sanitizedLink = sanitizedLink.substr(1);
+        }
+        navigator.clipboard.writeText(sanitizedLink);
     }
 </script>
 
