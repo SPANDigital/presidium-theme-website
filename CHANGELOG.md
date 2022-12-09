@@ -8,6 +8,7 @@
 ## 2022-12-08
 ### Updates
 - Ensure popup panel symmetry
+- Updated Presidium JS @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3102
 
 ## 2022-12-05
 ### Updates
