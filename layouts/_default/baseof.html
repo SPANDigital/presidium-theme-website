@@ -73,6 +73,13 @@
         });
     </script>
 
+    <script>
+      function copyPermalink(link) {
+          // Copy the article link to the clipboard
+          navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
+      }
+    </script>
+
     <!-- Components -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="/presidium.js"></script>
