@@ -27,17 +27,6 @@
     {{ $content = len .Content }}
 {{ end }}
 
-<script>
-    function copyPermalink(link) {
-        // Copy the article link to the clipboard
-        let sanitizedLink = link;
-        while (sanitizedLink[0] === '/') {
-            sanitizedLink = sanitizedLink.substring(1);
-        }
-        navigator.clipboard.writeText(sanitizedLink);
-    }
-</script>
-
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}" data-link="{{ $articleLink }}">
     {{ if or (ne ($content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
