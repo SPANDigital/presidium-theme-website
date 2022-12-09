@@ -76,11 +76,7 @@
     <script>
       function copyPermalink(link) {
           // Copy the article link to the clipboard
-          let sanitizedLink = link;
-          while (sanitizedLink[0] === '/') {
-              sanitizedLink = sanitizedLink.substring(1);
-          }
-          navigator.clipboard.writeText(sanitizedLink);
+          navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
       }
     </script>
 
