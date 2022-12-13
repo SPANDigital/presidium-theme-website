@@ -278,11 +278,21 @@ body::after{
     }
 }
 
+.editor-modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-modal-background;
+}
+
 .editor-modal {
     width: 350px;
     height: 188px;
     box-shadow: 8px 8px 27px rgba(0, 0, 0, 0.22);
-    z-index: 10; /* Sit on top */
+    z-index: $zindex-modal;
     background-color: white;
     border-radius: 8px;
     top: 50%;
