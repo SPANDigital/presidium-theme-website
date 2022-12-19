@@ -62,6 +62,7 @@ $tooltip-triangle-top: -20%;
     -o-transition: $tooltip-animation;
     transition: $tooltip-animation;
     overflow: auto;
+    max-height: 76px;
   }
 
   &:hover .tooltips-text {

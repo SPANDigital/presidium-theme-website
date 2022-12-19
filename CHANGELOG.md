@@ -36,3 +36,7 @@
 ## 2022-12-08
 ### Bug Fixes
 - Fixed an issue where editor modal overlays would not be on top. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3155
+
+## 2022-12-19
+### Features
+- Display all content within a tooltip. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3158
