@@ -1,13 +1,13 @@
 {{ $appliedScopes := .Site.Params.scopes }}
 {{ $scopingEnabled := .Site.Params.scopesEnabled }}
-{{ $rootUrl := ( relURL "/")}}
+{{ $rootUrl := strings.TrimSuffix "/" ( relURL "/")}}
 
 <nav class="navbar scrollable-container">
     <div class="navbar-header">
-        <a href="{{ .Site.BaseURL }}" class="brand">
-            {{ $navImg := (printf "%s%s" .Site.BaseURL "images/logo.png") }}
+        <a href="{{ $rootUrl }}" class="brand">
+            {{ $navImg := (printf "%s%s" $rootUrl "images/logo.png") }}
             {{ if .Site.Params.logo }}
-            {{ $navImg =  (printf "%s%s" .Site.BaseURL .Site.Params.logo) }}
+            {{ $navImg =  (printf "%s%s" $rootUrl .Site.Params.logo) }}
             {{ end }}
             <img src={{ $navImg }} alt="Logo image">
         </a>

@@ -28,9 +28,9 @@
     {{ end }}
 
     {{ $isChild := not $page.Data.Pages}}
-    {{ $articleLink := $page.Permalink }}
+    {{ $articleLink := $page.RelPermalink }}
     {{if $isChild }}
-        {{ $articleLink = (printf "%v#%v" $page.Parent.Permalink $slug ) }}
+        {{ $articleLink = (printf "%v#%v" $page.Parent.RelPermalink $slug ) }}
     {{end}}
 
     {{ if $page }}

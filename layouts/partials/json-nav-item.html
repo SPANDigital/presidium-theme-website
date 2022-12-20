@@ -1,5 +1,5 @@
 {{ $currentPage := .CurrentPage }}
-{{ $onArticle := eq .CurrentPage.Permalink .NavPage.Permalink }}
+{{ $onArticle := eq .CurrentPage.RelPermalink .NavPage.RelPermalink }}
 {{ $expanded := or (.CurrentPage.IsAncestor .NavPage) $onArticle }}
 {{ $childLevel := add .Level 1 }}
 {{ $children := slice }}
