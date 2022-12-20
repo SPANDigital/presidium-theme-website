@@ -66,9 +66,8 @@ body::after{
     height: 44px;
 
     position: fixed;
-    top: 100px;
     left: 50%;
-    margin-left: -150px;
+    margin-left: -75px;
 
     z-index: 10;
 
@@ -115,6 +114,24 @@ body::after{
             background-color: grey;
         }
     }
+}
+
+.editor-popup-panel-copy {
+    @extend .editor-popup-panel;
+    background-color: #000000;
+    grid-template-columns: 40px auto;
+    width: 197px;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.popup-tick {
+    background-image: url('assets/svg/icon-check.png');
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
 }
 
 .popup-spinner {
@@ -261,11 +278,21 @@ body::after{
     }
 }
 
+.editor-modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-modal-background;
+}
+
 .editor-modal {
     width: 350px;
     height: 188px;
     box-shadow: 8px 8px 27px rgba(0, 0, 0, 0.22);
-    z-index: 10; /* Sit on top */
+    z-index: $zindex-modal;
     background-color: white;
     border-radius: 8px;
     top: 50%;

@@ -28,3 +28,15 @@
 - Improve load times by preloading WYSIWYG icons @SamShiels
 - Inject the article path into an HTML attribute for use in the React app @SamShiels https://spandigital.atlassian.net/browse/PRSDM-2985
 - Preload article create and delete icons @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3005
+
+## 2022-12-08
+### Features
+- The permalink anchor now automatically copies article links to the clipboard when clicked. Added styles for the "Copied to clipboard" popup @SamShiels https://spandigital.atlassian.net/browse/PRSDM-2965
+
+## 2022-12-08
+### Bug Fixes
+- Fixed an issue where editor modal overlays would not be on top. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3155
+
+## 2022-12-19
+### Features
+- Display all content within a tooltip. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3158

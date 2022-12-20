@@ -35,7 +35,7 @@
 
     {{ if $page }}
         <a class="tooltips-term" href="{{ $articleLink }}" >
-            {{ $title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
+            {{ $title }}<span class="tooltips-text">{{ $page.Content | plainify }}</span>
         </a>
     {{ else }}
         {{ if $ref }}
