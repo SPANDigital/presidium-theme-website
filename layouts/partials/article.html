@@ -13,7 +13,7 @@
     {{ $parentSlug = .Parent.Params.Slug}}
 {{ end }}
 
-{{ $articleLink := (printf "%v#%v" .Parent.Page.Permalink $slug ) }}
+{{ $articleLink := (printf "%v#%v" .Parent.Page.RelPermalink $slug ) }}
 
 {{ $type := "parent" }}
 {{if not .Data.Pages }}
@@ -26,7 +26,6 @@
 {{ if .Content }}
     {{ $content = len .Content }}
 {{ end }}
-
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}" data-link="{{ $articleLink }}">
     {{ if or (ne ($content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
@@ -42,7 +41,7 @@
                 {{ end }}
                 
                 <div class="permalink">
-                    <a style="cursor:pointer;" onclick="copyPermalink( {{ $articleLink }} )" id="{{.Page.Permalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
+                    <a style="cursor:pointer;" onclick="copyPermalink( {{ $articleLink }} )" id="{{.Page.RelPermalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
                 </div>
             </div>
         {{ end }}

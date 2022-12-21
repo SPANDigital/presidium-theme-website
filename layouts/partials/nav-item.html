@@ -45,9 +45,9 @@
 {{ end }}
 
 {{/* adds the slug to the link if the article has no children */}}
-{{ $articleLink := .NavPage.Permalink }}
+{{ $articleLink := .NavPage.RelPermalink }}
 {{if $isChild }}
-    {{ $articleLink = (printf "%v#%v" .NavPage.Parent.Permalink $slug ) }}
+    {{ $articleLink = (printf "%v#%v" .NavPage.Parent.RelPermalink $slug ) }}
 {{end}}
 
 {{/* combines the parent slug with the current slug to ensure it's globally unique */}}
