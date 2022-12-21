@@ -1,6 +1,7 @@
 {{ $appliedScopes := .Site.Params.scopes }}
 {{ $scopingEnabled := .Site.Params.scopesEnabled }}
-{{ $rootUrl := strings.TrimSuffix "/" ( relURL "/")}}
+{{ $url := urls.Parse .Site.BaseURL }}
+{{ $rootUrl := path.Clean $url.Path }}
 
 <nav class="navbar scrollable-container">
     <div class="navbar-header">
