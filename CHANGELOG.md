@@ -40,3 +40,7 @@
 ## 2022-12-19
 ### Features
 - Display all content within a tooltip. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3158
+
+## 2022-12-21
+### Bugfixes
+Removed some unused styles for the article buttons. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3164
