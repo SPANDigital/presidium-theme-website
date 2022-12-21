@@ -6,9 +6,9 @@
 <nav class="navbar scrollable-container">
     <div class="navbar-header">
         <a href="{{ $rootUrl }}" class="brand">
-            {{ $navImg := (printf "%s%s" $rootUrl "images/logo.png") }}
+            {{ $navImg := "images/logo.png" | relURL }}
             {{ if .Site.Params.logo }}
-            {{ $navImg =  (printf "%s%s" $rootUrl .Site.Params.logo) }}
+            {{ $navImg = path.Join $rootUrl .Site.Params.logo }}
             {{ end }}
             <img src={{ $navImg }} alt="Logo image">
         </a>
