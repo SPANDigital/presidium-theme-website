@@ -40,3 +40,7 @@
 ## 2022-12-19
 ### Features
 - Display all content within a tooltip. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3158
+
+## 2023-01-09
+### Bugfixes
+- Fixed a bug where the editor tune menu would swap sides if the page width goes below 651px.
