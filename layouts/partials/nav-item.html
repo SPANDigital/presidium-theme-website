@@ -1,28 +1,8 @@
 {{ $childLevel := add .Level 1 }}
-{{ $currentPage := .CurrentPage }}
+{{/*  {{ $currentPage := .CurrentPage }}  */}}
 {{ $roles := .NavPage.Params.roles | default "All Roles" }}
 {{/* rootUrl is the baseUrl but it defaults to "/" if no baseUrl is set */}}
 {{ $rootUrl := .RootUrl }}
-
-{{/* checks if the nav-item is pointing to the current article */}}
-{{ $onArticle := eq .CurrentPage.RelPermalink .NavPage.RelPermalink }}
-
-{{/* checks if the current nav-item should be visible  */}}
-{{ $show := or (or (eq .Level 1) $onArticle) .Show }}
-
-{{/* opens the menu if nav-item is a parent of the current article  */}}
-{{ $openMenu := false }}
-{{ if hasPrefix .CurrentPage.RelPermalink .NavPage.RelPermalink }}
-    {{ $openMenu = not (eq .NavPage.RelPermalink $rootUrl) }}
-{{ end }}
-
-{{/* or pointing to the current article */}}
-{{ if $onArticle }}
-    {{ $openMenu = true }}
-{{ end }}
-
-{{/* set menu class */}}
-{{ $state := cond $openMenu "open" "closed" }}
 
 {{/* checks if the article has children */}}
 {{ $isParent := .NavPage.Data.Pages}}
@@ -53,9 +33,6 @@
 {{/* combines the parent slug with the current slug to ensure it's globally unique */}}
 {{ $pageSlug := (printf "%v-%v" ($parentSlug) $slug )}}
 
-{{/* allows the user to override the article id from the front matter */}}
-{{ $articleId :=  .NavPage.Params.id | default  .NavPage.File.Path }}
-
 {{/*  Hide the first item if the title is the same as the parent  */}}
 {{ $offset := 0 }}
 {{ if eq (index .NavPage.Data.Pages 0).Title .NavPage.Title }}
@@ -63,16 +40,18 @@
 {{ end }}
 {{ $hasChildren := lt $offset (len .NavPage.Data.Pages)}}
 
-<li class="menu-row menu-parent_{{ $parentSlug }}_{{ .Level }} collapse {{ if $show }}in{{end}} {{ if $isParent}}{{$state}}{{end}} {{ if not $isParent }}child{{end}}" style="overflow: hidden;{{ if not $show }}height: 0;{{ end }}" data-roles="{{ $roles }}">
+{{/* Unique id for this article */}}
+{{ $articleId :=  .NavPage.Params.id | default  .NavPage.File.Path }}
+
+{{/* Unique id for file, used by scroll-spy and menu toggle  */}}
+{{ $uid := .NavPage.File.UniqueID }}
+
+<li class="menu-row collapse {{ if $isChild }}child{{end}}" style="overflow: hidden;" data-roles="{{ $roles }}">
     <div class="link level-{{ .Level }}">
-        <a class="level-{{ .Level }} {{ if eq .Index 0 }}first-child{{end}}" data-slug="{{ $slug }}" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}" href="{{ $articleLink }}">
+        <a class="level-{{ .Level }} {{ if eq .Index 0 }}first-child{{end}}" data-slug="{{ $slug }}" data-target="#{{$uid}}" data-id="{{ $articleId }}" href="{{ $articleLink }}">
             {{ if $hasChildren }}
-                <div class="menu-expander" data-toggle="collapse" data-target=".menu-parent_{{ $slug }}_{{ $childLevel }}" aria-controls=".menu-parent_{{ $slug }}">
-                    {{ if $openMenu }}
-                        <span class="glyphicon glyphicon-chevron-down glyphicon-toggle"></span>
-                    {{ else }}
-                        <span class="glyphicon glyphicon-chevron-right glyphicon-toggle"></span>
-                    {{ end }}
+                <div class="menu-expander" data-toggle="collapse" aria-controls="{{$uid}}" data-target="#{{$uid}}" >
+                    <span class="glyphicon glyphicon-chevron-right glyphicon-toggle"></span>
                 </div>
             {{ end }}
             <div class="menu-title">
@@ -84,17 +63,17 @@
     </div>
 
     {{ if $isParent }}
-        <ul>
+        <ul id="{{$uid}}" class="collapse">
         {{/* Sort by filename if specified in config */}}
         {{ if .NavPage.Site.Params.sortByFilePath }}
             {{/* Sort by file prefix */}}
             {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
-                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+                {{ partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl) }}
             {{ end }}
         {{ else }}
             {{/* Sort by weight otherwise the hugo default */}}
             {{ range $index, $subMenu := after $offset .NavPage.Data.Pages.ByWeight }}
-                {{ partial "nav-item" (dict "CurrentPage" $currentPage "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "Show" $openMenu) }}
+                {{ partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl ) }}
             {{ end }}
         {{ end }}
         </ul>
