@@ -1,5 +1,4 @@
 {{ $childLevel := add .Level 1 }}
-{{/*  {{ $currentPage := .CurrentPage }}  */}}
 {{ $roles := .NavPage.Params.roles | default "All Roles" }}
 {{/* rootUrl is the baseUrl but it defaults to "/" if no baseUrl is set */}}
 {{ $rootUrl := .RootUrl }}
