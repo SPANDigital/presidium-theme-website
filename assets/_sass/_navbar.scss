@@ -145,6 +145,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       .brand-name-grid {
         display: grid;
+        @media (max-width: $grid-float-breakpoint) {
+          grid-template-columns: 0px auto 50px;
+        }
         grid-template-columns: 50px auto 50px;
 
         .brand-name {
