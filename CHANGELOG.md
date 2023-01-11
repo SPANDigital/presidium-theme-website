@@ -48,3 +48,7 @@
 ## 2023-01-10
 ### Performance improvements
 - Improved the rendering performance of the theme by making the navigation cachable. @meyerhp https://spandigital.atlassian.net/browse/PRSDM-3209
+
+## 2023-01-11
+### Bugfixes
+- Fixed a bug where the editor tune menu would swap sides if the page width goes below 651px. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3223
