@@ -5,6 +5,10 @@
 ### Updates
 ### Bug Fixes
 
+## 2023-01-12
+### Bug Fixes
+- Fix img shortcode not rendering in the PDF document @Zalaras
+
 ## 2022-12-08
 ### Updates
 - Ensure popup panel symmetry
