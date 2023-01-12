@@ -1,13 +1,13 @@
 {{ $src := .Get "src" }}
 {{ $url := urls.Parse $src }}
 {{ $src = strings.TrimPrefix "/" $src }}
-{{ $rootUrl := strings.TrimSuffix "/" ( relURL "/")}}
+
 {{ if .Page.Parent.Resources.GetMatch $src }}
     {{ $src = printf "%s/%s" (strings.TrimSuffix "/" .Page.Parent.RelPermalink | default "") $src }}
 {{ else if .Page.Parent.Parent.Resources.GetMatch $src }}
     {{ $src = printf "%s/%s" (strings.TrimSuffix "/" .Page.Parent.Parent.RelPermalink | default "") $src }}
 {{ else if not $url.Scheme  }}
-    {{ $src = printf "%s/%s" $rootUrl $src }}  
+    {{ $src = printf "%s/%s" (strings.TrimSuffix "/" site.BaseURL) $src }}  
 {{ end }}
 
 {{ $ignore := (slice "attrlink" "attr" "link" "alt" "caption" "title" "src")}}
@@ -20,7 +20,7 @@
 {{/* IMPORTANT! Keep indents minimal, there is an issue with indents translating into some content being put into <pre><code> blocks (when combined with other shortcodes) */}}
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
 {{ with .Get "link"}}<a href="{{.}}">{{ end }}
-<img src="{{ $src | safeURL}}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} {{$attrs}} />
+<img src="{{ $src | safeURL }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} {{$attrs}} />
 {{ if .Get "link"}}</a>{{ end }}
 {{ if isset .Params "caption" }}
 <em>
