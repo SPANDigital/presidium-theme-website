@@ -1,1 +1,2 @@
-{{ strings.TrimSuffix "/" site.BaseURL }}
+{{ $url := urls.Parse .Site.BaseURL }}
+{{ path.Clean $url.Path }}

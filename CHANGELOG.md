@@ -5,6 +5,10 @@
 ### Updates
 ### Bug Fixes
 
+## 2023-01-12
+### Bug Fixes
+- Fix img shortcode not rendering in the PDF document @Zalaras https://spandigital.atlassian.net/browse/PRSDM-3226
+
 ## 2022-12-08
 ### Updates
 - Ensure popup panel symmetry
@@ -44,3 +48,18 @@
 ## 2022-12-21
 ### Bugfixes
 Removed some unused styles for the article buttons. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3164
+## 2023-01-09
+### Bugfixes
+- Fixed a bug where the editor tune menu would swap sides if the page width goes below 651px.
+
+## 2023-01-10
+### Performance improvements
+- Improved the rendering performance of the theme by making the navigation cachable. @meyerhp https://spandigital.atlassian.net/browse/PRSDM-3209
+
+## 2023-01-11
+### Bugfixes
+- Fixed a bug where the editor tune menu would swap sides if the page width goes below 651px. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3223
+
+## 2023-01-12
+### Bugfixes
+- Placed the article option buttons to the right of the header when the viewport is narrowed. Limit the title width to account for the permalink and article options. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3224

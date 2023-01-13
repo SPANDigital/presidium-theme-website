@@ -6,31 +6,30 @@
     {{ $slug = .Params.Slug}}
 {{ end }}
 
-{{/* Parent slug */}}
-{{ $parentSlug := ((humanize .Parent.Params.Title) | default "root") }}
-{{ $parentSlug = anchorize $parentSlug }}
-{{ if .Parent.Params.Slug }}
-    {{ $parentSlug = .Parent.Params.Slug}}
-{{ end }}
-
-{{ $articleLink := (printf "%v#%v" .Parent.Page.Permalink $slug ) }}
+{{ $articleLink := (printf "%v#%v" .Parent.Page.RelPermalink $slug ) }}
 
 {{ $type := "parent" }}
 {{if not .Data.Pages }}
     {{ $type = "child" }}
 {{end}}
-{{ $dataId := .Params.id | default .File.Path }}
-{{ $pageSlug := (printf "%v-%v" ($parentSlug) $slug )}}
+
 {{ $nestedArticles := .Site.Params.includeNestedArticles | default true }}
+
 {{ $content := 0 }}
 {{ if .Content }}
     {{ $content = len .Content }}
 {{ end }}
 
-<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $pageSlug }}" data-link="{{ $articleLink }}">
+{{/* Unique id for this article */}}
+{{ $articleId := .Params.id | default .File.Path }}
+
+{{/* Unique id for file, used by scroll-spy and menu toggle  */}}
+{{ $uid := .File.UniqueID }}
+
+<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}">
     {{ if or (ne ($content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
-        <span class="anchor"  id="{{ $slug }}" data-id="{{ $dataId }}"></span>
+        <span class="anchor"  id="{{ $slug }}" data-id="{{ $articleId }}"></span>
         {{ if (eq .Parent.Title .Title) }}
             {{/*  No title - For when the main title is the same as the first article  */}}
         {{ else }}
@@ -42,7 +41,7 @@
                 {{ end }}
                 
                 <div class="permalink">
-                    <a style="cursor:pointer;" onclick="copyPermalink( {{ $articleLink }} )" id="{{.Page.Permalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
+                    <a style="cursor:pointer;" onclick="copyPermalink( {{ $articleLink }} )" id="{{.Page.RelPermalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
                 </div>
             </div>
         {{ end }}
