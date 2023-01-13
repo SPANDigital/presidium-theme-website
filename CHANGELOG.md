@@ -5,6 +5,10 @@
 ### Updates
 ### Bug Fixes
 
+## 2023-01-12
+### Bug Fixes
+- Fix img shortcode not rendering in the PDF document @Zalaras https://spandigital.atlassian.net/browse/PRSDM-3226
+
 ## 2022-12-08
 ### Updates
 - Ensure popup panel symmetry
