@@ -20,7 +20,7 @@
             {{ end }}
 
             {{ if $isRendering }}
-                {{ partial "article" . }}
+                {{ partialCached "article" . .File.Path }}
             {{ end }}
         {{ end }}
     {{ else }}
@@ -36,7 +36,7 @@
             {{ end }}
 
             {{ if $isRendering }}
-                {{ partial "article" . }}
+                {{ partialCached "article" . .File.Path }}
             {{ end }}
         {{ end }}
     {{ end }}
