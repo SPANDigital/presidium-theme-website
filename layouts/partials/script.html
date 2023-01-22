@@ -1,0 +1,108 @@
+
+    <script>
+        $(document).ready(function () {
+            $('li.menu-row').not('.open').addClass('closed');
+            $('.menu-expander').click(function (event) {
+                event.preventDefault();
+                if (this.firstElementChild) {
+                  this.firstElementChild.classList.toggle('glyphicon-chevron-down');
+                  this.firstElementChild.classList.toggle('glyphicon-chevron-right');
+                }
+                $(this).parent().closest('.menu-row').toggleClass('open closed');
+            });
+        });
+    </script>
+
+    <script>
+      function copyPermalink(link) {
+          // Copy the article link to the clipboard
+          navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
+      }
+    </script>
+
+    <!-- Components -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="/presidium.js"></script>
+    <script>
+        window.presidium.tooltips.load();
+        window.presidium.modal.init();
+
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+
+    {{ if $.Site.Params.enterprise_enabled }}
+    <script src="{{ $.Site.Params.enterprise_script }}"></script>
+    <script>
+        const toolbarHeight = $("#presidium-enterprise").height()
+        if(toolbarHeight) {
+          $("#presidium-navigation").css({ top: `${toolbarHeight}px` });
+        }
+    </script>
+    {{ end }}
+
+    {{ if $.Site.Params.analyticsToken }}
+         {{ partial "analytics.html"  . }}
+    {{ end }}
+    
+    {{ if $.Site.Params.resizeMenu | default true }}
+    <script>
+        const desktopSize = window.matchMedia("(min-width: 768px)")
+        const resizer = document.querySelector("#resizer");
+        const sidebar = document.querySelector("#presidium-navigation");
+
+        if(desktopSize.matches) {
+          resizer.style.display = 'block';
+        }
+
+        const cachedSize = window.localStorage.getItem('sidenav');
+        if(cachedSize && desktopSize.matches) {
+          sidebar.style.flexBasis = cachedSize;
+        }
+        
+        resizer.addEventListener("mousedown", (event) => {
+          event.preventDefault();
+          document.addEventListener("mousemove", resize, false);
+          document.addEventListener("mouseup", () => {
+            event.preventDefault();
+            document.removeEventListener("mousemove", resize, false);
+          }, false);
+        });
+        
+        function resize(e) {
+          const size = `${e.x}px`;
+          window.localStorage.setItem('sidenav', size);
+          sidebar.style.flexBasis = size;
+        }
+    </script>
+    {{ end }}
+    
+    {{ if $.Site.Params.enableSublinks }}
+    <script type="application/javascript">
+
+      (function addHeadingLinks(){
+        var articles = document.querySelectorAll('.article.child');
+
+        articles.forEach( function(article){
+          var headings = article.querySelectorAll('h1, h2');
+          headings.forEach(function(heading){
+            if(heading.id){
+              var container = document.createElement('div');
+              var linkContainer = document.createElement('div')
+              var link = document.createElement('a');
+
+              container.className = 'article-title';
+              linkContainer.className = "permalink";
+              link.className = "link-icon";
+              link.href = '#'+heading.id;
+              link.title = "Permalink to this article";
+
+              linkContainer.appendChild(link);
+              heading.insertAdjacentElement("beforebegin", container);
+              container.appendChild(heading);
+              container.appendChild(linkContainer)
+            }
+          })
+        });
+      })();
+    </script>
+    {{ end }}
