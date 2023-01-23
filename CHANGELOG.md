@@ -60,3 +60,7 @@
 ## 2023-01-12
 ### Bugfixes
 - Placed the article option buttons to the right of the header when the viewport is narrowed. Limit the title width to account for the permalink and article options. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3224
+
+## 2023-01-20
+### Bugfixes
+- Added the permalink to the article div so that we can edit landing pages. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3285
