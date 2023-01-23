@@ -28,12 +28,7 @@
 
     <div class="content-wrapper">
       <div id="presidium-navigation">
-        {{ $nav := $.Scratch.Get "name" }}
-        {{ if not $nav }}
-          {{ $nav := (partialCached "navigation.html" . 0) }}
-          {{ $.Scratch.Set "name" $nav }}
-        {{ end }}
-        {{ $nav }}
+        {{ partialCached "navigation.html" . 0 }}
       </div>
   
       <div id="resizer"></div>
