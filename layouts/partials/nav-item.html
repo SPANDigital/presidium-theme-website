@@ -1,51 +1,51 @@
-{{ $childLevel := add .Level 1 }}
-{{ $roles := .NavPage.Params.roles | default "All Roles" }}
+{{- $childLevel := add .Level 1 -}}
+{{- $roles := .NavPage.Params.roles | default "All Roles" -}}
 {{/* rootUrl is the baseUrl but it defaults to "/" if no baseUrl is set */}}
-{{ $rootUrl := .RootUrl }}
+{{- $rootUrl := .RootUrl -}}
 
 {{/* checks if the article has children */}}
-{{ $isParent := .NavPage.Data.Pages}}
+{{- $isParent := .NavPage.Data.Pages}}
 
 {{/* checks if the article has no children  */}}
-{{ $isChild := not $isParent }}
+{{- $isChild := not $isParent -}}
 
 {{/* Use title if no slug */}}
-{{ $slug := humanize .NavPage.Params.Title }} {{/* Handles any dashes in the title */}}
-{{ $slug = anchorize $slug }}
-{{ if .NavPage.Params.Slug }}
-    {{ $slug = .NavPage.Params.Slug}}
-{{ end }}
+{{- $slug := humanize .NavPage.Params.Title -}} {{/* Handles any dashes in the title */}}
+{{- $slug = anchorize $slug -}}
+{{- if .NavPage.Params.Slug -}}
+    {{- $slug = .NavPage.Params.Slug}}
+{{- end -}}
 
 {{/* Parent slug */}}
-{{ $parentSlug := ((humanize .NavPage.Parent.Params.Title) | default "root") }}
-{{ $parentSlug = anchorize $parentSlug }}
-{{ if .NavPage.Parent.Params.Slug }}
-    {{ $parentSlug = .NavPage.Parent.Params.Slug}}
-{{ end }}
+{{- $parentSlug := ((humanize .NavPage.Parent.Params.Title) | default "root") -}}
+{{- $parentSlug = anchorize $parentSlug -}}
+{{- if .NavPage.Parent.Params.Slug -}}
+    {{- $parentSlug = .NavPage.Parent.Params.Slug}}
+{{- end -}}
 
 {{/* adds the slug to the link if the article has no children */}}
-{{ $articleLink := .NavPage.RelPermalink }}
-{{if $isChild }}
-    {{ $articleLink = (printf "%v#%v" .NavPage.Parent.RelPermalink $slug ) }}
+{{- $articleLink := .NavPage.RelPermalink -}}
+{{if $isChild -}}
+    {{- $articleLink = (printf "%v#%v" .NavPage.Parent.RelPermalink $slug ) -}}
 {{end}}
 
 {{/* combines the parent slug with the current slug to ensure it's globally unique */}}
-{{ $pageSlug := (printf "%v-%v" ($parentSlug) $slug )}}
+{{- $pageSlug := (printf "%v-%v" ($parentSlug) $slug )}}
 
 {{/*  Hide the first item if the title is the same as the parent  */}}
-{{ $offset := 0 }}
-{{ if eq (index .NavPage.Data.Pages 0).Title .NavPage.Title }}
-    {{ $offset = 1 }}
-{{ end }}
-{{ $hasChildren := lt $offset (len .NavPage.Data.Pages)}}
+{{- $offset := 0 -}}
+{{- if eq (index .NavPage.Data.Pages 0).Title .NavPage.Title -}}
+    {{- $offset = 1 -}}
+{{- end -}}
+{{- $hasChildren := lt $offset (len .NavPage.Data.Pages)}}
 
 {{/* Unique id for this article */}}
-{{ $articleId :=  .NavPage.Params.id | default  .NavPage.File.Path }}
+{{- $articleId :=  .NavPage.Params.id | default  .NavPage.File.Path -}}
 
 {{/* Unique id for file, used by scroll-spy and menu toggle  */}}
-{{ $uid := .NavPage.File.UniqueID }}
+{{- $uid := .NavPage.File.UniqueID -}}
 
-<li class="menu-row collapse {{ if $isChild }}child{{end}}" style="overflow: hidden;" data-roles="{{ $roles }}">
+<li class="menu-row collapse {{ if $isChild }}child{{end}}" style="overflow: hidden;" data-roles="{{- $roles -}}">
     <div class="link level-{{ .Level }}">
         <a class="level-{{ .Level }} {{ if eq .Index 0 }}first-child{{end}}" data-slug="{{ $slug }}" data-target="#{{$uid}}" data-id="{{ $articleId }}" href="{{ $articleLink }}">
             {{ if $hasChildren }}
@@ -57,24 +57,24 @@
                 {{ .NavPage.Name }}
             </div>
         </a>
-        <div class="article-navbar-options" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}">
+        <div class="article-navbar-options" data-target="#{{$pageSlug}}"  data-id="{{- $articleId -}}">
         </div>
     </div>
 
     {{ if $isParent }}
         <ul id="{{$uid}}" class="collapse">
         {{/* Sort by filename if specified in config */}}
-        {{ if .NavPage.Site.Params.sortByFilePath }}
+        {{- if .NavPage.Site.Params.sortByFilePath -}}
             {{/* Sort by file prefix */}}
-            {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
-                {{ partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl) }}
-            {{ end }}
-        {{ else }}
+            {{- range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") -}}
+                {{- partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl) -}}
+            {{- end -}}
+        {{- else -}}
             {{/* Sort by weight otherwise the hugo default */}}
-            {{ range $index, $subMenu := after $offset .NavPage.Data.Pages.ByWeight }}
-                {{ partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl ) }}
-            {{ end }}
-        {{ end }}
+            {{- range $index, $subMenu := after $offset .NavPage.Data.Pages.ByWeight -}}
+                {{- partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl ) -}}
+            {{- end -}}
+        {{- end -}}
         </ul>
     {{ end }}
 </li>

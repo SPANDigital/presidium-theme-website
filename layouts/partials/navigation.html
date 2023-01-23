@@ -1,15 +1,15 @@
-{{ $appliedScopes := .Site.Params.scopes }}
-{{ $scopingEnabled := .Site.Params.scopesEnabled }}
-{{ $url := urls.Parse .Site.BaseURL }}
-{{ $rootUrl := path.Clean $url.Path }}
+{{- $appliedScopes := .Site.Params.scopes -}}
+{{- $scopingEnabled := .Site.Params.scopesEnabled -}}
+{{- $url := urls.Parse .Site.BaseURL -}}
+{{- $rootUrl := path.Clean $url.Path -}}
 
 <nav class="navbar scrollable-container">
     <div class="navbar-header">
         <a href="{{ $rootUrl }}" class="brand">
-            {{ $navImg := "images/logo.png" | relURL }}
-            {{ if .Site.Params.logo }}
-            {{ $navImg = path.Join $rootUrl .Site.Params.logo }}
-            {{ end }}
+            {{- $navImg := "images/logo.png" | relURL -}}
+            {{- if .Site.Params.logo -}}
+            {{- $navImg = path.Join $rootUrl .Site.Params.logo -}}
+            {{- end -}}
             <img src={{ $navImg }} alt="Logo image">
         </a>
         <div class="brand-name-grid">
@@ -25,41 +25,41 @@
         </button>
     </div>
     <div class="navbar-items">
-        {{ $roles := .Site.Params.roles.options | default slice }}
-        {{ if and (gt (len $roles) 0) .Site.Params.show.role }}
+        {{- $roles := .Site.Params.roles.options | default slice -}}
+        {{- if and (gt (len $roles) 0) .Site.Params.show.role -}}
         <div class="filter form-group">
-            <label class="control-label" for="roles-select">{{ .Site.Params.roles.label }}:</label>
+            <label class="control-label" for="roles-select">{{- .Site.Params.roles.label -}}:</label>
             <select id="roles-select" class="form-control">
-                <option value="All Roles">{{ .Site.Params.roles.all }}</option>
-                {{ range sort $roles }}
-                <option value="{{ . }}">{{ . }}</option>
-                {{ end }}
+                <option value="All Roles">{{- .Site.Params.roles.all -}}</option>
+                {{- range sort $roles -}}
+                <option value="{{- . -}}">{{- . -}}</option>
+                {{- end -}}
             </select>
         </div>
-        {{ end }}
-        {{ $currentPage := . }}
+        {{- end -}}
+        {{- $currentPage := . -}}
         <ul class="nav navbar-nav">
-            {{ range $menu := .Site.Menus.main.ByWeight }}
-                {{ $isRendering := true }}
+            {{- range $menu := .Site.Menus.main.ByWeight -}}
+                {{- $isRendering := true -}}
 
-                {{ if (isset $menu.Params "scope" ) }}
-                    {{ if $scopingEnabled }}
-                        {{ $menuScope := $menu.Params.scope }}
-                        {{ $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0  }}
-                    {{ end }}
-                {{ end }}
+                {{- if (isset $menu.Params "scope" ) -}}
+                    {{- if $scopingEnabled -}}
+                        {{- $menuScope := $menu.Params.scope -}}
+                        {{- $isRendering = gt (len (intersect $menuScope $appliedScopes)) 0  -}}
+                    {{- end -}}
+                {{- end -}}
                 
-                {{ if $isRendering }}
-                        {{ if $menu.Params.externalUrl}}
-                        {{ partial "nav-item-external" $menu }}
-                    {{ else }}
-                        {{ $identifier := anchorize $menu.Identifier }}
-                        {{ with $.Site.GetPage $identifier }}
-                            {{ partial "nav-item" (dict "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false) }}
-                        {{ end }}
-                    {{ end }}                    
-                {{ end }}
-            {{ end }}
+                {{- if $isRendering -}}
+                        {{- if $menu.Params.externalUrl}}
+                        {{- partial "nav-item-external" $menu -}}
+                    {{- else -}}
+                        {{- $identifier := anchorize $menu.Identifier -}}
+                        {{- with $.Site.GetPage $identifier -}}
+                            {{- partial "nav-item" (dict "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false) -}}
+                        {{- end -}}
+                    {{- end -}}                    
+                {{- end -}}
+            {{- end -}}
         </ul>
     </div>
 </nav>
