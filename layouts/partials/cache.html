@@ -1,0 +1,6 @@
+{{ $layout := $.Scratch.Get .key }}
+{{ if not $layout }}
+  {{ $layout := (partialCached .template .context) }}
+  {{ $.Scratch.Set .key $layout }}
+{{ end }}
+{{ $layout }}
