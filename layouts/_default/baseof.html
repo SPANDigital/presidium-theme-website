@@ -82,7 +82,16 @@
         window.presidium.tooltips.load();
         window.presidium.modal.init();
 
-        mermaid.initialize({ startOnLoad: true });
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                'primaryColor': '#E69224',
+                'primaryBorderColor': '#DE7f1D',
+                'secondaryColor': '#EAEAEA',
+                'lineColor': '#666',
+            },
+        });
     </script>
 
     {{ if $.Site.Params.enterprise_enabled }}
