@@ -68,3 +68,7 @@
 ## 2023-01-20
 ### Bugfixes
 - Added the permalink to the article div so that we can edit landing pages. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3285
+
+## 2023-02-09
+### Bugfixes
+- Override Mermaid JS CSS to allow for different edge and node text colours @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3445
