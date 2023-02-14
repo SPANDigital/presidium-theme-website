@@ -23,6 +23,8 @@
     {{/* Use title if no slug */}}
     {{ $slug := humanize $page.Params.Title }} {{/* Handles any dashes in the title */}}
     {{ $slug = anchorize $slug }}
+    {{ $slug = replaceRE `(-{2,})` "-" $slug }} {{/* Replaces multiple dashes with one */}}
+    
     {{ if $page.Params.Slug }}
         {{ $slug = $page.Params.Slug}}
     {{ end }}
