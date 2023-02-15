@@ -72,3 +72,7 @@
 ## 2023-02-09
 ### Bugfixes
 - Override Mermaid JS CSS to allow for different edge and node text colours @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3445
+
+## 2023-02-15
+### Bugfixes
+- Replace multiple dashes in slugs with one. @LantareCode https://spandigital.atlassian.net/browse/PRSDM-3465
