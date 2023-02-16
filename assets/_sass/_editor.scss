@@ -69,7 +69,6 @@ body::after{
     color: white;
 
     width: 419px;
-    height: 44px;
 
     position: fixed;
     left: 50%;
@@ -85,7 +84,7 @@ body::after{
     text-align: center;
 
     .popup-text {
-        height: 20px;
+        margin: auto;
     }
 
     grid-template-columns: 40px auto 30px;
@@ -109,6 +108,8 @@ body::after{
         border-radius: 4px;
         height: 20px;
         line-height: 0;
+        margin: auto 0;
+
         border: none;
 
         background-color: white;
@@ -171,6 +172,7 @@ body::after{
     background-image: url('assets/svg/icon-alert.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
+    margin: auto 0;
 }
 
 .editor-options {
