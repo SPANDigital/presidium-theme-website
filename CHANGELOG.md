@@ -76,3 +76,7 @@
 ## 2023-02-15
 ### Bugfixes
 - Replace multiple dashes in slugs with one. @LantareCode https://spandigital.atlassian.net/browse/PRSDM-3465
+
+## 2023-02-16
+### Bugfixes
+- Made the article alert popup expandable to make sure text doesn't spill @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3522
