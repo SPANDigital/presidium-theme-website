@@ -84,3 +84,4 @@
 ## 2023-02-21
 ### Bugfixes
 - Fixed a bug where the WYSIWYG settings menu would disappear when all blocks were deleted @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3487
+- Replaced some SVG files with PNGs so that they will show up in the PDF. @LantareCode https://spandigital.atlassian.net/browse/PRSDM-3500
