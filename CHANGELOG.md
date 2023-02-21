@@ -80,3 +80,7 @@
 ## 2023-02-16
 ### Bugfixes
 - Made the article alert popup expandable to make sure text doesn't spill @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3522
+
+## 2023-02-21
+### Bugfixes
+- Fixed a bug where the WYSIWYG settings menu would disappear when all blocks were deleted @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3487
