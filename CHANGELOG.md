@@ -80,3 +80,7 @@
 ## 2023-02-16
 ### Bugfixes
 - Made the article alert popup expandable to make sure text doesn't spill @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3522
+
+## 2023-02-21
+### Bugfixes
+- Replaced some SVG files with PNGs so that they will show up in the PDF. @LantareCode https://spandigital.atlassian.net/browse/PRSDM-3500
