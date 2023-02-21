@@ -134,19 +134,19 @@
         }
 
         .status-draft {
-          background-image: url('images/status-draft.svg');
+          background-image: url('images/status-draft.png');
           color: $color-yellow-green;
         }
         .status-review {
-          background-image: url('images/status-review.svg');
+          background-image: url('images/status-review.png');
           color: $color-yellow-green;
         }
         .status-published {
-          background-image: url('images/status-published.svg');
+          background-image: url('images/status-published.png');
           color: $color-green;
         }
         .status-retired {
-          background-image: url('images/status-retired.svg');
+          background-image: url('images/status-retired.png');
           color: $color-grey;
         }
       }
