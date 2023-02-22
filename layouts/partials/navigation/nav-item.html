@@ -69,12 +69,12 @@
         {{ if .NavPage.Site.Params.sortByFilePath }}
             {{/* Sort by file prefix */}}
             {{ range $index, $subMenu := (sort (after $offset .NavPage.Data.Pages) "File.Path") }}
-                {{ partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl) }}
+                {{ partial "navigation/nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl) }}
             {{ end }}
         {{ else }}
             {{/* Sort by weight otherwise the hugo default */}}
             {{ range $index, $subMenu := after $offset .NavPage.Data.Pages.ByWeight }}
-                {{ partial "nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl ) }}
+                {{ partial "navigation/nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl ) }}
             {{ end }}
         {{ end }}
         </ul>

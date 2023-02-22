@@ -1,7 +1,9 @@
+{{ define "header" }}
+{{ partial "page/header" . }}
+{{ end }}
+
 {{ define "content" }}
-
     {{.Content}}
-
     {{ $siteScopes := .Site.Params.scopes }}
     {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
     {{ $pages := .Data.Pages }}
@@ -20,7 +22,7 @@
             {{ end }}
 
             {{ if $isRendering }}
-                {{ partial "article" . }}
+                {{ partial "article/root" . }}
             {{ end }}
         {{ end }}
     {{ else }}
@@ -36,8 +38,12 @@
             {{ end }}
 
             {{ if $isRendering }}
-                {{ partial "article" . }}
+                {{ partial "article/root" . }}
             {{ end }}
         {{ end }}
     {{ end }}
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "page/footer" . }}
 {{ end }}

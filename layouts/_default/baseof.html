@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>{{ $.Site.Title }}</title>
@@ -10,9 +9,9 @@
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     {{ if resources.Get "index.scss" }}
-    {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-    {{ end }}
+      {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}">
+      {{ end }}
     {{ end }}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
@@ -28,190 +27,26 @@
 
     <div class="content-wrapper">
       <div id="presidium-navigation">
-        {{ partialCached "navigation.html" . 0 }}
+        {{ partialCached "navigation/root" . 0 }}
       </div>
   
       <div id="resizer"></div>
       <div id="presidium-container" class="container-fluid">
           <div class="row">
               <div id="presidium-content" class="col-lg-10 col-md-12">
-                 {{ partial "page-header.html" . }}
-  
-                  <section>
-                      {{ partialCached "info.html" 0 }}
-                      {{ block "content" . }}
-                      {{ end }}
-                  </section>
-                  {{ partialCached "footer.html" . }}
+                  {{ block "header" . }}{{ end }}
+                  {{ block "content" . }}{{ end }}
+                  {{ block "footer" . }}{{ end }}
               </div>
               <div class="col-lg-2"></div>
           </div>
       </div>
     </div>
  
-    <!--presidium-container-->
-
-    {{ partialCached "modal.html" 0 }}
-
-    <script>
-        $(document).ready(function () {
-            $('li.menu-row').not('.open').addClass('closed');
-            $('.menu-expander').click(function (event) {
-                event.preventDefault();
-                if (this.firstElementChild) {
-                  this.firstElementChild.classList.toggle('glyphicon-chevron-down');
-                  this.firstElementChild.classList.toggle('glyphicon-chevron-right');
-                }
-                $(this).parent().closest('.menu-row').toggleClass('open closed');
-            });
-        });
-    </script>
-
-    <script>
-      function copyPermalink(link) {
-          // Copy the article link to the clipboard
-          navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
-      }
-    </script>
-
-    <!-- Components -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script src="/presidium.js"></script>
-    <script>
-        window.presidium.tooltips.load();
-        window.presidium.modal.init();
-
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'base',
-            themeVariables: {
-                'primaryColor': '#00827E',
-                'primaryBorderColor': '#2C6764',
-                'secondaryColor': '#FFFFFF',
-                'lineColor': '#666',
-            },
-        });
-    </script>
-
-    {{ if $.Site.Params.enterprise_enabled }}
-    <script src="{{ $.Site.Params.enterprise_script }}"></script>
-    <script>
-        const toolbarHeight = $("#presidium-enterprise").height()
-        if(toolbarHeight) {
-          $("#presidium-navigation").css({ top: `${toolbarHeight}px` });
-        }
-    </script>
-    {{ end }}
-
+    {{ partialCached "page/modal" 0 }}
+    {{ partialCached "page/script" . }}
     {{ if $.Site.Params.analyticsToken }}
-         {{ partial "analytics.html"  . }}
+      {{ partial "analytics.html"  . }}
     {{ end }}
-    
-    {{ if $.Site.Params.resizeMenu | default true }}
-    <script>
-        const desktopSize = window.matchMedia("(min-width: 768px)")
-        const resizer = document.querySelector("#resizer");
-        const sidebar = document.querySelector("#presidium-navigation");
-
-        if(desktopSize.matches) {
-          resizer.style.display = 'block';
-        }
-
-        const cachedSize = window.localStorage.getItem('sidenav');
-        if(cachedSize && desktopSize.matches) {
-          sidebar.style.flexBasis = cachedSize;
-        }
-        
-        resizer.addEventListener("mousedown", (event) => {
-          event.preventDefault();
-          document.addEventListener("mousemove", resize, false);
-          document.addEventListener("mouseup", () => {
-            event.preventDefault();
-            document.removeEventListener("mousemove", resize, false);
-          }, false);
-        });
-        
-        function resize(e) {
-          const size = `${e.x}px`;
-          window.localStorage.setItem('sidenav', size);
-          sidebar.style.flexBasis = size;
-        }
-    </script>
-    {{ end }}
-    
-    {{ if $.Site.Params.enableSublinks }}
-    <script type="application/javascript">
-
-      (function addHeadingLinks(){
-        var articles = document.querySelectorAll('.article.child');
-
-        articles.forEach( function(article){
-          var headings = article.querySelectorAll('h1, h2');
-          headings.forEach(function(heading){
-            if(heading.id){
-              var container = document.createElement('div');
-              var linkContainer = document.createElement('div')
-              var link = document.createElement('a');
-
-              container.className = 'article-title';
-              linkContainer.className = "permalink";
-              link.className = "link-icon";
-              link.href = '#'+heading.id;
-              link.title = "Permalink to this article";
-
-              linkContainer.appendChild(link);
-              heading.insertAdjacentElement("beforebegin", container);
-              container.appendChild(heading);
-              container.appendChild(linkContainer)
-            }
-          })
-        });
-      })();
-    </script>
-    {{ end }}
-
-    <style>
-      .offendingHeading {
-        display: none !important;
-      }
-      .offendingHr{
-        display: none !important;
-      }
-      
-      h2 {
-        margin-bottom: 20px;
-        margin-top: 30px;
-        font-size: 26px;
-        color: #131313;
-        font-weight: 700;
-        line-height: 1.3;
-      }
-      .article-author{
-        display: none!important;
-      }
-      p {
-        font-weight: 400;
-        color: #333;
-        font-size: 16px;
-        line-height: 1.6;
-        margin-top: 0;
-      }
-
-      li[class|="tag"] {
-        display: inline-block!important;
-        background-color: rgba(19,19,19,5%)!important;
-        color: #000!important;
-        text-transform: capitalize!important;
-        padding: 2px 8px!important;
-        margin-bottom: 8px!important;
-        margin-right: 0.5rem!important;
-        font-size: 14px!important;
-        border-radius: 0!important;
-        cursor: pointer!important;
-        transition: .2s ease!important;
-        text-decoration: none!important;
-      }
-    </style>
 </body>
-
 </html>

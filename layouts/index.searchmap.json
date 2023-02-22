@@ -1,1 +1,1 @@
-{{ (partial "searchmap-root" .) | jsonify }}
+{{ (partial "searchmap/root" .) | jsonify }}

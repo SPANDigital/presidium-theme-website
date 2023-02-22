@@ -1,3 +1,11 @@
+{{ define "header" }}
+{{ partial "page/header" . }}
+{{ end }}
+
 {{ define "content" }}
-{{ partial "article" . }}
+{{ partial "article/root" . }}
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "page/footer" . }}
 {{ end }}
