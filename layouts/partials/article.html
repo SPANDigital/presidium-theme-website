@@ -28,12 +28,24 @@
 {{ $uid := .File.UniqueID }}
 
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" permalink="{{.Page.RelPermalink}}">
+ 
     {{ if or (ne ($content) 0) $nestedArticles }}
     <div class="presidium-article-wrapper">
+    
+   
+
         <span class="anchor"  id="{{ $slug }}" data-id="{{ $articleId }}"></span>
         {{ if (eq .Parent.Title .Title) }}
             {{/*  No title - For when the main title is the same as the first article  */}}
         {{ else }}
+        <img 
+        src="https://images.unsplash.com/photo-1676395564276-3b2d530d1b95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" 
+        style="
+        width:100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        "
+    />
             <div class="article-title" >
                 {{ if .Data.Pages }}
                     <h1> {{ .Title }} {{ partial "edit-link.html" }}</h1>
