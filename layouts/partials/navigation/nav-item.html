@@ -1,10 +1,8 @@
 {{ $childLevel := add .Level 1 }}
+{{ $slugifyUrl := and .SlugifyUrl }}
 {{ $roles := .NavPage.Params.roles | default "All Roles" }}
 {{/* rootUrl is the baseUrl but it defaults to "/" if no baseUrl is set */}}
 {{ $rootUrl := .RootUrl }}
-
-{{/* checks if the article has children */}}
-{{ $hasChildren := gt (len .NavPage.Data.Pages) 0 }}
 
 {{/* Use title if no slug */}}
 {{ $slug := humanize .NavPage.Params.Title }} {{/* Handles any dashes in the title */}}
@@ -24,7 +22,7 @@
 
 {{/* adds the slug to the link if the article has no children */}}
 {{ $articleLink := .NavPage.RelPermalink }}
-{{if .IsPage }}
+{{if and .NavPage.IsPage $slugifyUrl }}
     {{ $articleLink = (printf "%v#%v" .NavPage.Parent.RelPermalink $slug ) }}
 {{end}}
 
@@ -44,7 +42,7 @@
 {{/* Unique id for file, used by scroll-spy and menu toggle  */}}
 {{ $uid := .NavPage.File.UniqueID }}
 
-<li class="menu-row collapse {{ if .IsPage }}child{{end}}" style="overflow: hidden;" data-roles="{{ $roles }}">
+<li class="menu-row collapse {{ if .NavPage.IsPage }}child{{end}}" style="overflow: hidden;" data-roles="{{ $roles }}">
     <div class="link level-{{ .Level }}">
         <a class="level-{{ .Level }} {{ if eq .Index 0 }}first-child{{end}}" data-slug="{{ $slug }}" data-target="#{{$uid}}" data-id="{{ $articleId }}" href="{{ $articleLink }}">
             {{ if $hasChildren }}
@@ -67,12 +65,12 @@
         {{ if .NavPage.Site.Params.sortByFilePath }}
             {{/* Sort by file prefix */}}
             {{ range $index, $subMenu := (sort (after $offset $pages) "File.Path") }}
-                {{ partial "navigation/nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl) }}
+                {{ partial "navigation/nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "SlugifyUrl" $slugifyUrl ) }}
             {{ end }}
         {{ else }}
             {{/* Sort by weight otherwise the hugo default */}}
             {{ range $index, $subMenu := after $offset $pages }}
-                {{ partial "navigation/nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl ) }}
+                {{ partial "navigation/nav-item" (dict "NavPage" $subMenu "Level" $childLevel "Index" $index "RootUrl" $rootUrl "SlugifyUrl" $slugifyUrl ) }}
             {{ end }}
         {{ end }}
         </ul>
