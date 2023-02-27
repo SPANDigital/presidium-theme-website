@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "content" }}
-{{ if eq $.Site.Params.archive.path .Path }}
+{{ if eq $.Site.Params.archive.path .File.Path }}
     {{ partial "common/archive" . }}
 {{ else }}
     {{ partial "article/root" . }}
