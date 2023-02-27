@@ -410,3 +410,17 @@
     }
   }
 }
+
+.archive {
+  h1 {
+    padding: 16px 0 22px;
+  }
+
+  p.archive-item {
+    font-size: 16px;
+    padding: 2px 0;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    grid-gap: 32px;
+  }
+}

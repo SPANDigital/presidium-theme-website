@@ -3,7 +3,11 @@
 {{ end }}
 
 {{ define "content" }}
-{{ partial "article/root" . }}
+{{ if eq $.Site.Params.archive.path .Path }}
+    {{ partial "common/archive" . }}
+{{ else }}
+    {{ partial "article/root" . }}
+{{ end }}
 {{ end }}
 
 {{ define "footer" }}
