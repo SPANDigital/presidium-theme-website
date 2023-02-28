@@ -11,6 +11,7 @@
 
 {{/* Unique id for this article */}}
 {{ $articleId := .Params.id | default .File.Path }}
+{{ $articleId = base64Encode $articleId }}
 
 {{/* Unique id for file, used by scroll-spy and menu toggle  */}}
 {{ $uid := .File.UniqueID }}
