@@ -28,13 +28,20 @@ body::after{
     display: none;
 }
 
-.ce-toolbar__actions {
-    right: 100%;
-    top: -2px;
+@media (max-width: 768px) {
+    .ce-toolbar__actions {
+        right: 0px !important; // Place the tune menu on the right side of the screen when it's narrow
+    }
+}
+
+@media (min-width: 768px) {
+    .codex-editor--narrow .ce-toolbox .ce-popover {
+        right: -140px !important; // Prevent the popover from being obscured by the navbar
+    }
 }
 
 .ce-toolbar__settings-btn--hidden {
-    display: flex; // Override `display: none;`. Don't remove options
+    display: flex; // Override `display: none;`. Don't remove options https://github.com/SPANDigital/presidium-theme-website/pull/186
 }
 
 .editor-button {
