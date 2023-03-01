@@ -89,3 +89,7 @@
 ## 2023-02-27
 ### Bugfixes
 - Fixed a bug where image shortcodes in top level `_index.md` files using the `{{< img src="..." >}}` format threw and error, because `.Page.Parent.Parent` does not exist in that file. @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3563
+
+## 2023-02-28
+### Bugfixes
+- Fixed this warning `.File.Filename on zero object. Wrap it in if or with: {{ with .File }}{{ .Filename }}{{ end }}` @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3569
