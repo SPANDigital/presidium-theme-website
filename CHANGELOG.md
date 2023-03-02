@@ -93,3 +93,7 @@
 ## 2023-02-28
 ### Bugfixes
 - Fixed this warning `.File.Filename on zero object. Wrap it in if or with: {{ with .File }}{{ .Filename }}{{ end }}` @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3569
+
+## 2023-03-01
+### Bugfixes
+- Fixed a bug where the tune menu and popover would be placed off-screen when the viewport is narrow. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3225
