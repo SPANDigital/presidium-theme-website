@@ -36,7 +36,7 @@ body::after{
 
 @media (max-width: 768px) {
     .ce-popover {
-        right: -50px !important; // Prevent the popover from being obscured by the navbar
+        right: -50px !important; // Prevent the popover from being pushed off the right side of the screen
     }
 }
 
