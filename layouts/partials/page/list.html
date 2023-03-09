@@ -1,4 +1,4 @@
-{{.Content}}
+{{ partial "article/root" . }}
 {{ $pages := (partial "common/pages" .) }}
 {{ $siteScopes := .Site.Params.scopes }}
 {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
