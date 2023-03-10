@@ -1,2 +1,8 @@
-<h1 class="page-title offendingHeading">{{ .Title }}</h1>
+<h1 class="page-title offendingHeading">
+{{ if eq (.Scratch.Get "scope") "single" }}
+    {{ .Parent.Title }}
+{{ else }}
+    {{ .Title}}
+{{ end }}
+</h1>
 <hr class="offendingHr" />
