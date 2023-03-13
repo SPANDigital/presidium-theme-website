@@ -2,21 +2,12 @@
 {{ $scopingEnabled := .Site.Params.scopesEnabled }}
 {{ $url := urls.Parse .Site.BaseURL }}
 {{ $rootUrl := path.Clean $url.Path }}
+{{ $slugifyUrl := .Site.Params.slugifyUrl | default true }}
 
 <nav class="navbar scrollable-container">
     <div class="navbar-header">
-        <a href="{{ $rootUrl }}" class="brand">
-            {{ $navImg := "images/logo.png" | relURL }}
-            {{ if .Site.Params.logo }}
-            {{ $navImg = path.Join $rootUrl .Site.Params.logo }}
-            {{ end }}
-            <img src={{ $navImg }} alt="Logo image">
-        </a>
-        <div class="brand-name-grid">
-            <div></div>
-            <p class="brand-name">{{ .Site.Title }}</p>
-            <div class="project-dropdown"></div>
-        </div>
+        {{ partial "navigation/brand.html" . }}
+
         <button class="toggle">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -51,11 +42,11 @@
                 
                 {{ if $isRendering }}
                         {{ if $menu.Params.externalUrl}}
-                        {{ partial "nav-item-external" $menu }}
+                        {{ partial "navigation/nav-item-external" $menu }}
                     {{ else }}
                         {{ $identifier := anchorize $menu.Identifier }}
                         {{ with $.Site.GetPage $identifier }}
-                            {{ partial "nav-item" (dict "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false) }}
+                            {{ partial "navigation/nav-item" (dict "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false "SlugifyUrl" $slugifyUrl ) }}
                         {{ end }}
                     {{ end }}                    
                 {{ end }}

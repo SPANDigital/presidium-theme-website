@@ -1,1 +1,1 @@
-{{ (partial "json-navigation" .) | jsonify }}
+{{ (partial "json/root" .) | jsonify }}

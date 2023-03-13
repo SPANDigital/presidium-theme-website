@@ -8,7 +8,7 @@
      */}}
     {{ $urilzeIdentifier = $menu.Identifier | urlize  }}
     {{ with $.Site.GetPage "section" $urilzeIdentifier }}
-        {{ $items = $items | append (partial "json-nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1  "Roles" $roles )) }}
+        {{ $items = $items | append (partial "json/item" (dict "CurrentPage" $currentPage "NavPage" . "Level" 1  "Roles" $roles )) }}
     {{ end }}
 {{ end }}
 {{ $logo := "" }}

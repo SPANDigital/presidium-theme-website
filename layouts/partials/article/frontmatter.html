@@ -22,8 +22,8 @@
 
 {{ if or $isRoles $isAuthor $isStatus }}
     <div class="article-header">
-        {{ partial "author" . }}
-        {{ partial "status" . }}
-        {{ partial "roles" . }}
+        {{ partial "article/author" . }}
+        {{ partial "article/status" . }}
+        {{ partial "article/roles" . }}
     </div>
 {{ end }}
