@@ -82,7 +82,7 @@
         top: 12px;
         left: -70px;
         height: 100%;
-        
+
         @media (max-width: $grid-float-breakpoint) {
           left: unset;
           right: 0px;
@@ -368,11 +368,11 @@
     }
 
     .side-by-side {
-      width:100%;
-      position:relative;
-      height:auto;
+      width: 100%;
+      position: relative;
+      height: auto;
       overflow: auto;
-      word-break:break-word
+      word-break: break-word;
     }
   }
 
