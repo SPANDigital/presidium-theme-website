@@ -97,3 +97,7 @@
 ## 2023-03-01
 ### Bugfixes
 - Fixed a bug where the tune menu and popover would be placed off-screen when the viewport is narrow. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3225
+
+## 2023-03-13
+### Bugfixes
+- Ensure searchmap is flattened to prevent breaking search upload. @ChrisB https://spandigital.atlassian.net/browse/PRSDM-3618
