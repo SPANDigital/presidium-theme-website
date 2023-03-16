@@ -1,5 +1,5 @@
 {{ $currentPage := .CurrentPage }}
-{{ $onArticle := eq .CurrentPage.Permalink .NavPage.Permalink }}
+{{ $onArticle := eq .CurrentPage.RelPermalink .NavPage.RelPermalink }}
 {{ $expanded := or (.CurrentPage.IsAncestor .NavPage) $onArticle }}
 {{ $childLevel := add .Level 1 }}
 {{ $children := slice }}
@@ -19,10 +19,13 @@
     {{ end }}
 {{ end }}
 {{ range .NavPage.Data.Pages}}
-    {{ $children = $children | append (partial "json-nav-item" (dict "CurrentPage" $currentPage "NavPage" . "Level" $childLevel )) }}
+    {{ $children = $children | append (partial "json/item" (dict "CurrentPage" $currentPage "NavPage" . "Level" $childLevel )) }}
 {{ end }}
-{{ $base := dict "current" .CurrentPage.File.Filename "type" $type "id" .NavPage.File.Filename "title" .NavPage.Title "level" .Level "collapsed" false  "path" .NavPage.File.Filename "url" $link "roles" (slice (.NavPage.Params.Roles | default "All Roles")) "scope" (slice) "slug" .NavPage.Params.Slug }}
-{{ if $children }}
+{{ $currentPageFilename := "" }}
+{{ with .CurrentPage.File }}
+    {{ $currentPageFilename = .Filename }}
+{{ end }}
+{{ $base := dict "current" $currentPageFilename "type" $type "id" .NavPage.File.Filename "title" .NavPage.Title "level" .Level "collapsed" false  "path" .NavPage.File.Filename "url" $link "roles" (slice (.NavPage.Params.Roles | default "All Roles")) "scope" (slice) "slug" .NavPage.Params.Slug }}{{ if $children }}
     {{ $base = merge $base (dict "children" $children) }}
 {{ end }}
 {{ if eq .Level 1 }}

@@ -1,43 +1,12 @@
+{{ define "header" }}
+{{ .Scratch.Set "scope" "list" }}
+{{ partial "page/header" . }}
+{{ end }}
+
 {{ define "content" }}
+    {{ partial "page/list" . }}
+{{ end }}
 
-    {{.Content}}
-
-    {{ $siteScopes := .Site.Params.scopes }}
-    {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
-    {{ $pages := .Data.Pages }}
-
-    {{/* Sort by filename if specified in config */}}
-    {{ if .Site.Params.sortByFilePath }}
-        {{/* Sort by file prefix */}}
-        {{ range sort .Data.Pages "File.Path" }}
-            {{ $isRendering := true }}
-
-            {{ if $siteScopesEnabled }}
-                {{ if isset .Params "scope" }}
-                    {{ $pageScopes := .Params.scope }}
-                    {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
-                {{ end }}
-            {{ end }}
-
-            {{ if $isRendering }}
-                {{ partial "article" . }}
-            {{ end }}
-        {{ end }}
-    {{ else }}
-        {{/* Sort by weight otherwise the hugo default */}}
-        {{ range .Data.Pages.ByWeight }}
-            {{ $isRendering := true }}
-
-            {{ if $siteScopesEnabled }}
-                {{ if isset .Params "scope" }}
-                    {{ $pageScopes := .Params.scope }}
-                    {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
-                {{ end }}
-            {{ end }}
-
-            {{ if $isRendering }}
-                {{ partial "article" . }}
-            {{ end }}
-        {{ end }}
-    {{ end }}
+{{ define "footer" }}
+{{ partial "page/footer" . }}
 {{ end }}

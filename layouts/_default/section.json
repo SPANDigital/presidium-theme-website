@@ -1,5 +1,0 @@
-{{ $media := slice }}
-{{ range .Resources.ByType "image" }}
-    {{ $media = $media | append (dict "path" .RelPermalink) }}
-{{ end }}
-{{ dict "media" $media | jsonify }}

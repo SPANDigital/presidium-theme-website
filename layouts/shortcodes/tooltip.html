@@ -23,19 +23,21 @@
     {{/* Use title if no slug */}}
     {{ $slug := humanize $page.Params.Title }} {{/* Handles any dashes in the title */}}
     {{ $slug = anchorize $slug }}
+    {{ $slug = replaceRE `(-{2,})` "-" $slug }} {{/* Replaces multiple dashes with one */}}
+    
     {{ if $page.Params.Slug }}
         {{ $slug = $page.Params.Slug}}
     {{ end }}
 
     {{ $isChild := not $page.Data.Pages}}
-    {{ $articleLink := $page.Permalink }}
+    {{ $articleLink := $page.RelPermalink }}
     {{if $isChild }}
-        {{ $articleLink = (printf "%v#%v" $page.Parent.Permalink $slug ) }}
+        {{ $articleLink = (printf "%v#%v" $page.Parent.RelPermalink $slug ) }}
     {{end}}
 
     {{ if $page }}
         <a class="tooltips-term" href="{{ $articleLink }}" >
-            {{ $title }}<span class="tooltips-text">{{ $page.Content | truncate 100 | plainify }}</span>
+            {{ $title }}<span class="tooltips-text">{{ $page.Content | plainify }}</span>
         </a>
     {{ else }}
         {{ if $ref }}

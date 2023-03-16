@@ -5,6 +5,10 @@
 ### Updates
 ### Bug Fixes
 
+## 2023-012-03
+### Updates
+- Added a site wide base theme to mermaid diagrams in the Span theme colours
+
 ## 2023-01-12
 ### Bug Fixes
 - Fix img shortcode not rendering in the PDF document @Zalaras https://spandigital.atlassian.net/browse/PRSDM-3226
@@ -32,3 +36,68 @@
 - Improve load times by preloading WYSIWYG icons @SamShiels
 - Inject the article path into an HTML attribute for use in the React app @SamShiels https://spandigital.atlassian.net/browse/PRSDM-2985
 - Preload article create and delete icons @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3005
+
+## 2022-12-08
+### Features
+- The permalink anchor now automatically copies article links to the clipboard when clicked. Added styles for the "Copied to clipboard" popup @SamShiels https://spandigital.atlassian.net/browse/PRSDM-2965
+
+## 2022-12-08
+### Bug Fixes
+- Fixed an issue where editor modal overlays would not be on top. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3155
+
+## 2022-12-19
+### Features
+- Display all content within a tooltip. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3158
+
+## 2023-01-09
+### Bugfixes
+- Fixed a bug where the editor tune menu would swap sides if the page width goes below 651px.
+
+## 2023-01-10
+### Performance improvements
+- Improved the rendering performance of the theme by making the navigation cachable. @meyerhp https://spandigital.atlassian.net/browse/PRSDM-3209
+
+## 2023-01-11
+### Bugfixes
+- Fixed a bug where the editor tune menu would swap sides if the page width goes below 651px. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3223
+
+## 2023-01-12
+### Bugfixes
+- Placed the article option buttons to the right of the header when the viewport is narrowed. Limit the title width to account for the permalink and article options. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3224
+
+## 2023-01-20
+### Bugfixes
+- Added the permalink to the article div so that we can edit landing pages. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3285
+
+## 2023-02-09
+### Bugfixes
+- Override Mermaid JS CSS to allow for different edge and node text colours @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3445
+
+## 2023-02-15
+### Bugfixes
+- Replace multiple dashes in slugs with one. @LantareCode https://spandigital.atlassian.net/browse/PRSDM-3465
+
+## 2023-02-16
+### Bugfixes
+- Made the article alert popup expandable to make sure text doesn't spill @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3522
+
+## 2023-02-21
+### Bugfixes
+- Fixed a bug where the WYSIWYG settings menu would disappear when all blocks were deleted @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3487
+- Replaced some SVG files with PNGs so that they will show up in the PDF. @LantareCode https://spandigital.atlassian.net/browse/PRSDM-3500
+
+## 2023-02-27
+### Bugfixes
+- Fixed a bug where image shortcodes in top level `_index.md` files using the `{{< img src="..." >}}` format threw and error, because `.Page.Parent.Parent` does not exist in that file. @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3563
+
+## 2023-02-28
+### Bugfixes
+- Fixed this warning `.File.Filename on zero object. Wrap it in if or with: {{ with .File }}{{ .Filename }}{{ end }}` @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3569
+
+## 2023-03-01
+### Bugfixes
+- Fixed a bug where the tune menu and popover would be placed off-screen when the viewport is narrow. @SamShiels https://spandigital.atlassian.net/browse/PRSDM-3225
+
+## 2023-03-13
+### Bugfixes
+- Ensure searchmap is flattened to prevent breaking search upload. @ChrisB https://spandigital.atlassian.net/browse/PRSDM-3618

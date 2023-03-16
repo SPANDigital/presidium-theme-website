@@ -80,12 +80,22 @@
         position: absolute;
         padding: 0px 20px;
         top: 12px;
-        left: -48px;
+        left: -70px;
+        height: 100%;
+
+        @media (max-width: $grid-float-breakpoint) {
+          left: unset;
+          right: 0px;
+        }
       }
 
       .article-title {
         display: flex;
         align-items: center;
+
+        @media (max-width: $grid-float-breakpoint) {
+          max-width: calc(100vw - 120px);
+        }
 
         @include headings {
           &:hover {
@@ -124,19 +134,19 @@
         }
 
         .status-draft {
-          background-image: url('images/status-draft.svg');
+          background-image: url('images/status-draft.png');
           color: $color-yellow-green;
         }
         .status-review {
-          background-image: url('images/status-review.svg');
+          background-image: url('images/status-review.png');
           color: $color-yellow-green;
         }
         .status-published {
-          background-image: url('images/status-published.svg');
+          background-image: url('images/status-published.png');
           color: $color-green;
         }
         .status-retired {
-          background-image: url('images/status-retired.svg');
+          background-image: url('images/status-retired.png');
           color: $color-grey;
         }
       }
@@ -358,11 +368,11 @@
     }
 
     .side-by-side {
-      width:100%;
-      position:relative;
-      height:auto;
+      width: 100%;
+      position: relative;
+      height: auto;
       overflow: auto;
-      word-break:break-word
+      word-break: break-word;
     }
   }
 
@@ -398,5 +408,19 @@
     ol {
       margin-bottom: 0px;
     }
+  }
+}
+
+.archive {
+  h1 {
+    padding: 16px 0 22px;
+  }
+
+  p.archive-item {
+    font-size: 16px;
+    padding: 2px 0;
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-gap: 32px;
   }
 }
