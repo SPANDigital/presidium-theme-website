@@ -1,13 +1,15 @@
 {{ $roles := .Params.roles | default "All Roles" }}
 {{ $slug := (partial "common/slug" .) }}
 
-{{ $nestedArticles := .Site.Params.includeNestedArticles | default true }}
+{{ $isIndex := strings.HasSuffix .File.Path "_index.md" }}
+{{ $nestedArticles := and (.Site.Params.includeNestedArticles | default true) (not $isIndex) }}
+{{ $nestedArticles = and $nestedArticles (gt (len .Data.Pages) 0)}}
 
 {{ $articleLink := (printf "%v#%v" .Parent.Page.RelPermalink $slug ) }}
 {{ $.Scratch.Set "articleLink" $articleLink }}
 
 {{/*  Type of article  */}}
-{{ $type := cond (not .Data.Pages) "child" "parent" }}
+{{ $type := cond $nestedArticles "parent" "child" }}
 
 {{/* Unique id for this article */}}
 {{ $articleId := .Params.id | default .File.Path }}
@@ -25,9 +27,8 @@
             {{ partial "article/content" . }}
             {{ partial "article/footer" . }}
 
-            {{ $isIndex := strings.HasSuffix .File.Path "_index.md" }}
 
-            {{ if and $nestedArticles (not $isIndex) }}
+            {{ if $nestedArticles }}
                 {{/* Sort by filename if specified in config */}}
                 {{ if .Site.Params.sortByFilePath }}
                     {{/* Sort by file prefix */}}
