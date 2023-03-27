@@ -1,1 +1,1 @@
-window.navigation = `{{ partial "navigation.html" . }}`;
+window.navigation = `{{ partial "navigation/root" . }}`;
