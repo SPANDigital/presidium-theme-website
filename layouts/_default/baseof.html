@@ -47,7 +47,9 @@
           <div class="row">
               <div id="presidium-content" class="col-lg-10 col-md-12">
                   {{ block "header" . }}{{ end }}
-                  {{ block "content" . }}{{ end }}
+                  <section>
+                    {{ block "content" . }}{{ end }}
+                  </section>
                   {{ block "footer" . }}{{ end }}
               </div>
               <div class="col-lg-2"></div>
