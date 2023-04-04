@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
 </head>
 
-<body id="presidium">
+<body id="presidium" {{ partial "page/attributes" . }}>
     {{ if $.Site.Params.enterprise_enabled }}
       <div class="toolbar-wrapper">
         <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
