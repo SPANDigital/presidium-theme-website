@@ -46,6 +46,10 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 }
 
+.presidium-enterprise {
+  min-height: 40px;
+}
+
 .presidium-enterprise + #presidium-navigation {
   top: 40px;
   height: calc(100vh - 40px);
