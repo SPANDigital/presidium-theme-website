@@ -101,3 +101,7 @@
 ## 2023-03-13
 ### Bugfixes
 - Ensure searchmap is flattened to prevent breaking search upload. @ChrisB https://spandigital.atlassian.net/browse/PRSDM-3618
+
+## 2023-04-26
+### Bugfixes
+- Fixed the alignment of the Permalink icon. @mpilo-khathwane  https://spandigital.atlassian.net/browse/PRSDM-3818

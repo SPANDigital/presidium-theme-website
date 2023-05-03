@@ -1,2 +1,2 @@
-{{ $url := urls.Parse .Site.BaseURL }}
-{{ path.Clean $url.Path }}
+{{- $url := urls.Parse .Site.BaseURL -}}
+{{- path.Clean $url.Path -}}
