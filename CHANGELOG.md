@@ -109,3 +109,7 @@
 ## 2023-05-09
 ### Bugfixes
 - Fixed the UI Overlap glitch in Export Project as PDF dropdown button. @CharlRitter  https://spandigital.atlassian.net/browse/PRSDM-2952
+
+## 2023-05-10
+### Updates
+- Add a shortcode for iframes, to lazy load them. @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3870
