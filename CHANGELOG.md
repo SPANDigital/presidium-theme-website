@@ -105,3 +105,7 @@
 ## 2023-04-26
 ### Bugfixes
 - Fixed the alignment of the Permalink icon. @mpilo-khathwane  https://spandigital.atlassian.net/browse/PRSDM-3818
+
+## 2023-05-09
+### Bugfixes
+- Fixed the UI Overlap glitch in Export Project as PDF dropdown button. @CharlRitter  https://spandigital.atlassian.net/browse/PRSDM-2952

@@ -91,7 +91,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         background-color: #fff;
         border-radius: $border-radius-base;
         border: 1px solid $border;
-        -webkit-box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25); 
+        -webkit-box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
         box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
       }
     }
@@ -159,7 +159,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           font-family: $primary-font-family;
           text-transform: none;
           text-align: center;
-  
+
           @media (max-width: $grid-float-breakpoint) {
             display: none; //hidden by default
             float: left;
@@ -169,7 +169,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
             @include navbar-vertical-align(14px);
           }
         }
-        
+
         .dropdown {
           display: block;
           z-index: $zindex-navbar;
@@ -210,7 +210,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           .dropdown__control--is-selected .dropdown__dropdown-indicator > svg {
             fill: $brand-primary;
           }
-          .dropdown__value-container {
+          .dropdown__single-value, .dropdown__placeholder {
             display: none;
           }
         }
@@ -389,7 +389,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         > div > a {
           color: $brand-primary;
         }
-        
+
         &.child .add-icon,
           &.closed .add-icon {
           background-image: url('assets/svg/plus-white.svg');
