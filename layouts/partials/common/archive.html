@@ -1,4 +1,3 @@
-
 {{ $pages := where $.Site.AllPages ".IsPage" true }}
 {{ if and $.Site.Params.archive (ne $.Site.Params.archive.age 0)}}
     {{ $age := mul 86400 $.Site.Params.archive.age }}
@@ -8,12 +7,6 @@
 
     <div class="archive">
         <h1>Archive</h1>
-        <p class="archive-item"> <strong>Date</strong> <strong>Title</strong></p>
-        <hr>
-        {{ range $page := $pages }}
-            <p class="archive-item"> {{ .Date.Format "2 Jan 2006" }} <a href="{{ $page.Permalink }}">{{ $page.Name }}</a></p>
-            <hr>
-        {{ end }}
+        {{ partial "archive/table" (dict "NavPage" . "Pages" $pages) }}
     </div>
 {{ end }}
-
