@@ -1,8 +1,20 @@
 {{/*  Returns the pages after filtering out the archived articles  */}}
-{{ $pages := .Data.Pages }}
+{{ $pages := .Pages }}
 {{ if and $.Site.Params.archive (ne $.Site.Params.archive.age 0)}}
     {{ $age := mul 86400 $.Site.Params.archive.age }}
     {{ $before := sub now.Unix $age }}
-    {{ $pages = where .Data.Pages "Date.Unix" "gt" $before }}
+    {{ $activePages := (where .RegularPages "Date.Unix" "gt" $before) }}
+
+    {{/* show a limited number (unarchived + archived) items if there are too few active articles in section */}}
+    {{ $items := $.Site.Params.section.items }}
+    {{ $isArchives := and (isset $.Site.Params.section "items") (not (ge (len $activePages) $items)) }}
+    {{ $pages = cond $isArchives (first $items .RegularPages.ByDate.Reverse) $activePages }}
+
+    {{/* retain subsection pages which have active children articles */}}
+    {{ range .Sections }}
+        {{ $hasChildren := gt (index .Pages.ByDate.Reverse 0).Date.Unix $before }}
+        {{ $pages = cond (or $hasChildren $isArchives) ($pages | append .) $pages }}
+    {{ end }}
+
 {{ end }}
 {{ return $pages }}
