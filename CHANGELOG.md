@@ -117,3 +117,7 @@
 ## 2023-05-17
 ### Updates
 - Add a partial for archive table contents. @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3804
+
+## 2023-05-18
+### Updates
+- Updated list pages to be able to include archived articles to maintain a minimum number of displayed articles @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3803
