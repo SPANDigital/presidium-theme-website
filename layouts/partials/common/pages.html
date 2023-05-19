@@ -6,11 +6,12 @@
     {{ $activePages := (where .RegularPages "Date.Unix" "gt" $before) }}
 
     {{/* show a limited number (unarchived + archived) items if there are too few active articles in section */}}
+    {{ $isItems := isset $.Site.Params.section "items" }}
     {{ $items := $.Site.Params.section.items }}
-    {{ $isArchives := and (isset $.Site.Params.section "items") (not (ge (len $activePages) $items)) }}
-    {{ $pages = cond $isArchives (first $items .RegularPages.ByDate.Reverse) $activePages }}
+    {{ $showItems := and $isItems (not (ge (len $activePages) $items)) }}
+    {{ $pages = cond $showItems (first $items .RegularPages.ByDate.Reverse) $activePages }}
 
     {{/* retain nested sections */}}
-    {{ $pages = cond $isArchives ($pages | append .Sections) $pages }}
+    {{ $pages = cond $isItems ($pages | append .Sections) $pages }}
 {{ end }}
 {{ return $pages }}
