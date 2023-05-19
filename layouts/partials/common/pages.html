@@ -10,11 +10,7 @@
     {{ $isArchives := and (isset $.Site.Params.section "items") (not (ge (len $activePages) $items)) }}
     {{ $pages = cond $isArchives (first $items .RegularPages.ByDate.Reverse) $activePages }}
 
-    {{/* retain subsection pages which have active children articles */}}
-    {{ range .Sections }}
-        {{ $hasChildren := gt (index .Pages.ByDate.Reverse 0).Date.Unix $before }}
-        {{ $pages = cond (or $hasChildren $isArchives) ($pages | append .) $pages }}
-    {{ end }}
-
+    {{/* retain nested sections */}}
+    {{ $pages = cond $isArchives ($pages | append .Sections) $pages }}
 {{ end }}
 {{ return $pages }}
