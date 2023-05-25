@@ -3,15 +3,14 @@
 {{ if and $.Site.Params.archive (ne $.Site.Params.archive.age 0)}}
     {{ $age := mul 86400 $.Site.Params.archive.age }}
     {{ $before := sub now.Unix $age }}
-    {{ $activePages := (where .RegularPages "Date.Unix" "gt" $before) }}
+    {{ $pages = (where .RegularPages "Date.Unix" "gt" $before)}}
 
-    {{/* show a limited number (unarchived + archived) items if there are too few active articles in section */}}
-    {{ $isItems := isset $.Site.Params.section "items" }}
-    {{ $items := $.Site.Params.section.items }}
-    {{ $showItems := and $isItems (not (ge (len $activePages) $items)) }}
-    {{ $pages = cond $showItems (first $items .RegularPages.ByDate.Reverse) $activePages }}
-
-    {{/* retain nested sections */}}
-    {{ $pages = cond $isItems ($pages | append .Sections) $pages }}
+    {{/* expose a limited number of exposed archive items if there are too few active articles */}}
+    {{ if (ne ($.Site.Params.archive.expose | default 0) 0)}}
+        {{ $expose := $.Site.Params.archive.expose }}
+        {{ $showItems := not (ge (len $pages) $expose) }}
+        {{ $pages = cond $showItems (first $expose .RegularPages.ByDate.Reverse) $pages }}
+    {{end}}
+    {{ $pages = $pages | append .Sections }}
 {{ end }}
 {{ return $pages }}
