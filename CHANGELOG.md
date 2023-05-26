@@ -121,3 +121,7 @@
 ## 2023-05-18
 ### Updates
 - Updated list pages to be able to include archived articles to maintain a minimum number of displayed articles @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3803
+
+## 2023-05-25
+### Bugfixes
+- Fixed build error when archive age is set but maximum number of permitted archives to display is unset in site params @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3940
