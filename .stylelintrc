@@ -3,8 +3,5 @@
     "stylelint-config-standard-scss",
     "stylelint-config-prettier-scss",
     "stylelint-prettier/recommended"
-  ],
-  "ignoreFiles": [
-    "./assets/_sass/bootstrap/**/*"
   ]
 }

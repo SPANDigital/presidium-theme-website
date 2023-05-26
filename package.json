@@ -14,7 +14,7 @@
   "author": "",
   "scripts": {
     "lint": "yarn stylelint '**/*.scss'",
-    "lint:fix": "prettier --write && yarn stylelint '**/*.scss' --fix",
+    "lint:fix": "prettier --write '**/*.scss' && yarn stylelint '**/*.scss' --fix",
     "prepare": "husky install"
   },
   "lint-staged": {
