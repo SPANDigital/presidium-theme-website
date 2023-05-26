@@ -18,8 +18,12 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 }
 
 @mixin bg-gradient($color) {
-  @include gradient-vertical-three-colors(lighten($color, 15%), $color, 50%, darken($color, 4%));
-
+  @include gradient-vertical-three-colors(
+    lighten($color, 15%),
+    $color,
+    50%,
+    darken($color, 4%)
+  );
   filter: none;
   border: 1px solid darken($color, 10%);
 }
@@ -29,7 +33,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   cursor: col-resize;
   flex-basis: 20px;
   position: relative;
-  border-left: 0 solid $border;
+  border-left: 0px solid $border;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -51,10 +55,11 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   min-width: 260px;
   width: 260px;
   max-width: 50%;
+  bottom: 0px;
   z-index: $zindex-navbar;
   position: sticky;
-  top: 0;
-  bottom: 0;
+  top: 0px;
+  bottom: 0px;
   height: 100vh;
 
   @media (max-width: $grid-float-breakpoint) {
@@ -63,7 +68,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     width: 0;
     min-width: unset;
     max-width: unset;
-    flex-basis: 0 !important;
+    flex-basis: 0px!important;
   }
 
   .scrollable-container {
@@ -86,13 +91,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         background-color: #fff;
         border-radius: $border-radius-base;
         border: 1px solid $border;
-        box-shadow: 9px 5px 14px -4px rgb(0 0 0 / 25%);
-        box-shadow: 9px 5px 14px -4px rgb(0 0 0 / 25%);
+        -webkit-box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
+        box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
       }
     }
 
     .navbar-header {
       float: none;
+
       width: 100%;
       text-align: center;
 
@@ -100,7 +106,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         float: none;
         margin: 0 auto;
         height: auto;
-        padding: 0;
+        padding: 0px;
 
         img {
           display: block;
@@ -119,13 +125,12 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         background: none;
         border: none;
         box-shadow: none;
-        appearance: none;
-        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         width: auto;
         font-weight: 600;
         font-size: small;
         margin-top: -10px;
-
         &:hover {
           color: $navbar-default-link-hover-color;
           cursor: pointer;
@@ -135,15 +140,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       .versions-filter {
         display: inline-block;
         border: none;
-        margin-bottom: 0;
+        margin-bottom: 0px;
       }
 
       .brand-name-grid {
         display: grid;
         @media (max-width: $grid-float-breakpoint) {
-          grid-template-columns: 0 auto 50px;
+          grid-template-columns: 0px auto 50px;
         }
-
         grid-template-columns: 50px auto 50px;
 
         .brand-name {
@@ -173,52 +177,40 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           .dropdown__control {
             background-color: transparent;
           }
-
           .dropdown__menu {
             width: 200px;
           }
-
           .dropdown__option {
             color: white;
           }
-
           .dropdown__option--is-focused {
             background-color: $brand-primary;
           }
-
-          .dropdown__option--is-selected {
+          .dropdown__option--is-selected  {
             background-color: $brand-primary;
           }
-
           .dropdown__indicator--is-focused {
             color: white;
             background-color: $brand-primary;
           }
-
-          .dropdown__indicator--is-selected {
+          .dropdown__indicator--is-selected  {
             color: $brand-primary;
             background-color: $brand-primary;
           }
-
-          .dropdown__indicator-separator {
+          .dropdown__indicator-separator  {
             display: none;
           }
-
-          .dropdown__indicators {
+          .dropdown__indicators  {
             max-height: 10px;
             margin: auto;
           }
-
           .dropdown__control--is-focused .dropdown__dropdown-indicator > svg {
             fill: $brand-primary;
           }
-
           .dropdown__control--is-selected .dropdown__dropdown-indicator > svg {
             fill: $brand-primary;
           }
-
-          .dropdown__single-value,
-          .dropdown__placeholder {
+          .dropdown__single-value, .dropdown__placeholder {
             display: none;
           }
         }
@@ -228,11 +220,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         @media (min-width: $grid-float-breakpoint) {
           display: none;
         }
-
         float: left;
 
         @include navbar-vertical-align(34px);
-
         background-color: transparent;
         background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
         border: 1px solid transparent;
@@ -249,7 +239,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           height: 2px;
           border-radius: 1px;
         }
-
         .icon-bar + .icon-bar {
           margin-top: 4px;
         }
@@ -263,9 +252,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       margin-right: 0;
 
       .filter {
-        margin: 30px 5px 25px;
+        margin: 30px 5px 25px 5px;
         padding: 0 15px;
-
         .control-label {
           font-size: 12px;
           font-weight: normal;
@@ -280,19 +268,17 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         background-color: #fff;
         padding: 16px;
         border-top: 0;
-
         &.expanded {
           display: block;
           max-height: calc(100vh - 55px);
           overflow-y: auto;
         }
-
         display: none;
       }
     }
 
     .dropdown {
-      margin: 0;
+      margin: 0px 0 0;
       display: none;
 
       &.expanded {
@@ -333,7 +319,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
 
         &.first-child {
-          box-shadow: inset 0 7px 9px -7px rgb(0 0 0 / 40%);
+          box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
         }
 
         @include menu-levels-pad(6, 5%);
@@ -341,10 +327,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       .link {
         display: flex;
-        background-color: #eee;
+        background-color: #eeeeee;
 
         @include menu-levels(6, 5%);
-
         text-decoration: none;
         flex-grow: 1;
 
@@ -371,6 +356,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
             display: none;
             width: 22px;
             height: 22px;
+
             background-color: transparent;
             transition: background-color 0.05s;
             border-radius: 3px;
@@ -379,23 +365,20 @@ $nav-item-border: darken($navbar-default-bg, 8%);
             background-position: center;
 
             &:hover {
-              background-color: #e2e2e2;
+                background-color: #e2e2e2;
             }
-
             &:active {
-              background-color: #ababab;
+                background-color: #ababab;
             }
           }
 
           .add-icon {
             @extend .option-button;
-
             background-image: url('assets/svg/plus.svg');
           }
 
           .delete-icon {
             @extend .option-button;
-
             background-image: url('assets/svg/trash.svg');
           }
         }
@@ -408,12 +391,12 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
 
         &.child .add-icon,
-        &.closed .add-icon {
+          &.closed .add-icon {
           background-image: url('assets/svg/plus-white.svg');
         }
 
         &.child .delete-icon,
-        &.closed .delete-icon {
+          &.closed .delete-icon {
           background-image: url('assets/svg/trash-white.svg');
         }
 
@@ -445,7 +428,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         @media (max-width: $grid-float-breakpoint) {
           font-size: 16px;
         }
-
         a {
           color: $navbar-default-link-color;
         }

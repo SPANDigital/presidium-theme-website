@@ -35,7 +35,7 @@ html {
   .toolbar-wrapper {
     z-index: $zindex-navbar;
     position: sticky;
-    position: sticky;
+    position: -webkit-sticky;
     top: 0;
     padding: 0;
     display: flex;
@@ -72,7 +72,6 @@ html {
       #no-content-warning {
         display: none;
       }
-
       span.anchor {
         display: block;
         position: relative;
@@ -94,7 +93,6 @@ html {
           padding: 0;
           &:hover {
             cursor: pointer;
-
             .article-edit-menu {
               pointer-events: all;
               opacity: 1;
@@ -110,7 +108,6 @@ html {
 
         &:hover > .permalink {
           display: block;
-
           > a {
             text-decoration: none;
           }
@@ -133,17 +130,14 @@ html {
           background-image: url('images/status-draft.png');
           color: $color-yellow-green;
         }
-
         .status-review {
           background-image: url('images/status-review.png');
           color: $color-yellow-green;
         }
-
         .status-published {
           background-image: url('images/status-published.png');
           color: $color-green;
         }
-
         .status-retired {
           background-image: url('images/status-retired.png');
           color: $color-grey;
@@ -161,16 +155,13 @@ html {
       .article-header {
         width: 100%;
         padding: 10px 0;
-
         > div {
           display: inline-block;
           vertical-align: middle;
           margin-left: 10px;
-
           &:first-child {
-            margin-left: 0;
+            margin-left: 0px;
           }
-
           .label {
             line-height: 15px;
           }
@@ -178,7 +169,6 @@ html {
 
         .article-role {
           float: right;
-
           .label {
             background-image: url('images/role-icon.svg');
             background-repeat: no-repeat;
@@ -221,8 +211,7 @@ html {
           background: #f9f8f8;
           padding: 1px 13px;
           border-radius: 10px;
-
-          &::after {
+          &:after {
             right: 100%;
             top: 50%;
             border: solid transparent;
@@ -231,7 +220,7 @@ html {
             width: 0;
             position: absolute;
             pointer-events: none;
-            border-color: rgb(212 212 212 / 0%);
+            border-color: rgba(212, 212, 212, 0);
             border-right-color: #f9f8f8;
             border-width: 15px;
             margin-top: -15px;
@@ -243,7 +232,6 @@ html {
           align-items: center;
           flex: 1;
           padding: 1px;
-
           &:hover {
             text-decoration: none;
           }
@@ -275,8 +263,8 @@ html {
         }
 
         iframe {
-          box-shadow: 0 0 10px #777;
-          border: none;
+          box-shadow: 0px 0px 10px #777;
+          border: None;
         }
 
         @include headings {
@@ -358,8 +346,8 @@ html {
         }
 
         .presidium-chris-says {
-          background-color: #000;
-          border-color: #000;
+          background-color: #000000;
+          border-color: #000000;
           background-image: url('images/pentagram-symbol.svg');
           color: $color-grey-2;
           background-repeat: no-repeat;
@@ -385,8 +373,7 @@ html {
     .spacer {
       height: 70vh;
     }
-
-    left: 0;
+    left: 0px;
     text-align: center;
     width: 100%;
   }
@@ -397,7 +384,6 @@ html {
     @extend.table-bordered;
 
     white-space: normal !important;
-
     th {
       vertical-align: top !important;
     }
@@ -405,17 +391,15 @@ html {
 
   blockquote {
     @extend .well;
-
     font-size: inherit;
   }
 
   ul,
   ol {
     margin-bottom: ($line-height-computed / 2);
-
     ul,
     ol {
-      margin-bottom: 0;
+      margin-bottom: 0px;
     }
   }
 }
