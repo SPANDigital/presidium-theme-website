@@ -1,13 +1,15 @@
 {{ $roles := .Params.roles | default "All Roles" }}
 {{ $slug := (partial "common/slug" .) }}
 
-{{ $nestedArticles := .Site.Params.includeNestedArticles | default true }}
+{{ $isTopLevelIndex := and ( strings.HasSuffix .File.Path "_index.md" ) (eq .Parent.File.Dir "")}}
+{{ $nestedArticles := and (.Site.Params.includeNestedArticles | default true) (not $isTopLevelIndex) }}
+{{ $nestedArticles = and $nestedArticles (gt (len .Data.Pages) 0)}}
 
 {{ $articleLink := (printf "%v#%v" .Parent.Page.RelPermalink $slug ) }}
 {{ $.Scratch.Set "articleLink" $articleLink }}
 
 {{/*  Type of article  */}}
-{{ $type := cond (not .Data.Pages) "child" "parent" }}
+{{ $type := cond $nestedArticles "parent" "child" }}
 
 {{/* Unique id for this article */}}
 {{ $articleId := .Params.id | default .File.Path }}

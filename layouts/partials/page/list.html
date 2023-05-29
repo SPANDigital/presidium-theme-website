@@ -1,4 +1,5 @@
-{{.Content}}
+
+{{ partial "article/root" . }}
 {{ $pages := (partial "common/pages" .) }}
 {{ $siteScopes := .Site.Params.scopes }}
 {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
@@ -12,7 +13,7 @@
         {{ if $siteScopesEnabled }}
             {{ if isset .Params "scope" }}
                 {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}
             {{ end }}
         {{ end }}
 
@@ -28,7 +29,7 @@
         {{ if $siteScopesEnabled }}
             {{ if isset .Params "scope" }}
                 {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}
             {{ end }}
         {{ end }}
 
