@@ -47,5 +47,5 @@
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-prettier": "^3.0.0"
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.5.1"
 }
