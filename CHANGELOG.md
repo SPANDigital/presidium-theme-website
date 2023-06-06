@@ -125,3 +125,7 @@
 ## 2023-05-25
 ### Bugfixes
 - Fixed build error when archive age is set but maximum number of permitted archives to display is unset in site params @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3940
+
+## 2023-06-05
+### Updates
+- Added tags to search map. @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3938
