@@ -47,7 +47,7 @@
           <div class="row">
               <div id="presidium-content" class="col-lg-10 col-md-12">
                   {{ block "header" . }}{{ end }}
-                  <section>
+                  <section data-section="{{path.Dir .Path}}">
                     {{ block "content" . }}{{ end }}
                   </section>
                   {{ block "footer" . }}{{ end }}

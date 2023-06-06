@@ -22,9 +22,8 @@ outputformats:
     mediatype: text/javascript
 outputs:
   home:
-  - Navigation
+    - Navigation
 params:
   favicon: images/favicon.ico
   attributes:
-    website: 1.4.7
- 
+    website: 2.12.0

@@ -105,3 +105,27 @@
 ## 2023-04-26
 ### Bugfixes
 - Fixed the alignment of the Permalink icon. @mpilo-khathwane  https://spandigital.atlassian.net/browse/PRSDM-3818
+
+## 2023-05-09
+### Bugfixes
+- Fixed the UI Overlap glitch in Export Project as PDF dropdown button. @CharlRitter  https://spandigital.atlassian.net/browse/PRSDM-2952
+
+## 2023-05-10
+### Updates
+- Add a shortcode for iframes, to lazy load them. @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3870
+
+## 2023-05-17
+### Updates
+- Add a partial for archive table contents. @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3804
+
+## 2023-05-18
+### Updates
+- Updated list pages to be able to include archived articles to maintain a minimum number of displayed articles @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3803
+
+## 2023-05-25
+### Bugfixes
+- Fixed build error when archive age is set but maximum number of permitted archives to display is unset in site params @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3940
+
+## 2023-06-05
+### Updates
+- Added tags to search map. @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3938

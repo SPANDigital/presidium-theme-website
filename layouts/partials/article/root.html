@@ -16,7 +16,7 @@
 {{ $uid := .File.UniqueID }}
 
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" permalink="{{.Page.RelPermalink}}">
-    {{ if or (ne (len .Content) 0) (and $nestedArticles .Data.Pages) }}
+    {{ if or (ne (len .Content) 0) (and $nestedArticles (partial "common/pages" .)) }}
         <div class="presidium-article-wrapper">
             <span class="anchor"  id="{{ $slug }}" data-id="{{ $articleId }}"></span>
             {{ partial "article/header" . }}

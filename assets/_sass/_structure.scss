@@ -23,6 +23,10 @@
   }
 }
 
+html {
+  font-size: 16px;
+}
+
 #presidium {
   display: flex;
   flex-flow: row;
@@ -49,7 +53,6 @@
   flex-basis: 0;
   flex-grow: 999;
   color: $gray-darker;
-  overflow: hidden;
 
   #presidium-content {
     position: relative;
@@ -76,28 +79,18 @@
         visibility: hidden;
       }
 
-      .article-options {
-        position: absolute;
-        padding: 0px 20px;
-        top: 12px;
-        left: -70px;
-        height: 100%;
-
-        @media (max-width: $grid-float-breakpoint) {
-          left: unset;
-          right: 0px;
-        }
-      }
-
       .article-title {
         display: flex;
         align-items: center;
+        margin-bottom: 12px;
 
         @media (max-width: $grid-float-breakpoint) {
           max-width: calc(100vw - 120px);
         }
 
         @include headings {
+          margin: 0;
+          padding: 0;
           &:hover {
             cursor: pointer;
             .article-edit-menu {
