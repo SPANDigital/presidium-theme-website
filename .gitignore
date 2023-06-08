@@ -2,6 +2,7 @@
 node_modules
 .idea/
 resources/
+*.lock
 
 # Yarn Berry
 yarn-error.log
