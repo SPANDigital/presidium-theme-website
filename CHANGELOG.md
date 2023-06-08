@@ -114,6 +114,10 @@
 ### Updates
 - Add a shortcode for iframes, to lazy load them. @CharlRitter https://spandigital.atlassian.net/browse/PRSDM-3870
 
+## 2023-05-15
+### Updates
+- Add linting. @CharlRitter
+
 ## 2023-05-17
 ### Updates
 - Add a partial for archive table contents. @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3804
