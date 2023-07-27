@@ -60,7 +60,7 @@
     {{ partialCached "page/modal" 0 }}
     {{ partialCached "page/script" . }}
     {{ if $.Site.Params.analyticsToken }}
-      {{ partial "analytics.html"  . }}
+      {{ partialCached "analytics.html"  . }}
     {{ end }}
 </body>
 </html>
