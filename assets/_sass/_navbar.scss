@@ -67,6 +67,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 
   .scrollable-container {
+    border-radius: 0;
+
     @media (min-width: $grid-float-breakpoint) {
       height: 100%;
       @include bg-gradient($navbar-default-bg);

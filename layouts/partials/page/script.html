@@ -43,7 +43,7 @@
 <script>
     const toolbarHeight = $("#presidium-enterprise").height()
     if(toolbarHeight) {
-      $("#presidium-navigation").css({ top: `${toolbarHeight}px` });
+      $('#presidium-navigation').css({ top: `${toolbarHeight}px`, height: `calc(100vh - ${toolbarHeight}px)` });
     }
 </script>
 {{ end }}
@@ -62,7 +62,7 @@
     if(cachedSize && desktopSize.matches) {
       sidebar.style.flexBasis = cachedSize;
     }
-    
+
     resizer.addEventListener("mousedown", (event) => {
       event.preventDefault();
       document.addEventListener("mousemove", resize, false);
@@ -71,7 +71,7 @@
         document.removeEventListener("mousemove", resize, false);
       }, false);
     });
-    
+
     function resize(e) {
       const size = `${e.x}px`;
       window.localStorage.setItem('sidenav', size);

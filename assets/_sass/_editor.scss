@@ -279,23 +279,6 @@ body::after {
     position: absolute;
   }
 
-  // .accept-button {
-  //   @extend .editor-button;
-
-  //   border-style: none;
-  //   border-radius: 3px;
-  //   background-color: $brand-primary;
-  //   color: white;
-
-  //   &:hover {
-  //     background-color: darken($brand-primary, 10%);
-  //   }
-
-  //   &:active {
-  //     background-color: darken($brand-primary, 20%);
-  //   }
-  // }
-
   .warning-button {
     @extend .editor-button;
 
