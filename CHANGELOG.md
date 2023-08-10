@@ -133,3 +133,7 @@
 ## 2023-06-05
 ### Updates
 - Added tags to search map. @DustinFischer https://spandigital.atlassian.net/browse/PRSDM-3938
+
+## 2023-08-10
+### Bugfixes
+- Fixed the dropdown carrot state @meyerhp https://spandigital.atlassian.net/browse/PRSDM-4185
