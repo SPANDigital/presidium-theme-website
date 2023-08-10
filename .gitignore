@@ -1,4 +1,14 @@
 .DS_Store
-static/node_modules
+node_modules
 .idea/
 resources/
+
+# Yarn Berry
+yarn-error.log
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
