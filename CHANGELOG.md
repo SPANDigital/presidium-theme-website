@@ -137,3 +137,4 @@
 ## 2023-08-10
 ### Bugfixes
 - Fixed the dropdown carrot state @meyerhp https://spandigital.atlassian.net/browse/PRSDM-4185
+- Fix anchor offset @meyerhp - https://spandigital.atlassian.net/browse/PRSDM-4246
