@@ -1,4 +1,18 @@
-{{.Content}}
+{{ if (ne (len .Content) 0) }}
+    {{ $roles := .Params.roles | default "All Roles" }}
+    {{ $uid := .File.UniqueID }}
+    {{ $articleId := .Params.id | default .File.Path }}
+    {{ $articleLink := (printf "%v#%v" .Parent.Page.RelPermalink ) }}
+    {{ $slug := (partial "common/slug" .) }}
+    <div class="article child" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" permalink="{{ .Page.RelPermalink }}">
+        <div class="presidium-article-wrapper">
+            <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
+            {{ .Content }}
+            <hr />
+        </div>
+    </div>
+{{ end }}
+
 {{ $pages := (partial "common/pages" .) }}
 {{ $siteScopes := .Site.Params.scopes }}
 {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
