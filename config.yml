@@ -16,13 +16,6 @@ module:
       target: archetypes
     - source: node_modules
       target: static/node_modules
-outputformats:
-  navigation:
-    basename: navigation
-    mediatype: text/javascript
-outputs:
-  home:
-    - Navigation
 params:
   favicon: images/favicon.ico
   attributes:
