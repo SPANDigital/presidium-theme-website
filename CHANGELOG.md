@@ -138,3 +138,7 @@
 ### Bugfixes
 - Fixed the dropdown carrot state @meyerhp https://spandigital.atlassian.net/browse/PRSDM-4185
 - Fix anchor offset @meyerhp - https://spandigital.atlassian.net/browse/PRSDM-4246
+
+## 2023-09-12
+### Bugfixes
+- Display menu name if page name is not defined
