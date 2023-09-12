@@ -46,7 +46,7 @@
                     {{ else }}
                         {{ $identifier := anchorize $menu.Identifier }}
                         {{ with $.Site.GetPage $identifier }}
-                            {{ partial "navigation/nav-item" (dict "NavPage" . "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false "SlugifyUrl" $slugifyUrl ) }}
+                            {{ partial "navigation/nav-item" (dict "NavPage" . "MenuName" $menu.Name "Level" 1 "Expanded" true "Collapsed" $menu.Params.Collapsed  "RootUrl" $rootUrl "Show" false "SlugifyUrl" $slugifyUrl ) }}
                         {{ end }}
                     {{ end }}                    
                 {{ end }}
