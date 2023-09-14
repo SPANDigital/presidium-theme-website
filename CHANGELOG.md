@@ -142,3 +142,4 @@
 ## 2023-09-12
 ### Bugfixes
 - Display menu name if page name is not defined
+- Fix styling and layout of external nav links
