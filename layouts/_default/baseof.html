@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="{{ .RelPermalink }}">
       {{ end }}
     {{ end }}
-    <script src="../../assets/scripts/jquery.js"></script>
-    <script src="../../assets/scripts/bootstrap.js"></script>
+    <script src="{{ "/assets/scripts/jquery.js" | absURL }}"></script>
+    <script src="{{ "/assets/scripts/bootstrap.js" | absURL }}"></script>
     {{ if $.Site.Params.lazyLoad }}
       {{ $url := urls.Parse .Site.BaseURL }}
       {{ $url = path.Clean $url.Path }}
