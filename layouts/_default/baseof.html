@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="{{ .RelPermalink }}">
       {{ end }}
     {{ end }}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
+    <script src="{{ "/assets/scripts/jquery.js" | absURL }}"></script>
+    <script src="{{ "/assets/scripts/bootstrap.js" | absURL }}"></script>
     {{ if $.Site.Params.lazyLoad }}
       {{ $url := urls.Parse .Site.BaseURL }}
       {{ $url = path.Clean $url.Path }}
