@@ -1,19 +1,20 @@
-{{ if (ne (len .Content) 0) }}
-    {{ $roles := .Params.roles | default "All Roles" }}
-    {{ $uid := .File.UniqueID }}
-    {{ $articleId := .Params.id | default .File.Path }}
-    {{ $articleLink := (printf "%v#%v" .Parent.Page.RelPermalink ) }}
-    {{ $slug := (partial "common/slug" .) }}
+{{ $roles := .Params.roles | default "All Roles" }}
+{{ $uid := .File.UniqueID }}
+{{ $pageLink := .Page.RelPermalink }}
+{{ $articleId := .Params.id | default .File.Path }}
+{{ $slug := (partial "common/slug" .) }}
+{{ $disableArticleBar := (eq (len .Content) 0) }}
 
-    <div class="article index" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" permalink="{{ .Page.RelPermalink }}">
-        <div class="presidium-article-wrapper">
-            <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
-            <div class="article-title article-actions" data-align="center-left"></div>
-            {{ .Content }}
+<div class="page index" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="{{ $disableArticleBar }}">
+    <div class="presidium-article-wrapper">
+        <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
+        {{ if (ne (len .Content) 0) }}
+            <article>{{ .Content }}</article>
             <hr />
-        </div>
+        {{ end }}
     </div>
-{{ end }}
+</div>
+
 
 {{ $pages := (partial "common/pages" .) }}
 {{ $siteScopes := .Site.Params.scopes }}
