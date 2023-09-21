@@ -1,4 +1,21 @@
-{{.Content}}
+{{ $roles := .Params.roles | default "All Roles" }}
+{{ $uid := .File.UniqueID }}
+{{ $pageLink := .Page.RelPermalink }}
+{{ $articleId := .Params.id | default .File.Path }}
+{{ $slug := (partial "common/slug" .) }}
+{{ $disableArticleBar := (eq (len .Content) 0) }}
+
+<div class="page index" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="{{ $disableArticleBar }}">
+    <div class="presidium-article-wrapper">
+        <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
+        {{ if (ne (len .Content) 0) }}
+            <article>{{ .Content }}</article>
+            <hr />
+        {{ end }}
+    </div>
+</div>
+
+
 {{ $pages := (partial "common/pages" .) }}
 {{ $siteScopes := .Site.Params.scopes }}
 {{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
