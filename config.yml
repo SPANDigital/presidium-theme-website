@@ -16,13 +16,23 @@ module:
       target: archetypes
     - source: node_modules
       target: static/node_modules
-outputformats:
+outputFormats:
   navigation:
     basename: navigation
     mediatype: text/javascript
+  embed:
+    mediaType: text/html
+    isHtml: true
+    basename: embed
 outputs:
   home:
     - Navigation
+  page:
+    - HTML
+    - embed 
+  section:
+    - HTML
+    - embed 
 params:
   favicon: images/favicon.ico
   attributes:
