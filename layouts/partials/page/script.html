@@ -22,11 +22,11 @@
   });
 
   // Recursively open the current page's menu nav
-  let navAnchor = $(`a[href="${window.location.pathname}"]`).parent().closest('.menu-row');
-  while (navAnchor.length) {
-      toggleMenu(navAnchor, true);
-      $(navAnchor).find('ul').first().toggleClass('in active');
-      navAnchor = navAnchor.parent().closest('.menu-row');
+  let navItem = $(`a[href="${window.location.pathname}"]`).parent().closest('.menu-row');
+  while (navItem.length) {
+      toggleMenu(navItem, true);
+      $(navItem).find('ul').first().toggleClass('in active');
+      navItem = navItem.parent().closest('.menu-row');
   }
 
 </script>
