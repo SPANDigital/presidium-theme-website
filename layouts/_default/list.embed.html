@@ -1,0 +1,18 @@
+{{.Content}}
+{{ $pages := (partial "common/pages" .) }}
+{{ $siteScopes := .Site.Params.scopes }}
+{{ $siteScopesEnabled := .Site.Params.scopesEnabled }}
+{{ range $pages.ByWeight }}
+        {{ $isRendering := true }}
+
+        {{ if $siteScopesEnabled }}
+            {{ if isset .Params "scope" }}
+                {{ $pageScopes := .Params.scope }}
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+            {{ end }}
+        {{ end }}
+
+        {{ if $isRendering }}
+            {{ partial "article/root" . }}
+        {{ end }}
+    {{ end }}
