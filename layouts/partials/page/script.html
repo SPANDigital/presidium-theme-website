@@ -20,6 +20,15 @@
   $('.menu-expander').click(function(event) {
       event.preventDefault();
   });
+
+  // Recursively open the current page's menu nav
+  let navItem = $(`a[href="${window.location.pathname}"]`).parent().closest('.menu-row');
+  while (navItem.length) {
+      toggleMenu(navItem, true);
+      $(navItem).find('ul').first().toggleClass('in active');
+      navItem = navItem.parent().closest('.menu-row');
+  }
+
 </script>
 
 <script>
