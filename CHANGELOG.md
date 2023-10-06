@@ -143,3 +143,8 @@
 ### Bugfixes
 - Display menu name if page name is not defined
 - Fix styling and layout of external nav links
+
+
+## 2023-10-06
+### Improvements
+= Optimize page load and reduce layout shift @meyerhp
