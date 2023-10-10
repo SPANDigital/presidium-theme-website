@@ -1,0 +1,11 @@
+{{ $context := . }}
+{{ range $index, $schema := .Site.Params.frontmatter }}
+    {{ $options := $context.Store.Get $schema.key }}
+    {{ if isset $context.Params $schema.key }} 
+        {{ $value := $context.Param $schema.key }}
+        {{ if not (in $options $value )  }}
+            {{ errorf "%s: %s not in datafile %s" $schema.key $value $context.Path }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+

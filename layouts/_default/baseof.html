@@ -24,6 +24,8 @@
 </head>
 
 <body id="presidium" {{ partial "page/attributes" . }}>
+    {{ partial "page/validation" . }}
+
     {{ if $.Site.Params.enterprise_enabled }}
       <div class="toolbar-wrapper">
         <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
