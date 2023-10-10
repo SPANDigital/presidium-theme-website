@@ -1,7 +1,7 @@
 <script defer src="/presidium.js"></script>
 {{ if $.Site.Params.enterprise_enabled }}
 <script defer src="{{ $.Site.Params.enterprise_script }}"></script>
-<script>
+<script type="module">
   const toolbarElement = document.querySelector('#presidium-enterprise');
   const navigationElement = document.querySelector('#presidium-navigation');
   if (toolbarElement) {
@@ -17,7 +17,7 @@
 <script defer src="{{ "assets/scripts/bootstrap.js" | absURL }}"></script>
 <script defer src={{ "assets/scripts/mermaid.js" | absURL }}></script>
 
-<script>
+<script type="module">
   const toggleMenu = ($menu, isOpen) => {
     $menu.toggleClass('open', isOpen).toggleClass('closed', !isOpen);
     const $trigger = $menu.find('div.menu-expander > .glyphicon').first();
@@ -48,34 +48,28 @@
       navItem = navItem.parent().closest('.menu-row');
   }
 
-</script>
-
-<script>
   function copyPermalink(link) {
       // Copy the article link to the clipboard
       navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
   }
-</script>
 
-<!-- Components -->
-<script>
-    window.presidium?.tooltips.load();
-    window.presidium?.modal.init();
+  window.presidium?.tooltips.load();
+  window.presidium?.modal.init();
 
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'base',
-        themeVariables: {
-            'primaryColor': '#00827E',
-            'primaryBorderColor': '#2C6764',
-            'secondaryColor': '#FFFFFF',
-            'lineColor': '#666',
-        },
-    });
+  mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+          'primaryColor': '#00827E',
+          'primaryBorderColor': '#2C6764',
+          'secondaryColor': '#FFFFFF',
+          'lineColor': '#666',
+      },
+  });
 </script>
 
 {{ if $.Site.Params.resizeMenu | default true }}
-<script>
+<script type="module">
     const desktopSize = window.matchMedia("(min-width: 768px)")
     const resizer = document.querySelector("#resizer");
     const sidebar = document.querySelector("#presidium-navigation");
@@ -107,8 +101,7 @@
 {{ end }}
 
 {{ if $.Site.Params.enableSublinks }}
-<script type="application/javascript">
-
+<script type="module">
   (function addHeadingLinks(){
     var articles = document.querySelectorAll('.article.child');
 
