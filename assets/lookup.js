@@ -1,7 +1,5 @@
 import {data, schema} from '@params';
 
-console.log(schema)
-
 document.addEventListener('DOMContentLoaded', function() {
     function wrapEmails(textNode) {
         let content = textNode.nodeValue;

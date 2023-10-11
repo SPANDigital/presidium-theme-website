@@ -23,7 +23,7 @@
             {{ partial "article/header" . }}
             {{ partial "article/title" . }}
             {{ partial "article/frontmatter" . }}
-            {{ partial "article/content" . }}
+            {{ partial "article/context" . }}
             {{ partial "article/footer" . }}
             {{ if or (not .Data.Pages) ($nestedArticles) }}
                 <hr>

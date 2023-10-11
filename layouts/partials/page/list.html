@@ -9,7 +9,7 @@
     <div class="presidium-article-wrapper">
         <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
         {{ if (ne (len .Content) 0) }}
-            <article>{{ .Content }}</article>
+            <article> {{ partial "article/context" . }}</article>
             <hr />
         {{ end }}
     </div>
