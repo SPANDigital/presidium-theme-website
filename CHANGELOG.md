@@ -147,3 +147,7 @@
 ## 2023-10-09
 ### Bugfixes
 - Remove global font styles @meyerhp
+
+## 2023-10-06
+### Improvements
+= Optimize page load and reduce layout shift @meyerhp

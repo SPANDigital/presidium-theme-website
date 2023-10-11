@@ -29,6 +29,8 @@
   flex-direction: column;
 
   .toolbar-wrapper {
+    min-height: 50px;
+    background-color: $color-dark-grey;
     z-index: $zindex-navbar;
     position: sticky;
     position: sticky;
