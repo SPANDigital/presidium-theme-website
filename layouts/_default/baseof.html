@@ -8,8 +8,12 @@
     <link rel="icon" href="{{ .Site.Params.favicon | absURL }}" type="image/x-icon">
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-    {{/*  {{ $js := resources.Get "lookup.js" | js.Build (dict "params" (dict "data" .Site.Data "schema" .Site.Params.schema ) ) }}  */}}
-    {{/*  <script src="{{$js.RelPermalink}}"></script>  */}}
+   
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+    {{ $js := resources.Get "lookup.js" | js.Build (dict "params" (dict "data" .Site.Data "schema" .Site.Params.schema ) ) }}
+    <script defer src="{{$js.RelPermalink}}"></script>
     {{ if resources.Get "index.scss" }}
       {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
