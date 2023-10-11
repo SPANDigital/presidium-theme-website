@@ -24,39 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(email);
     }
 
-    function addClickListenerToSpans(element) {
-        const popupSpans = element.querySelectorAll('span.popup');
-        popupSpans.forEach(popupSpan => {
-            popupSpan.addEventListener("mouseover", onHover);
-        });
-    }
-
-    function showPopup(targetSpan) {
-        // Create the popup element
-        const popup = document.createElement('div');
-        popup.textContent = "Your popup content here"; // Modify this as needed
-        popup.style.position = 'absolute';
-        popup.style.background = '#fff';
-        popup.style.border = '1px solid #000';
-        popup.style.padding = '5px';
-        popup.style.zIndex = '1000';
-        popup.style.top = (targetSpan.getBoundingClientRect().top + window.scrollY) + 'px';
-        popup.style.left = (targetSpan.getBoundingClientRect().left + window.scrollX) + 'px';
-    
-        // Add a class or id to identify and remove it later
-        popup.classList.add('email-popup');
-    
-        // Append to the body
-        document.body.appendChild(popup);
-    }
-    
-    function removeClickListenerFromSpans(element) {
-        const popupSpans = element.querySelectorAll('span.popup');
-        popupSpans.forEach(popupSpan => {
-            popupSpan.removeEventListener("mousedown", onHover, true);
-        });
-    }
-
     function traverseAndReplace(node) {
         if (node.nodeType === 3) { // Check if it's a text node
             wrapEmails(node);
@@ -79,10 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 if(containsRef(entry.target)) {
                     traverseAndReplace(entry.target);
-                    addClickListenerToSpans(entry.target);
                 }
-            } else {
-                removeClickListenerFromSpans(entry.target);
             }
         });
     }
