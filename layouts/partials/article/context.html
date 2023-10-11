@@ -1,0 +1,7 @@
+{{ $content := .Content }}
+{{ range $index, $emp := $.Site.Data.employees }}
+    {{  $content = (replace $content $emp.official_email (printf "<span>%s</span>" $emp.official_email)) }}
+{{ end }}
+
+
+<article>{{  safeHTML $content }}</article>

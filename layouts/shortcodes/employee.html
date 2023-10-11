@@ -1,0 +1,21 @@
+{{ $email := .Get "email" }}
+
+{{ $.Scratch.Set "employee" nil }}
+
+{{ range $index, $emp := $.Site.Data.employees }}
+    {{ if eq $emp.official_email $email }}
+        {{ $.Scratch.Set "employee" $emp }}
+        {{ break }}
+    {{ end }}
+{{ end }}
+
+{{ $employee := $.Scratch.Get "employee" }}
+{{ with $employee }}
+<a href="mailto:{{ $email }}" class="employee-popup">{{ $employee.first_name }}
+    <span class="popup-content">
+        Meet {{ .first_name }} {{ .middle_name }} {{ .last_name }}, a member of the SPAN team with the employee ID {{ .employee_id }}. Currently, {{ .first_name }} holds the position of {{ .designation }} and is employed with us on a {{ .employee_type }} basis. If you wish to reach out, you can contact {{ .first_name }} at their official Span email: {{ .official_email }} or their personal email: {{ .personal_email }}. {{ .first_name }} began their journey with Span on {{ .joining_date }} and has been contributing to the {{ .territory }} territory. All of {{ .first_name }}'s efforts are overseen by {{ .reporting_to }}.
+    </span>
+</a>
+{{ else }}
+{{ $email }}
+{{ end }}

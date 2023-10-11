@@ -9,6 +9,12 @@
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
     <link rel="preload" as="style" href="{{ $style.Permalink }}">
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+   
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+    {{ $js := resources.Get "lookup.js" | js.Build (dict "params" (dict "data" .Site.Data "schema" .Site.Params.schema ) ) }}
+    <script defer src="{{$js.RelPermalink}}"></script>
     {{ if resources.Get "index.scss" }}
       {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
