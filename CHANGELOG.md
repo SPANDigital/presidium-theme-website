@@ -144,6 +144,9 @@
 - Display menu name if page name is not defined
 - Fix styling and layout of external nav links
 
+## 2023-10-09
+### Bugfixes
+- Remove global font styles @meyerhp
 
 ## 2023-10-06
 ### Improvements
