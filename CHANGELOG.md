@@ -151,3 +151,7 @@
 ## 2023-10-06
 ### Improvements
 = Optimize page load and reduce layout shift @meyerhp
+
+## 2023-10-27
+### Updates
+- Fix global h tags in theme affecting enterprise. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4638
