@@ -155,3 +155,7 @@
 ## 2023-10-27
 ### Updates
 - Fix global h tags in theme affecting enterprise. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4638
+
+## 2023-11-03
+### Bugfixes
+- Fix latest theme breaking the chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681
