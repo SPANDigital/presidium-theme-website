@@ -1,7 +1,6 @@
 {{ $childLevel := add .Level 1 }}
 {{ $slugifyUrl := and .SlugifyUrl }}
 {{ $roles := .NavPage.Params.roles | default "All Roles" }}
-{{ $name := .NavPage.Name | default .MenuName }}
 {{/* rootUrl is the baseUrl but it defaults to "/" if no baseUrl is set */}}
 {{ $rootUrl := .RootUrl }}
 
@@ -52,7 +51,7 @@
                 </div>
             {{ end }}
             <div class="menu-title">
-                {{ partial "navigation/menu-title" (dict "Name" $name) }}
+                {{ partial "navigation/menu-title" .NavPage }}
             </div>
         </a>
         <div class="article-navbar-options" data-target="#{{$pageSlug}}"  data-id="{{ $articleId }}">
