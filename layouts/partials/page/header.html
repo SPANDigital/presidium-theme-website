@@ -1,8 +1,19 @@
-<h1 class="page-title offendingHeading">
 {{ if eq (.Scratch.Get "scope") "single" }}
-    {{ .Parent.Title }}
+    <h1 class="page-title offendingHeading">
+        {{ .Parent.Title }}
+    </h1>
 {{ else }}
-    {{ .Title}}
+    {{ $roles := .Params.roles | default "All Roles" }}
+    {{ $pageLink :=  .Page.RelPermalink }}
+    {{ $articleId := .Params.id | default .File.Path }}
+    {{ $slug := (partial "common/slug" .) }}
+
+    <div class="page title" data-roles="{{ $roles }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="true">
+        <div class="article-title article-actions" data-align="center-left">
+            <h1 class="page-title offendingHeading">
+                {{ .Title}}
+            </h1>
+        </div>
+    </div>
 {{ end }}
-</h1>
 <hr class="offendingHr" />

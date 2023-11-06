@@ -7,14 +7,18 @@
     {{ hugo.Generator }}
     <link rel="icon" href="{{ .Site.Params.favicon | absURL }}" type="image/x-icon">
     {{ $style := resources.Get "presidium.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="preload" as="style" href="{{ $style.Permalink }}">
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     {{ if resources.Get "index.scss" }}
       {{ with resources.Get "index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
       {{ end }}
     {{ end }}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
+
+    {{ if $.Site.Params.enterprise_enabled }}
+      <link rel="preload" src="/presidium-enterprise.js" as="script">
+    {{ end }}
+    
     {{ if $.Site.Params.lazyLoad }}
       {{ $url := urls.Parse .Site.BaseURL }}
       {{ $url = path.Clean $url.Path }}
@@ -35,7 +39,7 @@
       <div id="presidium-navigation">
         {{ if $.Site.Params.lazyLoad }}
           <script>
-            $('#presidium-navigation').html(window.navigation);
+            document.querySelector('#presidium-navigation').innerHTML = window.navigation;
           </script>
         {{ else }}
           {{ partialCached "navigation/root" . 0 }}
@@ -56,7 +60,7 @@
           </div>
       </div>
     </div>
- 
+
     {{ partialCached "page/modal" 0 }}
     {{ partialCached "page/script" . }}
     {{ if $.Site.Params.analyticsToken }}

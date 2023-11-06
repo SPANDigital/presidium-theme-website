@@ -138,3 +138,28 @@
 ### Bugfixes
 - Fixed the dropdown carrot state @meyerhp https://spandigital.atlassian.net/browse/PRSDM-4185
 - Fix anchor offset @meyerhp - https://spandigital.atlassian.net/browse/PRSDM-4246
+
+## 2023-09-12
+### Bugfixes
+- Display menu name if page name is not defined
+- Fix styling and layout of external nav links
+
+## 2023-10-09
+### Bugfixes
+- Remove global font styles @meyerhp
+
+## 2023-10-06
+### Improvements
+= Optimize page load and reduce layout shift @meyerhp
+
+## 2023-10-27
+### Updates
+- Fix global h tags in theme affecting enterprise. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4638
+
+## 2023-11-03
+### Bugfixes
+- Fix latest theme breaking the chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681
+
+## 2023-11-03
+### Bugfixes
+- Revert previous changes and apply fix in chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681

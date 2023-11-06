@@ -1,4 +1,23 @@
-<script>
+<script defer src="/presidium.js"></script>
+{{ if $.Site.Params.enterprise_enabled }}
+<script defer src="{{ $.Site.Params.enterprise_script }}"></script>
+<script type="module">
+  const toolbarElement = document.querySelector('#presidium-enterprise');
+  const navigationElement = document.querySelector('#presidium-navigation');
+  if (toolbarElement) {
+      const toolbarHeight = toolbarElement.offsetHeight;
+      if (toolbarHeight) {
+          navigationElement.style.top = `${toolbarHeight}px`;
+      }
+  }
+</script>
+{{ end }}
+
+<script defer src="{{ "assets/scripts/jquery.js" | absURL }}"></script>
+<script defer src="{{ "assets/scripts/bootstrap.js" | absURL }}"></script>
+<script defer src={{ "assets/scripts/mermaid.js" | absURL }}></script>
+
+<script type="module">
   const toggleMenu = ($menu, isOpen) => {
     $menu.toggleClass('open', isOpen).toggleClass('closed', !isOpen);
     const $trigger = $menu.find('div.menu-expander > .glyphicon').first();
@@ -20,46 +39,37 @@
   $('.menu-expander').click(function(event) {
       event.preventDefault();
   });
-</script>
 
-<script>
+  // Recursively open the current page's menu nav
+  let navItem = $(`a[href="${window.location.pathname}"]`).parent().closest('.menu-row');
+  while (navItem.length) {
+      toggleMenu(navItem, true);
+      $(navItem).find('ul').first().toggleClass('in active');
+      navItem = navItem.parent().closest('.menu-row');
+  }
+
   function copyPermalink(link) {
       // Copy the article link to the clipboard
       navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
   }
-</script>
 
-<!-- Components -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script src="/presidium.js"></script>
-<script>
-    window.presidium.tooltips.load();
-    window.presidium.modal.init();
+  window.presidium?.tooltips.load();
+  window.presidium?.modal.init();
 
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'base',
-        themeVariables: {
-            'primaryColor': '#00827E',
-            'primaryBorderColor': '#2C6764',
-            'secondaryColor': '#FFFFFF',
-            'lineColor': '#666',
-        },
-    });
+  mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+          'primaryColor': '#00827E',
+          'primaryBorderColor': '#2C6764',
+          'secondaryColor': '#FFFFFF',
+          'lineColor': '#666',
+      },
+  });
 </script>
-
-{{ if $.Site.Params.enterprise_enabled }}
-<script src="{{ $.Site.Params.enterprise_script }}"></script>
-<script>
-    const toolbarHeight = $("#presidium-enterprise").height()
-    if(toolbarHeight) {
-      $("#presidium-navigation").css({ top: `${toolbarHeight}px` });
-    }
-</script>
-{{ end }}
 
 {{ if $.Site.Params.resizeMenu | default true }}
-<script>
+<script type="module">
     const desktopSize = window.matchMedia("(min-width: 768px)")
     const resizer = document.querySelector("#resizer");
     const sidebar = document.querySelector("#presidium-navigation");
@@ -91,8 +101,7 @@
 {{ end }}
 
 {{ if $.Site.Params.enableSublinks }}
-<script type="application/javascript">
-
+<script type="module">
   (function addHeadingLinks(){
     var articles = document.querySelectorAll('.article.child');
 
