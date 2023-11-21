@@ -163,3 +163,7 @@
 ## 2023-11-03
 ### Bugfixes
 - Revert previous changes and apply fix in chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681
+
+## 2023-11-21
+### Bugfixes
+- Add classname to index file content, for editor controls to target it @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4577
