@@ -163,3 +163,7 @@
 ## 2023-11-03
 ### Bugfixes
 - Revert previous changes and apply fix in chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681
+
+## 2023-11-03
+### Updates
+- Enable react routing between enterprise pages, while working with the static content @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4589
