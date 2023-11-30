@@ -9,7 +9,7 @@
     <div class="presidium-article-wrapper">
         <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
         {{ if (ne (len .Content) 0) }}
-            <article>{{ .Content }}</article>
+            <article class="article-actions" data-align="center-top">{{ .Content }}</article>
             <hr />
         {{ end }}
     </div>
@@ -29,7 +29,7 @@
         {{ if $siteScopesEnabled }}
             {{ if isset .Params "scope" }}
                 {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}
             {{ end }}
         {{ end }}
 
@@ -45,7 +45,7 @@
         {{ if $siteScopesEnabled }}
             {{ if isset .Params "scope" }}
                 {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}
             {{ end }}
         {{ end }}
 
