@@ -150,7 +150,7 @@
 
 ## 2023-10-06
 ### Improvements
-= Optimize page load and reduce layout shift @meyerhp
+- Optimize page load and reduce layout shift @meyerhp
 
 ## 2023-10-27
 ### Updates
@@ -167,3 +167,7 @@
 ## 2023-11-21
 ### Bugfixes
 - Add classname to index file content, for editor controls to target it @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4577
+
+## 2023-11-28
+### Updates
+- Enable react routing between enterprise pages, while working with the static content @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4589
