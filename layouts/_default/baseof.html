@@ -31,9 +31,10 @@
     {{ if $.Site.Params.enterprise_enabled }}
       <div class="toolbar-wrapper">
         <div
-        data-key="{{ $.Site.Params.enterprise_key }}"
-        data-title="{{ $.Site.Title }}"
-        class="presidium-enterprise"
+          data-key="{{ $.Site.Params.enterprise_key }}"
+          data-title="{{ $.Site.Title }}"
+          id="presidium-enterprise"
+          class="presidium-enterprise"
         ></div>
       </div>
     {{ end }}
