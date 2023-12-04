@@ -29,11 +29,13 @@
 
 <body id="presidium" {{ partial "page/attributes" . }}>
     {{ if $.Site.Params.enterprise_enabled }}
-      <div
+      <div class="toolbar-wrapper">
+        <div
         data-key="{{ $.Site.Params.enterprise_key }}"
         data-title="{{ $.Site.Title }}"
         class="presidium-enterprise"
-      ></div>
+        ></div>
+      </div>
     {{ end }}
 
     <div class="content-wrapper">
