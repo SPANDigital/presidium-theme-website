@@ -25,6 +25,11 @@
       {{ $navUrl := path.Join $url "/navigation.js"  }}
       <script src="{{$navUrl}}"></script>
     {{ end }}
+    <style type="text/css">
+      * {
+        font-family: proxima-nova !important;
+      }
+    </style>
 </head>
 
 <body id="presidium" {{ partial "page/attributes" . }}>
