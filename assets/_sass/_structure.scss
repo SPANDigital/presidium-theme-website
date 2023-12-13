@@ -47,6 +47,20 @@
   flex-grow: 999;
   color: $gray-darker;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: $gray-darker;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
   #presidium-content {
     position: relative;
     padding: 60px 100px;
