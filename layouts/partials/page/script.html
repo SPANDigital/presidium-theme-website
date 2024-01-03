@@ -44,8 +44,7 @@
   });
 
   $('.menu-title').click(function(event) {
-    const isOpen = $(event.currentTarget).parent().closest('.menu-row').hasClass('open');
-    if (isOpen) {
+    if ($(event.currentTarget).parent().closest('.menu-row').hasClass('open')) {
       event.preventDefault();
       $(event.currentTarget).parent().closest('.menu-row').find('ul').first().collapse('toggle');
     }
