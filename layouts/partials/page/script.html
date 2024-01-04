@@ -44,10 +44,10 @@
   });
 
   $('.menu-title').click(function(event) {
-    if ($(event.currentTarget).parent().closest('.menu-row').hasClass('open')) {
-      event.preventDefault();
-      $(event.currentTarget).parent().closest('.menu-row').find('ul').first().collapse('toggle');
-    }
+    if (!$(event.currentTarget).parent().closest('.menu-row').hasClass('open')) return;
+
+    event.preventDefault();
+    $(event.currentTarget).parent().closest('.menu-row').find('ul').first().collapse('toggle');
   });
 
   // Recursively open the current page's menu nav
