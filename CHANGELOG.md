@@ -163,3 +163,7 @@
 ## 2023-11-03
 ### Bugfixes
 - Revert previous changes and apply fix in chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681
+
+## 2024-01-10
+### Updates
+- Added the Github team as the code owners @CharlRitterDev  https://spandigital.atlassian.net/browse/PRSDM-4891
