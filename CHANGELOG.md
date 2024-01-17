@@ -166,8 +166,12 @@
 
 ## 2023-11-21
 ### Bugfixes
-- Add classname to index file content, for editor controls to target it @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4577
+- Add classname to index file content, for editor controls to target it. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4577
 
 ## 2023-11-28
 ### Updates
-- Enable react routing between enterprise pages, while working with the static content @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4589
+- Enable react routing between enterprise pages, while working with the static content. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4589
+
+## 2024-01-17
+### Updates
+- GA release of User Dashboard. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4928
