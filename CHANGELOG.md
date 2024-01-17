@@ -174,4 +174,4 @@
 
 ## 2024-01-17
 ### Updates
-- GA release of User Dashboard. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4928
+- Remove dead CSS classes after decoupling the WYSIWYG Editor. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-3945
