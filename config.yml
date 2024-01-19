@@ -20,9 +20,17 @@ outputformats:
   navigation:
     basename: navigation
     mediatype: text/javascript
+  people:
+    basename: people
+    mediatype: application/yaml
+  bio:
+    basename: bio
+    mediatype: text/markdown
 outputs:
   home:
     - Navigation
+    - people
+    - bio
 params:
   favicon: images/favicon.ico
   attributes:

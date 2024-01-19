@@ -1,0 +1,19 @@
+{{ $data := .data }}
+{{ $key := .key }}
+
+{{ $grouped := dict }}
+
+{{ range $index, $item := $data }}
+    {{ $value := index $item $key }}
+    {{ if not (isset $grouped $value) }}
+        {{/* If the key doesn't exist in the grouped map, create a new slice for it */}}
+        {{ $newGroup := dict $value (slice $item) }}
+        {{ $grouped = merge $grouped $newGroup }}
+    {{ else }}
+        {{/* If the key already exists, append the item to the existing slice */}}
+        {{ $current := index $grouped $value }}
+        {{ $current = $current | append $item }}
+        {{ $grouped = merge $grouped (dict $value $current ) }}
+    {{ end }}
+{{ end }}
+{{ return $grouped }}

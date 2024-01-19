@@ -1,0 +1,2418 @@
+- Adam Jorgensen:
+    first_name: Adam
+    middle_name:
+    last_name: Jorgensen
+    employee_id: SPN00072
+    status: inactive
+    official_email: adam.jorgensen@spandigital.com
+    personal_email: adam.jorgenson@spandigital.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2018-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Adam Wayland:
+    first_name: Adam
+    middle_name:
+    last_name: Wayland
+    employee_id: SPN00043
+    status: inactive
+    official_email: adam.wayland@spandigital.com
+    personal_email: amwayland@gmail.com
+    employee_type: full_time
+    designation: Director of Technology
+    joining_date: "2015-08-11"
+    territory: ZA
+    reporting_to: John Harris
+- Aghmat Abrahams:
+    first_name: Aghmat
+    middle_name:
+    last_name: Abrahams
+    employee_id: SPN00194
+    status: inactive
+    official_email: aghmat.abrahams@spandigital.com
+    personal_email: aghmat.a@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2023-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- AJ Venter:
+    first_name: AJ
+    middle_name:
+    last_name: Venter
+    employee_id: SPN00075
+    status: inactive
+    official_email: aj.venter@spandigital.com
+    personal_email: ajventer@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2018-11-18"
+    territory: ZA
+    reporting_to: John Harris
+- Alberto Venturini:
+    first_name: Alberto
+    middle_name:
+    last_name: Venturini
+    employee_id: SPN00077
+    status: inactive
+    official_email: alberto.venturini@spandigital.com
+    personal_email: aventurini@gmail.com
+    employee_type: full_time
+    designation: Staff Engineer
+    joining_date: "2018-11-20"
+    territory: ZA
+    reporting_to: John Harris
+- Albertus le Roux:
+    first_name: Albertus
+    middle_name:
+    last_name: le Roux
+    employee_id: SPN00119
+    status: active
+    official_email: albertus.le.roux@spandigital.com
+    personal_email: allie.le.roux@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2021-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Alejandro Ruiz:
+    first_name: Alejandro
+    middle_name:
+    last_name: Ruiz
+    employee_id: SPN00159
+    status: active
+    official_email: alejandro.ruiz@spandigital.com
+    personal_email: jalejandro.ruiz.hdz@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-05-01"
+    territory: MX
+    reporting_to: John Harris
+- Almaz Nanjappa:
+    first_name: Almaz
+    middle_name:
+    last_name: Nanjappa
+    employee_id: SPN00065
+    status: inactive
+    official_email: almaz.nanjappa@spandigital.com
+    personal_email: almazpdf@icloud.com
+    employee_type: contract
+    designation: Sales
+    joining_date: "2018-04-01"
+    territory: US
+    reporting_to: Chris Lyon
+- Andre Strydom:
+    first_name: Andre
+    middle_name:
+    last_name: Strydom
+    employee_id: SPN00036
+    status: inactive
+    official_email: andre.strydom@spandigital.com
+    personal_email: andre.strydom@spandigital.com
+    employee_type: contract
+    designation: Engineer I
+    joining_date: "2021-02-01"
+    territory: ZA
+    reporting_to: John Harris
+- Andrés de Castro:
+    first_name: Andrés
+    middle_name:
+    last_name: de Castro
+    employee_id: SPN00061
+    status: inactive
+    official_email: andres.decastro@spandigital.com
+    personal_email: af.decastro879@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2017-09-04"
+    territory: ZA
+    reporting_to: John Harris
+- Andrew Sather:
+    first_name: Andrew
+    middle_name:
+    last_name: Sather
+    employee_id: SPN00000
+    status: inactive
+    official_email: andrew@spandigital.com
+    personal_email: andrew@sather.com
+    employee_type: full_time
+    designation: CXO
+    joining_date: "2014-01-03"
+    territory: US
+    reporting_to: ' '
+- Andrew van Rensburg:
+    first_name: Andrew
+    middle_name:
+    last_name: van Rensburg
+    employee_id: SPN00117
+    status: inactive
+    official_email: andrew.van.rensburg@spandigital.com
+    personal_email: andrewvr06@gmail.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2021-07-26"
+    territory: ZA
+    reporting_to: John Harris
+- Andrew Stess:
+    first_name: Andrew
+    middle_name:
+    last_name: Stess
+    employee_id: SPN00087
+    status: active
+    official_email: andrew.stess@spandigital.com
+    personal_email: astess@gmail.com
+    employee_type: contract
+    designation: Sales
+    joining_date: "2020-01-01"
+    territory: US
+    reporting_to: Chris Lyon
+- Andries Spies:
+    first_name: Andries
+    middle_name:
+    last_name: Spies
+    employee_id: SPN00103
+    status: inactive
+    official_email: andries.spies@spandigital.com
+    personal_email: andries.spies@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-03-01"
+    territory: ZA
+    reporting_to: John Harris
+- Anne Morris:
+    first_name: Anne
+    middle_name:
+    last_name: Morris
+    employee_id: SPN00098
+    status: inactive
+    official_email: anne.morris@spandigital.com
+    personal_email: admorris1@aol.com
+    employee_type: contract
+    designation: Senior Technical Writer
+    joining_date: "2021-01-14"
+    territory: US
+    reporting_to: Jennie Luke
+- Brendan Bath:
+    first_name: Brendan
+    middle_name:
+    last_name: Bath
+    employee_id: SPN00093
+    status: inactive
+    official_email: brendan.bath@spandigital.com
+    personal_email: brendan.bath@spandigital.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2020-06-01"
+    territory: ZA
+    reporting_to: John Harris
+- Brendan Hartslief:
+    first_name: Brendan
+    middle_name:
+    last_name: Hartslief
+    employee_id: SPN00179
+    status: active
+    official_email: brendan.hartslief@spandigital.com
+    personal_email: brendan.hartslief@gmail.com
+    employee_type: full_time
+    designation: Senior Project Manager
+    joining_date: "2022-09-01"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Brian de Klerk:
+    first_name: Brian
+    middle_name:
+    last_name: de Klerk
+    employee_id: SPN00148
+    status: active
+    official_email: brian.de.klerk@spandigital.com
+    personal_email: briandeklerk@gmail.com
+    employee_type: full_time
+    designation: Engineer I
+    joining_date: "2022-02-07"
+    territory: ZA
+    reporting_to: John Harris
+- Bulumko Madikane:
+    first_name: Bulumko
+    middle_name:
+    last_name: Madikane
+    employee_id: SPN00155
+    status: active
+    official_email: bulumko.madikane@spandigital.com
+    personal_email: thebulmad@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-04-01"
+    territory: ZA
+    reporting_to: John Harris
+- Cameron Waldron:
+    first_name: Cameron
+    middle_name:
+    last_name: Waldron
+    employee_id: SPN00094
+    status: inactive
+    official_email: cameron.waldron@spandigital.com
+    personal_email: cameron.waldron@gmail.com
+    employee_type: full_time
+    designation: Staff Engineer
+    joining_date: "2020-07-01"
+    territory: ZA
+    reporting_to: John Harris
+- Cary Robbins:
+    first_name: Cary
+    middle_name:
+    last_name: Robbins
+    employee_id: SPN00181
+    status: inactive
+    official_email: cary.robbins@spandigital.com
+    personal_email: cary@estatico.io
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2022-09-26"
+    territory: US
+    reporting_to: John Harris
+- Castello Govender:
+    first_name: Castello
+    middle_name:
+    last_name: Govender
+    employee_id: SPN00197
+    status: inactive
+    official_email: castello.govender@spandigital.com
+    personal_email: castellog20@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2023-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- Catherine Lush:
+    first_name: Catherine
+    middle_name:
+    last_name: Lush
+    employee_id: SPN00021
+    status: inactive
+    official_email: catherine.lush@spandigital.com
+    personal_email: catherine.lush@spandigital.com
+    employee_type: contract
+    designation: Technical Writer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: ' '
+- Catherine Lappin:
+    first_name: Catherine
+    middle_name:
+    last_name: Lappin
+    employee_id: SPN00076
+    status: inactive
+    official_email: catherine.lappin@spandigital.com
+    personal_email: catlappin@gmail.com
+    employee_type: full_time
+    designation: Senior Project Manager
+    joining_date: "2018-11-19"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Charl Ritter:
+    first_name: Charl
+    middle_name:
+    last_name: Ritter
+    employee_id: SPN00188
+    status: active
+    official_email: charl.ritter@spandigital.com
+    personal_email: charlritter@hotmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-10-10"
+    territory: ZA
+    reporting_to: John Harris
+- Chris Lyon:
+    first_name: Chris
+    middle_name:
+    last_name: Lyon
+    employee_id: SPN00002
+    status: active
+    official_email: chris@spandigital.com
+    personal_email: maltese_101@yahoo.com
+    employee_type: full_time
+    designation: CEO
+    joining_date: "2014-01-02"
+    territory: US
+    reporting_to: ' '
+- Chris King:
+    first_name: Chris
+    middle_name:
+    last_name: King
+    employee_id: SPN00033
+    status: inactive
+    official_email: chris.king@spandigital.com
+    personal_email: chris.king@spandigital.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- Chris Makrygiannis:
+    first_name: Chris
+    middle_name:
+    last_name: Makrygiannis
+    employee_id: SPN00048
+    status: active
+    official_email: chris.makrygiannis@spandigital.com
+    personal_email: cmakrygi@gmail.com
+    employee_type: full_time
+    designation: Director of Technology
+    joining_date: "2016-02-01"
+    territory: ZA
+    reporting_to: John Harris
+- Christo Spies:
+    first_name: Christo
+    middle_name:
+    last_name: Spies
+    employee_id: SPN00003
+    status: inactive
+    official_email: christo.spies@spandigital.com
+    personal_email: christo.spies@spandigital.com
+    employee_type: contract
+    designation: Territory MD
+    joining_date: "2014-01-31"
+    territory: ZA
+    reporting_to: Chris Lyon
+- Christopher Brunsdon:
+    first_name: Christopher
+    middle_name:
+    last_name: Brunsdon
+    employee_id: SPN00189
+    status: active
+    official_email: christopher.brunsdon@spandigital.com
+    personal_email: christopher@brunsdon.co.za
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-11-01"
+    territory: ZA
+    reporting_to: John Harris
+- Claude Müller:
+    first_name: Claude
+    middle_name:
+    last_name: Müller
+    employee_id: SPN00091
+    status: inactive
+    official_email: claude.muller@spandigital.com
+    personal_email: claude.muller@spandigital.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2020-05-11"
+    territory: ZA
+    reporting_to: John Harris
+- Conre Fourie:
+    first_name: Conre
+    middle_name:
+    last_name: Fourie
+    employee_id: SPN00082
+    status: inactive
+    official_email: conre.fourie@spandigital.com
+    personal_email: conre.fourie@spandigital.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2019-06-10"
+    territory: ZA
+    reporting_to: John Harris
+- Damian Hunter:
+    first_name: Damian
+    middle_name:
+    last_name: Hunter
+    employee_id: SPN00132
+    status: active
+    official_email: damian.hunter@spandigital.com
+    personal_email: damianhunter@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-01-15"
+    territory: ZA
+    reporting_to: John Harris
+- Daniel Venter:
+    first_name: Daniel
+    middle_name:
+    last_name: Venter
+    employee_id: SPN00038
+    status: inactive
+    official_email: daniel.venter@spandigital.com
+    personal_email: daniel.venter@spandigital.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2015-02-02"
+    territory: ZA
+    reporting_to: John Harris
+- Daniel Filipkowski:
+    first_name: Daniel
+    middle_name: Michael
+    last_name: Filipkowski
+    employee_id: SPN00064
+    status: active
+    official_email: daniel.filipkowski@spandigital.com
+    personal_email: avantdan@gmail.com
+    employee_type: full_time
+    designation: Operations Manager
+    joining_date: "2018-03-26"
+    territory: US
+    reporting_to: Jennie Luke
+- Darin Berkley:
+    first_name: Darin
+    middle_name:
+    last_name: Berkley
+    employee_id: SPN00203
+    status: inactive
+    official_email: darin.berkley@spandigital.com
+    personal_email: darinberkley@gmail.com
+    employee_type: contract
+    designation: Accountant
+    joining_date: "2023-01-23"
+    territory: US
+    reporting_to: Derrick Roth
+- Dave Le:
+    first_name: Dave
+    middle_name:
+    last_name: Le
+    employee_id: SPN00022
+    status: inactive
+    official_email: dave.le@spandigital.com
+    personal_email: dave.le@spandigital.com
+    employee_type: contract
+    designation: Principal Designer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- David Berliner:
+    first_name: David
+    middle_name:
+    last_name: Berliner
+    employee_id: SPN00066
+    status: inactive
+    official_email: david.berliner@spandigital.com
+    personal_email: david.berliner@spandigital.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2018-06-01"
+    territory: ZA
+    reporting_to: John Harris
+- David Foley:
+    first_name: David
+    middle_name:
+    last_name: Foley
+    employee_id: SPN00029
+    status: inactive
+    official_email: david.foley@spandigital.com
+    personal_email: david.foley@spandigital.com
+    employee_type: contract
+    designation: Staff Engineer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- David Hislop:
+    first_name: David
+    middle_name:
+    last_name: Hislop
+    employee_id: SPN00030
+    status: inactive
+    official_email: david.hislop@spandigital.com
+    personal_email: david.hislop@spandigital.com
+    employee_type: contract
+    designation: Staff Engineer
+    joining_date: "2015-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- David Solnit:
+    first_name: David
+    middle_name: B
+    last_name: Solnit
+    employee_id: SPN00154
+    status: active
+    official_email: david.solnit@spandigital.com
+    personal_email: dbsolnit@sbcglobal.net
+    employee_type: full_time
+    designation: Senior Technical Writer
+    joining_date: "2022-03-01"
+    territory: US
+    reporting_to: Jennie Luke
+- David Ambrose:
+    first_name: David
+    middle_name: W
+    last_name: Ambrose
+    employee_id: SPN00193
+    status: active
+    official_email: david.ambrose@spandigital.com
+    personal_email: davidwalterambrose@gmail.com
+    employee_type: full_time
+    designation: Knowledge Management Lead
+    joining_date: "2022-11-28"
+    territory: US
+    reporting_to: Jennie Luke
+- Declan Webber:
+    first_name: Declan
+    middle_name:
+    last_name: Webber
+    employee_id: SPN00178
+    status: inactive
+    official_email: declan.webber@spandigital.com
+    personal_email: declan.webber@spandigital.com
+    employee_type: full_time
+    designation: Project Manager
+    joining_date: "2022-09-01"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Delany Middleton:
+    first_name: Delany
+    middle_name:
+    last_name: Middleton
+    employee_id: SPN00012
+    status: inactive
+    official_email: delany.middleton@spandigital.com
+    personal_email: delaney.middleton@spandigital.com
+    employee_type: contract
+    designation: Technical Writer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: ' '
+- Dennis Ferreira:
+    first_name: Dennis
+    middle_name:
+    last_name: Ferreira
+    employee_id: SPN00026
+    status: inactive
+    official_email: dennis.ferreira@spandigital.com
+    personal_email: dennis.ferreira@spandigital.com
+    employee_type: contract
+    designation: Engineer
+    joining_date: "2015-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- Denver de Kock:
+    first_name: Denver
+    middle_name:
+    last_name: de Kock
+    employee_id: SPN00131
+    status: inactive
+    official_email: denver.de.kock@spandigital.com
+    personal_email: denver.dekock@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-01-05"
+    territory: ZA
+    reporting_to: John Harris
+- Deoward Kotze:
+    first_name: Deoward
+    middle_name:
+    last_name: Kotze
+    employee_id: SPN00055
+    status: inactive
+    official_email: deoward.kotze@spandigital.com
+    personal_email: deo@io.co.za
+    employee_type: full_time
+    designation: Principal Engineer
+    joining_date: "2016-07-01"
+    territory: ZA
+    reporting_to: John Harris
+- Derrick Roth:
+    first_name: Derrick
+    middle_name:
+    last_name: Roth
+    employee_id: SPN00107
+    status: active
+    official_email: derrick.roth@spandigital.com
+    personal_email: drothsf@gmail.com
+    employee_type: contract
+    designation: CFO
+    joining_date: "2020-04-11"
+    territory: US
+    reporting_to: Chris Lyon
+- Dieter Doman:
+    first_name: Dieter
+    middle_name:
+    last_name: Doman
+    employee_id: SPN00126
+    status: active
+    official_email: dieter.doman@spandigital.com
+    personal_email: dieter.doman@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-11-01"
+    territory: ZA
+    reporting_to: John Harris
+- Dominic Follett-Smith:
+    first_name: Dominic
+    middle_name:
+    last_name: Follett-Smith
+    employee_id: SPN00056
+    status: inactive
+    official_email: dominic.follett.smith@spandigital.com
+    personal_email: dominicfollett@gmail.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2016-08-01"
+    territory: US
+    reporting_to: John Harris
+- Donovan van der Linde:
+    first_name: Donovan
+    middle_name:
+    last_name: van der Linde
+    employee_id: SPN00142
+    status: inactive
+    official_email: donovan.van.der.linde@spandigital.com
+    personal_email: donniethedev@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-02-15"
+    territory: ZA
+    reporting_to: John Harris
+- Dustin Fischer:
+    first_name: Dustin
+    middle_name:
+    last_name: Fischer
+    employee_id: SPN00127
+    status: active
+    official_email: dustin.fischer@spandigital.com
+    personal_email: duasfi@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2021-11-15"
+    territory: ZA
+    reporting_to: John Harris
+- Eduard le Roux:
+    first_name: Eduard
+    middle_name:
+    last_name: le Roux
+    employee_id: SPN00160
+    status: inactive
+    official_email: eduard.le.roux@spandigital.com
+    personal_email: eduardleroux1@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-05-01"
+    territory: ZA
+    reporting_to: John Harris
+- Edvinas Smigelskis:
+    first_name: Edvinas
+    middle_name:
+    last_name: Smigelskis
+    employee_id: SPN00059
+    status: inactive
+    official_email: edvinas.smigelskis@spandigital.com
+    personal_email: edvinas@edit.pm
+    employee_type: full_time
+    designation: Senior Engineer (FE)
+    joining_date: "2017-04-03"
+    territory: ZA
+    reporting_to: John Harris
+- Eliane Ammoury:
+    first_name: Eliane
+    middle_name:
+    last_name: Ammoury
+    employee_id: SPN00102
+    status: inactive
+    official_email: eliane.ammoury@spandigital.com
+    personal_email: eammoury@gmail.com
+    employee_type: contract
+    designation: Senior Project Manager
+    joining_date: "2021-03-01"
+    territory: US
+    reporting_to: ' '
+- En Zhou:
+    first_name: En
+    middle_name:
+    last_name: Zhou
+    employee_id: SPN00067
+    status: inactive
+    official_email: en.zhou@spandigital.com
+    personal_email: zhouen.nathan@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2018-06-06"
+    territory: ZA
+    reporting_to: John Harris
+- Eric Cerfonteyn:
+    first_name: Eric
+    middle_name:
+    last_name: Cerfonteyn
+    employee_id: SPN00114
+    status: active
+    official_email: eric.cerfonteyn@spandigital.com
+    personal_email: eric.cerfonteyn@gmail.com
+    employee_type: full_time
+    designation: Staff Engineer
+    joining_date: "2021-06-01"
+    territory: ZA
+    reporting_to: John Harris
+- Ethan Lance:
+    first_name: Ethan
+    middle_name:
+    last_name: Lance
+    employee_id: SPN00024
+    status: inactive
+    official_email: ethan.lance@spandigital.com
+    personal_email: ethan.lance@spandigital.com
+    employee_type: contract
+    designation: Senior Project Manager
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- Eugene Prinsloo:
+    first_name: Eugene
+    middle_name:
+    last_name: Prinsloo
+    employee_id: SPN00073
+    status: inactive
+    official_email: eugene.prinsloo@spandigital.com
+    personal_email: eugene.prinsloo@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2018-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Francis Jacobs:
+    first_name: Francis
+    middle_name:
+    last_name: Jacobs
+    employee_id: SPN00168
+    status: active
+    official_email: francis.jacobs@spandigital.com
+    personal_email: francis1990jacobs@gmail.com
+    employee_type: full_time
+    designation: Office Assistant and Cleaner
+    joining_date: "2022-07-11"
+    territory: ZA
+    reporting_to: Ingrid Vorster
+- Francois Bothma:
+    first_name: Francois
+    middle_name:
+    last_name: Bothma
+    employee_id: SPN00113
+    status: active
+    official_email: francois.bothma@spandigital.com
+    personal_email: fbothma93@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2021-06-01"
+    territory: ZA
+    reporting_to: John Harris
+- Frank Allenby:
+    first_name: Frank
+    middle_name:
+    last_name: Allenby
+    employee_id: SPN00190
+    status: active
+    official_email: frank.allenby@spandigital.com
+    personal_email: frank@allen.by
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-11-07"
+    territory: ZA
+    reporting_to: John Harris
+- Gerhard van Wyk:
+    first_name: Gerhard
+    middle_name:
+    last_name: van Wyk
+    employee_id: SPN00105
+    status: inactive
+    official_email: gerhard.van.wyk@spandigital.com
+    personal_email: gerhardwyk@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-03-22"
+    territory: ZA
+    reporting_to: John Harris
+- Gerrit van Niekerk:
+    first_name: Gerrit
+    middle_name:
+    last_name: van Niekerk
+    employee_id: SPN00008
+    status: active
+    official_email: gerrit.van.niekerk@spandigital.com
+    personal_email: gerrit.van.niekerk@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-09-14"
+    territory: ZA
+    reporting_to: John Harris
+- Gustav Bertram:
+    first_name: Gustav
+    middle_name:
+    last_name: Bertram
+    employee_id: SPN00090
+    status: inactive
+    official_email: gustav.bertram@spandigital.com
+    personal_email: gustav.bertram@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2020-05-04"
+    territory: ZA
+    reporting_to: John Harris
+- Hamideh Afrashteh:
+    first_name: Hamideh
+    middle_name:
+    last_name: Afrashteh
+    employee_id: SPN00110
+    status: inactive
+    official_email: hamideh.afrashteh@spandigital.com
+    personal_email: hamideh.afrashteh@gmail.com
+    employee_type: full_time
+    designation: Technical Consultant
+    joining_date: "2021-05-24"
+    territory: US
+    reporting_to: Steve Rowbury
+- Heinrich du Toit:
+    first_name: Heinrich
+    middle_name:
+    last_name: du Toit
+    employee_id: SPN00028
+    status: active
+    official_email: heinrich.du.toit@spandigital.com
+    personal_email: heinrich@i3.vc
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-02-08"
+    territory: ZA
+    reporting_to: John Harris
+- Helgard Meyer:
+    first_name: Helgard
+    middle_name:
+    last_name: Meyer
+    employee_id: SPN00129
+    status: active
+    official_email: helgard.meyer@spandigital.com
+    personal_email: hpmeyer707@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-12-01"
+    territory: ZA
+    reporting_to: John Harris
+- Hugo Peregrina:
+    first_name: Hugo
+    middle_name: Armando
+    last_name: Peregrina
+    employee_id: SPN00186
+    status: active
+    official_email: hugo.peregrina@spandigital.com
+    personal_email: peregrinahugo@gmail.com
+    employee_type: full_time
+    designation: Senior Project Manager
+    joining_date: "2022-10-17"
+    territory: MX
+    reporting_to: Jennie Luke
+- Ighsaan Levy:
+    first_name: Ighsaan
+    middle_name:
+    last_name: Levy
+    employee_id: SPN00078
+    status: inactive
+    official_email: ighsaan.levy@spandigital.com
+    personal_email: brotherighsaan@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2019-05-06"
+    territory: ZA
+    reporting_to: John Harris
+- Ingrid Vorster:
+    first_name: Ingrid
+    middle_name:
+    last_name: Vorster
+    employee_id: SPN00115
+    status: active
+    official_email: ingrid.vorster@spandigital.com
+    personal_email: ivorster@global.co.za
+    employee_type: full_time
+    designation: Managing Director, South Africa
+    joining_date: "2021-07-19"
+    territory: ZA
+    reporting_to: Chris Lyon
+- Jaco Kotzee:
+    first_name: Jaco
+    middle_name:
+    last_name: Kotzee
+    employee_id: SPN00069
+    status: inactive
+    official_email: jaco.kotzee@spandigital.com
+    personal_email: jaco.kotzee@spandigital.com
+    employee_type: full_time
+    designation: Engineer (FE)
+    joining_date: "2018-07-01"
+    territory: ZA
+    reporting_to: John Harris
+- James Meyer:
+    first_name: James
+    middle_name:
+    last_name: Meyer
+    employee_id: SPN00130
+    status: inactive
+    official_email: james.meyer@spandigital.com
+    personal_email: jamesmeyerx@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2022-01-04"
+    territory: ZA
+    reporting_to: John Harris
+- Jason Turner:
+    first_name: Jason
+    middle_name:
+    last_name: Turner
+    employee_id: SPN00034
+    status: inactive
+    official_email: jason@spandigital.com
+    personal_email: jason@spandigital.com
+    employee_type: full_time
+    designation: CEO
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: Chris Lyon
+- Jason Corwin:
+    first_name: Jason
+    middle_name:
+    last_name: Corwin
+    employee_id: SPN00037
+    status: inactive
+    official_email: jason.corwin@spandigital.com
+    personal_email: jason.corwin@spandigital.com
+    employee_type: full_time
+    designation: Director of Technology
+    joining_date: "2015-02-01"
+    territory: US
+    reporting_to: John Harris
+- Jason Rollins:
+    first_name: Jason
+    middle_name:
+    last_name: Rollins
+    employee_id: SPN00080
+    status: inactive
+    official_email: jason.e.rollins@spandigital.com
+    personal_email: jasonerollins@gmail.com
+    employee_type: full_time
+    designation: Director of Marketing & Customer Success
+    joining_date: "2019-05-13"
+    territory: US
+    reporting_to: Steve Rowbury
+- Javier Salgado Ledesma:
+    first_name: Javier
+    middle_name:
+    last_name: Salgado Ledesma
+    employee_id: SPN00200
+    status: active
+    official_email: javier.salgado@spandigital.com
+    personal_email: jvr.ledesma@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2023-01-03"
+    territory: MX
+    reporting_to: John Harris
+- Jayan Smart:
+    first_name: Jayan
+    middle_name:
+    last_name: Smart
+    employee_id: SPN00097
+    status: inactive
+    official_email: jayan.smart@spandigital.com
+    personal_email: jayandrinsmart@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-01-01"
+    territory: ZA
+    reporting_to: John Harris
+- Jeanne Koen:
+    first_name: Jeanne
+    middle_name:
+    last_name: Koen
+    employee_id: SPN00116
+    status: active
+    official_email: jeanne.koen@spandigital.com
+    personal_email: jeannekoen@gmail.com
+    employee_type: full_time
+    designation: Senior Project Manager
+    joining_date: "2021-07-19"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Jennie Luke:
+    first_name: Jennie
+    middle_name:
+    last_name: Luke
+    employee_id: SPN00042
+    status: active
+    official_email: jennie.luke@spandigital.com
+    personal_email: jennie.luke@gmail.com
+    employee_type: full_time
+    designation: VP of Operations and Delivery
+    joining_date: "2015-04-22"
+    territory: US
+    reporting_to: Chris Lyon
+- Jessica Jensen:
+    first_name: Jessica
+    middle_name:
+    last_name: Jensen
+    employee_id: SPN00017
+    status: inactive
+    official_email: jessica.jensen@spandigital.com
+    personal_email: jessica.jensen@spandigital.com
+    employee_type: contract
+    designation: Senior Project Manager
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: ' '
+- Jihaad Pienaar:
+    first_name: Jihaad
+    middle_name:
+    last_name: Pienaar
+    employee_id: SPN00046
+    status: inactive
+    official_email: jihaad.pienaar@spandigital.com
+    personal_email: jihaad.pienaar@spandigital.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2015-11-01"
+    territory: ZA
+    reporting_to: John Harris
+- Johan Hoogenboezem:
+    first_name: Johan
+    middle_name:
+    last_name: Hoogenboezem
+    employee_id: SPN00009
+    status: inactive
+    official_email: johan.hoogenboezem@spandigital.com
+    personal_email: hoogenbj@gmail.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2021-09-01"
+    territory: ZA
+    reporting_to: John Harris
+- John Harris:
+    first_name: John
+    middle_name: R
+    last_name: Harris
+    employee_id: SPN00001
+    status: active
+    official_email: john.r.harris@spandigital.com
+    personal_email: john.harris@digitalbabel.com
+    employee_type: full_time
+    designation: CTO
+    joining_date: "2012-02-23"
+    territory: US
+    reporting_to: ' '
+- John Pfeiffer:
+    first_name: John
+    middle_name: Richard
+    last_name: Pfeiffer
+    employee_id: SPN00161
+    status: inactive
+    official_email: richard.pfeiffer@spandigital.com
+    personal_email: pfeiffer@well.com
+    employee_type: full_time
+    designation: Senior Technical Writer
+    joining_date: "2022-05-16"
+    territory: US
+    reporting_to: Jennie Luke
+- John Doe:
+    first_name: John
+    middle_name:
+    last_name: Doe
+    employee_id: SPN00176
+    status: inactive
+    official_email: john.doe@torabisu.com
+    personal_email: jdoe@torabisu.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2015-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Jon Seaton:
+    first_name: Jon
+    middle_name:
+    last_name: Seaton
+    employee_id: SPN00023
+    status: inactive
+    official_email: jon.seaton@spandigital.com
+    personal_email: jon.seaton@spandigital.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- Jonathan Endersby:
+    first_name: Jonathan
+    middle_name:
+    last_name: Endersby
+    employee_id: SPN00018
+    status: inactive
+    official_email: jonathan.endersby@spandigital.com
+    personal_email: ""
+    employee_type: full_time
+    designation: Unknown
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- Julian Colmenares:
+    first_name: Julian
+    middle_name:
+    last_name: Colmenares
+    employee_id: SPN00184
+    status: active
+    official_email: julian.colmenares@spandigital.com
+    personal_email: juliancpelayo@protonmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-09-28"
+    territory: MX
+    reporting_to: John Harris
+- Kamilla Govender:
+    first_name: Kamilla
+    middle_name:
+    last_name: Govender
+    employee_id: SPN00122
+    status: inactive
+    official_email: kamilla.govender@spandigital.com
+    personal_email: kamilla_govender@yahoo.com
+    employee_type: full_time
+    designation: Tech Talent Acquisition Lead
+    joining_date: "2021-08-01"
+    territory: ZA
+    reporting_to: Kathleen Loomis
+- Kamohelo Leiee:
+    first_name: Kamohelo
+    middle_name:
+    last_name: Leiee
+    employee_id: SPN00147
+    status: inactive
+    official_email: kamo.leiee@spandigital.com
+    personal_email: kamoleiee@yahoo.com
+    employee_type: contract
+    designation: Recruiter
+    joining_date: "2022-01-01"
+    territory: ZA
+    reporting_to: Ingrid Vorster
+- Kane Cullimore:
+    first_name: Kane
+    middle_name:
+    last_name: Cullimore
+    employee_id: SPN00092
+    status: inactive
+    official_email: kane.cullimore@spandigital.com
+    personal_email: kanecullimore@gmail.com
+    employee_type: contract
+    designation: Customer Success Lead
+    joining_date: "2020-05-11"
+    territory: US
+    reporting_to: John Harris
+- Karen Veronica:
+    first_name: Karen
+    middle_name: Lizzeth
+    last_name: Veronica
+    employee_id: SPN00166
+    status: active
+    official_email: karen.veronica@spandigital.com
+    personal_email: karenlvi@gmail.com
+    employee_type: full_time
+    designation: Tech Talent Acquisition Lead
+    joining_date: "2022-07-01"
+    territory: MX
+    reporting_to: Natalie van Niekerk
+- Kathi Woehl:
+    first_name: Kathi
+    middle_name:
+    last_name: Woehl
+    employee_id: SPN00007
+    status: inactive
+    official_email: kathi.woehl@spandigital.com
+    personal_email: kathi.woehl@gmail.com
+    employee_type: full_time
+    designation: Senior Project Manager
+    joining_date: "2021-11-24"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Kathleen Loomis:
+    first_name: Kathleen
+    middle_name:
+    last_name: Loomis
+    employee_id: SPN00171
+    status: inactive
+    official_email: kathleen.loomis@spandigital.com
+    personal_email: kathleenrloomis@gmail.com
+    employee_type: full_time
+    designation: Global Head of People Strategy
+    joining_date: "2022-08-01"
+    territory: US
+    reporting_to: ' '
+- Kelvin Manley:
+    first_name: Kelvin
+    middle_name:
+    last_name: Manley
+    employee_id: SPN00187
+    status: active
+    official_email: kelvin.manley@spandigital.com
+    personal_email: kelvinmanley@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-10-10"
+    territory: ZA
+    reporting_to: John Harris
+- Keoabetswe Morake:
+    first_name: Keoabetswe
+    middle_name:
+    last_name: Morake
+    employee_id: SPN00174
+    status: active
+    official_email: keoabetswe.morake@spandigital.com
+    personal_email: kb.morake@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Kershnee Naidu:
+    first_name: Kershnee
+    middle_name:
+    last_name: Naidu
+    employee_id: SPN00047
+    status: inactive
+    official_email: kershnee.naidu@spandigital.com
+    personal_email: kershnee@gmail.com
+    employee_type: full_time
+    designation: Program Manager
+    joining_date: "2016-01-12"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Keshnee Hansjee:
+    first_name: Keshnee
+    middle_name:
+    last_name: Hansjee
+    employee_id: SPN00106
+    status: inactive
+    official_email: keshnee.hansjee@spandigital.com
+    personal_email: keshnee.hansjee@gmail.com
+    employee_type: full_time
+    designation: Project Manager
+    joining_date: "2021-04-01"
+    territory: ZA
+    reporting_to: ' '
+- Kevin Sewell:
+    first_name: Kevin
+    middle_name:
+    last_name: Sewell
+    employee_id: SPN00099
+    status: active
+    official_email: kevin.sewell@spandigital.com
+    personal_email: kevin.w.sewell@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-01-25"
+    territory: ZA
+    reporting_to: John Harris
+- Kurt Farao:
+    first_name: Kurt
+    middle_name:
+    last_name: Farao
+    employee_id: SPN00050
+    status: inactive
+    official_email: kurt.farao@spandigital.com
+    personal_email: kurt.farao@spandigital.com
+    employee_type: full_time
+    designation: Senior Engineer (FE)
+    joining_date: "2016-03-01"
+    territory: ZA
+    reporting_to: John Harris
+- Kyla Staal:
+    first_name: Kyla
+    middle_name:
+    last_name: Staal
+    employee_id: SPN00112
+    status: inactive
+    official_email: kyla.staal@spandigital.com
+    personal_email: kyla.staal@spandigital.com
+    employee_type: full_time
+    designation: Tech Recruiter
+    joining_date: "2021-05-24"
+    territory: ZA
+    reporting_to: Ingrid Vorster
+- Kyla Van Zyl:
+    first_name: Kyla
+    middle_name:
+    last_name: Van Zyl
+    employee_id: SPN00202
+    status: inactive
+    official_email: kyla.van.zyl@spandigital.com
+    personal_email: kylavanzyl09@gmail.com
+    employee_type: full_time
+    designation: Technical Recruiter
+    joining_date: "2023-01-16"
+    territory: ZA
+    reporting_to: Kathleen Loomis
+- Laila Kramer:
+    first_name: Laila
+    middle_name:
+    last_name: Kramer
+    employee_id: SPN00045
+    status: inactive
+    official_email: laila.kramer@spandigital.com
+    personal_email: lailakramer@gmail.com
+    employee_type: full_time
+    designation: Head of People
+    joining_date: ""
+    territory: ZA
+    reporting_to: Chris Lyon
+- Lathiswa Hem:
+    first_name: Lathiswa
+    middle_name:
+    last_name: Hem
+    employee_id: SPN00083
+    status: inactive
+    official_email: lathiswa.hem@spandigital.com
+    personal_email: ""
+    employee_type: full_time
+    designation: Unknown
+    joining_date: "2019-07-01"
+    territory: ZA
+    reporting_to: Ingrid Vorster
+- Lee Opperman:
+    first_name: Lee
+    middle_name:
+    last_name: Opperman
+    employee_id: SPN00144
+    status: inactive
+    official_email: lee.opperman@spandigital.com
+    personal_email: lee.opperman5@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-03-01"
+    territory: ZA
+    reporting_to: John Harris
+- Leon Joseph:
+    first_name: Leon
+    middle_name:
+    last_name: Joseph
+    employee_id: SPN00109
+    status: active
+    official_email: leon.joseph@spandigital.com
+    personal_email: mail2leonliju@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2021-05-01"
+    territory: ZA
+    reporting_to: John Harris
+- Logan Fleur:
+    first_name: Logan
+    middle_name:
+    last_name: Fleur
+    employee_id: SPN00143
+    status: inactive
+    official_email: logan.fleur@spandigital.com
+    personal_email: ldfleur@gmail.com
+    employee_type: full_time
+    designation: Engineer I
+    joining_date: "2022-03-01"
+    territory: ZA
+    reporting_to: John Harris
+- Lori Bowden:
+    first_name: Lori
+    middle_name:
+    last_name: Bowden
+    employee_id: SPN00006
+    status: inactive
+    official_email: lori.bowden@spandigital.com
+    personal_email: lori.bowden@spandigital.com
+    employee_type: contract
+    designation: Technical Writer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: ' '
+- Louis Schnetler:
+    first_name: Louis
+    middle_name:
+    last_name: Schnetler
+    employee_id: SPN00108
+    status: active
+    official_email: louis.schnetler@spandigital.com
+    personal_email: schnetlerlouis@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-05-03"
+    territory: ZA
+    reporting_to: John Harris
+- Lourens van Heerden:
+    first_name: Lourens
+    middle_name:
+    last_name: van Heerden
+    employee_id: SPN00118
+    status: active
+    official_email: lourens.vanheerden@spandigital.com
+    personal_email: lourensv6@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Luis Gomez Estrada:
+    first_name: Luis
+    middle_name: Felipe
+    last_name: Gomez Estrada
+    employee_id: SPN00156
+    status: active
+    official_email: luis.gomez@spandigital.com
+    personal_email: luisfelipegomezestrada@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-03-01"
+    territory: MX
+    reporting_to: John Harris
+- Luke Bell:
+    first_name: Luke
+    middle_name:
+    last_name: Bell
+    employee_id: SPN00089
+    status: inactive
+    official_email: luke.bell@spandigital.com
+    personal_email: luke.bell@spandigital.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2020-04-28"
+    territory: ZA
+    reporting_to: John Harris
+- Madelein Crews:
+    first_name: Madelein
+    middle_name:
+    last_name: Crews
+    employee_id: SPN00053
+    status: inactive
+    official_email: madelein.crews@spandigital.com
+    personal_email: swanepoelmadelein@gmail.com
+    employee_type: full_time
+    designation: Senior Project Manager
+    joining_date: "2016-07-01"
+    territory: ZA
+    reporting_to: ' '
+- Marcos Jimenez:
+    first_name: Marcos
+    middle_name:
+    last_name: Jimenez
+    employee_id: SPN00167
+    status: inactive
+    official_email: marcos.jimenez@spandigital.com
+    personal_email: animastar87@hotmail.com
+    employee_type: full_time
+    designation: Senior IT Engineer
+    joining_date: "2022-07-01"
+    territory: MX
+    reporting_to: Jennie Luke
+- Mardu Swanepoel:
+    first_name: Mardu
+    middle_name:
+    last_name: Swanepoel
+    employee_id: SPN00085
+    status: active
+    official_email: mardu.swanepoel@spandigital.com
+    personal_email: mardu.swanepoel@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2019-08-21"
+    territory: ZA
+    reporting_to: John Harris
+- Mark Brown:
+    first_name: Mark
+    middle_name:
+    last_name: Brown
+    employee_id: SPN00068
+    status: inactive
+    official_email: mark.brown@spandigital.com
+    personal_email: markjbrownsa@gmail.com
+    employee_type: full_time
+    designation: Program Manager
+    joining_date: "2018-06-08"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Mark Novitzkas:
+    first_name: Mark
+    middle_name:
+    last_name: Novitzkas
+    employee_id: SPN00054
+    status: inactive
+    official_email: mark.novitzkas@spandigital.com
+    personal_email: novitzkas@gmail.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2016-07-01"
+    territory: US
+    reporting_to: John Harris
+- Mark Harris:
+    first_name: Mark
+    middle_name:
+    last_name: Harris
+    employee_id: SPN00081
+    status: inactive
+    official_email: mark.v.harris@spandigital.com
+    personal_email: markvharris2@gmail.com
+    employee_type: contract
+    designation: Unknown
+    joining_date: "2019-06-01"
+    territory: US
+    reporting_to: ' '
+- Mark Andrews:
+    first_name: Mark
+    middle_name:
+    last_name: Andrews
+    employee_id: SPN00153
+    status: inactive
+    official_email: mark.andrews@spandigital.com
+    personal_email: bowler.andrews@gmail.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2022-03-01"
+    territory: ZA
+    reporting_to: John Harris
+- Martin Weiss:
+    first_name: Martin
+    middle_name:
+    last_name: Weiss
+    employee_id: SPN00177
+    status: inactive
+    official_email: martin.weiss@spandigital.com
+    personal_email: weissmarti@gmail.com
+    employee_type: full_time
+    designation: Director of Technology
+    joining_date: "2022-09-01"
+    territory: ZA
+    reporting_to: John Harris
+- Mary Regan:
+    first_name: Mary
+    middle_name:
+    last_name: Regan
+    employee_id: SPN00074
+    status: active
+    official_email: mary.regan@spandigital.com
+    personal_email: marymregan@gmail.com
+    employee_type: contract
+    designation: Senior Technical Writer
+    joining_date: "2018-08-27"
+    territory: US
+    reporting_to: Jennie Luke
+- Matthew Moon:
+    first_name: Matthew
+    middle_name:
+    last_name: Moon
+    employee_id: SPN00134
+    status: active
+    official_email: matthew.moon@spandigital.com
+    personal_email: quantumplate@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2022-02-01"
+    territory: ZA
+    reporting_to: John Harris
+- Meagan Nicholas:
+    first_name: Meagan
+    middle_name:
+    last_name: Nicholas
+    employee_id: SPN00100
+    status: active
+    official_email: meagan.nicholas@spandigital.com
+    personal_email: meagannicholas73@gmail.com
+    employee_type: full_time
+    designation: Talent Coordinator
+    joining_date: "2021-01-26"
+    territory: ZA
+    reporting_to: Natalie van Niekerk
+- Megan Tipps:
+    first_name: Megan
+    middle_name:
+    last_name: Tipps
+    employee_id: SPN00010
+    status: inactive
+    official_email: megan.tipps@spandigital.com
+    personal_email: megan@i3.vc
+    employee_type: contract
+    designation: Office Coordinator
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: ' '
+- Michael Pasternak:
+    first_name: Michael
+    middle_name:
+    last_name: Pasternak
+    employee_id: SPN00111
+    status: active
+    official_email: michael.pasternak@spandigital.com
+    personal_email: michaeldavidpasternak@gmail.com
+    employee_type: full_time
+    designation: Senior Design Lead
+    joining_date: "2021-05-24"
+    territory: US
+    reporting_to: John Harris
+- Michael Howard:
+    first_name: Michael
+    middle_name:
+    last_name: Howard
+    employee_id: SPN00191
+    status: inactive
+    official_email: michael.howard@spandigital.com
+    personal_email: michael.howard.h@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2022-11-09"
+    territory: ZA
+    reporting_to: John Harris
+- Michail de Wet:
+    first_name: Michail
+    middle_name: Leon
+    last_name: de Wet
+    employee_id: SPN00145
+    status: inactive
+    official_email: michail.de.wet@spandigital.com
+    personal_email: michaildewet9@gmail.com
+    employee_type: full_time
+    designation: Graduate
+    joining_date: "2022-03-01"
+    territory: ZA
+    reporting_to: John Harris
+- Michelle Penderis:
+    first_name: Michelle
+    middle_name:
+    last_name: Penderis
+    employee_id: SPN00086
+    status: inactive
+    official_email: michelle.penderis@spandigital.com
+    personal_email: michelle.penderis@spandigital.com
+    employee_type: full_time
+    designation: Office Coordinator
+    joining_date: "2019-11-11"
+    territory: ZA
+    reporting_to: Laila Kramer
+- Mike Jones:
+    first_name: Mike
+    middle_name:
+    last_name: Jones
+    employee_id: SPN00020
+    status: inactive
+    official_email: mike.jones@spandigital.com
+    personal_email: mike.jones@spandigital.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2015-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- Morné de Bruine:
+    first_name: Morné
+    middle_name:
+    last_name: de Bruine
+    employee_id: SPN00173
+    status: active
+    official_email: morne.debruine@spandigital.com
+    personal_email: morneDebruine1@gmail.com
+    employee_type: full_time
+    designation: Director of Technology
+    joining_date: "2022-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Mpilo Khathwane:
+    first_name: Mpilo
+    middle_name:
+    last_name: Khathwane
+    employee_id: SPN00165
+    status: active
+    official_email: mpilo.khathwane@spandigital.com
+    personal_email: mpilo.khathwane@spandigital.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-07-01"
+    territory: ZA
+    reporting_to: John Harris
+- Natalie van Niekerk:
+    first_name: Natalie
+    middle_name:
+    last_name: van Niekerk
+    employee_id: SPN00172
+    status: active
+    official_email: natalie.vanniekerk@spandigital.com
+    personal_email: natwillemse@gmail.com
+    employee_type: full_time
+    designation: Head of People South Africa
+    joining_date: "2022-08-01"
+    territory: ZA
+    reporting_to: Ingrid Vorster
+- Neil Kleynhans:
+    first_name: Neil
+    middle_name:
+    last_name: Kleynhans
+    employee_id: SPN00101
+    status: inactive
+    official_email: neil.kleynhans@spandigital.com
+    personal_email: ntkleynhans@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-02-01"
+    territory: ZA
+    reporting_to: John Harris
+- Nic De Sousa:
+    first_name: Nic
+    middle_name:
+    last_name: De Sousa
+    employee_id: SPN00095
+    status: active
+    official_email: nic.de.sousa@spandigital.com
+    personal_email: nicdesousa@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2020-06-01"
+    territory: ZA
+    reporting_to: John Harris
+- Nick Eriksson:
+    first_name: Nick
+    middle_name:
+    last_name: Eriksson
+    employee_id: SPN00051
+    status: inactive
+    official_email: nick.eriksson@spandigital.com
+    personal_email: nick.eriksson@iki.fi
+    employee_type: contract
+    designation: Principal Engineer
+    joining_date: "2016-03-02"
+    territory: US
+    reporting_to: John Harris
+- Nicolas Kew:
+    first_name: Nicolas
+    middle_name:
+    last_name: Kew
+    employee_id: SPN00063
+    status: inactive
+    official_email: nicolas.kew@spandigital.com
+    personal_email: nkew2002@hotmail.com
+    employee_type: full_time
+    designation: Senior Engineer (QA)
+    joining_date: "2017-11-13"
+    territory: ZA
+    reporting_to: John Harris
+- Nithia Govender:
+    first_name: Nithia
+    middle_name:
+    last_name: Govender
+    employee_id: SPN00128
+    status: active
+    official_email: nithia.govender@spandigital.com
+    personal_email: nithia@mindworks.software
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2021-12-01"
+    territory: ZA
+    reporting_to: John Harris
+- Noe Salazar:
+    first_name: Noe
+    middle_name:
+    last_name: Salazar
+    employee_id: SPN00162
+    status: active
+    official_email: noe.salazar@spandigital.com
+    personal_email: noesalazarr86@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2022-04-01"
+    territory: MX
+    reporting_to: John Harris
+- Olivia Moodley:
+    first_name: Olivia
+    middle_name:
+    last_name: Moodley
+    employee_id: SPN00071
+    status: inactive
+    official_email: olivia.moodley@spandigital.com
+    personal_email: moodleyolivia@gmail.com
+    employee_type: full_time
+    designation: Office Coordinator
+    joining_date: "2018-07-03"
+    territory: ZA
+    reporting_to: Laila Kramer
+- Onyx Gouws:
+    first_name: Onyx
+    middle_name:
+    last_name: Gouws
+    employee_id: SPN00121
+    status: inactive
+    official_email: onyx.gouws@spandigital.com
+    personal_email: onyx@gouws.co
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Paco Mendes:
+    first_name: Paco
+    middle_name:
+    last_name: Mendes
+    employee_id: SPN00052
+    status: inactive
+    official_email: paco.mendes@spandigital.com
+    personal_email: paco@mendes.co.za
+    employee_type: full_time
+    designation: Principal Engineer
+    joining_date: "2016-04-01"
+    territory: ZA
+    reporting_to: John Harris
+- Pete Broding:
+    first_name: Pete
+    middle_name:
+    last_name: Broding
+    employee_id: SPN00133
+    status: active
+    official_email: pete.broding@spandigital.com
+    personal_email: petebroding@gmail.com
+    employee_type: full_time
+    designation: COO
+    joining_date: "2022-01-28"
+    territory: US
+    reporting_to: Chris Lyon
+- Pierre van Rensburg:
+    first_name: Pierre
+    middle_name:
+    last_name: van Rensburg
+    employee_id: SPN00104
+    status: active
+    official_email: pierre.van.rensburg@spandigital.com
+    personal_email: pierrevanrensburg@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-05-01"
+    territory: ZA
+    reporting_to: John Harris
+- Pieter Nortje:
+    first_name: Pieter
+    middle_name:
+    last_name: Nortje
+    employee_id: SPN00125
+    status: active
+    official_email: pieter.nortje@spandigital.com
+    personal_email: pieter_nortje@outlook.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2021-10-15"
+    territory: ZA
+    reporting_to: John Harris
+- Randall Nickerson:
+    first_name: Randall
+    middle_name:
+    last_name: Nickerson
+    employee_id: SPN00027
+    status: inactive
+    official_email: randall.nickerson@spandigital.com
+    personal_email: ""
+    employee_type: contract
+    designation: Unknown
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- Richard Wooding:
+    first_name: Richard
+    middle_name:
+    last_name: Wooding
+    employee_id: SPN00088
+    status: active
+    official_email: richard.wooding@spandigital.com
+    personal_email: richard.wooding@gmail.com
+    employee_type: full_time
+    designation: Staff Engineer
+    joining_date: "2020-03-04"
+    territory: ZA
+    reporting_to: John Harris
+- Roan Song:
+    first_name: Roan
+    middle_name:
+    last_name: Song
+    employee_id: SPN00070
+    status: inactive
+    official_email: roan.song@spandigital.com
+    personal_email: roansong@gmail.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2018-07-01"
+    territory: ZA
+    reporting_to: John Harris
+- Robert Adriaanse:
+    first_name: Robert
+    middle_name: James
+    last_name: Adriaanse
+    employee_id: SPN00196
+    status: inactive
+    official_email: robert.adriaanse@spandigital.com
+    personal_email: robertjadriaanse@gmail.com
+    employee_type: full_time
+    designation: Engineer I
+    joining_date: "2023-01-03"
+    territory: ZA
+    reporting_to: John Harris
+- Robyn Thomas:
+    first_name: Robyn
+    middle_name:
+    last_name: Thomas
+    employee_id: SPN00084
+    status: active
+    official_email: robyn.thomas@spandigital.com
+    personal_email: robyn.thomas@live.co.za
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2019-07-22"
+    territory: US
+    reporting_to: John Harris
+- Roelf de Kock:
+    first_name: Roelf
+    middle_name:
+    last_name: de Kock
+    employee_id: SPN00146
+    status: inactive
+    official_email: roelf.de.kock@spandigital.com
+    personal_email: kiemdoder@gmail.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2022-03-01"
+    territory: ZA
+    reporting_to: John Harris
+- Rosy Fischer:
+    first_name: Rosy
+    middle_name:
+    last_name: Fischer
+    employee_id: SPN00011
+    status: inactive
+    official_email: rosy.fischer@spandigital.com
+    personal_email: rosy.fischer@spandigital.com
+    employee_type: contract
+    designation: Technical Writer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: ' '
+- Ruaan van der Spuy:
+    first_name: Ruaan
+    middle_name:
+    last_name: van der Spuy
+    employee_id: SPN00062
+    status: inactive
+    official_email: ruaan.van.der.spuy@spandigital.com
+    personal_email: rrvds87@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2017-09-18"
+    territory: ZA
+    reporting_to: John Harris
+- Rujaun Fourie:
+    first_name: Rujaun
+    middle_name:
+    last_name: Fourie
+    employee_id: SPN00019
+    status: inactive
+    official_email: rujaun.fourie@spandigital.com
+    personal_email: ""
+    employee_type: contract
+    designation: Unknown
+    joining_date: "2015-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- Sam Shiels:
+    first_name: Sam
+    middle_name:
+    last_name: Shiels
+    employee_id: SPN00169
+    status: active
+    official_email: sam.shiels@spandigital.com
+    personal_email: sam.shiels@gmail.com
+    employee_type: full_time
+    designation: Engineer II
+    joining_date: "2022-06-01"
+    territory: ZA
+    reporting_to: John Harris
+- Scott Maddux:
+    first_name: Scott
+    middle_name:
+    last_name: Maddux
+    employee_id: SPN00013
+    status: inactive
+    official_email: scott.maddux@spandigital.com
+    personal_email: scott.maddux@gmail.com
+    employee_type: contract
+    designation: Sales
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: Chris Lyon
+- Sebastiaan Heunis:
+    first_name: Sebastiaan
+    middle_name:
+    last_name: Heunis
+    employee_id: SPN00016
+    status: inactive
+    official_email: sebastiaan.heunis@spandigital.com
+    personal_email: sheunis@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2015-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- Shannon Roy:
+    first_name: Shannon
+    middle_name:
+    last_name: Roy
+    employee_id: SPN00014
+    status: inactive
+    official_email: shannon.roy@spandigital.com
+    personal_email: ""
+    employee_type: contract
+    designation: Unknown
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: ' '
+- Shantanu Fadnis:
+    first_name: Shantanu
+    middle_name:
+    last_name: Fadnis
+    employee_id: SPN00124
+    status: inactive
+    official_email: shantanu.fadnis@spandigital.com
+    personal_email: shanfadnis@gmail.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2021-09-01"
+    territory: ZA
+    reporting_to: John Harris
+- Shayan Raghavjee:
+    first_name: Shayan
+    middle_name:
+    last_name: Raghavjee
+    employee_id: SPN00044
+    status: active
+    official_email: shayan.raghavjee@spandigital.com
+    personal_email: shayan@raghavjee.com
+    employee_type: full_time
+    designation: Data Wrangler
+    joining_date: "2015-10-01"
+    territory: ZA
+    reporting_to: John Harris
+- Simone van Buuren:
+    first_name: Simone
+    middle_name:
+    last_name: van Buuren
+    employee_id: SPN00058
+    status: inactive
+    official_email: simone.van.buuren@spandigital.com
+    personal_email: svbyogibear@gmail.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2017-01-09"
+    territory: ZA
+    reporting_to: John Harris
+- Span Recruiting:
+    first_name: Span
+    middle_name:
+    last_name: Recruiting
+    employee_id: SPN00164
+    status: active
+    official_email: recruiting@spandigital.com
+    personal_email: ""
+    employee_type: full_time
+    designation: ""
+    joining_date: ""
+    territory: US
+    reporting_to: ' '
+- Stephan Strydom:
+    first_name: Stephan
+    middle_name:
+    last_name: Strydom
+    employee_id: SPN00096
+    status: inactive
+    official_email: stephan.strydom@spandigital.com
+    personal_email: stephan@i3.vc
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2021-01-01"
+    territory: ZA
+    reporting_to: John Harris
+- Stephanie Weitz:
+    first_name: Stephanie
+    middle_name:
+    last_name: Weitz
+    employee_id: SPN00158
+    status: active
+    official_email: stephanie.weitz@spandigital.com
+    personal_email: stweitz@gmail.com
+    employee_type: full_time
+    designation: Technical Recruiter
+    joining_date: "2022-05-01"
+    territory: ZA
+    reporting_to: Natalie van Niekerk
+- Stephen Hendricks:
+    first_name: Stephen
+    middle_name:
+    last_name: Hendricks
+    employee_id: SPN00170
+    status: active
+    official_email: stephen.hendricks@spandigital.com
+    personal_email: stephenhendricks98@gmail.com
+    employee_type: full_time
+    designation: IT Engineer II
+    joining_date: "2022-06-01"
+    territory: ZA
+    reporting_to: Pete Broding
+- Steve Rowbury:
+    first_name: Steve
+    middle_name:
+    last_name: Rowbury
+    employee_id: SPN00040
+    status: active
+    official_email: steve.rowbury@spandigital.com
+    personal_email: sprowbury@gmail.com
+    employee_type: full_time
+    designation: VP Engagement
+    joining_date: "2014-03-28"
+    territory: US
+    reporting_to: Chris Lyon
+- Steve Shapero:
+    first_name: Steve
+    middle_name:
+    last_name: Shapero
+    employee_id: SPN00032
+    status: inactive
+    official_email: steve@spandigital.com
+    personal_email: ""
+    employee_type: full_time
+    designation: Unknown
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- Sybrand Strauss:
+    first_name: Sybrand
+    middle_name:
+    last_name: Strauss
+    employee_id: SPN00041
+    status: inactive
+    official_email: sybrand.strauss@spandigital.com
+    personal_email: sybrand.strauss@spandigital.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2015-04-01"
+    territory: ZA
+    reporting_to: John Harris
+- Tami Beckett:
+    first_name: Tami
+    middle_name:
+    last_name: Beckett
+    employee_id: SPN00201
+    status: inactive
+    official_email: tami.beckett@spandigital.com
+    personal_email: tami.beckett@gmail.com
+    employee_type: full_time
+    designation: Project Manager
+    joining_date: "2023-01-09"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Tapiwa Zireva:
+    first_name: Tapiwa
+    middle_name: Robson
+    last_name: Zireva
+    employee_id: SPN00175
+    status: inactive
+    official_email: tapiwa.zireva@spandigital.com
+    personal_email: tapiwazireva@gmail.com
+    employee_type: contract
+    designation: Engineer II
+    joining_date: "2022-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Tayla Geben:
+    first_name: Tayla
+    middle_name:
+    last_name: Geben
+    employee_id: SPN00060
+    status: active
+    official_email: tayla.geben@spandigital.com
+    personal_email: taylageben@gmail.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2017-04-24"
+    territory: ZA
+    reporting_to: John Harris
+- Tim Caplis:
+    first_name: Tim
+    middle_name:
+    last_name: Caplis
+    employee_id: SPN00025
+    status: inactive
+    official_email: tim.caplis@spandigital.com
+    personal_email: tim.caplis@spandigital.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2015-01-02"
+    territory: US
+    reporting_to: John Harris
+- Timmy Test:
+    first_name: Timmy
+    middle_name:
+    last_name: Test
+    employee_id: SPN00185
+    status: active
+    official_email: timmytest59@gmail.com
+    personal_email: ""
+    employee_type: full_time
+    designation: ""
+    joining_date: ""
+    territory: ZA
+    reporting_to: ' '
+- Tomek Korzeniewski:
+    first_name: Tomek
+    middle_name:
+    last_name: Korzeniewski
+    employee_id: SPN00015
+    status: active
+    official_email: tomek.korzeniewski@spandigital.com
+    personal_email: tomek@mobalistic.com
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2021-04-01"
+    territory: ZA
+    reporting_to: John Harris
+- Travis Pawley:
+    first_name: Travis
+    middle_name: James
+    last_name: Pawley
+    employee_id: SPN00004
+    status: active
+    official_email: travis.pawley@spandigital.com
+    personal_email: tpawley@gmail.com
+    employee_type: full_time
+    designation: Director of Technology and Engagement
+    joining_date: "2015-01-01"
+    territory: US
+    reporting_to: John Harris
+- Tshakule Nemalili:
+    first_name: Tshakule
+    middle_name:
+    last_name: Nemalili
+    employee_id: SPN00049
+    status: inactive
+    official_email: tshakule.nemalili@spandigital.com
+    personal_email: tshakule.nemalili@spandigital.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2016-02-08"
+    territory: ZA
+    reporting_to: John Harris
+- Tyrone Wilson:
+    first_name: Tyrone
+    middle_name:
+    last_name: Wilson
+    employee_id: SPN00192
+    status: active
+    official_email: tyrone.wilson@spandigital.com
+    personal_email: tdubs241083@gmail.com
+    employee_type: full_time
+    designation: Principal Engineer
+    joining_date: "2022-12-01"
+    territory: ZA
+    reporting_to: John Harris
+- Ulrich Enslin:
+    first_name: Ulrich
+    middle_name:
+    last_name: Enslin
+    employee_id: SPN00031
+    status: active
+    official_email: ulrich.enslin@spandigital.com
+    personal_email: ulrich@i3.vc
+    employee_type: contract
+    designation: Senior Engineer
+    joining_date: "2020-02-01"
+    territory: ZA
+    reporting_to: John Harris
+- Valeske Diedericks:
+    first_name: Valeske
+    middle_name:
+    last_name: Diedericks
+    employee_id: SPN00195
+    status: inactive
+    official_email: valeske.diedericks@spandigital.com
+    personal_email: lantarecode@gmail.com
+    employee_type: full_time
+    designation: Engineer I
+    joining_date: "2023-01-02"
+    territory: ZA
+    reporting_to: John Harris
+- Wallace van Zyl:
+    first_name: Wallace
+    middle_name:
+    last_name: van Zyl
+    employee_id: SPN00120
+    status: inactive
+    official_email: wallace.van.zyl@spandigital.com
+    personal_email: wallacevanzyl@outlook.com
+    employee_type: full_time
+    designation: Senior Engineer
+    joining_date: "2021-08-01"
+    territory: ZA
+    reporting_to: John Harris
+- Wiaan Botha:
+    first_name: Wiaan
+    middle_name:
+    last_name: Botha
+    employee_id: SPN00180
+    status: active
+    official_email: wiaan.botha@spandigital.com
+    personal_email: wiaan.dev@gmail.com
+    employee_type: full_time
+    designation: Engineer I
+    joining_date: "2022-09-15"
+    territory: ZA
+    reporting_to: John Harris
+- Willem Grobler:
+    first_name: Willem
+    middle_name:
+    last_name: Grobler
+    employee_id: SPN00039
+    status: inactive
+    official_email: willem.grobler@spandigital.com
+    personal_email: williem@spandigital.com
+    employee_type: full_time
+    designation: Territory MD
+    joining_date: "2015-03-01"
+    territory: ZA
+    reporting_to: Chris Lyon
+- Yohans Mendoza:
+    first_name: Yohans
+    middle_name:
+    last_name: Mendoza
+    employee_id: SPN00123
+    status: active
+    official_email: yohans.mendoza@spandigital.com
+    personal_email: yohansm@gmail.com
+    employee_type: contract
+    designation: Director of Technology
+    joining_date: "2021-08-20"
+    territory: MX
+    reporting_to: John Harris
+- Yvonne Valentyn:
+    first_name: Yvonne
+    middle_name:
+    last_name: Valentyn
+    employee_id: SPN00135
+    status: inactive
+    official_email: yvonne.valentyn@spandigital.com
+    personal_email: yvonne.valentyn@gmail.com
+    employee_type: full_time
+    designation: Project Manager
+    joining_date: "2022-02-01"
+    territory: ZA
+    reporting_to: Jennie Luke
+- Zandre Witte:
+    first_name: Zandre
+    middle_name:
+    last_name: Witte
+    employee_id: SPN00057
+    status: inactive
+    official_email: zandre.witte@spandigital.com
+    personal_email: zandre.witte@spandigital.com
+    employee_type: full_time
+    designation: Engineer
+    joining_date: "2016-08-22"
+    territory: ZA
+    reporting_to: John Harris
+- Zelre Stemmet:
+    first_name: Zelre
+    middle_name:
+    last_name: Stemmet
+    employee_id: SPN00079
+    status: active
+    official_email: zelre.stemmet@spandigital.com
+    personal_email: zelre.stemmet@gmail.com
+    employee_type: full_time
+    designation: Principal Engineer
+    joining_date: "2019-05-06"
+    territory: ZA
+    reporting_to: John Harris

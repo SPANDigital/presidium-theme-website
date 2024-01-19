@@ -1,0 +1,28 @@
+{{- $employees := slice -}}
+
+{{- range $key, $value := $.Site.Data.employees -}}
+  {{ range $employee := $value -}}
+    {{ $employees = $employees | append $employee -}}
+  {{ end -}}
+{{ end -}}
+
+
+{{- $groupedData := partial "group-by.html" (dict "data" $employees "key" "territory") -}}
+
+{{- range $territory, $employees := $groupedData -}}
+- {{ $territory }}:
+  {{ range $employees -}}
+  - first_name: {{ .first_name }}
+    middle_name: {{ .middle_name }}
+    last_name: {{ .last_name }}
+    employee_id: {{ .employee_id }}
+    status: {{ .status }}
+    official_email: {{ .official_email }}
+    personal_email: {{ .personal_email }}
+    employee_type: {{ .employee_type }}
+    designation: {{ .designation }}
+    joining_date: {{ .joining_date }}
+    territory: {{ .territory }}
+    reporting_to: {{ .reporting_to }}
+  {{ end }}
+{{ end }}
