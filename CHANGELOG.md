@@ -175,3 +175,7 @@
 ## 2024-01-17
 ### Updates
 - Remove dead CSS classes after decoupling the WYSIWYG Editor. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-3945
+
+## 2024-01-30
+### New Feature
+- Added a new template to create a searchmap in the format required by the compendium. @kmorake https://spandigital.atlassian.net/browse/PRSDM-4966
