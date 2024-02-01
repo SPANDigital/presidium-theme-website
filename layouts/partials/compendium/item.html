@@ -29,17 +29,17 @@
     {{ end }}
     {{ if not (eq .Plain "") }}
         {{ $creator := (.Params.Author | default "") }}
-        {{ $content := .RawContent }}
+        {{ $content := .Content }}
         {{ $accessRights := (slice (.Params.Roles | default "All Roles")) }}
         {{ $description := printf "An article on %s" .Title }}
-        {{ $format := "text/markdown" }}
+        {{ $format := "text/html" }}
         {{ $identifier := .File.Path }}
         {{ $isPartOf := .Site.BaseURL  }}
         {{ $language := "en-US" }}
         {{ $title := .Title }}
         {{ $sourceSystem := "Presidium" }}
         {{ $type := "Article" }}
-        {{ $date := .Lastmod }}
+        {{ $date := .Lastmod.Format "2006-01-02" }}
         {{ $compendiumMeta := (dict "source-system" $sourceSystem "deep-link" $link "layer" 1) }}
         {{ $dublinCore := (dict "creator" $creator "description" $description "format" $format "identifier" $identifier "language" $language "isPartOf" $isPartOf "source" $link "title" $title "type" $type "date" $date )}}
         {{ $metadata := (dict "compendium" $compendiumMeta "dublin-core" $dublinCore)}}
