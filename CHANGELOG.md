@@ -179,3 +179,7 @@
 ## 2024-01-30
 ### New Feature
 - Added a new template to create a searchmap in the format required by the compendium. @kmorake https://spandigital.atlassian.net/browse/PRSDM-4966
+
+## 2024-02-02
+### bugfix
+- Added compendium output to the list of home outputs @kmorake https://spandigital.atlassian.net/browse/PRSDM-4966
