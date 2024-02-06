@@ -164,6 +164,10 @@
 ### Bugfixes
 - Revert previous changes and apply fix in chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681
 
+## 2023-11-28
+### Updates
+- Enable react routing between enterprise pages, while working with the static content. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4589
+
 ## 2024-01-10
 ### Updates
 - Added the Github team as the code owners @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4891
@@ -171,3 +175,20 @@
 ## 2024-01-04
 ### Bugfixes
 - Fix Left Nav carrot error @WiaanBotha https://spandigital.atlassian.net/browse/PRSDM-4854
+- Add classname to index file content, for editor controls to target it. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4577
+
+## 2024-01-17
+### Updates
+- Remove dead CSS classes after decoupling the WYSIWYG Editor. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-3945
+
+## 2024-01-30
+### New Feature
+- Added a new template to create a searchmap in the format required by the compendium. @kmorake https://spandigital.atlassian.net/browse/PRSDM-4966
+
+## 2024-02-02
+### bugfix
+- Added compendium output to the list of home outputs @kmorake https://spandigital.atlassian.net/browse/PRSDM-4966
+
+## 2024-02-06
+### bugfix
+- Updated the searchmap to converts tags to strings @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5056

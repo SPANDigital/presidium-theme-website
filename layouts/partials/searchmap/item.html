@@ -28,8 +28,9 @@
         {{ $scope = $scope | append .Params.Scope }}
     {{ end }}
     {{ if not (eq .Plain "") }}
+     {{ $tags := apply .Params.tags "cast.ToString" "."}}
      {{ $summary := (index (split .Content "</p>") 0) | plainify  }}
-     {{ $items = $items | append (dict "id" .File.Path "title" .Title "slug" $slug "url" $link "section" ($section | default "") "category" ($category | default "") "tags" (.Params.tags | default slice) "roles" (slice (.Params.Roles | default "All Roles")) "scope" $scope "author" (.Params.Author | default "None") "content" .Plain "originalContent" .RawContent "updated" .Lastmod "summary" $summary )}}
+     {{ $items = $items | append (dict "id" .File.Path "title" .Title "slug" $slug "url" $link "section" ($section | default "") "category" ($category | default "") "tags" ($tags | default slice) "roles" (slice (.Params.Roles | default "All Roles")) "scope" $scope "author" (.Params.Author | default "None") "content" .Plain "originalContent" .RawContent "updated" .Lastmod "summary" $summary  )}}
     {{ end }}
     {{ range .Data.Pages }}
         {{ range (partial "searchmap/item" (dict "Page" . "Level" $childLevel "Section" $section "Category" $category ) ) }}
