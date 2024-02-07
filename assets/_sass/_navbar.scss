@@ -42,9 +42,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 }
 
-.presidium-enterprise + #presidium-navigation {
-  top: 40px;
-  height: calc(100vh - 40px);
+.presidium-enterprise + .content-wrapper #presidium-navigation {
+  top: 50px;
+  height: calc(100vh - 50px);
 }
 
 #presidium-navigation {
@@ -77,6 +77,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     @media (min-width: $grid-float-breakpoint) {
       overflow: auto;
       border: 0;
+      border-radius: 0;
       margin-bottom: 150px;
     }
 
