@@ -175,7 +175,6 @@
 ## 2024-01-04
 ### Bugfixes
 - Fix Left Nav carrot error @WiaanBotha https://spandigital.atlassian.net/browse/PRSDM-4854
-- Add classname to index file content, for editor controls to target it. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4577
 
 ## 2024-01-10
 ### Updates
