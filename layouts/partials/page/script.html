@@ -1,5 +1,6 @@
 <script defer src="/presidium.js"></script>
 {{ if $.Site.Params.enterprise_enabled }}
+<script defer src="/conf/config.js"></script>
 <script defer src="{{ $.Site.Params.enterprise_script }}"></script>
 <script type="module">
   const toolbarElement = document.querySelector('#presidium-enterprise');
