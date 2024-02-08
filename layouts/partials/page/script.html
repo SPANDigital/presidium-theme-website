@@ -1,6 +1,6 @@
 <script defer src="/presidium.js"></script>
 {{ if $.Site.Params.enterprise_enabled }}
-<script src="/conf/config.js"></script>
+<script defer src="/conf/config.js"></script>
 <script defer src="{{ $.Site.Params.enterprise_script }}"></script>
 <script type="module">
   const toolbarElement = document.querySelector('#presidium-enterprise');
@@ -92,7 +92,7 @@
     if(cachedSize && desktopSize.matches) {
       sidebar.style.flexBasis = cachedSize;
     }
-    
+
     resizer.addEventListener("mousedown", (event) => {
       event.preventDefault();
       document.addEventListener("mousemove", resize, false);
@@ -101,7 +101,7 @@
         document.removeEventListener("mousemove", resize, false);
       }, false);
     });
-    
+
     function resize(e) {
       const size = `${e.x}px`;
       window.localStorage.setItem('sidenav', size);
