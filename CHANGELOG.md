@@ -195,3 +195,7 @@
 ## 2024-02-06
 ### bugfix
 - Updated the searchmap to converts tags to strings @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5056
+
+## 2024-02-13
+### bugfix
+- Removed the config.js script from the theme @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5079
