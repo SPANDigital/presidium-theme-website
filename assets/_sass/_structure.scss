@@ -286,6 +286,8 @@
         iframe {
           box-shadow: 0 0 10px #777;
           border: none;
+          width: 60vw !important; // 60% of the viewport because we have the left nav
+          height: calc(60vw*0.56) !important; // 16:9 aspect ratio
         }
 
         @include headings {
