@@ -199,3 +199,4 @@
 ## 2024-02-20
 ### bugfix
 - Removed deprecated file params @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5150
+- Removed the config.js script from the theme @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5079
