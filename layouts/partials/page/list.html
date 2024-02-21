@@ -1,7 +1,7 @@
 {{ $roles := .Params.roles | default "All Roles" }}
-{{ $uid := .File.UniqueID }}
+{{ $uid := (partial "common/uuid" . ) }}
 {{ $pageLink := .Page.RelPermalink }}
-{{ $articleId := .Params.id | default .File.Path }}
+{{ $articleId := .Params.id | default (partial "common/filepath" .) }}
 {{ $slug := (partial "common/slug" .) }}
 {{ $disableArticleBar := (eq (len .Content) 0) }}
 
