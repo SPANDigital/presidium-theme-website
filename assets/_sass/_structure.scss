@@ -212,6 +212,15 @@
         }
       }
 
+      .article-iframe {
+        iframe {
+          box-shadow: 0 0 10px #777;
+          border: none;
+          height: auto;
+          width: 100%;
+          aspect-ratio: 16/9;
+        }
+      }
       .article {
         .presidium-article-wrapper {
           > article + .article.child {
@@ -281,11 +290,6 @@
       article {
         > div {
           overflow-x: auto;
-        }
-
-        iframe {
-          box-shadow: 0 0 10px #777;
-          border: none;
         }
 
         @include headings {

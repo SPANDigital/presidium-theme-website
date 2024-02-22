@@ -4,5 +4,6 @@
 {{ end }}
 {{ $text := .Inner }}
 
-
-<iframe {{ $attrs }} loading="lazy" scrolling="no" framespacing="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>{{ $text }}</iframe>
+<div class="article-iframe">
+        <iframe {{ $attrs }} loading="lazy" scrolling="no" framespacing="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>{{ $text }}</iframe>
+</div>

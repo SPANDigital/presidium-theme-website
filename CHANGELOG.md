@@ -195,3 +195,7 @@
 ## 2024-02-06
 ### bugfix
 - Updated the searchmap to converts tags to strings @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5056
+
+## 2024-02-16
+### bugfix
+- Calculate and set width and height for iframes @zelrestemmet https://spandigital.atlassian.net/browse/PRSDM-5061
