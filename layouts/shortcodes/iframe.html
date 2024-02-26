@@ -2,7 +2,15 @@
 {{ range $key, $value :=  .Params}}
         {{ $attrs = (printf "%s=\"%s\" %s" $key $value $attrs) | safeHTMLAttr}}
 {{ end }}
-{{ $text := .Inner }}
 
-
-<iframe {{ $attrs }} loading="lazy" scrolling="no" framespacing="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>{{ $text }}</iframe>
+<iframe
+        {{ $attrs }}
+        class="article-iframe"
+        loading="lazy"
+        scrolling="no"
+        framespacing="0"
+        frameborder="0"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen
+></iframe>
