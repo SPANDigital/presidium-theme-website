@@ -199,3 +199,9 @@
 ## 2024-02-16
 ### bugfix
 - Calculate and set width and height for iframes @zelrestemmet https://spandigital.atlassian.net/browse/PRSDM-5061
+- Removed deprecated file params @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5150
+- Removed the config.js script from the theme @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5079
+
+## 2024-02-26
+### bugfix
+- Fix iframe shortcode closing issue. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5153, https://spandigital.atlassian.net/browse/PRSDM-5147, https://spandigital.atlassian.net/browse/PRSDM-5157
