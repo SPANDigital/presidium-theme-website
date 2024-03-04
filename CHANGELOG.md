@@ -208,4 +208,4 @@
 
 ## 2024-03-04
 ### bugfix
-- Remove shortcode excluding empty files. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5230
+- Remove check if article content is empty from shortcode, which excluded empty articles from the searchmap, pereventing them from being added to the database. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5230
