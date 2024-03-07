@@ -63,8 +63,8 @@
       navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
   }
 
-  window.presidium?.tooltips.load();
-  window.presidium?.modal.init();
+  window.presidium?.tooltips?.load();
+  window.presidium?.modal?.init();
 
   mermaid.initialize({
       startOnLoad: true,
@@ -92,7 +92,7 @@
     if(cachedSize && desktopSize.matches) {
       sidebar.style.flexBasis = cachedSize;
     }
-    
+
     resizer.addEventListener("mousedown", (event) => {
       event.preventDefault();
       document.addEventListener("mousemove", resize, false);
@@ -101,7 +101,7 @@
         document.removeEventListener("mousemove", resize, false);
       }, false);
     });
-    
+
     function resize(e) {
       const size = `${e.x}px`;
       window.localStorage.setItem('sidenav', size);

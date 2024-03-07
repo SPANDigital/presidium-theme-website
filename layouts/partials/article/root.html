@@ -12,12 +12,11 @@
 {{/* Unique id for this article */}}
 {{ $articleId := .Params.id | default .File.Path }}
 {{ $noContent := (eq (len .Content) 0) }}
-{{ $disableArticleDelete := (eq $type "parent") }}
 
 {{/* Unique id for file, used by scroll-spy and menu toggle  */}}
 {{ $uid := .File.UniqueID }}
 
-<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" permalink="{{.Page.RelPermalink}}"  data-disable-article-bar="{{ $noContent }}" data-disable-article-options="false" data-disable-article-delete="{{ $disableArticleDelete }}" >
+<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" permalink="{{.Page.RelPermalink}}" data-no-content="{{ $noContent }}" >
     {{ if or (ne (len .Content) 0) (and $nestedArticles (partial "common/pages" .)) }}
         <div class="presidium-article-wrapper">
             <span class="anchor"  id="{{ $slug }}" data-id="{{ $articleId }}"></span>

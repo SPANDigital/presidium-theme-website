@@ -4,9 +4,9 @@
 {{ $articleId := .Params.id | default .File.Path }}
 {{ $slug := (partial "common/slug" .) }}
 {{ $noContent := (eq (len .Content) 0) }}
-{{ $type := cond $noContent "index" "article" }}
+{{ $type := cond $noContent "page" "article" }}
 
-<div class="{{ $type }} index" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="{{ $noContent }}" data-disable-article-options="{{ $noContent }}" data-disable-article-delete="true" >
+<div class="{{ $type }} index" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-no-content="{{ $noContent }}" >
     <div class="presidium-article-wrapper">
         <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
         {{ if (ne (len .Content) 0) }}
