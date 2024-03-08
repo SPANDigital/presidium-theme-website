@@ -205,3 +205,7 @@
 ## 2024-02-26
 ### bugfix
 - Fix iframe shortcode closing issue. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5153, https://spandigital.atlassian.net/browse/PRSDM-5147, https://spandigital.atlassian.net/browse/PRSDM-5157
+
+## 2024-03-04
+### bugfix
+- Remove check if the article content is empty from shortcode, which excluded empty articles from the searchmap, preventing them from being added to the database. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5230
