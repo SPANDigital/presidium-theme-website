@@ -1,28 +1,6 @@
-$font-path: 'assets/fonts/gotham/' !default;
+@import 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap';
 
-@font-face {
-  font-family: 'Gotham A';
-  src: url('#{$font-path}/Gotham-Bold.woff2') format('woff2'), url('#{$font-path}/Gotham-Bold.woff') format('woff'),
-    url('#{$font-path}/Gotham-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gotham B';
-  src: url('#{$font-path}/Gotham-Medium.woff2') format('woff2'), url('#{$font-path}/Gotham-Medium.woff') format('woff'),
-    url('#{$font-path}/Gotham-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Gotham;
-  src: url('#{$font-path}/Gotham-Book.woff2') format('woff2'), url('#{$font-path}/Gotham-Book.woff') format('woff'),
-    url('#{$font-path}/Gotham-Book.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+html,
+body {
+  font-family: $primary-font-family;
 }
