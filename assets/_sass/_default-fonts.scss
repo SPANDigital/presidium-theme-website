@@ -4,3 +4,10 @@ html,
 body {
   font-family: $primary-font-family;
 }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace;
+}
