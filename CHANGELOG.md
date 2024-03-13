@@ -5,6 +5,10 @@
 ### Updates
 ### Bug Fixes
 
+## 2023-13-03
+### Update
+- Changed default compendium article description to blank
+
 ## 2023-012-03
 ### Updates
 - Added a site wide base theme to mermaid diagrams in the Span theme colours
