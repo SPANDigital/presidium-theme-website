@@ -212,4 +212,4 @@
 
 ## 2024-03-11
 ### Updates
-- Fix any Apple regression stemming from User Dashboard. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5185
+- Old fonts were removed and the portal theme was imported on the base docs html file, to make the fonts accessable from the docs. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5185
