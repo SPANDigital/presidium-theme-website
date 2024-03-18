@@ -289,11 +289,6 @@
           overflow-x: auto;
         }
 
-        iframe {
-          box-shadow: 0 0 10px #777;
-          border: none;
-        }
-
         @include headings {
           text-transform: none;
           margin-top: 20px;
