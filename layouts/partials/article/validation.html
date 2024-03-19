@@ -1,0 +1,11 @@
+{{ $context := . }}
+{{ range $index, $schema := .Site.Params.frontmatter }}
+    {{ $options := $context.Store.Get $schema.key }}
+    {{ if isset $context.Params $schema.key }} 
+        {{ $value := $context.Param $schema.key }}
+        {{ if not (in $options $value )  }}
+            {{ warnf "%s: %s not in dataset %s, path: ./%s" $schema.key $value $schema.dataset $context.Path }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
