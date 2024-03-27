@@ -1,6 +1,6 @@
 {{ $value := . }}
 {{ $valid := true }}
-{{ if not (findRE `^[^\s@]+@[^\s@]+\.[^\s@]+$` $value) }}
+{{ if and $value (not (findRE `^[^\s@]+@[^\s@]+\.[^\s@]+$` $value)) }}
     {{ $valid = false  }}
 {{ end }}
 {{ return $valid  }}
