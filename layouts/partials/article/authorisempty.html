@@ -1,0 +1,6 @@
+{{ $value := . }}
+{{ $valid := true }}
+{{ if not $value }}
+    {{ $valid = false }}
+{{ end }}
+{{ return $valid }}
