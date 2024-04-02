@@ -216,3 +216,7 @@
 ## 2024-03-04
 ### bugfix
 - Remove check if the article content is empty from shortcode, which excluded empty articles from the searchmap, preventing them from being added to the database. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5230
+
+## 2024-03-11
+### Updates
+- Old fonts were removed and the portal theme was imported on the base docs html file, to make the fonts accessable from the docs. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5185
