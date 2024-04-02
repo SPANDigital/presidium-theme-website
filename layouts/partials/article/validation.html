@@ -3,7 +3,7 @@
     {{ if eq $schema.key "author" }}
         {{ $value := $context.Param $schema.key }}
         {{ $required := $schema.required | default true }}
-        {{ if and $required (not (partialCached "article/authorisempty" $value $value)) }}
+        {{ if and $required (not $value) }}
             {{ errorf "%s field is empty, path: ./%s" $schema.key $context.Path }}
         {{ else if not (partialCached "article/authorisvalid" $value $value) }}
             {{ errorf "%s: %s is not a valid email address, path: ./%s" $schema.key $value $context.Path }}
