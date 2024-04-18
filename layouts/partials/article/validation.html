@@ -2,19 +2,19 @@
 
 {{ range $index, $schema := .Site.Params.frontmatter }}
     {{ $value := $context.Param $schema.key }}
-    {{ $required := $schema.required | default true }}
+    {{ $strict := $schema.strict | default false }}
 
     {{ if and (eq $schema.key "author") (ne (len $context.Content) 0) }}
-        {{ if and $required (not $value) }}
-            {{ errorf "%s field is empty, path: ./%s" $schema.key $context.Path }}
+        {{ if not $value }}
+            {{ partial "common/formatmessage" (dict "strict" $strict "message" (printf "%s field is empty, path: ./%s" $schema.key $context.Path)) }}
         {{ else if not (partialCached "article/authorisvalid" $value $value) }}
-            {{ errorf "%s: %s is not a valid email address, path: ./%s" $schema.key $value $context.Path }}
+            {{ partial "common/formatmessage" (dict "strict" $strict "message" (printf "%s: %s is not a valid email address, path: ./%s" $schema.key $value $context.Path)) }}
         {{ end }}
     {{ end }}
 
     {{ if eq $schema.key "title" }}
-        {{ if and $required (not $value) }}
-            {{ errorf "%s field is empty, path: ./%s" $schema.key $context.Path }}
+        {{ if not $value }}
+            {{ partial "common/formatmessage" (dict "strict" $strict "message" (printf "%s field is empty, path: ./%s" $schema.key $context.Path)) }}
         {{ end }}
     {{ end }}
 {{ end }}
