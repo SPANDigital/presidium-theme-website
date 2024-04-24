@@ -220,3 +220,7 @@
 ## 2024-03-11
 ### Updates
 - Old fonts were removed and the portal theme was imported on the base docs html file, to make the fonts accessable from the docs. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5185
+
+## 2024-04-19
+### Updates
+- On article summary in searchmap, pipe transform html unescape to summary to resolve issue of HTML special characters. @ChristopherBrunsdon https://spandigital.atlassian.net/browse/PRSDM-5538
