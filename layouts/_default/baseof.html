@@ -17,6 +17,7 @@
 
     {{ if $.Site.Params.enterprise_enabled }}
       <link rel="preload" src="/presidium-enterprise.js" as="script">
+      <link href="/assets/css/portal_theme.css" rel="stylesheet">
     {{ end }}
 
     {{ if $.Site.Params.lazyLoad }}
@@ -25,11 +26,6 @@
       {{ $navUrl := path.Join $url "/navigation.js"  }}
       <script src="{{$navUrl}}"></script>
     {{ end }}
-    <style type="text/css">
-      * {
-        font-family: proxima-nova !important;
-      }
-    </style>
 </head>
 
 <body id="presidium" {{ partial "page/attributes" . }}>
@@ -58,7 +54,7 @@
       <div id="resizer"></div>
       <div id="presidium-container" class="container-fluid">
           <div class="row">
-              <div id="presidium-content" class="col-lg-10 col-md-12">
+              <div id="presidium-content">
                   {{ block "header" . }}{{ end }}
                   <section data-section="{{path.Dir .Path}}">
                     {{ block "content" . }}{{ end }}

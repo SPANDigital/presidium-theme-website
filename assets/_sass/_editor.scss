@@ -9,10 +9,6 @@ body::after {
     url('assets/svg/plus-white.svg') url('assets/svg/trash-white.svg');
 }
 
-.codex-editor {
-  max-width: 650px;
-}
-
 @media (min-width: 651px) {
   .codex-editor--narrow .ce-toolbar__actions {
     right: 100%;
