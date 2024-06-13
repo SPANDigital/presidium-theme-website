@@ -224,3 +224,7 @@
 ## 2024-04-19
 ### Updates
 - On article summary in searchmap, pipe transform html unescape to summary to resolve issue of HTML special characters. @ChristopherBrunsdon https://spandigital.atlassian.net/browse/PRSDM-5538
+
+## 2024-03-04
+### Bugfix
+- External links require the SASS url function for the SASS loader HUGO uses. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5893
