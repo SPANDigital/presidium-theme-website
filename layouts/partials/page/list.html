@@ -1,15 +1,16 @@
 {{ $roles := .Params.roles | default "All Roles" }}
-{{ $uid := .File.UniqueID }}
+{{ $uid := (partial "common/uuid" . ) }}
 {{ $pageLink := .Page.RelPermalink }}
-{{ $articleId := .Params.id | default .File.Path }}
+{{ $articleId := .Params.id | default (partial "common/filepath" .) }}
 {{ $slug := (partial "common/slug" .) }}
-{{ $disableArticleBar := (eq (len .Content) 0) }}
+{{ $noContent := (eq (len .Content) 0) }}
+{{ $type := cond $noContent "page" "article" }}
 
-<div class="page index" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="{{ $disableArticleBar }}">
+<div class="{{ $type }} index" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-no-content="{{ $noContent }}" >
     <div class="presidium-article-wrapper">
         <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
         {{ if (ne (len .Content) 0) }}
-            <article>{{ .Content }}</article>
+            <article class="article-actions" data-align="center-top">{{ .Content }}</article>
             <hr />
         {{ end }}
     </div>
@@ -29,7 +30,7 @@
         {{ if $siteScopesEnabled }}
             {{ if isset .Params "scope" }}
                 {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}
             {{ end }}
         {{ end }}
 
@@ -45,7 +46,7 @@
         {{ if $siteScopesEnabled }}
             {{ if isset .Params "scope" }}
                 {{ $pageScopes := .Params.scope }}
-                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}    
+                {{ $isRendering = gt (len (intersect $pageScopes $siteScopes)) 0 }}
             {{ end }}
         {{ end }}
 

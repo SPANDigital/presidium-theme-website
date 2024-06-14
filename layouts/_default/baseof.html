@@ -17,8 +17,9 @@
 
     {{ if $.Site.Params.enterprise_enabled }}
       <link rel="preload" src="/presidium-enterprise.js" as="script">
+      <link href="/assets/css/portal_theme.css" rel="stylesheet">
     {{ end }}
-    
+
     {{ if $.Site.Params.lazyLoad }}
       {{ $url := urls.Parse .Site.BaseURL }}
       {{ $url = path.Clean $url.Path }}
@@ -30,8 +31,12 @@
 <body id="presidium" {{ partial "page/attributes" . }}>
     {{ if $.Site.Params.enterprise_enabled }}
       <div class="toolbar-wrapper">
-        <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise"
-        class="presidium-enterprise"></div>
+        <div
+          data-key="{{ $.Site.Params.enterprise_key }}"
+          data-title="{{ $.Site.Title }}"
+          id="presidium-enterprise"
+          class="presidium-enterprise"
+        ></div>
       </div>
     {{ end }}
 
@@ -45,11 +50,11 @@
           {{ partialCached "navigation/root" . 0 }}
         {{ end }}
       </div>
-  
+
       <div id="resizer"></div>
       <div id="presidium-container" class="container-fluid">
           <div class="row">
-              <div id="presidium-content" class="col-lg-10 col-md-12">
+              <div id="presidium-content">
                   {{ block "header" . }}{{ end }}
                   <section data-section="{{path.Dir .Path}}">
                     {{ block "content" . }}{{ end }}

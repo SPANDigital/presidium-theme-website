@@ -42,20 +42,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 }
 
-.presidium-enterprise + #presidium-navigation {
-  top: 40px;
-  height: calc(100vh - 40px);
-}
-
 #presidium-navigation {
   min-width: 260px;
   width: 260px;
   max-width: 50%;
   z-index: $zindex-navbar;
   position: sticky;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
+  top: 50px;
+  height: calc(100vh - 50px);
 
   @media (max-width: $grid-float-breakpoint) {
     display: flex;
@@ -77,6 +71,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     @media (min-width: $grid-float-breakpoint) {
       overflow: auto;
       border: 0;
+      border-radius: 0;
       margin-bottom: 150px;
     }
 
@@ -152,7 +147,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           padding: 10px;
           margin: 0;
           font-weight: bold;
-          font-family: $primary-font-family;
           text-transform: none;
           text-align: center;
 

@@ -9,10 +9,6 @@ body::after {
     url('assets/svg/plus-white.svg') url('assets/svg/trash-white.svg');
 }
 
-.codex-editor {
-  max-width: 650px;
-}
-
 @media (min-width: 651px) {
   .codex-editor--narrow .ce-toolbar__actions {
     right: 100%;
@@ -188,79 +184,6 @@ body::after {
   margin: auto 0;
 }
 
-.editor-options {
-  float: right;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 12px;
-  position: relative;
-  bottom: 4px;
-}
-
-.save-button {
-  @extend .editor-button;
-
-  transition: background-color 0.01s;
-  background-color: $brand-primary;
-  border-style: none;
-  border-radius: 3px;
-  color: white;
-  min-width: 46px;
-  max-height: 27px;
-
-  &:hover {
-    background-color: darken($brand-primary, 10%);
-  }
-
-  &:active {
-    background-color: darken($brand-primary, 20%);
-  }
-
-  &:disabled {
-    background-color: lighten($brand-primary, 20%);
-  }
-
-  .save-button-spinner {
-    stroke: white;
-    background-image: url('assets/svg/loading-spinner.svg');
-    background-repeat: no-repeat;
-    top: 0;
-    left: 0;
-    margin: auto;
-    width: 20px;
-    height: 20px;
-    animation: rotation 1s infinite linear;
-
-    @keyframes rotation {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(359deg);
-      }
-    }
-  }
-}
-
-.cancel-button {
-  @extend .editor-button;
-
-  transition: background-color 0.01s;
-  border: 1px solid;
-  border-radius: 3px;
-  background-color: white;
-
-  &:hover {
-    background-color: darken(white, 10%);
-  }
-
-  &:active {
-    background-color: darken(white, 20%);
-  }
-}
-
 .front-matter {
   grid-template-columns: 70px auto;
 
@@ -350,39 +273,6 @@ body::after {
     bottom: 25px;
     right: 25px;
     position: absolute;
-  }
-
-  .cancel-button {
-    @extend .editor-button;
-
-    border: 1px solid;
-    border-radius: 3px;
-    background-color: white;
-
-    &:hover {
-      background-color: darken(white, 10%);
-    }
-
-    &:active {
-      background-color: darken(white, 20%);
-    }
-  }
-
-  .accept-button {
-    @extend .editor-button;
-
-    border-style: none;
-    border-radius: 3px;
-    background-color: $brand-primary;
-    color: white;
-
-    &:hover {
-      background-color: darken($brand-primary, 10%);
-    }
-
-    &:active {
-      background-color: darken($brand-primary, 20%);
-    }
   }
 
   .warning-button {

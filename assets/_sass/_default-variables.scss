@@ -16,8 +16,9 @@ $color-green: #84a93f;
 $color-blue: #4586cd;
 $color-red: #e52213;
 $color-dark-grey: #3d3d3d;
+
 // Fonts
-$primary-font-family: 'Gotham', sans-serif !default;
+$primary-font-family: 'Open Sans' !default;
 
 // Extracted from spacelab theme:
 // Colors
@@ -33,7 +34,6 @@ $border: #dadada;
 // fonts
 $font-size-base: 14px !default;
 $line-height-base: 1.428571429 !default; // 20/14
-$font-family-sans-serif: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif !default;
 $padding-base-vertical: 8px !default;
 $padding-base-horizontal: 12px !default;
 $line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px

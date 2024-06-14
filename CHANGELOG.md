@@ -5,6 +5,10 @@
 ### Updates
 ### Bug Fixes
 
+## 2023-13-03
+### Update
+- Changed default compendium article description to blank
+
 ## 2023-012-03
 ### Updates
 - Added a site wide base theme to mermaid diagrams in the Span theme colours
@@ -150,7 +154,7 @@
 
 ## 2023-10-06
 ### Improvements
-= Optimize page load and reduce layout shift @meyerhp
+- Optimize page load and reduce layout shift @meyerhp
 
 ## 2023-10-27
 ### Updates
@@ -164,10 +168,63 @@
 ### Bugfixes
 - Revert previous changes and apply fix in chronicle @kmorake https://spandigital.atlassian.net/browse/PRSDM-4681
 
-## 2024-01-10
+## 2023-11-21
+### Bugfixes
+- Add classname to index file content, for editor controls to target it. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4577
+
+## 2023-11-28
 ### Updates
-- Added the Github team as the code owners @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4891
+- Enable react routing between enterprise pages, while working with the static content. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4589
 
 ## 2024-01-04
 ### Bugfixes
 - Fix Left Nav carrot error @WiaanBotha https://spandigital.atlassian.net/browse/PRSDM-4854
+
+## 2024-01-10
+### Updates
+- Added the Github team as the code owners @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-4891
+
+## 2024-01-17
+### Updates
+- Remove dead CSS classes after decoupling the WYSIWYG Editor. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-3945
+
+## 2024-01-30
+### New Feature
+- Added a new template to create a searchmap in the format required by the compendium. @kmorake https://spandigital.atlassian.net/browse/PRSDM-4966
+
+## 2024-02-02
+### bugfix
+- Added compendium output to the list of home outputs @kmorake https://spandigital.atlassian.net/browse/PRSDM-4966
+
+## 2024-02-06
+### bugfix
+- Updated the searchmap to converts tags to strings @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5056
+
+## 2024-02-16
+### bugfix
+- Calculate and set width and height for iframes @zelrestemmet https://spandigital.atlassian.net/browse/PRSDM-5061
+
+## 2024-02-20
+### bugfix
+- Removed deprecated file params @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5150
+- Removed the config.js script from the theme @meyerhp https://spandigital.atlassian.net/browse/PRSDM-5079
+
+## 2024-02-26
+### bugfix
+- Fix iframe shortcode closing issue. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5153, https://spandigital.atlassian.net/browse/PRSDM-5147, https://spandigital.atlassian.net/browse/PRSDM-5157
+
+## 2024-03-04
+### bugfix
+- Remove check if the article content is empty from shortcode, which excluded empty articles from the searchmap, preventing them from being added to the database. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5230
+
+## 2024-03-11
+### Updates
+- Old fonts were removed and the portal theme was imported on the base docs html file, to make the fonts accessable from the docs. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5185
+
+## 2024-04-19
+### Updates
+- On article summary in searchmap, pipe transform html unescape to summary to resolve issue of HTML special characters. @ChristopherBrunsdon https://spandigital.atlassian.net/browse/PRSDM-5538
+
+## 2024-03-04
+### Bugfix
+- External links require the SASS url function for the SASS loader HUGO uses. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5893
