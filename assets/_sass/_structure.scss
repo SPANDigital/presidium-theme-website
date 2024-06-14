@@ -47,6 +47,10 @@
   flex-grow: 999;
   color: $gray-darker;
 
+  .row {
+    display: flex;
+  }
+
   h1,
   h2,
   h3,
@@ -64,15 +68,12 @@
   #presidium-content {
     position: relative;
     padding: 60px 100px;
+    margin: auto;
+    max-width: 840px;
 
     @media (max-width: $grid-float-breakpoint) {
       margin-top: 20px;
       padding: 40px 16px;
-    }
-
-    .label {
-      font-size: $font-size-base;
-      font-weight: normal;
     }
 
     section {
@@ -112,13 +113,13 @@
         }
 
         .permalink {
-          display: none;
+          visibility: hidden;
           margin-left: 12px;
           margin-bottom: 8px;
         }
 
         &:hover > .permalink {
-          display: block;
+          visibility: visible;
 
           > a {
             text-decoration: none;
@@ -163,7 +164,6 @@
         a > span {
           padding-left: 10px;
           color: $link-color;
-          font-size: 80%;
         }
       }
 
@@ -321,7 +321,6 @@
           }
 
           span {
-            font-size: 18px;
             line-height: 21px;
             font-weight: 500;
             letter-spacing: 0;
@@ -331,10 +330,8 @@
 
           &::before {
             display: flex;
-            font-size: 13px;
             font-weight: 500;
             letter-spacing: 0;
-            line-height: 15px;
             text-transform: uppercase;
             margin-bottom: 4px;
           }
@@ -437,7 +434,6 @@
   }
 
   p.archive-item {
-    font-size: 16px;
     padding: 2px 0;
     display: grid;
     grid-template-columns: 1fr 9fr;

@@ -118,7 +118,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         appearance: none;
         width: auto;
         font-weight: 600;
-        font-size: small;
+        font-size: 12px;
         margin-top: -10px;
 
         &:hover {
@@ -155,7 +155,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
             float: left;
             max-width: 80%;
             padding: 0 25px;
-            font-size: 14px;
             @include navbar-vertical-align(14px);
           }
         }
@@ -201,6 +200,10 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           .dropdown__indicators {
             max-height: 10px;
             margin: auto;
+            }
+
+          .dropdown__value-container {
+            padding: 0;
           }
 
           .dropdown__control--is-focused .dropdown__dropdown-indicator > svg {
@@ -305,7 +308,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           float: none;
           position: relative;
           display: block;
-          font-size: 11px;
+          font-size: 12px;
           font-weight: bold;
 
           &.hidden {
@@ -425,7 +428,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
         .glyphicon {
           margin-right: 6px;
-          font-size: 0.8em;
         }
       }
 
@@ -435,10 +437,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         word-break: normal;
         text-overflow: ellipsis;
         overflow: hidden;
-
-        @media (max-width: $grid-float-breakpoint) {
-          font-size: 16px;
-        }
 
         a {
           color: $navbar-default-link-color;
