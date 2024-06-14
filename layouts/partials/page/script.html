@@ -1,4 +1,7 @@
 <script defer src="/presidium.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 {{ if $.Site.Params.enterprise_enabled }}
 <script defer src="{{ $.Site.Params.enterprise_script }}"></script>
 <script type="module">
@@ -15,39 +18,45 @@
 
 <script defer src="{{ "assets/scripts/jquery.js" | absURL }}"></script>
 <script defer src="{{ "assets/scripts/bootstrap.js" | absURL }}"></script>
-<script defer src={{ "assets/scripts/mermaid.js" | absURL }}></script>
+<script defer src="{{ "assets/scripts/mermaid.js" | absURL }}"></script>
 
 <script type="module">
   const toggleMenu = ($menu, isOpen) => {
     $menu.toggleClass('open', isOpen).toggleClass('closed', !isOpen);
     const $trigger = $menu.find('div.menu-expander > .glyphicon').first();
     $trigger.toggleClass('glyphicon-chevron-down', isOpen).toggleClass('glyphicon-chevron-right', !isOpen);
-    $($menu).find('ul').first().toggleClass('in active', isOpen);
+    $menu.find('ul').first().toggleClass('in active', isOpen);
   };
 
   $('li.menu-row').on('show.bs.collapse', (event) => {
-      event.stopPropagation();
-      const $menu = $(event.currentTarget);
-      toggleMenu($menu, true);
+    event.stopPropagation();
+    const $menu = $(event.currentTarget);
+    toggleMenu($menu, true);
   });
 
   $('li.menu-row').on('hide.bs.collapse', (event) => {
-      event.stopPropagation();
-      const $menu = $(event.currentTarget);
-      toggleMenu($menu, false);
+    event.stopPropagation();
+    const $menu = $(event.currentTarget);
+    toggleMenu($menu, false);
   });
 
-  $('.menu-expander').click(function(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      $(event.currentTarget).parent().closest('.menu-row').find('ul').first().collapse('toggle');
+  $('.menu-expander').on('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const $menuRow = $(event.currentTarget).closest('.menu-row');
+    const $ul = $menuRow.find('ul').first();
+    $ul.collapse('toggle');
+    console.log('Menu expander clicked', $menuRow, $ul);
   });
 
-  $('.menu-title').click(function(event) {
-    if (!$(event.currentTarget).parent().closest('.menu-row').hasClass('open')) return;
+  $('.menu-title').on('click', function(event) {
+    const $menuRow = $(event.currentTarget).closest('.menu-row');
+    if (!$menuRow.hasClass('open')) return;
 
     event.preventDefault();
-    $(event.currentTarget).parent().closest('.menu-row').find('ul').first().collapse('toggle');
+    const $ul = $menuRow.find('ul').first();
+    $ul.collapse('toggle');
+    console.log('Menu title clicked', $menuRow, $ul);
   });
 
   // Recursively open the current page's menu nav
@@ -62,8 +71,8 @@
       navigator.clipboard.writeText(RegExp('^/*(.*)').exec(link)[1]);
   }
 
-  window.presidium?.tooltips.load();
-  window.presidium?.modal.init();
+  window.presidium?.tooltips?.load();
+  window.presidium?.modal?.init();
 
   mermaid.initialize({
       startOnLoad: true,
@@ -91,7 +100,7 @@
     if(cachedSize && desktopSize.matches) {
       sidebar.style.flexBasis = cachedSize;
     }
-    
+
     resizer.addEventListener("mousedown", (event) => {
       event.preventDefault();
       document.addEventListener("mousemove", resize, false);
@@ -100,7 +109,7 @@
         document.removeEventListener("mousemove", resize, false);
       }, false);
     });
-    
+
     function resize(e) {
       const size = `${e.x}px`;
       window.localStorage.setItem('sidenav', size);
