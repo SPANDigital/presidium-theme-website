@@ -58,13 +58,12 @@
 
   #presidium-content {
     position: relative;
-    padding: 60px 100px;
+    padding: 40px 100px;
     margin: auto;
     max-width: 840px;
 
     @media (max-width: $grid-float-breakpoint) {
-      margin-top: 20px;
-      padding: 40px 16px;
+      padding: 20px;
     }
 
     section {
@@ -83,6 +82,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 12px;
+        padding-top: 12px !important; //this is to override custom styling in modules, we need to fix this but this is good enough given the urgency of the release
 
         @media (max-width: $grid-float-breakpoint) {
           max-width: calc(100vw - 120px);

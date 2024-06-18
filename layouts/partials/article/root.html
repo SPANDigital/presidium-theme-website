@@ -25,9 +25,6 @@
             {{ partial "article/frontmatter" . }}
             {{ partial "article/content" . }}
             {{ partial "article/footer" . }}
-            {{ if or (not .Data.Pages) ($nestedArticles) }}
-                <hr>
-            {{ end }}
         </div>
     </div>
 
