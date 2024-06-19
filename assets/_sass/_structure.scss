@@ -66,14 +66,28 @@
   }
 
   #presidium-content {
-    position: relative;
-    padding: 40px 100px;
-    margin: auto;
-    max-width: 840px;
+    margin: 40px auto;
+    height: calc(100vh - 50px);
 
-    @media (max-width: $grid-float-breakpoint) {
-      padding: 20px;
+    @media (max-width: 768px) {
+      /* Medium breakpoint */
+      margin: 0 auto;
     }
+    @media (min-width: 992px) {
+      /* Large breakpoint */
+      max-width: 592px;
+    }
+    @media (min-width: 1200px) {
+      /* Extra large breakpoint */
+      max-width: 708px;
+    }
+    @media (min-width: 1400px) {
+      /* Extra extra large breakpoint */
+      max-width: 830px;
+    }
+
+
+
 
     section {
       #no-content-warning {
