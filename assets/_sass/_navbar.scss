@@ -421,7 +421,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       .menu-title {
-        max-width: calc(100% - 50px);
+        max-width: calc(100% - 5px);
         flex: 1;
         word-break: normal;
         text-overflow: ellipsis;
