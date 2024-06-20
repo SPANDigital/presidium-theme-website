@@ -18,6 +18,7 @@
     {{ if $.Site.Params.enterprise_enabled }}
       <link rel="preload" src="/presidium-enterprise.js" as="script">
       <link href="/assets/css/portal_theme.css" rel="stylesheet">
+      <script src="/conf/config.js"></script>
     {{ end }}
 
     {{ if $.Site.Params.lazyLoad }}
@@ -53,7 +54,6 @@
         {{ end }}
       </div>
 
-      <div id="resizer"></div>
       <div id="presidium-container" class="container-fluid">
           <div class="row">
               <div id="presidium-content">

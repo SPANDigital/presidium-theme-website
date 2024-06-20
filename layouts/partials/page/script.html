@@ -91,38 +91,6 @@
   });
 </script>
 
-{{ if $.Site.Params.resizeMenu | default true }}
-<script type="module">
-    const desktopSize = window.matchMedia("(min-width: 768px)")
-    const resizer = document.querySelector("#resizer");
-    const sidebar = document.querySelector("#presidium-navigation");
-
-    if(desktopSize.matches) {
-      resizer.style.display = 'block';
-    }
-
-    const cachedSize = window.localStorage.getItem('sidenav');
-    if(cachedSize && desktopSize.matches) {
-      sidebar.style.flexBasis = cachedSize;
-    }
-
-    resizer.addEventListener("mousedown", (event) => {
-      event.preventDefault();
-      document.addEventListener("mousemove", resize, false);
-      document.addEventListener("mouseup", () => {
-        event.preventDefault();
-        document.removeEventListener("mousemove", resize, false);
-      }, false);
-    });
-
-    function resize(e) {
-      const size = `${e.x}px`;
-      window.localStorage.setItem('sidenav', size);
-      sidebar.style.flexBasis = size;
-    }
-</script>
-{{ end }}
-
 {{ if $.Site.Params.enableSublinks }}
 <script type="module">
   (function addHeadingLinks(){
