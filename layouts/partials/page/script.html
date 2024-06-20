@@ -21,6 +21,13 @@
 <script defer src="{{ "assets/scripts/mermaid.js" | absURL }}"></script>
 
 <script type="module">
+  $('.toolbar-wrapper > button.toggle').on('click', (event) => {
+    event.stopPropagation();
+    const $menu = $('.content-wrapper > #presidium-navigation');
+    const isOpen = $menu.hasClass('expanded');
+    $menu.toggleClass('expanded', !isOpen).toggleClass('', isOpen);
+  });
+
   const toggleMenu = ($menu, isOpen) => {
     $menu.toggleClass('open', isOpen).toggleClass('closed', !isOpen);
     const $trigger = $menu.find('div.menu-expander > .glyphicon').first();

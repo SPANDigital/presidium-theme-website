@@ -34,6 +34,36 @@
     z-index: $zindex-navbar;
     position: sticky;
     top: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .toggle {
+      @media (min-width: $grid-float-breakpoint) {
+        display: none;
+      }
+
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      z-index: 1;
+      background-color: transparent;
+      border-color: transparent;
+      background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+
+      .icon-bar {
+        background-color: $navbar-default-brand-color;
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+      }
+
+      .icon-bar + .icon-bar {
+        margin-top: 4px;
+      }
+    }
   }
 
   .content-wrapper {
@@ -49,6 +79,10 @@
 
   .row {
     display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 50px);
+    height: 100%;
+    justify-content: space-between;
   }
 
   h1,
@@ -66,28 +100,22 @@
   }
 
   #presidium-content {
-    margin: 40px auto;
-    height: calc(100vh - 50px);
+    margin: 40px auto 0 auto;
+    height: 100%;
+    width: calc(100% - (144px * 0.25));
 
-    @media (max-width: 768px) {
-      /* Medium breakpoint */
-      margin: 0 auto;
+    @media (min-width: $screen-md) {
+      width: calc(100% - (144px * 0.5));
     }
-    @media (min-width: 992px) {
-      /* Large breakpoint */
-      max-width: 592px;
+    @media (min-width: $screen-lg) {
+      width: calc(100% - (144px * 1));
     }
-    @media (min-width: 1200px) {
-      /* Extra large breakpoint */
-      max-width: 708px;
+    @media (min-width: $screen-xlg) {
+      width: calc(100% - (144px * 2));
     }
-    @media (min-width: 1400px) {
-      /* Extra extra large breakpoint */
-      max-width: 830px;
+    @media (min-width: $screen-xxlg) {
+      width: calc(100% - (144px * 3));
     }
-
-
-
 
     section {
       #no-content-warning {
@@ -404,11 +432,6 @@
   }
 
   footer {
-    .spacer {
-      height: 70vh;
-    }
-
-    left: 0;
     text-align: center;
     width: 100%;
   }
