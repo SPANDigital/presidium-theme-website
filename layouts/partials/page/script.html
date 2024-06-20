@@ -21,18 +21,14 @@
 <script defer src="{{ "assets/scripts/mermaid.js" | absURL }}"></script>
 
 <script type="module">
-  const toggleMenu = ($menu, isOpen) => {
-    $menu.toggleClass('expanded', isOpen).toggleClass('', !isOpen);
-  };
-
-  $('button.toggle').on('click', (event) => {
+  $('.toolbar-wrapper > button.toggle').on('click', (event) => {
     event.stopPropagation();
-    const $menu = $(event.currentTarget).closest('#presidium-navigation');
+    const $menu = $('.content-wrapper > #presidium-navigation');
     const isOpen = $menu.hasClass('expanded');
-    toggleMenu($menu, !isOpen);
+    $menu.toggleClass('expanded', !isOpen).toggleClass('', isOpen);
   });
 
-  const expandMenu = ($menu, isOpen) => {
+  const toggleMenu = ($menu, isOpen) => {
     $menu.toggleClass('open', isOpen).toggleClass('closed', !isOpen);
     const $trigger = $menu.find('div.menu-expander > .glyphicon').first();
     $trigger.toggleClass('glyphicon-chevron-down', isOpen).toggleClass('glyphicon-chevron-right', !isOpen);
@@ -42,13 +38,13 @@
   $('li.menu-row').on('show.bs.collapse', (event) => {
     event.stopPropagation();
     const $menu = $(event.currentTarget);
-    expandMenu($menu, true);
+    toggleMenu($menu, true);
   });
 
   $('li.menu-row').on('hide.bs.collapse', (event) => {
     event.stopPropagation();
     const $menu = $(event.currentTarget);
-    expandMenu($menu, false);
+    toggleMenu($menu, false);
   });
 
   $('.menu-expander').on('click', function(event) {
@@ -57,6 +53,7 @@
     const $menuRow = $(event.currentTarget).closest('.menu-row');
     const $ul = $menuRow.find('ul').first();
     $ul.collapse('toggle');
+    console.log('Menu expander clicked', $menuRow, $ul);
   });
 
   $('.menu-title').on('click', function(event) {
@@ -93,38 +90,6 @@
       },
   });
 </script>
-
-{{ if $.Site.Params.resizeMenu | default true }}
-<script type="module">
-    const desktopSize = window.matchMedia("(min-width: 768px)")
-    const resizer = document.querySelector("#resizer");
-    const sidebar = document.querySelector("#presidium-navigation");
-
-    if(desktopSize.matches) {
-      resizer.style.display = 'block';
-    }
-
-    const cachedSize = window.localStorage.getItem('sidenav');
-    if(cachedSize && desktopSize.matches) {
-      sidebar.style.flexBasis = cachedSize;
-    }
-
-    resizer.addEventListener("mousedown", (event) => {
-      event.preventDefault();
-      document.addEventListener("mousemove", resize, false);
-      document.addEventListener("mouseup", () => {
-        event.preventDefault();
-        document.removeEventListener("mousemove", resize, false);
-      }, false);
-    });
-
-    function resize(e) {
-      const size = `${e.x}px`;
-      window.localStorage.setItem('sidenav', size);
-      sidebar.style.flexBasis = size;
-    }
-</script>
-{{ end }}
 
 {{ if $.Site.Params.enableSublinks }}
 <script type="module">

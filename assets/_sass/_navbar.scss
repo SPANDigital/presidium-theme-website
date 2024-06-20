@@ -24,48 +24,29 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   border: 1px solid darken($color, 10%);
 }
 
-#resizer {
-  display: none;
-  cursor: col-resize;
-  flex-basis: 20px;
-  position: relative;
-  border-left: 0 solid $border;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
-
-  @media (min-width: $grid-float-breakpoint) {
-    &:hover {
-      border-left: 1px solid $border;
-    }
-  }
-}
-
 .presidium-enterprise + #presidium-navigation {
   top: 50px;
   height: calc(100vh - 50px);
 }
 
 #presidium-navigation {
-  min-width: 260px;
-  width: 260px;
-  max-width: 50%;
+  width: 300px;
   z-index: $zindex-navbar;
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: calc(100vh - 50px);
 
   @media (max-width: $grid-float-breakpoint) {
     &.expanded {
+      position: fixed;
+
       .navbar {
-        position: absolute;
         background: #ffffff;
-        height: 100vh;
+        height: 100%;
       }
 
       .navbar-items {
-        max-height: calc(100vh - 50px);
+        height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -74,8 +55,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     &:not(.expanded) {
       display: flex;
       height: 0;
-      width: 30px;
-      min-width: 30px;
+      width: 0;
+      min-width: unset;
       max-width: unset;
       flex-basis: 0 !important;
 
@@ -99,6 +80,10 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
       }
     }
+  }
+
+  .navbar{
+    margin: 0;
   }
 
   .scrollable-container {
@@ -232,31 +217,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           .dropdown__placeholder {
             display: none;
           }
-        }
-      }
-
-      .toggle {
-        @media (min-width: $grid-float-breakpoint) {
-          display: none;
-        }
-
-        @include navbar-vertical-align(34px);
-
-        float: right;
-        background-color: transparent;
-        border-color: transparent;
-        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-
-        .icon-bar {
-          background-color: $navbar-default-brand-color;
-          display: block;
-          width: 22px;
-          height: 2px;
-          border-radius: 1px;
-        }
-
-        .icon-bar + .icon-bar {
-          margin-top: 4px;
         }
       }
     }
