@@ -24,28 +24,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   border: 1px solid darken($color, 10%);
 }
 
-#resizer {
-  display: none;
-  cursor: col-resize;
-  flex-basis: 20px;
-  position: relative;
-  border-left: 0 solid $border;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
-
-  @media (min-width: $grid-float-breakpoint) {
-    &:hover {
-      border-left: 1px solid $border;
-    }
-  }
-}
-
 #presidium-navigation {
-  min-width: 260px;
-  width: 260px;
-  max-width: 50%;
+  width: 300px;
   z-index: $zindex-navbar;
   position: sticky;
   top: 0;
