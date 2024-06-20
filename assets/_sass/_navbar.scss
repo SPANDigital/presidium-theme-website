@@ -54,16 +54,51 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   z-index: $zindex-navbar;
   position: sticky;
   top: 0;
-  bottom: 0;
   height: 100vh;
 
   @media (max-width: $grid-float-breakpoint) {
-    display: flex;
-    height: 0;
-    width: 0;
-    min-width: unset;
-    max-width: unset;
-    flex-basis: 0 !important;
+    &.expanded {
+      .navbar {
+        position: absolute;
+        background: #ffffff;
+        height: 100vh;
+      }
+
+      .navbar-items {
+        max-height: calc(100vh - 50px);
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+    }
+
+    &:not(.expanded) {
+      display: flex;
+      height: 0;
+      width: 30px;
+      min-width: 30px;
+      max-width: unset;
+      flex-basis: 0 !important;
+
+      .navbar-items {
+        display: none;
+      }
+
+      .project-dropdown {
+        display: none;
+      }
+
+      nav .navbar-header {
+        padding-left: 0;
+
+        .brand {
+          display: none;
+        }
+
+        .brand-name-grid {
+          display: none;
+        }
+      }
+    }
   }
 
   .scrollable-container {
@@ -78,17 +113,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       overflow: auto;
       border: 0;
       margin-bottom: 150px;
-    }
-
-    @media (max-width: $grid-float-breakpoint) {
-      .navbar-nav {
-        min-width: 300px;
-        background-color: #fff;
-        border-radius: $border-radius-base;
-        border: 1px solid $border;
-        -webkit-box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
-        box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
-      }
     }
 
     .navbar-header {
@@ -108,10 +132,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           margin: 15px auto 0;
           width: 80%;
           height: auto;
-
-          @media (max-width: $grid-float-breakpoint) {
-            display: none;
-          }
         }
       }
 
@@ -139,12 +159,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       .brand-name-grid {
-        display: grid;
-        @media (max-width: $grid-float-breakpoint) {
-          grid-template-columns: 0 auto 50px;
-        }
-
-        grid-template-columns: 50px auto 50px;
+        display: flex;
+        justify-content: space-between;
 
         .brand-name {
           color: $navbar-default-brand-color;
@@ -155,14 +171,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           font-family: $primary-font-family;
           text-transform: none;
           text-align: center;
-
-          @media (max-width: $grid-float-breakpoint) {
-            display: none; //hidden by default
-            float: left;
-            max-width: 80%;
-            padding: 0 25px;
-            @include navbar-vertical-align(14px);
-          }
         }
 
         .dropdown {
@@ -232,18 +240,12 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           display: none;
         }
 
-        float: left;
-
         @include navbar-vertical-align(34px);
 
+        float: right;
         background-color: transparent;
+        border-color: transparent;
         background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-        border: 1px solid transparent;
-        border-radius: $border-radius-base;
-
-        &:focus {
-          outline: 0;
-        }
 
         .icon-bar {
           background-color: $navbar-default-brand-color;
@@ -277,20 +279,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       > ul:first-of-type {
         border-top: 1px solid $nav-item-border;
-      }
-
-      @media (max-width: $grid-float-breakpoint) {
-        background-color: #fff;
-        padding: 16px;
-        border-top: 0;
-
-        &.expanded {
-          display: block;
-          max-height: calc(100vh - 55px);
-          overflow-y: auto;
-        }
-
-        display: none;
       }
     }
 
