@@ -316,6 +316,20 @@ $screen-lg-min:              $screen-lg !default;
 //** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-lg-desktop:          $screen-lg-min !default;
 
+// Extra Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-xlg:                  1400px !default;
+$screen-xlg-min:              $screen-xlg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-xlg-desktop:          $screen-xlg-min !default;
+
+// Extra Extra Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-xxlg:                  1800px !default;
+$screen-xxlg-min:              $screen-xxlg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-xxlg-desktop:          $screen-xxlg-min !default;
+
 // So media queries don't overlap when required, provide a maximum
 $screen-xs-max:              ($screen-sm-min - 1) !default;
 $screen-sm-max:              ($screen-md-min - 1) !default;
@@ -332,7 +346,7 @@ $grid-columns:              12 !default;
 $grid-gutter-width:         30px !default;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-$grid-float-breakpoint:     $screen-sm-min !default;
+$grid-float-breakpoint:     $screen-md-min !default;
 //** Point at which the navbar begins collapsing.
 $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
 
