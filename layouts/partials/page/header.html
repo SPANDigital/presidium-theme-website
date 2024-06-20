@@ -5,7 +5,7 @@
 {{ else }}
     {{ $roles := .Params.roles | default "All Roles" }}
     {{ $pageLink :=  .Page.RelPermalink }}
-    {{ $articleId := .Params.id | default .File.Path }}
+   
     {{ $slug := (partial "common/slug" .) }}
 
     <div class="page title" data-roles="{{ $roles }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="true">
