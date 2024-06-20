@@ -53,9 +53,7 @@
     const $menuRow = $(event.currentTarget).closest('.menu-row');
     if (!$menuRow.hasClass('open')) return;
 
-    event.preventDefault();
     const $ul = $menuRow.find('ul').first();
-    $ul.collapse('toggle');
     console.log('Menu title clicked', $menuRow, $ul);
   });
 
