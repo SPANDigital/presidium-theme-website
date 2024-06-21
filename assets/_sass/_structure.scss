@@ -50,7 +50,8 @@
       left: 20px;
       z-index: 1;
       background-color: transparent;
-      border-color: transparent;
+      border-width: 0px;
+      border-bottom: 1px solid rgb(214, 214, 214);
       background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
 
       .icon-bar {
