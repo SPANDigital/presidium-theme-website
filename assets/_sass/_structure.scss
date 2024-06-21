@@ -36,7 +36,7 @@
     top: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     flex-grow: 1;
 
     .toggle {
@@ -44,7 +44,8 @@
         display: none;
       }
 
-      position: absolute;
+      // position: absolute;
+      width: 30px;
       top: 16px;
       left: 20px;
       z-index: 1;
