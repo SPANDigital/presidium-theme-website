@@ -16,14 +16,9 @@
     {{ end }}
 
     {{ if $.Site.Params.enterprise_enabled }}
-      {{ $url := urls.Parse .Site.BaseURL }}
-      {{ $url = path.Clean $url.Path }}
-      {{ $enterpriseUrl := path.Join $url "/presidium-enterprise.js"}}
-      {{ $portalThemeUrl := path.Join $url "/assets/css/portal_theme.css"}}
-      {{ $configUrl := path.Join $url "/conf/config.js"}}
-      <link rel="preload" src="{{$enterpriseUrl}}" as="script">
-      <link href="{{$portalThemeUrl}}" rel="stylesheet">
-      <script src="{{$configUrl}}"></script>
+      <link rel="preload" src="{{ absURL "/presidium-enterprise.js" }}" as="script">
+      <link href="{{ absURL "/assets/css/portal_theme.css" }}" rel="stylesheet">
+      <script src="{{ absURL "/conf/config.js" }}"></script>
     {{ end }}
 
     {{ if $.Site.Params.lazyLoad }}
