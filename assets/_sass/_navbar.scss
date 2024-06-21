@@ -39,12 +39,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         background: #ffffff;
         height: 100%;
       }
-
-      .navbar-items {
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-      }
     }
 
     &:not(.expanded) {
@@ -55,10 +49,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       max-width: unset;
       flex-basis: 0 !important;
 
-      .navbar-items {
-        display: none;
-      }
-
+      .navbar-items,
+      .navbar-footer,
       .project-dropdown {
         display: none;
       }
@@ -66,10 +58,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       nav .navbar-header {
         padding-left: 0;
 
-        .brand {
-          display: none;
-        }
-
+        .brand,
         .brand-name-grid {
           display: none;
         }
@@ -77,15 +66,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     }
   }
 
-  .navbar{
+  .navbar {
     margin: 0;
-  }
-
-  .scrollable-container {
-    @media (min-width: $grid-float-breakpoint) {
-      height: 100%;
-      @include bg-gradient($navbar-default-bg);
-    }
   }
 
   nav {
@@ -100,6 +82,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       float: none;
       width: 100%;
       text-align: center;
+      height: 115px;
 
       .brand {
         float: none;
@@ -110,7 +93,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         img {
           display: block;
           float: none;
-          margin: 15px auto 0;
+          margin: 0 0 8px 8px;
           width: 80%;
           height: auto;
         }
@@ -194,7 +177,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           .dropdown__indicators {
             max-height: 10px;
             margin: auto;
-            }
+          }
 
           .dropdown__value-container {
             padding: 0;
@@ -221,6 +204,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       border-top: 1px solid $nav-item-border;
       margin-left: 0;
       margin-right: 0;
+      height: calc(100vh - 50px - 115px - 50px);
 
       .filter {
         margin: 30px 5px 25px;
