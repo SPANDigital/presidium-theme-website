@@ -16,9 +16,10 @@
     {{ end }}
 
     {{ if $.Site.Params.enterprise_enabled }}
-      <link rel="preload" src="{{ absURL "/presidium-enterprise.js" }}" as="script">
-      <link href="{{ absURL "/assets/css/portal_theme.css" }}" rel="stylesheet">
-      <script src="{{ absURL "/conf/config.js" }}"></script>
+      {{ $basePath := $.Site.Params.basePath  | default "/" }}
+      <link data-test="{{$basePath}}" rel="preload" src="{{ path.Join $basePath "/presidium-enterprise.js" }}" as="script">
+      <link href="{{ path.Join $basePath "/assets/css/portal_theme.css" }}" rel="stylesheet">
+      <script src="{{ path.Join $basePath "/conf/config.js" }}"></script>
     {{ end }}
 
     {{ if $.Site.Params.lazyLoad }}
