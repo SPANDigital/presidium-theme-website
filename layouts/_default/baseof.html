@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{ $.Site.Title }}</title>
+    <title>{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ hugo.Generator }}
     <link rel="icon" href="{{ .Site.Params.favicon | absURL }}" type="image/x-icon">
