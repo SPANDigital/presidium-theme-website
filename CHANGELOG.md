@@ -228,3 +228,7 @@
 ## 2024-03-04
 ### Bugfix
 - External links require the SASS url function for the SASS loader HUGO uses. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5893
+
+## 2024-07-05
+### Updates
+- Font & typography alignments updates. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5980
