@@ -240,7 +240,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       .glyphicon {
-        -webkit-text-stroke: 1px $white;
+        -webkit-text-stroke: 1px $navbar-default-bg;
       }
 
       > ul:first-of-type {
