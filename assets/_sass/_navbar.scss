@@ -68,7 +68,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
     margin: 7.5px 0;
 
     .menu-row {
-      background-color: white;
+      background-color: transparent;
 
       &:not(.open) {
         &:hover {
@@ -76,6 +76,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
           > div.link > a > div.menu-expander > span.glyphicon {
             -webkit-text-stroke: 1px #ecebe9;
+
             &:hover {
               -webkit-text-stroke: 1px $color-grey-3;
             }
