@@ -8,15 +8,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 }
 
-@mixin menu-levels($count, $darken) {
-  @for $i from 0 through $count {
-    &.level-#{$i + 1} {
-      border-bottom: 1px darken($nav-item-border, $i * $darken) solid;
-      background-color: darken($navbar-default-bg, $i * $darken);
-    }
-  }
-}
-
 @mixin bg-gradient($color) {
   @include gradient-vertical-three-colors(lighten($color, 15%), $color, 50%, darken($color, 4%));
 
@@ -25,7 +16,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 }
 
 #presidium-navigation {
-  background: #eee;
+  background: white;
   width: 300px;
   min-width: 300px;
   z-index: $zindex-navbar;
@@ -39,7 +30,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       position: fixed;
 
       .navbar {
-        background: #eee;
+        background: white;
         height: 100%;
         overflow-x: hidden;
       }
@@ -75,6 +66,33 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
   .navbar-nav {
     margin: 7.5px 0;
+
+    .menu-row {
+      background-color: white;
+
+      &:not(.open) {
+        &:hover {
+          background-color: #ECEBE9;
+
+          > div.link > a > div.menu-expander > span.glyphicon {
+            -webkit-text-stroke: 1px #ecebe9;
+            &:hover {
+              -webkit-text-stroke: 1px $color-grey-3;
+            }
+          }
+        }
+      }
+
+      &.open {
+        > .link > a {
+          color: $brand-primary;
+
+          .glyphicon {
+            color: $color-grey;
+          }
+        }
+      }
+    }
   }
 
   nav {
@@ -90,7 +108,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       width: 100%;
       text-align: center;
       padding: 12px;
-      height: 115px;
 
       .brand {
         float: none;
@@ -223,7 +240,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       overflow-y: auto;
 
       .menu-title {
-        font-family: $tbFontStack;
         font-style: normal;
         font-weight: 400;
         line-height: 18px;
@@ -240,7 +256,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       .glyphicon {
+        padding: 4px;
         -webkit-text-stroke: 1px $navbar-default-bg;
+
+        &:hover {
+          background-color: $color-grey-3;
+          border-radius: 4px;
+          -webkit-text-stroke: 1px $color-grey-3;
+        }
       }
 
       > ul:first-of-type {
@@ -278,36 +301,28 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
     }
 
+    &.menu-row:not(:has(.collapse)) {
+      > .link > a {
+        padding-left: 25px;
+      }
+    }
+
     .menu-row {
       a {
         display: flex;
-        padding: 12px 10px;
+        padding: 8px 10px;
         color: $color-grey;
         flex-grow: 1;
-
-        &:hover {
-          color: $brand-primary;
-        }
-
-        &.first-child {
-          box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 40%);
-        }
+        text-decoration: none;
 
         @include menu-levels-pad(6, 5%);
       }
 
       .link {
         display: flex;
-        background-color: #eee;
-
-        @include menu-levels(6, 5%);
 
         text-decoration: none;
         flex-grow: 1;
-
-        &:hover {
-          background-color: $navbar-default-link-hover-bg;
-        }
 
         &:hover > .article-navbar-options .add-icon {
           display: block;
@@ -360,10 +375,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       &.active,
       .active {
-        > div > a {
-          color: $brand-primary;
-        }
-
         &.child .add-icon,
         &.closed .add-icon {
           background-image: url('assets/svg/plus-white.svg');
@@ -382,7 +393,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       .menu-expander {
-        width: 25px;
         margin-left: -25px;
         padding-left: 10px;
 
