@@ -25,6 +25,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 }
 
 #presidium-navigation {
+  background: #eee;
   width: 300px;
   min-width: 300px;
   z-index: $zindex-navbar;
@@ -38,8 +39,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       position: fixed;
 
       .navbar {
-        background: #ffffff;
+        background: #eee;
         height: 100%;
+        overflow-x: hidden;
       }
     }
 
@@ -48,12 +50,10 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       height: 0;
       width: 0;
       min-width: unset;
-      max-width: unset;
-      flex-basis: 0 !important;
+      flex-basis: 0;
 
       .navbar-items,
-      .navbar-footer,
-      .project-dropdown {
+      .navbar-footer {
         display: none;
       }
 
@@ -70,6 +70,11 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
   .navbar {
     margin: 0;
+    height: 100%;
+  }
+
+  .navbar-nav {
+    margin: 7.5px 0;
   }
 
   nav {
