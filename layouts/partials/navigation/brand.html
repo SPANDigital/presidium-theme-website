@@ -2,14 +2,12 @@
 {{ $rootUrl := path.Clean $url.Path }}
 
 <a href="{{ $rootUrl }}" class="brand">
-    {{ $navImg := "images/logo.png" | relURL }}
-    {{ if .Site.Params.logo }}
-    {{ $navImg = path.Join $rootUrl .Site.Params.logo }}
-    {{ end }}
-    <img src={{ $navImg }} alt="Logo image">
+	{{ $navImg := "images/logo.png" | relURL }}
+	{{ if .Site.Params.logo }}
+	{{ $navImg = path.Join $rootUrl .Site.Params.logo }}
+	{{ end }}
+	<img src={{ $navImg }} alt="Logo image">
 </a>
 <div class="brand-name-grid">
-    <div></div>
-    <p class="brand-name">{{ .Site.Title }}</p>
-    <div class="project-dropdown"></div>
+	<p class="brand-name">{{ .Site.Title }}</p>
 </div>
