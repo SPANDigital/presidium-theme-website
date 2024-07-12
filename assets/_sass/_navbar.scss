@@ -82,10 +82,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
             > div.menu-expander > span.glyphicon {
               -webkit-text-stroke: 1px $brand-primary;
-  
-              &:hover {
-                -webkit-text-stroke: 1px $color-grey-3;
-              }
             }
           }
         }
@@ -268,9 +264,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         -webkit-text-stroke: 1px $navbar-default-bg;
 
         &:hover {
-          background-color: $color-grey-3;
+          background-color: $brand-tint;
           border-radius: 4px;
-          -webkit-text-stroke: 1px $color-grey-3;
+          -webkit-text-stroke: 1px $brand-tint !important;
         }
       }
 
