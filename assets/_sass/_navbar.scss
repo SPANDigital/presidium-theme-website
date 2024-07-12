@@ -16,7 +16,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 }
 
 #presidium-navigation {
-  background: white;
+  background: #eee;
   width: 300px;
   min-width: 300px;
   z-index: $zindex-navbar;
@@ -30,7 +30,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       position: fixed;
 
       .navbar {
-        background: white;
+        background: #eee;
         height: 100%;
         overflow-x: hidden;
       }
@@ -72,13 +72,20 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       &:not(.open) {
         &:hover {
-          background-color: #ECEBE9;
+          background-color: $brand-primary;
 
-          > div.link > a > div.menu-expander > span.glyphicon {
-            -webkit-text-stroke: 1px #ecebe9;
+          > div.link > a {
 
-            &:hover {
-              -webkit-text-stroke: 1px $color-grey-3;
+            > .menu-title {
+              color: white;
+            }
+
+            > div.menu-expander > span.glyphicon {
+              -webkit-text-stroke: 1px $brand-primary;
+  
+              &:hover {
+                -webkit-text-stroke: 1px $color-grey-3;
+              }
             }
           }
         }
@@ -414,5 +421,9 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
       }
     }
+  }
+
+  .navbar-footer {
+    background-color: #eee;
   }
 }
