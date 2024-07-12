@@ -233,7 +233,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
     }
 
-    .navbar-items {
+    div.navbar-items {
       width: 100%;
       margin-left: 0;
       margin-right: 0;
@@ -260,14 +260,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
       }
 
-      .glyphicon {
+      span.glyphicon {
         padding: 4px;
         -webkit-text-stroke: 1px $navbar-default-bg;
 
         &:hover {
           background-color: $brand-tint;
           border-radius: 4px;
-          -webkit-text-stroke: 1px $brand-tint !important;
+          -webkit-text-stroke: 1px $brand-tint;
         }
       }
 
@@ -440,6 +440,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   }
 
   .navbar-footer {
-    background-color: #eee;
+    background-color: unset;
   }
 }
