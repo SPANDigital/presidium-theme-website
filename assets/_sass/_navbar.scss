@@ -3,7 +3,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 @mixin menu-levels-pad($count, $darken) {
   @for $i from 0 through $count {
     &.level-#{$i + 1} {
-      padding-left: calc(#{$i} * 10px + 25px);
+      padding-left: calc(#{$i} * 15px + 25px);
     }
   }
 }
@@ -23,7 +23,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   position: sticky;
   border-right: 0.5px solid $color-grey-3;
   top: 0;
-  height: calc(100vh - 50px);
+  height: 100vh;
 
   @media (max-width: $grid-float-breakpoint) {
     &.expanded {
@@ -70,7 +70,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
     .menu-row {
       background-color: transparent;
-      padding: 0 5px;
+      // padding: 0 5px;
 
       &:not(.open) {
         &:hover {
@@ -354,10 +354,6 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           padding-left: 0;
         }
 
-        &:not(.level-1) {
-          padding-left: 25px;
-        }
-
         .article-navbar-options {
           margin-top: auto;
           margin-bottom: auto;
@@ -411,10 +407,18 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           background-image: url('assets/svg/trash-white.svg');
         }
 
+        &.child {
+          background-color: $brand-primary;
+        }
+
         &.child > div > a,
         &.closed > div > a {
           background-color: $brand-primary;
           color: $navbar-default-link-hover-bg;
+
+          span {
+            -webkit-text-stroke: $brand-primary;
+          }
         }
       }
 
