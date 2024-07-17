@@ -24,19 +24,41 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   border: 1px solid darken($color, 10%);
 }
 
+#resizer {
+  display: none;
+  cursor: col-resize;
+  flex-basis: 3px;
+  position: relative;
+  border-left: 0 solid $border;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+
+  @media (min-width: $grid-float-breakpoint) {
+    &:hover {
+      border-left: 1px solid $border;
+    }
+  }
+}
+
 .presidium-enterprise + #presidium-navigation {
   top: 50px;
   height: calc(100vh - 50px);
 }
 
 #presidium-navigation {
-  width: 300px;
+  min-width: 300px;
+  max-width: 600px;
   z-index: $zindex-navbar;
   position: sticky;
   top: 0;
   height: calc(100vh - 50px);
 
   @media (max-width: $grid-float-breakpoint) {
+    width: 300px;
+    max-width: unset;
+
     &.expanded {
       position: fixed;
 
