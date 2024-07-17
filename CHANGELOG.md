@@ -171,3 +171,7 @@
 ## 2024-01-04
 ### Bugfixes
 - Fix Left Nav carrot error @WiaanBotha https://spandigital.atlassian.net/browse/PRSDM-4854
+
+## 2024-07-17
+### Updates
+- Add resizer back. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6012
