@@ -375,11 +375,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
 
         .article-navbar-options {
-          margin-top: auto;
-          margin-bottom: auto;
-          position: absolute;
-          right: 10px;
-          top: 9px;
+          margin: auto 5px auto auto;
 
           .option-button {
             display: none;
