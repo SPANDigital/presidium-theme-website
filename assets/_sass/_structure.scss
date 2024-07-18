@@ -161,20 +161,6 @@
             }
           }
         }
-
-        .permalink {
-          visibility: hidden;
-          margin-left: 12px;
-          margin-bottom: 8px;
-        }
-
-        &:hover > .permalink {
-          visibility: visible;
-
-          > a {
-            text-decoration: none;
-          }
-        }
       }
 
       .article-status {
