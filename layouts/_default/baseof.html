@@ -18,8 +18,6 @@
     {{ if $.Site.Params.enterprise_enabled }}
       {{ $basePath := $.Site.Params.basePath  | default "/" }}
       <link data-test="{{$basePath}}" rel="preload" src="{{ path.Join $basePath "/presidium-enterprise.js" }}" as="script">
-      <link href="{{ path.Join $basePath "/assets/css/portal_theme.css" }}" rel="stylesheet">
-      <script src="{{ path.Join $basePath "/conf/config.js" }}"></script>
       <script data-test="{{$basePath}}"> window.baseURL = '{{$basePath}}'; </script>
     {{ end }}
 
