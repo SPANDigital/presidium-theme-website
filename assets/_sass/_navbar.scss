@@ -34,7 +34,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 }
 
 #presidium-navigation {
-  background: #eee;
+  background: white;
   min-width: 300px;
   max-width: 600px;
   z-index: $zindex-navbar;
@@ -51,7 +51,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       position: fixed;
 
       .navbar {
-        background: #eee;
+        background: white;
         height: 100%;
         overflow-x: hidden;
       }
@@ -329,7 +329,11 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
     &.menu-row:not(:has(.collapse)) {
       > .link > a {
-        padding-left: 25px;
+        padding-left: 30px;
+
+        .menu-title {
+          padding-left:5px;
+        }
       }
     }
 
@@ -409,6 +413,10 @@ $nav-item-border: darken($navbar-default-bg, 8%);
             background-image: url('assets/svg/trash.svg');
           }
         }
+      }
+
+      &.child > .link > a > div{
+        padding-left: 5px;
       }
 
       &.active,
