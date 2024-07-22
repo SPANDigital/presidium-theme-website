@@ -41,7 +41,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
   position: sticky;
   border-right: 0.5px solid $color-grey-3;
   top: 0;
-  height: 100vh;
+  height: calc(100vh - 50px);
 
   @media (max-width: $grid-float-breakpoint) {
     width: 300px;
