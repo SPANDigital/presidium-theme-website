@@ -4,12 +4,12 @@
 {{ if $.Site.Params.enterprise_enabled }}
 <script defer src="{{ path.Join $basePath $.Site.Params.enterprise_script  }}"></script>
 <script type="module">
-  const toolbarElement = document.querySelector('#presidium-enterprise');
+  const toolbarElement = document.querySelector('.presidium-enterprise');
   const navigationElement = document.querySelector('#presidium-navigation');
   if (toolbarElement) {
       const toolbarHeight = toolbarElement.offsetHeight;
       if (toolbarHeight) {
-          navigationElement.style.top = `${toolbarHeight}px`;
+          navigationElement.style.height = `calc(100vh - ${toolbarHeight}px)`;
       }
   }
 </script>
@@ -52,7 +52,6 @@
     const $menuRow = $(event.currentTarget).closest('.menu-row');
     const $ul = $menuRow.find('ul').first();
     $ul.collapse('toggle');
-    console.log('Menu expander clicked', $menuRow, $ul);
   });
 
   $('.menu-title').on('click', function(event) {
