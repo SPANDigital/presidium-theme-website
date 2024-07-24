@@ -6,10 +6,13 @@
 <script type="module">
   const toolbarElement = document.querySelector('.presidium-enterprise');
   const navigationElement = document.querySelector('#presidium-navigation');
+  const navbarItems = document.querySelector('.navbar-items');
   if (toolbarElement) {
       const toolbarHeight = toolbarElement.offsetHeight;
-      if (toolbarHeight) {
+      if (toolbarHeight && navbarItems) {
           navigationElement.style.height = `calc(100vh - ${toolbarHeight}px)`;
+          navigationElement.style.top = `${toolbarHeight}px`;
+          navbarItems.style.height = `calc(100vh - 150px - 55px - ${toolbarHeight}px)`;
       }
   }
 </script>
