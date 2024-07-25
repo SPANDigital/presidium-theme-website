@@ -232,3 +232,11 @@
 ## 2024-07-05
 ### Updates
 - Font & typography alignments updates. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5980
+
+## 2024-07-10
+### Updates
+- Merge release apple branch. @CharlRitterDev & @WiaanBotha
+
+## 2024-07-17
+### Updates
+- Add resizer back. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6012
