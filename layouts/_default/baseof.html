@@ -17,6 +17,7 @@
     {{ end }}
 
     {{ if $.Site.Params.enterprise_enabled }}
+      <link data-test="{{$basePath}}" rel="stylesheet" href="{{ path.Join $basePath "/presidium-enterprise.css" }}">
       <link data-test="{{$basePath}}" rel="preload" src="{{ path.Join $basePath "/presidium-enterprise.js" }}" as="script">
       <script data-test="{{$basePath}}"> window.baseURL = '{{$basePath}}'; </script>
     {{ end }}

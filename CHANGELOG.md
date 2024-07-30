@@ -240,3 +240,7 @@
 ## 2024-07-17
 ### Updates
 - Add resizer back. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6012
+
+## 2024-07-29
+### Features
+- Splitting of js & css build files. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6018
