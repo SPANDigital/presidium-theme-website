@@ -1,13 +1,9 @@
-<!-- PRS-123: Short description of change -->
-
 ## Description
-<!-- A longer description of the change -->
 
 ## Issue
 - [ ] :clipboard: JIRA_TICKET_URL
 
 ## Screenshots
-<!-- If relevant -->
 
 ## PR Readiness Checks
 - [ ] Your PR title conforms to conventional commits `<type>: <jira-ticket-num><title>`, for example: `fix: PRSDM-123 issue with login` with a maximum of 100 characters
@@ -18,4 +14,4 @@
   - Meaningful Names ([see reference](https://learning.oreilly.com/library/view/clean-code-a/9780136083238/chapter02.xhtml))
   - DRY ([see reference](https://java-design-patterns.com/principles/#keep-things-dry))
   - YAGNI ([see reference](https://java-design-patterns.com/principles/#yagni))
-- [ ] Tests were added to prove the correctness and ensure extendability of the functionality added (unless agreed upon by the reviewers that it's not necessary) and the changes were tested locally
+- [ ] Changes were tested locally
