@@ -244,3 +244,7 @@
 ## 2024-07-29
 ### Features
 - Splitting of js & css build files. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6018
+
+## 2024-08-05
+### Bugfix
+- Add relative position for pre and code to fix alignment issue with copy button on enterprise. @Zalaras https://spandigital.atlassian.net/browse/PRSDM-6124
