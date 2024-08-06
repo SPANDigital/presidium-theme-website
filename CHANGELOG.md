@@ -244,3 +244,7 @@
 ## 2024-07-29
 ### Features
 - Splitting of js & css build files. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6018
+
+## 2024-08-05
+### Bugfix
+- Ensure that lower level article titles are not larger than higher level articles @kmorake https://spandigital.atlassian.net/browse/PRSDM-5995
