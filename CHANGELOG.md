@@ -176,6 +176,10 @@
 ### Updates
 - Add resizer back. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6012
 
+## 2024-08-01
+### Bugfixes
+- Fix images distortion. @julianbyte https://spandigital.atlassian.net/browse/PRSDM-6078
+
 ## 2024-08-05
 ### Bugfix
 - Ensure that lower level article titles are not larger than higher level articles @kmorake https://spandigital.atlassian.net/browse/PRSDM-5995
