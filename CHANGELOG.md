@@ -244,3 +244,7 @@
 ## 2024-07-29
 ### Features
 - Splitting of js & css build files. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6018
+
+## 2024-08-06
+### Bugfix
+- Update line-height of caret in the left nav menu to better align with link text. @Zalaras https://spandigital.atlassian.net/browse/PRSDM-6128
