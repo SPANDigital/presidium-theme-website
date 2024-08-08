@@ -248,3 +248,7 @@
 ## 2024-08-05
 ### Bugfix
 - Add relative position for pre and code to fix alignment issue with copy button on enterprise. @Zalaras https://spandigital.atlassian.net/browse/PRSDM-6124
+
+## 2024-08-06
+### Bugfix
+- Update line-height of caret in the left nav menu to better align with link text. @Zalaras https://spandigital.atlassian.net/browse/PRSDM-6128
