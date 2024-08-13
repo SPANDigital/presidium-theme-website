@@ -10,11 +10,13 @@
 {{ $type := cond (not .Data.Pages) "child" "parent" }}
 
 {{/* Unique id for this article */}}
-{{ $articleId := .Params.id | default .File.Path }}
+{{ $file := .File }}
+{{ if $file}}
+{{ $articleId := .Params.id | default $file.Path }}
 {{ $noContent := (eq (len .Content) 0) }}
 
 {{/* Unique id for file, used by scroll-spy and menu toggle  */}}
-{{ $uid := .File.UniqueID }}
+{{ $uid := $file.UniqueID }}
 
 <div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" permalink="{{.Page.RelPermalink}}" data-no-content="{{ $noContent }}" >
     {{ if or (ne (len .Content) 0) (and $nestedArticles (partial "common/pages" .)) }}
@@ -46,4 +48,5 @@
     {{ end }}
 {{ else }}
 </div>
+{{ end }}
 {{ end }}
