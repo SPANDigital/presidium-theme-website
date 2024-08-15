@@ -183,3 +183,7 @@
 ## 2024-08-05
 ### Bugfix
 - Ensure that lower level article titles are not larger than higher level articles @kmorake https://spandigital.atlassian.net/browse/PRSDM-5995
+
+## 2024-08-14
+### Bugfix
+- Center navbar header content, fix navbar header image size & improve how navbar determines height. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6146
