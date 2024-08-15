@@ -1,12 +1,22 @@
 {{ define "header" }}
-{{ .Scratch.Set "scope" "list" }}
-{{ partial "page/header" . }}
+    {{ .Scratch.Set "scope" "list" }}
+    {{ partial "page/header" . }}
 {{ end }}
 
 {{ define "content" }}
-    {{ partial "page/list" . }}
+
+    {{/*
+       * By checking for .File, you will only render articles, pages, and regular pages using the page/list partial.
+       * This will exclude tags, sections etc.  By doing this check here, it reduces the cause of exceptions later when
+       * calling attributes of .File later on, like .File.Path
+       */}}
+    {{ if .File }}
+        {{ partial "page/list" . }}
+    {{ else }}
+        {{ .Content }}
+    {{ end }}
 {{ end }}
 
 {{ define "footer" }}
-{{ partial "page/footer" . }}
+    {{ partial "page/footer" . }}
 {{ end }}
