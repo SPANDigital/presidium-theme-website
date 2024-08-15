@@ -181,8 +181,8 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
         .brand-name {
           color: $color-dark-grey;
-          font-weight: bold;
           width: 100%;
+          margin: 0;
         }
 
         .dropdown {
