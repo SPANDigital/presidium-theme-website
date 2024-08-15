@@ -252,3 +252,7 @@
 ## 2024-08-06
 ### Bugfix
 - Update line-height of caret in the left nav menu to better align with link text. @Zalaras https://spandigital.atlassian.net/browse/PRSDM-6128
+
+## 2024-08-14
+### Bugfix
+- Center navbar header content, fix navbar header image size & improve how navbar determines height. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6146
