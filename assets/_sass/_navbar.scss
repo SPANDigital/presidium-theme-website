@@ -225,6 +225,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
     .navbar-items {
       width: 100%;
+      border-top: 1px solid $nav-item-border;
       margin-left: 0;
       margin-right: 0;
       flex-grow: 1;
