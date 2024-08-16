@@ -64,7 +64,7 @@
           <div class="row">
               <div id="presidium-content">
                   {{ block "header" . }}{{ end }}
-                  <section data-section="{{path.Dir .Path}}">
+                  <section data-section="{{ strings.TrimPrefix "/" .Path }}">
                     {{ block "content" . }}{{ end }}
                   </section>
               </div>
