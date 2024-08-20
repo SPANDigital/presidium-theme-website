@@ -161,6 +161,12 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           text-align: center;
         }
 
+        .quality-category-labels {
+          text-transform: capitalize;
+          color: $color-grey-2;
+          font-weight: 400;
+        }
+
         .dropdown {
           display: block;
           z-index: $zindex-navbar;
