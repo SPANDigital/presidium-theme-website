@@ -1,7 +1,7 @@
 {{ $value := . }}
 {{ $valid := true }}
 
-{{ if and $value (not (findRE `^[^\s@]+@apple\.com$` $value)) }}
+{{ if and $value (not (findRE `^[^\s@]+@[^\s@]+\.[^\s@]+$` $value)) }}
     {{ $valid = false  }}
 {{ end }}
 

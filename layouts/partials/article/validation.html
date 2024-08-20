@@ -8,11 +8,11 @@
         {{ if not $value }}
             {{ partial "common/formatmessage" (dict "strict" $strict "message" (printf "%s field is empty, path: ./%s" $schema.key $context.Path)) }}
         {{ else if not (partialCached "article/authorisvalid" $value $value) }}
-            {{ partial "common/formatmessage" (dict "strict" $strict "message" (printf "%s: %s is not a valid Apple email address, path: ./%s" $schema.key $value $context.Path)) }}
+            {{ partial "common/formatmessage" (dict "strict" $strict "message" (printf "%s: %s is not a valid email address, path: ./%s" $schema.key $value $context.Path)) }}
         {{ end }}
     {{ end }}
 
-    {{ if or (eq $schema.key "title") (eq $schema.key "image-path") (eq $schema.key "date") (eq $schema.key "description") }}
+    {{ if or (eq $schema.key "title") }}
         {{ if not $value }}
             {{ partial "common/formatmessage" (dict "strict" $strict "message" (printf "%s field is empty, path: ./%s" $schema.key $context.Path)) }}
         {{ end }}
