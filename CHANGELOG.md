@@ -187,3 +187,7 @@
 ## 2024-08-14
 ### Bugfix
 - Center navbar header content, fix navbar header image size & improve how navbar determines height. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6146
+
+## 2024-08-14
+### Updates
+- Add validation for mandatory frontmatter fields. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6228
