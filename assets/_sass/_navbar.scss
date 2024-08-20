@@ -153,6 +153,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         display: flex;
         justify-content: center;
         width: 100%;
+        flex-direction: column;
 
         .brand-name {
           color: black;
@@ -165,6 +166,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           text-transform: capitalize;
           color: $color-grey-2;
           font-weight: 400;
+          text-align: center;
         }
 
         .dropdown {
