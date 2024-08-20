@@ -191,3 +191,7 @@
 ## 2024-08-20
 ### Updates
 - Add validation for mandatory frontmatter fields. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6228
+
+## 2024-08-20
+### Feature
+- Add styling for quality category label. @mpilo-khathwane https://spandigital.atlassian.net/browse/PRSDM-6208
