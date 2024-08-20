@@ -20,6 +20,7 @@
         <div class="presidium-article-wrapper">
             <span class="anchor"  id="{{ $slug }}" data-id="{{ $articleId }}"></span>
 
+            {{ partial "article/validation" . }}
             {{ partial "article/header" . }}
             {{ partial "article/title" . }}
             {{ partial "article/frontmatter" . }}
