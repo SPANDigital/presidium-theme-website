@@ -116,6 +116,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       .brand {
         padding: 0;
+        justify-content: center;
         display: flex;
         margin-bottom: 8px;
 
@@ -150,23 +151,14 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 
       .brand-name-grid {
         display: flex;
-        padding: 0 0px 0px 10px;
-        flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        width: 100%;
 
         .brand-name {
-          margin-bottom: 2px;
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 19px;
-        }
-
-        .quality-category-labels {
-          text-transform: capitalize;
-          color: $color-grey-2;
-          font-weight: 400;
+          color: black;
+          margin: 0;
+          font-weight: bold;
+          text-align: center;
         }
 
         .dropdown {
