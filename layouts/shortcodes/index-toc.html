@@ -68,25 +68,28 @@ Syntax: index-toc [depth=y default 1] [fullSite=true|false default false]
             <a href="{{ .RelPermalink }}" >{{ .Title }}</a>
         </li>
         {{ if lt $.count $.depth}}
-            <ul>
 
-                {{/* Get the subsections or pages for current page*/}}
-                {{ if .Sections}}
-                    {{ .Scratch.Set "pages" (.Pages | union .Sections) }}
-                {{else}}
-                    {{ .Scratch.Set "pages" .Pages }}
-                {{end}}
+            {{/* Get the subsections or pages for current page*/}}
+            {{ if .Sections}}
+                {{ .Scratch.Set "pages" (.Pages | union .Sections) }}
+            {{else}}
+                {{ .Scratch.Set "pages" .Pages }}
+            {{end}}
 
-                {{ $pages := (.Scratch.Get "pages") }}
+            {{ $pages := (.Scratch.Get "pages") }}
 
-                {{/* Continue with the recursion to list the pages */}}
-                {{template "childs" dict
-                                        "items" $pages.ByWeight
-                                        "count" (add $.count 1)
-                                        "depth" $.depth
-                                        "pages" $.pages
-                }}
-            </ul>
+            {{ if $pages }}
+                <ul>
+
+                    {{/* Continue with the recursion to list the pages */}}
+                    {{template "childs" dict
+                                            "items" $pages.ByWeight
+                                            "count" (add $.count 1)
+                                            "depth" $.depth
+                                            "pages" $.pages
+                    }}
+                </ul>
+            {{end}}
         {{end}}
     {{end}}
 {{end}}
