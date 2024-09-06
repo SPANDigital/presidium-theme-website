@@ -8,10 +8,10 @@
    
     {{ $slug := (partial "common/slug" .) }}
 
-    <div class="page title" data-roles="{{ $roles }}" data-link="{{ $pageLink }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="true">
+    <div class="page title" data-roles="{{ $roles }}" data-link="{{ $pageLink }}" title="{{ .Title }}" permalink="{{ .Page.RelPermalink }}" data-disable-article-bar="true">
         <div class="article-title article-actions" data-align="center-left">
             <h1 class="page-title offendingHeading">
-                {{ .Title}}
+                {{ .Title }}
             </h1>
         </div>
     </div>
