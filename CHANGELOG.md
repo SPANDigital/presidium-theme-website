@@ -262,3 +262,7 @@
 - Remove Roles dropdown and align the sidenav to match latest designs. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6329
 ### Bugfix
 - Fix sidenav items wrapping on hover. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6206
+
+## 2024-09-09
+### Feature
+- Added quality category label from release/apple. @mpilo-khathwane https://spandigital.atlassian.net/browse/PRSDM-6292
