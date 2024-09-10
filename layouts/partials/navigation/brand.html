@@ -10,4 +10,5 @@
 </a>
 <div class="brand-name-grid">
     <h4 class="brand-name">{{ .Site.Title }}</h4>
+    <span class="quality-category-labels">{{ with .Site.Params.quality_category }}{{ . | title }}{{end}}</span>
 </div>
