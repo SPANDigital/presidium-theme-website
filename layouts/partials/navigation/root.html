@@ -4,7 +4,7 @@
 {{ $rootUrl := path.Clean $url.Path }}
 {{ $slugifyUrl := .Site.Params.slugifyUrl | default true }}
 
-<nav class="navbar scrollable-container">
+<nav class="navbar scrollable-container" aria-label="Left Navbar">
     <div class="navbar-header">
         {{ partial "navigation/brand.html" . }}
     </div>
