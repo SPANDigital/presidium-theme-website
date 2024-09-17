@@ -15,7 +15,7 @@
 {{/* Unique id for file, used by scroll-spy and menu toggle  */}}
 {{ $uid := .File.UniqueID }}
 
-<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" title="{{ .Title }}" permalink="{{.Page.RelPermalink}}" >
+<div class="article {{ $type }}" data-roles="{{ $roles }}" id="{{ $uid }}" data-link="{{ $articleLink }}" title="{{ .Title }}" aria-label="{{ .Title }}" permalink="{{.Page.RelPermalink}}" >
     {{ if or (ne (len .Content) 0) (and $nestedArticles (partial "common/pages" .)) }}
         <div class="presidium-article-wrapper">
             <span class="anchor"  id="{{ $slug }}" data-id="{{ $articleId }}"></span>
