@@ -266,3 +266,7 @@
 ## 2024-09-09
 ### Feature
 - Added quality category label from release/apple. @mpilo-khathwane https://spandigital.atlassian.net/browse/PRSDM-6292
+
+## 2024-09-17
+### Fix
+- Added `aria-label` fields to articles for voice over functionality. @Quantumplate https://spandigital.atlassian.net/browse/PRSDM-6345
