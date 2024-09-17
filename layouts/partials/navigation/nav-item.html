@@ -42,7 +42,7 @@
 {{/* Unique id for file, used by scroll-spy and menu toggle  */}}
 {{ $uid := .NavPage.File.UniqueID }}
 
-<li class="menu-row collapse {{ if .NavPage.IsPage }}child{{end}}" style="overflow: hidden;" data-roles="{{ $roles }}" aria-labelledby="menu-title">
+<li class="menu-row collapse {{ if .NavPage.IsPage }}child{{end}}" style="overflow: hidden;" data-roles="{{ $roles }}">
     <div class="link level-{{ .Level }}">
         <a class="level-{{ .Level }} {{ if eq .Index 0 }}first-child{{end}}" data-slug="{{ $slug }}" data-target="#{{$uid}}" data-id="{{ $articleId }}" href="{{ $articleLink }}">
             {{ if $hasChildren }}
