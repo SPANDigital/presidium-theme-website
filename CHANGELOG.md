@@ -270,3 +270,7 @@
 ## 2024-09-17
 ### Fix
 - Added `aria-label` fields to articles for voice over functionality. @Quantumplate https://spandigital.atlassian.net/browse/PRSDM-6345
+
+## 2024-10-03
+### Bugfix
+- Set the width of the sidenav if there isn't one already set. @kelvinmanley https://spandigital.atlassian.net/browse/PRSDM-6369
