@@ -4,7 +4,7 @@
 {{ if (eq .Parent.Title .Title) }}
 {{/*  No title - For when the main title is the same as the first article  */}}
 {{ else }}
-    <div class="article-title article-actions" data-align="center-left" aria-label="{{ .Title }}">
+    <div class="article-title article-actions" data-align="center-left">
         {{ if and (.Data.Pages) (not .Parent) }}
             <h1> {{ .Title }}</h1>
         {{ else }}
