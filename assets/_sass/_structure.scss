@@ -433,6 +433,15 @@
     width: 100%;
   }
 
+  .global-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ebebeb;
+    padding: 10px;
+    text-align: center;
+  }
+
   table {
     @extend .table;
     @extend.table-striped;
