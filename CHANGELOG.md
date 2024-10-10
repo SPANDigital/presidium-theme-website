@@ -278,3 +278,7 @@
 ## 2024-10-03
 ### Bugfix
 - Set the width of the sidenav if there isn't one already set. @kelvinmanley https://spandigital.atlassian.net/browse/PRSDM-6369
+
+## 2024-10-10
+### Feat
+- Added global footer options. @Quantumplate https://spandigital.atlassian.net/browse/PRSDM-6064
