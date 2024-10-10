@@ -74,12 +74,12 @@
                 {{ partial "page/footer" . }}
               {{ end }}
           </div>
-          <div class="row">
-            {{ block "globalfooter" . }}
-              {{ partial "page/globalfooter" . }}
-            {{ end }}
-          </div>
       </div>
+    </div>
+    <div class="container-fluid">
+      {{ block "globalfooter" . }}
+        {{ partial "page/globalfooter" . }}
+      {{ end }}
     </div>
 
     {{ partialCached "page/modal" 0 }}
