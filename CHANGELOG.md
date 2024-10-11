@@ -278,3 +278,8 @@
 ## 2024-10-03
 ### Bugfix
 - Set the width of the sidenav if there isn't one already set. @kelvinmanley https://spandigital.atlassian.net/browse/PRSDM-6369
+
+## 2024-10-11
+### Feature
+Archetype support - Part 1
+- Added basic starter template archetypes for default, article and blog. The actual archetype switching functionality per module will be in Part 2. @Quantumplate https://spandigital.atlassian.net/browse/PRSDM-6506
