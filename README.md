@@ -106,3 +106,29 @@ In summary:
 
 ---
 
+
+## Using Archetypes
+
+Archetypes support is part of Hugo, and is used when a user wants to create new content.
+Archetypes make that whole process easier by creating a file (or leaf bundle) with all the mandatory and optional front matter values automatically populated where possible, or otherwise to have place holder content, that the user could then go and update for their respective content needs.
+
+The `hugo new content` command creates a new file in the content directory, using an archetype as a template. 
+For example, the following command would use the default template:
+```
+hugo new content posts/my-first-post.md
+```
+The command above would create a new file at path `content/posts/my-first-post.md` according to what has been set in the default template.
+
+If you want to use an archetype kind other than the default, then just use the `--kind` flag.
+```
+hugo new content --kind blog articles/something.md
+```
+
+In Presidium, we currently have 2 archetype kinds that you can use:
+- article (default)
+- blog
+
+[Hugo Archetype Docs](https://gohugo.io/content-management/archetypes/)
+
+> [!IMPORTANT]  
+> The archetypes files need to exist inside the module where the `hugo new content` is being called, which in the Presidium context means that the archetype directory needs to be copied into the documentation modules file structure before it can be used.
