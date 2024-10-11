@@ -474,3 +474,14 @@
     grid-gap: 32px;
   }
 }
+
+.global-footer {
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  z-index: 1000;
+  width: 100%;
+  background-color: $color-grey-3;
+  padding: 10px;
+  text-align: center;
+}
