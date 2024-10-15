@@ -278,3 +278,12 @@
 ## 2024-10-03
 ### Bugfix
 - Set the width of the sidenav if there isn't one already set. @kelvinmanley https://spandigital.atlassian.net/browse/PRSDM-6369
+
+## 2024-10-15
+### Features
+Added archetype support for blog archetype kind (part 2):
+- blog kind left nav menu
+- blog featured home page
+- blog needs different frontmatter
+- blog archive functionality 
+@Quantumplate https://spandigital.atlassian.net/browse/PRSDM-6506

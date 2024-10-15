@@ -106,3 +106,77 @@ In summary:
 
 ---
 
+
+## Using the archetypes
+
+We currently support two archetypes:
+- article (default)
+- blog
+
+To use the blog archetype, the following values need to be set in the config for your Presidium documentation site:
+###### Under Menu
+```
+menu:
+  main:
+    # keep your other menu items above the archive
+    - identifier: archive
+      name: Archive
+      url: /archive/
+      weight: 20
+```
+
+###### Under Params
+```
+params:
+  archive:
+    path: archive/index.md
+    age: 0
+  show:
+    author: true
+    date: true
+    tags: true
+  home:
+    featured:
+      order: -date
+  thumbnail:
+    resource: thumbnail
+    name: thumbnail
+  presentation:
+    default: video
+    mixedMedia:
+      - article
+    mediaOnly:
+      - video
+      - slideshow
+  archetype: blog
+  maxLeftNavMenuItems: 20
+  minLeftNavMenuItems: 5
+  articleTTLDays: 365
+  frontmatter:
+    - key: author
+      type: email
+      strict: true
+    - key: title
+      type: text
+      strict: true
+    - key: imagePath
+      type: text
+      strict: true
+    - key: date
+      type: text
+      strict: true
+    - key: description
+      type: text
+      strict: true
+```
+
+
+Then in the `content/archive/_index.md` file, add the following:
+```
+---
+title: Archive
+---
+```
+
+That's it!
+Note that the strict frontmatter settings in the config will validate the frontmatter and fail the Hugo build if is not set according to the correct type.
