@@ -1,0 +1,43 @@
+{{ $articleLink := printf "%s/archive/" (strings.TrimSuffix "/" site.BaseURL) }}
+
+{{ $articleId := "archive/_index.md" }}
+{{ $pageSlug := "archive" }}
+{{ $uid := "archive" }}
+
+<li class="menu-row collapse" style="overflow: hidden;" data-roles="All Roles">
+    <div class="link level-1">
+        <a class="level-1" data-slug="archive" data-target="#archive" data-id="{{ $articleId }}" href="{{ $articleLink }}">
+            <div class="menu-expander" data-toggle="collapse" aria-controls="{{ $uid }}" data-target="#{{ $uid }}">
+                <span class="glyphicon glyphicon-chevron-right glyphicon-toggle"></span>
+            </div>
+            <div class="menu-title">Archive</div>
+        </a>
+        <div class="article-navbar-options" data-target="#{{$pageSlug}}" data-id="{{ $articleId }}">
+        </div>
+    </div>
+
+    <ul id="{{$uid}}" class="collapse">
+        {{ range .GroupByDate "2006-01" }}
+            {{ $groupLink := (printf "%v#%v" $articleLink .Key ) }}
+            {{ $slug := .Key }}
+            {{ $uid := (printf "%v-%v" "archive" .Key ) }}
+            {{ $pageSlug := (printf "%v-%v" "archive" $slug )}}
+        <li class="menu-row collapse" style="overflow: hidden;" data-roles="All Roles">
+            <div class="link level-2">
+                <a class="level-2" data-slug="{{ $slug }}" data-target="#{{ $uid }}" data-id="{{ $articleId }}" href="{{ $groupLink }}">
+                    <div class="menu-expander" data-toggle="collapse" aria-controls="{{ $uid }}" data-target="#{{ $uid }}">
+                        <span class="glyphicon glyphicon-chevron-right glyphicon-toggle"></span>
+                    </div>
+                    <div class="menu-title">{{ .Key }}</div>
+                </a>
+                <div class="article-navbar-options" data-target="#{{ $pageSlug }}" data-id="{{ $articleId }}"></div>
+            </div>
+            <ul id="{{ $uid }}" class="collapse">
+                {{ range $page := .Pages }}
+                    {{ partial "navigation/blog/archive-nav-item" $page }}
+                {{ end }}
+            </ul>
+        </li>
+        {{ end }}
+    </ul>
+</li>

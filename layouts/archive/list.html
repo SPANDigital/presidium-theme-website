@@ -1,0 +1,15 @@
+{{ $currentTime := (time now) }}
+{{ $archiveDate := now.AddDate -1 0 0 }}
+{{ $archivedPages := where $.Site.Pages "Date" "lt" $archiveDate }}
+{{ $archivedPages := where $archivedPages "Kind" "eq" "page" }}
+
+{{ range $archivedPages.GroupByDate "2006-01" }}
+{{ $uid := (printf "%v-%v" "archive" .Key ) }}
+{{ $slug := .Key }}
+<h3 id="{{ $uid }}" data-target="#{{ $uid }}" >Articles in {{ .Key }}</h3>
+<ul>
+    {{ range $page := .Pages }}
+        <li><a href="{{$page.RelPermalink}}">{{ $page.Title }}</a></li>
+    {{ end }}
+</ul>
+{{ end }}

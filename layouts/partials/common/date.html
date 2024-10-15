@@ -1,0 +1,3 @@
+{{ $date := cond (and .IsPage (gt .Date.Unix 0)) .Date.Unix nil }}
+{{ $ageDays := and $date (div (sub now.Unix $date) 86400) }}
+{{ return $ageDays }}

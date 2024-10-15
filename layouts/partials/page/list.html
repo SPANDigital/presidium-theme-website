@@ -41,7 +41,12 @@
         {{ end }}
 
         {{ if $isRendering }}
-            {{ partial "article/root" . }}
+            {{/* switch between PRSDM supported archetypes (article or blog) */}}
+            {{ if eq .Site.Params.archetype "blog" }}
+                {{ partial "blog/root" . }}
+            {{ else }}
+                {{ partial "article/root" . }}
+            {{ end }}
         {{ end }}
     {{ end }}
 {{ else }}
@@ -57,7 +62,12 @@
         {{ end }}
 
         {{ if $isRendering }}
-            {{ partial "article/root" . }}
+            {{/* switch between PRSDM supported archetypes (article or blog) */}}
+            {{ if eq .Site.Params.archetype "blog" }}
+                {{ partial "blog/root" . }}
+            {{ else }}
+                {{ partial "article/root" . }}
+            {{ end }}
         {{ end }}
     {{ end }}
 {{ end }}

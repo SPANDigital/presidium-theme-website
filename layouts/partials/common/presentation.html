@@ -1,0 +1,13 @@
+{{/* check if article presentation has been set */}}
+{{ $presentation := .Params.presentation }}
+{{ if not $presentation }}
+    {{/* traverse up through parent sections to check if presentation has been set there */}}
+    {{ range .Ancestors }}
+        {{ if isset .CurrentSection.Params "presentation" }}
+            {{ $presentation = .CurrentSection.Params.presentation }}
+            {{ break }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ $presentation = ($presentation | default $.Site.Params.presentation.default | default "article") }}
+{{ return $presentation }}

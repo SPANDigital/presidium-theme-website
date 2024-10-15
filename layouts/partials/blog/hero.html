@@ -1,0 +1,5 @@
+{{ $image := resources.GetRemote "https://via.placeholder.com/1920x500" }} {{
+$path := .Params.images.hero }} {{ if $path }} {{ $image = .Resources.GetMatch
+$path }} {{ end }} {{ $image = $image.Fill "1920x500" }}
+
+<div class="single-hero">{{ partial "blog/thumbnail" . }}</div>

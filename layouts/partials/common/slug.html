@@ -1,8 +1,8 @@
 {{/* Use title if no slug */}}
-{{ $slug := humanize .Params.Title }} {{/* Handles any dashes in the title */}}
+{{ $slug := humanize .Title }} {{/* Handles any dashes in the title */}}
 {{ $slug = anchorize $slug }}
 {{ $slug = replaceRE `(-{2,})` "-" $slug }} {{/* Replaces multiple dashes with one */}}
-{{ if .Params.Slug }}
-    {{ $slug = .Params.Slug}}
+{{ if .Slug }}
+    {{ $slug = .Slug}}
 {{ end }}
 {{ return $slug }}

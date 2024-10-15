@@ -1,0 +1,25 @@
+<div class="homepage">
+    <h1>Featured</h1>
+    {{ $hero := slice }}
+    {{ $featured := slice }}
+    {{ range $page := $.Site.Pages.ByDate.Reverse }}
+        {{ if eq $page.Kind "page" }}
+            {{ if eq $page.Params.hero true }}
+                {{ if eq (len $hero) 0 }}
+                    {{ $hero = $hero | append $page }}
+                {{ else }}
+                    {{ $featured = $featured | append $page }}
+                {{ end }}
+            {{ else }}
+                {{ if eq $page.Params.featured true }}
+                    {{ $featured = $featured | append $page }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    {{ range first 1 $hero }}
+        {{ partial "home/hero" . }}
+    {{ end }}
+
+    {{ partial "home/featured" ($featured | uniq) }}
+</div>

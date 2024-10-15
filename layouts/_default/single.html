@@ -4,11 +4,15 @@
 {{ end }}
 
 {{ define "content" }}
-{{ if eq $.Site.Params.archive.path .File.Path }}
-    {{ partial "common/archive" . }}
-{{ else }}
-    {{ partial "article/root" . }}
-{{ end }}
+    {{ if eq $.Site.Params.archive.path .File.Path }}
+        {{ partial "common/archive" . }}
+    {{ else }}
+        {{ if eq .Site.Params.archetype "blog" }}
+            {{ partial "blog/root" . }}
+        {{ else }}
+            {{ partial "article/root" . }}
+        {{ end }}
+    {{ end }}
 {{ end }}
 
 {{ define "footer" }}

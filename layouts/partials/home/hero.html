@@ -1,0 +1,14 @@
+<a href="{{ .Permalink }}">
+  <div class="article-card">
+    <div class="hero">
+      <div class="hero-image">{{ partial "blog/thumbnail" . }}</div>
+      <div class="hero-content">
+        <span class="section">{{.CurrentSection.Name}}</span>
+        <h1 class="title">{{ .Title }}</h1>
+        {{ partial "blog/tags" . }}
+        <p>{{ .Params.Description }}</p>
+        {{ partial "blog/date" . }}
+      </div>
+    </div>
+  </div>
+</a>

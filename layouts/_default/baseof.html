@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ block "metadata" . }}{{ end }}
     {{ hugo.Generator }}
     <link rel="icon" href="{{ .Site.Params.favicon | absURL }}" type="image/x-icon">
     {{ $basePath := $.Site.Params.basePath  | default "/" }}
@@ -17,8 +18,11 @@
     {{ end }}
 
     {{ if $.Site.Params.enterprise_enabled }}
+      {{ $basePath := $.Site.Params.basePath  | default "/" }}
       <link data-test="{{$basePath}}" rel="stylesheet" href="{{ path.Join $basePath "/presidium-enterprise.css" }}">
       <link data-test="{{$basePath}}" rel="preload" src="{{ path.Join $basePath "/presidium-enterprise.js" }}" as="script">
+      <link href="{{ path.Join $basePath "/assets/css/portal_theme.css" }}" rel="stylesheet">
+      <script src="{{ path.Join $basePath "/conf/config.js" }}"></script>
       <script data-test="{{$basePath}}"> window.baseURL = '{{$basePath}}'; </script>
     {{ end }}
 
@@ -39,12 +43,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div
-          data-key="{{ $.Site.Params.enterprise_key }}"
-          data-title="{{ $.Site.Title }}"
-          id="presidium-enterprise"
-          class="presidium-enterprise"
-        ></div>
+        <div data-key="{{ $.Site.Params.enterprise_key }}" data-title="{{ $.Site.Title }}" id="presidium-enterprise" class="presidium-enterprise"></div>
       </div>
     {{ end }}
 
@@ -55,7 +54,11 @@
             document.querySelector('#presidium-navigation').innerHTML = window.navigation;
           </script>
         {{ else }}
-          {{ partialCached "navigation/root" . 0 }}
+          {{ if eq .Site.Params.archetype "blog" }}
+              {{ partial "navigation/blog/root" . 0 }}
+          {{ else }}
+              {{ partial "navigation/root" . 0 }}
+          {{ end }}
         {{ end }}
       </div>
 
@@ -64,7 +67,7 @@
           <div class="row">
               <div id="presidium-content">
                   {{ block "header" . }}{{ end }}
-                  <section data-section="{{ strings.TrimPrefix "/" .Path }}">
+                  <section data-section="{{path.Dir .Path}}">
                     {{ block "content" . }}{{ end }}
                   </section>
               </div>

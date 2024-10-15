@@ -1,0 +1,12 @@
+{{ $ageDays := (partial "common/date" .) }}
+{{ if eq $ageDays nil }}
+    <p class="date"></p>
+{{ else if eq $ageDays 0 }}
+    <p class="date">Published Today</p>
+{{ else if lt $ageDays 31 }}
+    <p class="date">Updated {{ $ageDays }}
+        {{ cond (eq $ageDays 1) "Day" "Days"}}
+        Ago</p>
+{{ else }}
+    <p class="date">Updated {{ .Date.Format "2 Jan 2006" }}</p>
+{{ end }}

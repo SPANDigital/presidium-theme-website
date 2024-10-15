@@ -1,0 +1,5 @@
+<div class="featured-grid">
+    {{ range first 9 . }}
+        {{ partial "blog/card" . }}
+    {{ end }}
+</div>

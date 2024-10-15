@@ -1,0 +1,25 @@
+{{ $presentation := (partial "common/presentation" .) }}
+{{ $mediaOnlyPresentations := $.Site.Params.presentation.mediaOnly | default (slice "video" "slideshow")}}
+{{ $isMediaOnly := in $mediaOnlyPresentations $presentation }}
+{{ $isParent := cond (not .Data.Pages) false true }}
+{{ $isMinimal := or $isParent $isMediaOnly }}
+
+
+<div class="blog-card article-actions">
+    <div class="single {{ cond $isMinimal "single-minimal" "" }}">
+        {{ if not $isMinimal }}
+            <div class="single-image">{{ partial "blog/thumbnail" . }}</div>
+        {{ end }}
+        <div class="single-content">
+            {{ if $isParent }}
+                <h1 class="single-title blog-title">{{ .Title }}</h1>
+                <hr/>
+            {{else}}
+                <h2 class="single-title blog-title">{{ .Title }}</h2>
+                {{ partial "blog/author" . }}
+                {{ partial "blog/date" . }}
+                {{ partial "blog/tags" . }}
+            {{ end }}
+        </div>
+    </div>
+</div>

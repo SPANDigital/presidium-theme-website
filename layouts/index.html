@@ -1,3 +1,6 @@
 {{ define "content" }}
+    {{ if eq .Site.Params.archetype "blog" }}
+        {{ partial "home/root" . }}
+    {{ end }}
 
 {{ end }}
