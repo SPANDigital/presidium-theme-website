@@ -195,3 +195,7 @@
 ## 2024-08-20
 ### Feature
 - Add styling for quality category label. @mpilo-khathwane https://spandigital.atlassian.net/browse/PRSDM-6208
+
+## 2024-10-21
+### Refactor
+- Bundle bootstrap and jquery and remove CDN calls. Apple PR https://spandigital.atlassian.net/browse/PRSDM-6549
