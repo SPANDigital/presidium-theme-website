@@ -3,16 +3,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 @mixin menu-levels-pad($count, $darken) {
   @for $i from 0 through $count {
     &.level-#{$i + 1} {
-      padding-left: calc(#{$i} * 10px + 25px);
-    }
-  }
-}
-
-@mixin menu-levels($count, $darken) {
-  @for $i from 0 through $count {
-    &.level-#{$i + 1} {
-      border-bottom: 1px darken($nav-item-border, $i * $darken) solid;
-      background-color: darken($navbar-default-bg, $i * $darken);
+      padding-left: calc(#{$i} * 15px + 25px);
     }
   }
 }
@@ -27,7 +18,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 #resizer {
   display: none;
   cursor: col-resize;
-  flex-basis: 20px;
+  flex-basis: 3px;
   position: relative;
   border-left: 0 solid $border;
   margin: 0;
@@ -43,27 +34,79 @@ $nav-item-border: darken($navbar-default-bg, 8%);
 }
 
 #presidium-navigation {
-  min-width: 260px;
-  width: 260px;
-  max-width: 50%;
+  background: white;
+  min-width: 300px;
+  max-width: 600px;
   z-index: $zindex-navbar;
   position: sticky;
-  top: 50px;
-  height: calc(100vh - 50px);
+  border-right: 0.5px solid $color-grey-3;
+  top: 0;
+  height: 100vh;
+  display: flex;
 
   @media (max-width: $grid-float-breakpoint) {
-    display: flex;
-    height: 0;
-    width: 0;
-    min-width: unset;
+    width: 300px;
     max-width: unset;
-    flex-basis: 0 !important;
+
+    &.expanded {
+      position: fixed;
+
+      .navbar {
+        background: white;
+        overflow-x: hidden;
+      }
+    }
+
+    &:not(.expanded) {
+      display: flex;
+      height: 0;
+      width: 0;
+      min-width: unset;
+      flex-basis: 0 !important;
+
+      .navbar-items,
+      .navbar-footer {
+        display: none;
+      }
+
+      nav .navbar-header {
+        padding-left: 0;
+
+        .brand,
+        .brand-name-grid {
+          display: none;
+        }
+      }
+    }
   }
 
-  .scrollable-container {
-    @media (min-width: $grid-float-breakpoint) {
-      height: 100%;
-      @include bg-gradient($navbar-default-bg);
+  .navbar {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    width: 100%;
+  }
+
+  .navbar-nav {
+    margin: 7.5px 0;
+
+    .menu-row {
+      background-color: transparent;
+
+      &:not(.open):hover {
+        background-color: $gray-lighter;
+      }
+
+      &.open {
+        > .link > a {
+          color: $brand-primary;
+
+          .glyphicon {
+            color: $color-grey;
+          }
+        }
+      }
     }
   }
 
@@ -75,38 +118,21 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       margin-bottom: 150px;
     }
 
-    @media (max-width: $grid-float-breakpoint) {
-      .navbar-nav {
-        min-width: 300px;
-        background-color: #fff;
-        border-radius: $border-radius-base;
-        border: 1px solid $border;
-        -webkit-box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
-        box-shadow: 9px 5px 14px -4px rgba(0,0,0,0.25);
-      }
-    }
-
     .navbar-header {
       float: none;
       width: 100%;
+      flex-shrink: 0;
       text-align: center;
+      padding: 12px 20px 0;
 
       .brand {
-        float: none;
-        margin: 0 auto;
-        height: auto;
-        padding: 0;
+        justify-content: center;
+        display: flex;
+        margin-bottom: 8px;
 
         img {
-          display: block;
-          float: none;
-          margin: 15px auto 0;
-          width: 80%;
-          height: auto;
-
-          @media (max-width: $grid-float-breakpoint) {
-            display: none;
-          }
+          max-width: 260px;
+          max-height: 87px;
         }
       }
 
@@ -117,12 +143,11 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         appearance: none;
         appearance: none;
         width: auto;
-        font-weight: 600;
-        font-size: small;
         margin-top: -10px;
 
         &:hover {
           color: $navbar-default-link-hover-color;
+          text-decoration: none;
           cursor: pointer;
         }
       }
@@ -134,154 +159,50 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
 
       .brand-name-grid {
-        display: grid;
-        @media (max-width: $grid-float-breakpoint) {
-          grid-template-columns: 0 auto 50px;
-        }
-
-        grid-template-columns: 50px auto 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-template-columns: unset;
+        flex-direction: column;
 
         .brand-name {
-          color: $navbar-default-brand-color;
-          display: block;
-          padding: 10px;
+          color: $color-dark-grey;
+          width: 100%;
           margin: 0;
-          font-weight: bold;
-          text-transform: none;
-          text-align: center;
-
-          @media (max-width: $grid-float-breakpoint) {
-            display: none; //hidden by default
-            float: left;
-            max-width: 80%;
-            padding: 0 25px;
-            font-size: 14px;
-            @include navbar-vertical-align(14px);
-          }
         }
 
-        .dropdown {
-          display: block;
-          z-index: $zindex-navbar;
-
-          .dropdown__control {
-            background-color: transparent;
-          }
-
-          .dropdown__menu {
-            width: 200px;
-          }
-
-          .dropdown__option {
-            color: white;
-          }
-
-          .dropdown__option--is-focused {
-            background-color: $brand-primary;
-          }
-
-          .dropdown__option--is-selected {
-            background-color: $brand-primary;
-          }
-
-          .dropdown__indicator--is-focused {
-            color: white;
-            background-color: $brand-primary;
-          }
-
-          .dropdown__indicator--is-selected {
-            color: $brand-primary;
-            background-color: $brand-primary;
-          }
-
-          .dropdown__indicator-separator {
-            display: none;
-          }
-
-          .dropdown__indicators {
-            max-height: 10px;
-            margin: auto;
-          }
-
-          .dropdown__control--is-focused .dropdown__dropdown-indicator > svg {
-            fill: $brand-primary;
-          }
-
-          .dropdown__control--is-selected .dropdown__dropdown-indicator > svg {
-            fill: $brand-primary;
-          }
-
-          .dropdown__single-value,
-          .dropdown__placeholder {
-            display: none;
-          }
-        }
-      }
-
-      .toggle {
-        @media (min-width: $grid-float-breakpoint) {
-          display: none;
-        }
-
-        float: left;
-
-        @include navbar-vertical-align(34px);
-
-        background-color: transparent;
-        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-        border: 1px solid transparent;
-        border-radius: $border-radius-base;
-
-        &:focus {
-          outline: 0;
-        }
-
-        .icon-bar {
-          background-color: $navbar-default-brand-color;
-          display: block;
-          width: 22px;
-          height: 2px;
-          border-radius: 1px;
-        }
-
-        .icon-bar + .icon-bar {
-          margin-top: 4px;
+        .quality-category-labels {
+          color: $color-grey-2;
+          width: fit-content;
         }
       }
     }
 
-    .navbar-items {
+    div.navbar-items {
       width: 100%;
-      border-top: 1px solid $nav-item-border;
       margin-left: 0;
       margin-right: 0;
+      flex-grow: 1;
+      padding: 0 8px;
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+      overflow-y: auto;
 
-      .filter {
-        margin: 30px 5px 25px;
-        padding: 0 15px;
+      span.glyphicon {
+        padding: 4px;
+        -webkit-text-stroke: 1px $navbar-default-bg;
+        line-height: 0.6;
 
-        .control-label {
-          font-size: 12px;
-          font-weight: normal;
+        &:hover {
+          background-color: #e2e2e2;
+          border-radius: 4px;
+          -webkit-text-stroke: 1px #e2e2e2;
         }
       }
 
       > ul:first-of-type {
         border-top: 1px solid $nav-item-border;
-      }
-
-      @media (max-width: $grid-float-breakpoint) {
-        background-color: #fff;
-        padding: 16px;
-        border-top: 0;
-
-        &.expanded {
-          display: block;
-          max-height: calc(100vh - 55px);
-          overflow-y: auto;
-        }
-
-        display: none;
       }
     }
 
@@ -305,8 +226,7 @@ $nav-item-border: darken($navbar-default-bg, 8%);
           float: none;
           position: relative;
           display: block;
-          font-size: 11px;
-          font-weight: bold;
+          font-weight: 600;
 
           &.hidden {
             display: none;
@@ -315,54 +235,61 @@ $nav-item-border: darken($navbar-default-bg, 8%);
       }
     }
 
+    &.menu-row:not(:has(.collapse)) {
+      > .link > a {
+        padding-left: 30px;
+
+        .menu-title {
+          padding-left: 5px;
+        }
+      }
+    }
+
     .menu-row {
       a {
         display: flex;
-        padding: 12px 10px;
+        padding: 4px 8px;
         color: $color-grey;
         flex-grow: 1;
-
-        &:hover {
-          color: $brand-primary;
-        }
-
-        &.first-child {
-          box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 40%);
-        }
+        text-decoration: none;
 
         @include menu-levels-pad(6, 5%);
       }
 
       .link {
         display: flex;
-        background-color: #eee;
-
-        @include menu-levels(6, 5%);
 
         text-decoration: none;
         flex-grow: 1;
 
-        &:hover {
-          background-color: $navbar-default-link-hover-bg;
+        &:hover > .article-navbar-options {
+          .add-icon,
+          .delete-icon {
+            visibility: visible;
+          }
         }
 
-        &:hover > .article-navbar-options .add-icon {
-          display: block;
+        &.level-1 {
+          padding-left: 0;
         }
 
-        &:hover > .article-navbar-options .delete-icon {
-          display: block;
+        &[class^='level-']:has(+ ul) {
+          padding-left: 20px;
+        }
+
+        &[class^='level-']:has(a > .menu-expander) {
+          padding-left: 20px;
+        }
+
+        &[class^='level-']:has(a > div:not(.menu-title)) {
+          padding-left: 0;
         }
 
         .article-navbar-options {
-          margin-top: auto;
-          margin-bottom: auto;
-          position: absolute;
-          right: 10px;
-          top: 9px;
+          margin: auto 5px auto auto;
 
           .option-button {
-            display: none;
+            visibility: hidden;
             width: 22px;
             height: 22px;
             background-color: transparent;
@@ -395,55 +322,50 @@ $nav-item-border: darken($navbar-default-bg, 8%);
         }
       }
 
+      a > div {
+        padding-left: 5px;
+      }
+
       &.active,
       .active {
-        > div > a {
-          color: $brand-primary;
-        }
-
-        &.child .add-icon,
-        &.closed .add-icon {
-          background-image: url('assets/svg/plus-white.svg');
-        }
-
-        &.child .delete-icon,
-        &.closed .delete-icon {
-          background-image: url('assets/svg/trash-white.svg');
+        &.child {
+          background-color: $gray-lighter;
         }
 
         &.child > div > a,
         &.closed > div > a {
-          background-color: $brand-primary;
-          color: $navbar-default-link-hover-bg;
+          background-color: $gray-lighter;
+
+          span {
+            -webkit-text-stroke: $gray-lighter;
+          }
         }
       }
 
       .menu-expander {
-        width: 25px;
-        margin-left: -25px;
-        padding-left: 10px;
+        margin-left: -33px;
 
         .glyphicon {
-          margin-right: 6px;
-          font-size: 0.8em;
+          margin-left: 5px;
         }
       }
 
       .menu-title {
-        max-width: calc(100% - 50px);
+        max-width: calc(100% - 5px);
         flex: 1;
         word-break: normal;
         text-overflow: ellipsis;
         overflow: hidden;
-
-        @media (max-width: $grid-float-breakpoint) {
-          font-size: 16px;
-        }
 
         a {
           color: $navbar-default-link-color;
         }
       }
     }
+  }
+
+  .navbar-footer {
+    background-color: unset;
+    flex-shrink: 0;
   }
 }

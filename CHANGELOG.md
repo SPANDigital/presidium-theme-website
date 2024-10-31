@@ -228,3 +228,58 @@
 ## 2024-03-04
 ### Bugfix
 - External links require the SASS url function for the SASS loader HUGO uses. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5893
+
+## 2024-07-05
+### Updates
+- Font & typography alignments updates. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-5980
+
+## 2024-07-10
+### Updates
+- Merge release apple branch. @CharlRitterDev & @WiaanBotha
+
+## 2024-07-17
+### Updates
+- Add resizer back. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6012
+
+## 2024-07-29
+### Features
+- Splitting of js & css build files. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6018
+
+## 2024-08-05
+### Bugfix
+- Add relative position for pre and code to fix alignment issue with copy button on enterprise. @Zalaras https://spandigital.atlassian.net/browse/PRSDM-6124
+
+## 2024-08-06
+### Bugfix
+- Update line-height of caret in the left nav menu to better align with link text. @Zalaras https://spandigital.atlassian.net/browse/PRSDM-6128
+
+## 2024-08-14
+### Bugfix
+- Center navbar header content, fix navbar header image size & improve how navbar determines height. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6146
+
+## 2024-09-09
+### Features
+- Remove Roles dropdown and align the sidenav to match latest designs. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6329
+### Bugfix
+- Fix sidenav items wrapping on hover. @CharlRitterDev https://spandigital.atlassian.net/browse/PRSDM-6206
+
+## 2024-09-09
+### Feature
+- Added quality category label from release/apple. @mpilo-khathwane https://spandigital.atlassian.net/browse/PRSDM-6292
+
+## 2024-09-17
+### Fix
+- Added `aria-label` fields to articles for voice over functionality. @Quantumplate https://spandigital.atlassian.net/browse/PRSDM-6345
+
+## 2024-10-02
+### Refactor
+- Add horizontal scrollbar to code blocks. @julianbyte https://spandigital.atlassian.net/browse/PRSDM-5974
+
+## 2024-10-03
+### Bugfix
+- Set the width of the sidenav if there isn't one already set. @kelvinmanley https://spandigital.atlassian.net/browse/PRSDM-6369
+- Add styling for quality category label. @mpilo-khathwane https://spandigital.atlassian.net/browse/PRSDM-6208
+
+## 2024-10-21
+### Refactor
+- Bundle bootstrap and jquery and remove CDN calls. Apple PR https://spandigital.atlassian.net/browse/PRSDM-6549

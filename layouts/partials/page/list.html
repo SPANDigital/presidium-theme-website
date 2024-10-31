@@ -1,7 +1,13 @@
 {{ $roles := .Params.roles | default "All Roles" }}
-{{ $uid := (partial "common/uuid" . ) }}
+{{ $uid := "" }}
+{{ $articleId := .Params.id }}
+{{ with .File }}
+    {{ $uid = .UniqueID }}
+    {{ if not $articleId }}
+        {{ $articleId = .Path }}
+    {{ end }}
+{{ end }}
 {{ $pageLink := .Page.RelPermalink }}
-{{ $articleId := .Params.id | default (partial "common/filepath" .) }}
 {{ $slug := (partial "common/slug" .) }}
 {{ $noContent := (eq (len .Content) 0) }}
 {{ $type := cond $noContent "page" "article" }}
@@ -10,7 +16,7 @@
     <div class="presidium-article-wrapper">
         <span class="anchor" id="{{ $slug }}" data-id="{{ $articleId }}"></span>
         {{ if (ne (len .Content) 0) }}
-            <article class="article-actions" data-align="center-top">{{ .Content }}</article>
+            <article class="article-actions" data-align="center-top" title="{{ .Title }}" aria-label="{{ .Title }}">{{ .Content }}</article>
             <hr />
         {{ end }}
     </div>

@@ -1,53 +1,66 @@
-<script defer src="/presidium.js"></script>
+{{ $basePath := $.Site.Params.basePath  | default "/" }}
+<script defer src="{{ path.Join $basePath "/presidium.js" }}"></script>
 {{ if $.Site.Params.enterprise_enabled }}
-<script defer src="{{ $.Site.Params.enterprise_script }}"></script>
+<script defer src="{{ path.Join $basePath $.Site.Params.enterprise_script  }}"></script>
 <script type="module">
-  const toolbarElement = document.querySelector('#presidium-enterprise');
+  const toolbarElement = document.querySelector('.presidium-enterprise');
   const navigationElement = document.querySelector('#presidium-navigation');
   if (toolbarElement) {
       const toolbarHeight = toolbarElement.offsetHeight;
       if (toolbarHeight) {
+          navigationElement.style.height = `calc(100vh - ${toolbarHeight}px)`;
           navigationElement.style.top = `${toolbarHeight}px`;
       }
   }
 </script>
 {{ end }}
 
+<link rel="stylesheet" href="{{ "assets/css/bootstrap.min.css" | absURL }}">
 <script defer src="{{ "assets/scripts/jquery.js" | absURL }}"></script>
 <script defer src="{{ "assets/scripts/bootstrap.js" | absURL }}"></script>
 <script defer src="{{ "assets/scripts/mermaid.js" | absURL }}"></script>
 
 <script type="module">
+  $('.toolbar-wrapper > button.toggle').on('click', (event) => {
+    event.stopPropagation();
+    const $menu = $('.content-wrapper > #presidium-navigation');
+    const isOpen = $menu.hasClass('expanded');
+    $menu.toggleClass('expanded', !isOpen).toggleClass('', isOpen);
+  });
+
   const toggleMenu = ($menu, isOpen) => {
     $menu.toggleClass('open', isOpen).toggleClass('closed', !isOpen);
     const $trigger = $menu.find('div.menu-expander > .glyphicon').first();
     $trigger.toggleClass('glyphicon-chevron-down', isOpen).toggleClass('glyphicon-chevron-right', !isOpen);
-    $($menu).find('ul').first().toggleClass('in active', isOpen);
+    $menu.find('ul').first().toggleClass('in active', isOpen);
   };
 
   $('li.menu-row').on('show.bs.collapse', (event) => {
-      event.stopPropagation();
-      const $menu = $(event.currentTarget);
-      toggleMenu($menu, true);
+    event.stopPropagation();
+    const $menu = $(event.currentTarget);
+    toggleMenu($menu, true);
   });
 
   $('li.menu-row').on('hide.bs.collapse', (event) => {
-      event.stopPropagation();
-      const $menu = $(event.currentTarget);
-      toggleMenu($menu, false);
+    event.stopPropagation();
+    const $menu = $(event.currentTarget);
+    toggleMenu($menu, false);
   });
 
-  $('.menu-expander').click(function(event) {
-      event.preventDefault();
-      event.stopPropagation();
-      $(event.currentTarget).parent().closest('.menu-row').find('ul').first().collapse('toggle');
-  });
-
-  $('.menu-title').click(function(event) {
-    if (!$(event.currentTarget).parent().closest('.menu-row').hasClass('open')) return;
-
+  $('.menu-expander').on('click', function(event) {
     event.preventDefault();
-    $(event.currentTarget).parent().closest('.menu-row').find('ul').first().collapse('toggle');
+    event.stopPropagation();
+    const $menuRow = $(event.currentTarget).closest('.menu-row');
+    const $ul = $menuRow.find('ul').first();
+    $ul.collapse('toggle');
+  });
+
+  $('.menu-title').on('click', function(event) {
+    const $menuRow = $(event.currentTarget).closest('.menu-row');
+    if (!$menuRow.hasClass('open')) return;
+
+    const $ul = $menuRow.find('ul').first();
+    $ul.collapse('toggle');
   });
 
   // Recursively open the current page's menu nav
@@ -79,17 +92,22 @@
 
 {{ if $.Site.Params.resizeMenu | default true }}
 <script type="module">
-    const desktopSize = window.matchMedia("(min-width: 768px)")
+    const desktopSize = window.matchMedia("(min-width: 992px)")
     const resizer = document.querySelector("#resizer");
     const sidebar = document.querySelector("#presidium-navigation");
+    const cachedSize = window.localStorage.getItem('sidenav');
+
+    if (cachedSize === null) {
+      window.localStorage.setItem('sidenav', '300px');
+      location.reload();
+    }
 
     if(desktopSize.matches) {
       resizer.style.display = 'block';
-    }
 
-    const cachedSize = window.localStorage.getItem('sidenav');
-    if(cachedSize && desktopSize.matches) {
-      sidebar.style.flexBasis = cachedSize;
+      if (cachedSize) {
+        sidebar.style.flexBasis = cachedSize;
+      }
     }
 
     resizer.addEventListener("mousedown", (event) => {

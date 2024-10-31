@@ -108,13 +108,11 @@ body::after {
 
   .ok-button {
     font-weight: normal;
-    font-size: 13px;
     text-align: center;
     color: black;
     transition: background-color 0.01s;
     border-radius: 4px;
     height: 20px;
-    line-height: 0;
     margin: auto 0;
     border: none;
     background-color: white;
@@ -135,8 +133,6 @@ body::after {
   background-color: #000;
   grid-template-columns: 40px auto;
   width: 197px;
-  font-weight: normal;
-  font-size: 13px;
 }
 
 .popup-tick {
@@ -194,7 +190,6 @@ body::after {
     color: grey;
   }
 
-  font-size: 14px;
 
   .dropdown {
     .dropdown__control {
@@ -256,8 +251,6 @@ body::after {
   left: 50%;
   margin-left: -175px;
   margin-top: -84px;
-  font-weight: normal;
-  font-size: 15px;
   word-break: normal;
 
   .title {
