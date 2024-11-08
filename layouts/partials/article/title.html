@@ -2,17 +2,75 @@
 {{ $articleLink := ($.Scratch.Get "articleLink") }}
 
 {{ if (eq .Parent.Title .Title) }}
-{{/*  No title - For when the main title is the same as the first article  */}}
+{{/* No title - For when the main title is the same as the first article */}}
 {{ else }}
     <div class="article-title article-actions" data-align="center-left">
-        {{ if .Data.Pages }}
-            <h1> {{ .Title }}</h1>
+
+        {{/* Calculate depth by counting parents, ignoring the global site title (`$.Site.Title`) to avoid an extra heading level */}}
+        {{ $depth := 0 }}
+        {{ $currentPage := . }}
+
+        {{ with $currentPage.Parent }}
+            {{ if ne .Title $.Site.Title }}
+                {{ $depth = add $depth 1 }}
+            {{ end }}
+            
+            {{ with .Parent }}
+                {{ if ne .Title $.Site.Title }}
+                    {{ $depth = add $depth 1 }}
+                {{ end }}
+                
+                {{ with .Parent }}
+                    {{ if ne .Title $.Site.Title }}
+                        {{ $depth = add $depth 1 }}
+                    {{ end }}
+                    
+                    {{ with .Parent }}
+                        {{ if ne .Title $.Site.Title }}
+                            {{ $depth = add $depth 1 }}
+                        {{ end }}
+                        
+                        {{ with .Parent }}
+                            {{ if ne .Title $.Site.Title }}
+                                {{ $depth = add $depth 1 }}
+                            {{ end }}
+                            
+                            {{ with .Parent }}
+                                {{ if ne .Title $.Site.Title }}
+                                    {{ $depth = add $depth 1 }}
+                                {{ end }}
+                                
+                                {{/* Add more nesting if your structure goes deeper */}}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{/* Set heading level based on depth, capping at 6 */}}
+        {{ $headingLevel := add $depth 1 }}
+        {{ if gt $headingLevel 6 }}
+            {{ $headingLevel = 6 }}
+        {{ end }}
+
+        {{/* Output the heading tag based on calculated level */}}
+        {{ if eq $headingLevel 1 }}
+            <h1>{{ .Title }}</h1>
+        {{ else if eq $headingLevel 2 }}
+            <h2>{{ .Title }}</h2>
+        {{ else if eq $headingLevel 3 }}
+            <h3>{{ .Title }}</h3>
+        {{ else if eq $headingLevel 4 }}
+            <h4>{{ .Title }}</h4>
+        {{ else if eq $headingLevel 5 }}
+            <h5>{{ .Title }}</h5>
         {{ else }}
-            <h2> {{ .Title }}</h2>
+            <h6>{{ .Title }}</h6>
         {{ end }}
 
         <div class="permalink">
-            <a id="{{.Page.RelPermalink}}" data-slug="#{{ $slug }}"></a>
+            <a style="cursor:pointer;" onclick="copyPermalink( {{ $articleLink }} )" id="{{.Page.RelPermalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
         </div>
     </div>
 {{ end }}
