@@ -6,45 +6,18 @@
 {{ else }}
     <div class="article-title article-actions" data-align="center-left">
 
-        {{/* Calculate depth by counting parents, ignoring the global site title (`$.Site.Title`) to avoid an extra heading level */}}
+        {{/* Inline depth calculation using range to iterate up to max depth */}}
         {{ $depth := 0 }}
-        {{ $currentPage := . }}
+        {{ $parent := .Parent }}
+        {{ $maxDepth := 10 }} <!-- Set a maximum depth to prevent excessive iteration -->
 
-        {{ with $currentPage.Parent }}
-            {{ if ne .Title $.Site.Title }}
+        {{/* Use a range to simulate a loop up to maxDepth */}}
+        {{ range seq 1 $maxDepth }}
+            {{ if and $parent (ne $parent.Title $.Site.Title) }}
                 {{ $depth = add $depth 1 }}
-            {{ end }}
-            
-            {{ with .Parent }}
-                {{ if ne .Title $.Site.Title }}
-                    {{ $depth = add $depth 1 }}
-                {{ end }}
-                
-                {{ with .Parent }}
-                    {{ if ne .Title $.Site.Title }}
-                        {{ $depth = add $depth 1 }}
-                    {{ end }}
-                    
-                    {{ with .Parent }}
-                        {{ if ne .Title $.Site.Title }}
-                            {{ $depth = add $depth 1 }}
-                        {{ end }}
-                        
-                        {{ with .Parent }}
-                            {{ if ne .Title $.Site.Title }}
-                                {{ $depth = add $depth 1 }}
-                            {{ end }}
-                            
-                            {{ with .Parent }}
-                                {{ if ne .Title $.Site.Title }}
-                                    {{ $depth = add $depth 1 }}
-                                {{ end }}
-                                
-                                {{/* Add more nesting if your structure goes deeper */}}
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
-                {{ end }}
+                {{ $parent = $parent.Parent }}
+            {{ else }}
+                {{ break }}
             {{ end }}
         {{ end }}
 
@@ -55,22 +28,14 @@
         {{ end }}
 
         {{/* Output the heading tag based on calculated level */}}
-        {{ if eq $headingLevel 1 }}
-            <h1>{{ .Title }}</h1>
-        {{ else if eq $headingLevel 2 }}
-            <h2>{{ .Title }}</h2>
-        {{ else if eq $headingLevel 3 }}
-            <h3>{{ .Title }}</h3>
-        {{ else if eq $headingLevel 4 }}
-            <h4>{{ .Title }}</h4>
-        {{ else if eq $headingLevel 5 }}
-            <h5>{{ .Title }}</h5>
+        {{ if lt $headingLevel 6 }}
+            <h{{ $headingLevel }}>{{ .Title }}</h{{ $headingLevel }}>
         {{ else }}
             <h6>{{ .Title }}</h6>
         {{ end }}
 
         <div class="permalink">
-            <a style="cursor:pointer;" onclick="copyPermalink( {{ $articleLink }} )" id="{{.Page.RelPermalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
+            <a style="cursor:pointer;" onclick="copyPermalink('{{ $articleLink }}')" id="{{.Page.RelPermalink}}" data-slug="#{{ $slug }}" class="link-icon" title="Permalink to this article"></a>
         </div>
     </div>
 {{ end }}
