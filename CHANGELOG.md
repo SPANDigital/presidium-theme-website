@@ -283,3 +283,11 @@
 ## 2024-10-21
 ### Refactor
 - Bundle bootstrap and jquery and remove CDN calls. Apple PR https://spandigital.atlassian.net/browse/PRSDM-6549
+
+## 2024-11-04
+### Fix
+- Fixes deprecation warnings for resources.ToCSS on layouts. @mpilo-khathwane https://spandigital.atlassian.net/browse/PRSDM-6522
+
+## 2024-11-07
+### Bugfix
+- Assign correct header to sub sections and articles. @julianbyte https://spandigital.atlassian.net/browse/PRSDM-6186
